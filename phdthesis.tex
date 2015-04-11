@@ -9197,7 +9197,7 @@ Functors between bicategories preserve composition only up to coherent isomorphi
 {\em Proof.}  
 
 \begin{center}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=2]
     \node(A) at (4,0) {$A$};
     \node(B) at (2,0) {$B$};
     \node(C) at (0,0) {$C$};
@@ -9207,7 +9207,32 @@ Functors between bicategories preserve composition only up to coherent isomorphi
     \node(E) at (1,1) {$E$}
       edge [->] node [above right,l] {$h$} (B)
       edge [->] node [above left,l] {$j$} (C);
-    \node(EhgD) at (2,2) {$E_{hg}D$};
+    \node(EhgD) at (2,2) {$E_{hg}D$}
+      edge [->] node [above right,l] {$\pi_1$} (D)
+      edge [->] node [above left,l] {$\pi_2$} (E);
+    \node at (2,1) {$\Leftarrow K$};
+    \node (DDDD) at (2,3) {$D_{DD}D$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, h^{-1}g\pi'_2\rangle$}(EhgD)
+      edge [->, bend left] node [above right,l] {$\pi'_1$} (D)
+      edge [->, bend right] node [above left,l] {$ h^{-1}g\pi'_2$} (E);
+  \end{tikzpicture}
+\end{center}
+
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \node(A) at (4,0) {$A$};
+    \node(B) at (2,0) {$D$};
+    \node(C) at (0,0) {$C$};
+    \node(D) at (3,1) {$D$}
+      edge [->] node [above right,l] {$f$} (A)
+      edge [->] node [above left,l] {$D$} (B);
+    \node(E) at (1,1) {$D$}
+      edge [->] node [above right,l] {$D$} (B)
+      edge [->] node [above left,l] {$jh^{-1}g$} (C);
+    \node(EhgD) at (2,2) {$D_{DD}D$}
+      edge [->] node [above right,l] {$\pi'_1$} (D)
+      edge [->] node [above left,l] {$\pi'_2$} (E);
+    \node at (2,1) {$\Leftarrow K'$};
   \end{tikzpicture}
 \end{center}
 
