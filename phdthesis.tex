@@ -6561,51 +6561,49 @@ category.  We will give proofs that each of these bicategories (with
 the exception of $nCob_2$) are compact closed in Section \ref{proofs}.
 
 \begin{itemize}
-  \item A {\bf span} from $X$ to $Y$ in a category $C$ is an object $S$
-in $C$ together with an ordered pair of morphisms $(f\maps S \to X,
-g\maps S\to Y).$
+  \item A {\bf span} from $A$ to $B$ in a category $T$ is an object $C$
+in $T$ together with an ordered pair of morphisms $(f\maps C \to A,
+g\maps C\to B).$
   \begin{center}
     \begin{tikzpicture}[scale=2]
-      \node (X) at (2,0) {$X$};
-      \node (Y) at (0,0) {$Y$};
-      \node (S) at (1,1) {$S$}
-        edge [->] node [above left] {$g$} (Y)
-        edge [->] node [above right] {$f$} (X);
+      \node (A) at (0,0) {$A$};
+      \node (B) at (2,0) {$B$};
+      \node (C) at (1,1) {$C$}
+        edge [->] node [above left,l] {$f$} (A)
+        edge [->] node [above right,l] {$g$} (B);
     \end{tikzpicture}
   \end{center}
-  If $C$ is a category with pullbacks, we can compose spans:
+  If $T$ is a category with pullbacks, we can compose spans:
   \begin{center}
     \begin{tikzpicture}[scale=2]
-      \node (X) at (2,0) {$X$};
-      \node (Y) at (0,0) {$Y$};
-      \node (S) at (1,1) {$S$}
-        edge [->] node [above left] {$g$} (Y)
-        edge [->] node [above right] {$f$} (X);
-      \node (W) at (4,0) {$W$};
-      \node (T) at (3,1) {$T$}
-        edge [->] node [above left] {$q$} (X)
-        edge [->] node [above right] {$p$} (W);
-      \node (P) at (2,2) {$S\times_X T$}
-        edge [->] node [above left] {$\pi_S$} (S)
-        edge [->] node [above right] {$\pi_T$} (T);
+      \node (A) at (0,0) {$A$};
+      \node (B) at (2,0) {$B$};
+      \node (C) at (4,0) {$C$};
+      \node (D) at (1,1) {$D$}
+        edge [->] node [above left] {$f$} (A)
+        edge [->] node [above right] {$g$} (B);
+      \node (E) at (3,1) {$E$}
+        edge [->] node [above left] {$h$} (B)
+        edge [->] node [above right] {$j$} (C);
+      \node (DghE) at (2,2) {$D_{gh}E$}
+        edge [->] node [above left] {$\pi_1$} (D)
+        edge [->] node [above right] {$\pi_2$} (E);
       \draw (1.6, 1.4)--(2,1)--(2.4, 1.4);
     \end{tikzpicture}
   \end{center}
-  A {\bf map of spans} between two spans $Y \stackrel{g}{\leftarrow} S
-\stackrel{f}{\rightarrow} X$ and $Y \stackrel{g'}{\leftarrow} S'
-\stackrel{f'}{\rightarrow} X$ is a morphism $h:S \to S'$ making the
+  A {\bf map of spans} between two spans $A \stackrel{f}{\leftarrow} C \stackrel{g}{\rightarrow} B$ and $A \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\rightarrow} B$ is a morphism $h:C \to C'$ making the
 following diagram commute:
   \begin{center}
     \begin{tikzpicture}[scale=2]
-      \node (X) at (2,0) {$X$};
-      \node (Y) at (0,0) {$Y$};
-      \node (S) at (1,1) {$S$}
-        edge [->] node [above left] {$g$} (Y)
-        edge [->] node [above right] {$f$} (X);
-      \node (S') at (1, -1) {$S'$}
-        edge [->] node [below left] {$g'$} (Y)
-        edge [->] node [below right] {$f'$} (X)
-        edge [<-] node [right] {$h$} (S);
+      \node (A) at (0,0) {$A$};
+      \node (B) at (2,0) {$B$};
+      \node (C) at (1,1) {$C$}
+        edge [->] node [above left,l] {$f$} (A)
+        edge [->] node [above right,l] {$g$} (B);
+      \node (C') at (1, -1) {$C'$}
+        edge [->] node [below left,l] {$f'$} (A)
+        edge [->] node [below right,l] {$g'$} (B)
+        edge [<-] node [right,l] {$h$} (C);
     \end{tikzpicture}
   \end{center}
   Since the pullback is associative only up to a natural isomorphism,
