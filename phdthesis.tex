@@ -421,7 +421,7 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
 
 This thesis is an exploration of some places where ideas in computer science and physics share a common mathematical structure.  The first part of the thesis deals with partition functions in physics and algorithmic information theory.  In physics, partition functions are used to encode information about statistical systems in thermal equilibrium; in algorithmic information theory, they are used to encode information about the probability that a Turing machine will halt given a random program.  We derive analogues of Maxwell's relations in the algorithmic setting and consider thermodynamic cycles such as the Carnot cycle or Stoddard cycle.  We also show that given a program and a probability $P$, we can effectively compute a time after which the probability that the program will eventually halt is less than $P$.  This idea of a time cutoff is reminiscent of a high-energy cutoff in renormalization.
 
-The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $C$ with finite products and weak pullbacks, the bicategory $\Span_2(C)$ of objects of $C$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
+The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory $\Span_2(T)$ of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
 
 
   \vfill
@@ -502,13 +502,13 @@ We can consider such functors from other compact closed categories into the cate
 
 The structure of a compact closed category can be generalized to ``bicategories'', where in addition to morphisms between objects we have 2-morphisms between morphisms.  We lay out the complete definition of a compact closed bicategory, the parts of which haven't appeared together in a single place before, and then prove that various useful bicategories are compact closed.  We take special note of bicategories of ``spans''.
 
-Given a category $C$ with pullbacks, we can define a bicategory Span($C$) whose
+Given a category $T$ with pullbacks, we can define a bicategory $\Span(T)$ whose
 \begin{itemize}
-  \item objects are those of $C$,
-  \item morphisms from $X$ to $Y$ are ``spans'' consisting of an ``apex'' object $S$ and an ordered pair of morphisms $(f:S\to X, g:S \to Y)$ from $C$, and
-  \item 2-morphisms are morphisms from $S$ to $S'$ such that the obvious diagram commutes.
+  \item objects are those of $T$,
+  \item morphisms from $A$ to $B$ are ``spans'' consisting of an ``apex'' object $C$ and an ordered pair of morphisms $(f:C\to A, g:C \to B)$ from $T$, and
+  \item 2-morphisms are morphisms from $C$ to $C'$ such that the obvious diagram commutes.
 \end{itemize}
-If $C$ is the category of finite sets, then we can think of the subset of $S$ consisting of those elements $s$ such that $f(s) = x$ and $g(s) = y$ as being a ``matrix element'' at row $x$ and column $y$.  If we simply count these subsets, we get a matrix of natural numbers, and the pullback corresponds to matrix multiplication.  By using categories $C$ other than the category of finite sets, we get a vast generalization of linear algebra.  We conclude with a proof that when we take the monoidal tricategory of spans described by Hoffnung \cite{Hoffnung} and take isomorphism classes of 2-morphisms, we get a compact closed bicategory.
+If $T$ is the category of finite sets, then we can think of the subset of $C$ consisting of those elements $c$ such that $f(c) = a$ and $g(c) = b$ as being a ``matrix element'' at row $a$ and column $b$.  If we simply count these subsets, we get a matrix of natural numbers, and the pullback corresponds to matrix multiplication.  By using categories $T$ other than the category of finite sets, we get a vast generalization of linear algebra.  We conclude with a proof that when we take the monoidal tricategory of spans described by Hoffnung \cite{Hoffnung} and take isomorphism classes of 2-morphisms, we get a compact closed bicategory.
 
 Compact closed bicategories are interesting to me because they open up at least three areas for future research.  First, Lawvere showed that we can think of categories with products as a kind of programming language.  As a programmer, I can write a Java interface that describes the operations on a monoid (identity element and multiplication) and write tests to check the relations (associativity and unit laws).  This interface, together with the tests, is a presentation of a category with products, called ``the Lawvere theory for monoids''.  Every implementation of the interface describes a functor from the Lawvere theory for monoids into the category Set and vice versa.  The tao of categorification suggests there should be a ``higher Lawvere theory of symmetric monoidal closed categories''; the fact that the currying adjunction between tensor and the internal hom is an isomorphism of profunctors means that this higher theory ought to be a compact closed bicategory and take models in Prof.
 
@@ -4797,7 +4797,7 @@ A compact closed bicategory is a symmetric monoidal bicategory where every objec
 
 We give several examples of compact closed bicategories and review work leading up to the concept of a compact closed bicategory.  We give the complete definition of a compact closed bicategory, emphasizing the combinatorics of the functors, natural isomorphisms, and equations.  Finally, we prove that each of the examples are compact closed.
 
-In particular, we prove that given a 2-category $C$ with finite products and weak pullbacks, the bicategory of objects of $C$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
+In particular, we prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
 
 \section{Introduction}
 
@@ -4834,14 +4834,14 @@ in $T$ together with an ordered pair of morphisms $(f\maps C \to A, g\maps C\to 
       \node (B) at (2,0) {$B$};
       \node (C) at (4,0) {$C$};
       \node (D) at (1,1) {$D$}
-        edge [->] node [above left] {$f$} (A)
-        edge [->] node [above right] {$g$} (B);
+        edge [->] node [above left,l] {$f$} (A)
+        edge [->] node [above right,l] {$g$} (B);
       \node (E) at (3,1) {$E$}
-        edge [->] node [above left] {$h$} (B)
-        edge [->] node [above right] {$j$} (C);
+        edge [->] node [above left,l] {$h$} (B)
+        edge [->] node [above right,l] {$j$} (C);
       \node (DghE) at (2,2) {$D_{gh}E$}
-        edge [->] node [above left] {$\pi_1$} (D)
-        edge [->] node [above right] {$\pi_2$} (E);
+        edge [->] node [above left,l] {$\pi_1$} (D)
+        edge [->] node [above right,l] {$\pi_2$} (E);
       \draw (1.6, 1.4)--(2,1)--(2.4, 1.4);
     \end{tikzpicture}
   \end{center}
@@ -4859,11 +4859,12 @@ in $T$ together with an ordered pair of morphisms $(f\maps C \to A, g\maps C\to 
         edge [<-] node [right,l] {$h$} (C);
     \end{tikzpicture}
   \end{center}
-  Since the pullback is associative only up to a natural isomorphism, the same is true of the composition of two spans, so this construction does not give a 2-category; however, we do get a bicategory Span($C$) of objects of $C$, spans in $C$, and maps of spans.
+  Since the pullback is associative only up to a natural isomorphism, the same is true of the composition of two spans, so this construction does not give a 2-category; however, we do get a bicategory $\Span(T)$ of objects of $T$, spans in $T$, and maps of spans.
 
-  If $C$ is a category with finite products as well as pullbacks, then the bicategory Span($C$) is a compact closed bicategory where the tensor product is given by the product in $C.$  A weak monoid object in Span($C$) is a categorification of the notion of an associative algebra.
+  If $T$ is a category with finite products as well as pullbacks, then the bicategory $\Span(T)$ is a compact closed bicategory where the tensor product is given by the product in $T.$  A weak monoid object in
+$\Span(T)$ is a categorification of the notion of an associative algebra.
   For example, one weak monoid in Span(Set) is equivalent to the category of polynomial functors from Set to itself; such functors can be
-``added'' using disjoint union, ``multiplied'' using the cartesian product, and ``scaled'' by sets \cite{GK}.  A monad in Span($C$) is a category internal to $C$ \cite{Ben67}.
+``added'' using disjoint union, ``multiplied'' using the cartesian product, and ``scaled'' by sets \cite{GK}.  A monad in Span($T$) is a category internal to $T$ \cite{Ben67}.
   \item Sets, relations, and implications form the compact closed bicategory Rel, where the tensor product is given by the product in Set. Let $R$ be the ring of truth values; then a weak monoid object $M$ in Rel is a quantale on the powerset of $M$ \cite{ShulCafe}, while a monad in Rel is a preorder.
   \item A {\bf 2-rig} is a cocomplete monoidal category where the tensor product distributes over the colimits \cite{HDA3}, though for the purpose of constructing a compact closed bicategory we only need the tensor product to distribute over finite coproducts.  Given a symmetric
 2-rig $R$, Mat($R$) is the compact closed bicategory of finitely-generated free $R$-modules, where the tensor product is the usual tensor product for matrices.  A weak monoid object in Mat($R$) is a categorified finite-dimensional associative algebra over $R.$  A monad in Mat($R$) is a finite $R$-enriched category.  A {\bf finite 2-rig} $S$
@@ -6906,7 +6907,7 @@ such that the following ``swallowtail equation'' holds:
     \begin{tikzpicture}
       \id[0,2,0,0,A];
       \cap[0,2,];
-      \id[1,2,1,0,A];
+      \id[1,0,1,2,A];
 
       \id[3,1,3,0,A];
       \cap[3,1,];
@@ -6924,7 +6925,7 @@ such that the following ``swallowtail equation'' holds:
 
       \id[13,2,13,0,A];
       \cap[13,2,];
-      \id[14,2,14,0,A];
+      \id[14,0,14,2,A];
       
       \node at (2,1.5) [above] {$(\zeta A^*)\circ i$};
       \node at (2,1.5) {$\Rightarrow$};
@@ -7093,28 +7094,25 @@ to (E.center) to (G.center) to (J.center) to (N.center) to (N.east) to
 At the start of this chapter, we saw that spans of sets form a compact closed bicategory.  Street \cite{Street82} suggested weakening the notion of a map of spans to hold only up to 2-isomorphism, allowing to define spans in bicategories rather than mere categories; Hoffnung \cite
 {Hoffnung} worked out the details.
 
-A {\bf span} $S\maps X \to Y$ in a bicategory $B$ is a pair of morphisms with the same source: $Y \stackrel{q}{\leftarrow} S \stackrel{p}{\rightarrow}
-X$.  
+A {\bf span} from $A$ to $B$ in a bicategory $T$ is a pair of morphisms with the same source: ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B.}$
 
-A {\bf map of spans} $f$ is a triple $(f, \alpha, \beta)$ consisting of a morphism $f\maps S\to S'$ and two invertible 2-morphisms 
-$\alpha\maps p \Rightarrow p' f, \beta\maps q \Rightarrow q' f$:
+A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B}$ and ${A \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\to} B}$ is a triple $(h\maps C\to C', \alpha\maps f \Rightarrow f'h, \beta\maps g \Rightarrow g'h):$
 \begin{center}
   \begin{tikzpicture}[scale=2]
-    \node (S) at (1,2) {$S$};
-    \node (Y) at (0,1) {$Y$}
-      edge [<-] node [l,above left] {$q$}(S);
-    \node (X) at (2,1) {$X$}
-      edge [<-] node [l,above right] {$p$}(S);
-    \node (S') at (1,0) {$S'$}
-      edge [->] node [l,below left] {$q'$}(Y)
-      edge [->] node [l,below right] {$p'$}(X)
-      edge [<-] node [l,left] {$f$} (S);
-    \node at (0.5,1) {$\beta \Downarrow$};
-    \node at (1.5,1) {$\alpha \Downarrow$};
+    \node (C) at (1,2) {$C$};
+    \node (A) at (0,1) {$A$}
+      edge [<-] node [l,above left] {$f$}(C);
+    \node (B) at (2,1) {$X$}
+      edge [<-] node [l,above right] {$g$}(C);
+    \node (C') at (1,0) {$S'$}
+      edge [->] node [l,below left] {$f'$}(A)
+      edge [->] node [l,below right] {$g'$}(B)
+      edge [<-] node [l,left] {$h$} (C);
+    \node at (0.5,1) {$\alpha \Downarrow$};
+    \node at (1.5,1) {$\beta \Downarrow$};
   \end{tikzpicture}
 \end{center}
-A {\bf map of maps of spans} is a 2-morphism $\gamma\maps f \Rightarrow f'$
-such that $\alpha' = (p'\gamma) \alpha$ and $\beta' = (q'\gamma) \beta$. Maps and maps of maps compose in the obvious ways.
+A {\bf map of maps of spans} is a 2-morphism $\gamma\maps h \Rightarrow h'$ such that $\alpha' = (f'\gamma) \alpha$ and $\beta' = (g'\gamma) \beta$.  Maps and maps of maps compose in the obvious ways.
 
 Hoffnung showed that any 2-category $T$ with finite products and strict iso-comma objects (hereafter called ``weak pullbacks'') gives rise to a monoidal tricategory Span($T$) whose
 \begin{itemize}
@@ -7123,11 +7121,9 @@ Hoffnung showed that any 2-category $T$ with finite products and strict iso-comm
   \item 2-morphisms are maps of spans, and
   \item 3-morphisms are maps of maps of spans;
 \end{itemize}
-The tensor product of two spans $Y \stackrel{q}{\leftarrow} S \stackrel
-{p}{\rightarrow} X$ and $Y' \stackrel{q'}{\leftarrow} S \stackrel{p'}
-{\rightarrow} X'$ is the span
-\[Y\times Y' \stackrel{q\times q'}{\leftarrow} S\times S' \stackrel
-{p\times p'}{\rightarrow} X\times X'.\]
+The tensor product of two spans $A \stackrel{f}{\leftarrow} C \stackrel{g}{\rightarrow} B$ 
+and $A' \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\rightarrow} B'$ is the span
+\[A \times A' \stackrel{f \times f'}{\leftarrow} C \times C' \stackrel{g \times g'}{\rightarrow} B \times B'.\]
 Here we show that the bicategory $\Span_2(T)$ whose
 \begin{itemize}
   \item objects are objects of $T$,
@@ -7136,24 +7132,24 @@ Here we show that the bicategory $\Span_2(T)$ whose
 \end{itemize}
 forms a compact closed bicategory.
 
-The weak pullback of a cospan $B \stackrel{g}{\to} C \stackrel{f}{\leftarrow} A$ consists of an object $B_{gf}A,$ 1-morphisms $\pi_1\maps B_{gf}A \to A$ and $\pi_2\maps B_{gf}A \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow B_{gf}A$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
+The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{fg}B,$ 1-morphisms $\pi_1\maps A_{fg}B \to A$ and $\pi_2\maps A_{fg}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{fg}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (2,0) {$C$};
-    \node (B) at (1,1) {$B$}
-      edge [->] node [above right, l] {$g$} (C);
-    \node (A) at (3,1) {$A$}
-      edge [->] node [above left, l] {$f$} (C);
-    \node (X) at (2,2) {$B_{gf}A$}
-      edge [->] node [above right, l] {$\pi_1$} (A)
-      edge [->] node [above left, l] {$\pi_2$} (B);
-    \node at (2,1) {$\Leftarrow K$};
+    \node (A) at (1,1) {$A$}
+      edge [->] node [above right, l] {$f$} (C);
+    \node (B) at (3,1) {$B$}
+      edge [->] node [above left, l] {$g$} (C);
+    \node (X) at (2,2) {$A_{fg}B$}
+      edge [->] node [above left, l] {$\pi_1$} (A)
+      edge [->] node [above right, l] {$\pi_2$} (B);
+    \node at (2,1) {$\Rightarrow K$};
     \draw (1.8,1.7)--(2,1.5)--(2.2,1.7);
     
     \node at (2, 3) {$X$}
       edge [->, dashed] node [right,l] {$\langle\pi'_1, \pi'_2\rangle$} (X)
-      edge [->, bend left] node [right, l] {$\pi'_1$} (A)
-      edge [->, bend right] node [left, l] {$\pi'_2$} (B);
+      edge [->, bend right] node [above left, l] {$\pi'_1$} (A)
+      edge [->, bend left] node [above right, l] {$\pi'_2$} (B);
     \node at (1.5, 2) {$=$};
     \node at (2.5, 2) {$=$};
     
@@ -7161,52 +7157,52 @@ The weak pullback of a cospan $B \stackrel{g}{\to} C \stackrel{f}{\leftarrow} A$
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2]
     \node (C) at (2,0) {$C$};
-    \node (B) at (1,1) {$B$}
-      edge [->] node [above right, l] {$g$} (C);
-    \node (A) at (3,1) {$A$}
-      edge [->] node [above left, l] {$f$} (C);    
+    \node (A) at (1,1) {$A$}
+      edge [->] node [above right, l] {$f$} (C);
+    \node (B) at (3,1) {$B$}
+      edge [->] node [above left, l] {$g$} (C);    
     \node at (2, 3) {$X$}
-      edge [->, bend left] node [right, l] {$\pi'_1$} (A)
-      edge [->, bend right] node [left, l] {$\pi'_2$} (B);
-    \node at (2, 1.5) {$\Leftarrow K'$};
+      edge [->, bend right] node [above left, l] {$\pi'_1$} (A)
+      edge [->, bend left] node [above right, l] {$\pi'_2$} (B);
+    \node at (2, 1.5) {$\Rightarrow K'$};
   \end{tikzpicture}
 \end{center}
-Second, given any object $X$, 1-morphisms $j,k\maps X \to B_{gf}A,$ and 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
+Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{fg}B,$ and 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$C$};
-    \node (A) at (2,1) {$A$}
-      edge [->] node [below right,l] {$f$} (C);
-    \node (B) at (0,1) {$B$}
-      edge [->] node [below left,l] {$g$} (C);
-    \node (P2) at (1,2) {$B_{gf}A$}
-      edge [->] node [above right,l] {$\pi_1$} (A)
-      edge [->] node [above left,l] {$\pi_2$} (B);
-    \node (P1) at (3,2) {$B_{gf}A$}
-      edge [->] node [below right,l] {$\pi_1$} (A);
-    \node (X) at (2,3) {$X$}
-      edge [->] node [above right,l] {$j$} (P1)
-      edge [->] node [above left,l] {$k$} (P2);
-    \node at (1,1) {$\Leftarrow K$};
-    \node at (2,2) {$\Leftarrow \omega$};
-    \node at (3.25,1.5) {$=$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$f$} (C);
+    \node (B) at (2,1) {$B$}
+      edge [->] node [below right,l] {$g$} (C);
+    \node (P2) at (1,2) {$A_{fg}B$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P1) at (-1,2) {$A_{fg}B$}
+      edge [->] node [below left,l] {$\pi_1$} (A);
+    \node (X) at (0,3) {$X$}
+      edge [->] node [above left,l] {$j$} (P1)
+      edge [->] node [above right,l] {$k$} (P2);
+    \node at (1,1) {$\Rightarrow K$};
+    \node at (0,2) {$\Rightarrow \omega$};
+    \node at (2.25,1.5) {$=$};
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$C$};
-    \node (A) at (2,1) {$A$}
-      edge [->] node [below right,l] {$f$} (C);
-    \node (B) at (0,1) {$B$}
-      edge [->] node [below left,l] {$g$} (C);
-    \node (P2) at (1,2) {$B_{gf}A$}
-      edge [->] node [above right,l] {$\pi_1$} (A)
-      edge [->] node [above left,l] {$\pi_2$} (B);
-    \node (P1) at (-1,2) {$B_{gf}A$}
-      edge [->] node [below left,l] {$\pi_2$} (B);
-    \node (X) at (0,3) {$X$}
-      edge [->] node [above right,l] {$j$} (P2)
-      edge [->] node [above left,l] {$k$} (P1);
-    \node at (1,1) {$\Leftarrow K$};
-    \node at (0,2) {$\Leftarrow \rho$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$f$} (C);
+    \node (B) at (2,1) {$B$}
+      edge [->] node [below right,l] {$g$} (C);
+    \node (P1) at (1,2) {$A_{fg}B$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P2) at (3,2) {$A_{fg}B$}
+      edge [->] node [below right,l] {$\pi_2$} (B);
+    \node (X) at (2,3) {$X$}
+      edge [->] node [above left,l] {$j$} (P1)
+      edge [->] node [above right,l] {$k$} (P2);
+    \node at (1,1) {$\Rightarrow K$};
+    \node at (2,2) {$\Rightarrow \rho$};
   \end{tikzpicture}
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
@@ -7214,7 +7210,7 @@ there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \
 %Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
 \vspace{10mm}
 
-The functor of bicategories $\iota$ from $T$ to $\Span_2(T)$ takes each object to itself, each morphism ${f\maps A \to B}$ to the span ${A \stackrel{A}{\leftarrow} A \stackrel{f}{\to} B},$ and each 2-morphism $\alpha\maps f \Rightarrow g$ to the map of spans
+Let $\iota\maps T \hookrightarrow \Span_2(T)$ be the inclusion functor that takes each object to itself, each morphism ${f\maps A \to B}$ to the span ${A \stackrel{A}{\leftarrow} A \stackrel{f}{\to} B},$ and each 2-morphism $\alpha\maps f \Rightarrow g$ to the map of spans
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (A2) at (0,1) {$A$};
@@ -7228,57 +7224,68 @@ The functor of bicategories $\iota$ from $T$ to $\Span_2(T)$ takes each object t
       edge [->] node [left,l] {$A$} (A1);
     \node at (.5,1) {$=$};
     \node at (1.4,1) {$\Downarrow \alpha$};
-  \end{tikzpicture}.
+  \end{tikzpicture}
 \end{center}
-Functors between bicategories preserve composition only up to coherent isomorphism; it is thanks to the coherence theorem for bicategories that we can draw the 2-cells in the definition of a compact closed bicategory without specifying a parenthesization.  Given an isomorphism $f$ in $T,$ the span $\iota(f)^\bullet$ is related to the span $\iota(f^{-1})$ by a similar coherent isomorphism.  Both are special cases of the isomorphism in the following lemma.
+Functors between bicategories preserve composition only up to coherent isomorphism; it is thanks to the coherence theorem for bicategories that we can draw the 2-cells in the definition of a compact closed bicategory without specifying a parenthesization.  Given an isomorphism $h$ in $T,$ the span $\iota(h)^\bullet$ is related to the span $\iota(h^{-1})$ by a similar coherent isomorphism.  Both are special cases of the isomorphism in the following lemma.
 
 \begin{lemma}
   \label{lemma}
-  Given composable spans ${A \stackrel{f}{\leftarrow} D \stackrel{g}{\to} B}$ and ${B \stackrel{h}{\leftarrow} E \stackrel{j}{\to} C},$ the composite span is isomorphic to the composition of the spans ${A \stackrel{f}{\leftarrow} D \stackrel{D}{\to} D}$ and ${D \stackrel{D}{\leftarrow} D \stackrel{jh^{-1}g}{\to} C}.$
+  Given composable spans ${A \stackrel{f}{\leftarrow} D \stackrel{g}{\to} B}$ and ${B \stackrel{h}{\leftarrow} E \stackrel{j}{\to} C}$ where $g$ and $h$ are invertible, the composite span is isomorphic to the composition of the spans ${A \stackrel{f}{\leftarrow} D \stackrel{D}{\to} D}$ and ${D \stackrel{D}{\leftarrow} D \stackrel{jh^{-1}g}{\to} C}.$
 \end{lemma}
 {\em Proof.}  
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
-    \node(A) at (4,0) {$A$};
+    \node(A) at (0,0) {$A$};
     \node(B) at (2,0) {$B$};
-    \node(C) at (0,0) {$C$};
-    \node(D) at (3,1) {$D$}
-      edge [->] node [above right,l] {$f$} (A)
-      edge [->] node [above left,l] {$g$} (B);
-    \node(E) at (1,1) {$E$}
-      edge [->] node [above right,l] {$h$} (B)
-      edge [->] node [above left,l] {$j$} (C);
-    \node(EhgD) at (2,2) {$E_{hg}D$}
-      edge [->] node [above right,l] {$\pi_1$} (D)
-      edge [->] node [above left,l] {$\pi_2$} (E);
-    \node at (2,1) {$\Leftarrow K$};
+    \node(C) at (4,0) {$C$};
+    \node(D) at (1,1) {$D$}
+      edge [->] node [above left,l] {$f$} (A)
+      edge [->] node [above right,l] {$g$} (B);
+    \node(E) at (3,1) {$E$}
+      edge [->] node [above left,l] {$h$} (B)
+      edge [->] node [above right,l] {$j$} (C);
+    \node(DghE) at (2,2) {$D_{gh}E$}
+      edge [->] node [above left,l] {$\pi_1$} (D)
+      edge [->] node [above right,l] {$\pi_2$} (E);
+    \node at (2,1) {$\Rightarrow K$};
     \node (DDDD) at (2,3) {$D_{DD}D$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, h^{-1}g\pi'_2\rangle$}(EhgD)
-      edge [->, bend left] node [above right,l] {$\pi'_1$} (D)
-      edge [->, bend right] node [above left,l] {$ h^{-1}g\pi'_2$} (E);
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, h^{-1}g\pi'_2\rangle$}(DghE)
+      edge [->, bend right] node [above left,l] {$\pi'_1$} (D)
+      edge [->, bend left] node [above right,l] {$ h^{-1}g\pi'_2$} (E);
+    \node at (1.75,2.5) {=};
+    \node at (2.25,2.5) {=};
   \end{tikzpicture}
 \end{center}
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
-    \node(A) at (4,0) {$A$};
-    \node(B) at (2,0) {$D$};
-    \node(C) at (0,0) {$C$};
-    \node(D) at (3,1) {$D$}
-      edge [->] node [above right,l] {$f$} (A)
-      edge [->] node [above left,l] {$D$} (B);
-    \node(E) at (1,1) {$D$}
-      edge [->] node [above right,l] {$D$} (B)
-      edge [->] node [above left,l] {$jh^{-1}g$} (C);
-    \node(EhgD) at (2,2) {$D_{DD}D$}
-      edge [->] node [above right,l] {$\pi'_1$} (D)
-      edge [->] node [above left,l] {$\pi'_2$} (E);
-    \node at (2,1) {$\Leftarrow K'$};
+    \node(A) at (0,0) {$A$};
+    \node(B) at (2,0) {$B$};
+    \node(C) at (4,0) {$C$};
+    \node(D) at (1,1) {$D$}
+      edge [->] node [above left,l] {$f$} (A)
+      edge [->] node [above right,l] {$D$} (B);
+    \node(E) at (3,1) {$D$}
+      edge [->] node [above left,l] {$D$} (B)
+      edge [->] node [above right,l] {$jh^{-1}g$} (C);
+    \node(DDDD) at (2,2) {$D_{DD}D$}
+      edge [->] node [above left,l] {$\pi_1'$} (D)
+      edge [->] node [above right,l] {$\pi_2'$} (E);
+    \node at (2,1) {$\Rightarrow K'$};
+    \node (DghD) at (2,3) {$D_{gh}E$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, g^{-1}h\pi_2\rangle$}(DDDD)
+      edge [->, bend right] node [above left,l] {$\pi_1$} (D)
+      edge [->, bend left] node [above right,l] {$ g^{-1}h\pi_2$} (E);
+    \node at (1.75,2.5) {=};
+    \node at (2.25,2.5) {=};
   \end{tikzpicture}
 \end{center}
 
 \hfill $\square$
+
+
+When $f$ and $h$ are identities, this is the coherent isomorphism for composition.  When $f$, $g$, and $j$ are identities, this is the coherent isomorphism between $\iota(h)^\bullet$ and $\iota(h^{-1}).$  
 
 \begin{thm}
   \label{Span2}
@@ -7289,17 +7296,17 @@ $\Span_2(T)$ is a compact closed bicategory.
 is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 
 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
 
-The associator, unitors, and braiding in $\Span_2(T)$ are the inclusions of the corresponding 1-morphisms in $T.$  Because our choice of weak pullback means composition of these morphisms is strictly preserved under inclusion, the pentagonator is an identity map of spans.
+The associator, unitors, and braiding in $\Span_2(T)$ are the inclusions of the corresponding 1-morphisms in $T.$  The pentagonator in $T$ is an identity because the products in $T$ are strict.  Composition of these morphisms is preserved up to coherent isomorphism under inclusion, so the pentagonator in $\Span_2(T)$ is an identity map of spans:
 \begin{center}
   \begin{tikzpicture}[scale=3]
     \node (bottom) at (1,0) {$((A \times B) \times C) \times D$};
-    \node (right) at (2,1) {$((A \times B) \times C) \times D$}
-      edge [<-] node [below right,l] {$((A \times B) \times C) \times D$} (bottom);
-    \node (left) at (0,1) {$A \times (B \times (C \times D))$}
-      edge [<-] node [below left,l] {$aa$} (bottom);
+    \node (right) at (2,1) {$A \times (B \times (C \times D))$}
+      edge [<-] node [below right,l] {$aa$} (bottom);
+    \node (left) at (0,1) {$((A \times B) \times C) \times D$}
+      edge [<-] node [below left,l] {$((A \times B) \times C) \times D$} (bottom);
     \node (top) at (1,2) {$((A \times B) \times C) \times D$}
-      edge [->] node [above right,l] {$((A \times B) \times C) \times D$} (right)
-      edge [->] node [above left,l] {$(A \times a)(a)(a \times D)$} (left)
+      edge [->] node [above right,l] {$(A \times a)(a)(a \times D)$} (right)
+      edge [->] node [above left,l] {$((A \times B) \times C) \times D$} (left)
       edge [->] node [left,pos=.4,l] {$((A \times B) \times C) \times D$} (bottom);
     \node at (.75,1) {$=$};
     \node at (1.25,1) {$=$};
@@ -7307,14 +7314,14 @@ The associator, unitors, and braiding in $\Span_2(T)$ are the inclusions of the 
 \end{center}
 Because the pentagonator is an identity, the associahedron is trivial.  Similarly, the 2-unitors are identities, so the unitor prisms are trivial.
 
-The sides of the hexagon 2-morphism $R$ are all inclusions of 1-morphisms from $T;$ when we replace $a^{\bullet}$ with $a^{-1}$ as noted above, the sides of the hexagon 2-morphism $S$ are also inclusions of 1-morphisms from $T.$  Since the hexagon equations hold in $T,$ the hexagon isomorphisms are identities in $\Span_2(T)$ and the shuffle coherence laws and Breen polytope are trivial.
+The sides of the hexagon 2-morphism $R$ are all inclusions of 1-morphisms from $T;$ if we replace $a^{\bullet}$ with $a^{-1}$, the sides of the hexagon 2-morphism $S$ are also inclusions of 1-morphisms from $T.$  The hexagon equations hold in $T$ because the products in $T$ are strict, so the hexagon isomorphisms in $\Span_2(T)$ are identities up to coherent isomorphism and the shuffle coherence laws and Breen polytope are trivial.
 
-When we replace $b^{\bullet}$ by $b^{-1},$ both sides of the syllepsis are inclusions of 1-morphisms from $T.$  Since the braiding in $T$ is symmetric, the syllepsis is an identity and the coherence laws governing it are trivial.
+If we replace $b^{\bullet}$ by $b^{-1},$ both sides of the syllepsis are inclusions of 1-morphisms from $T.$  The syllepsis in $T$ is the identity because the products in $T$ are strict, so the syllepsis in $\Span_2(T)$ is an identity up to coherent isomorphism and the coherence laws governing the syllepsis are trivial.
 
 The unit span is the span whose legs are duplication and deletion
-$$i_A: A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1,$$
+$$i_A: 1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A,$$
 and the counit is its reverse
-$$e_A = i_A^{\bullet}: 1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A.$$
+$$e_A = i_A^{\bullet}: A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
 One zig-zag morphism is the composite of the following two spans:
 \begin{center}
   \begin{tikzpicture}[scale=3]
