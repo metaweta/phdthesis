@@ -154,6 +154,10 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
 \newcommand{\xeq}[1]{{\displaystyle \mathop{=}_{#1}}}
 \renewcommand{\text}{\mbox}
 \newcommand{\QUOTE}[1]{\begin{quote} {\tt #1 } \end{quote}}
+\newcommand{\mbold}[1]{\mbox{\bf #1}}
+\newcommand{\too}{\Rightarrow}
+\newcommand{\isotoo}{\; \tilde{\Rightarrow} \;}
+
 
 \newcommand{\et}{\hspace{-0.08in}{\bf .}\hspace{0.1in}}   
 \newcommand{\Hom}{\mbox{Hom}}
@@ -7539,7 +7543,141 @@ It is canonical in the sense that we do not need to make any arbitrary choices t
 \hookrightarrow T$ of resistor networks is given by juxtaposition followed by identifying the images of $R$ in $S$ and $T$.  Cospans in ResNet are spans in ResNet${}^{\op},$ where the coproduct and pushout become product and pullback, so Cospan(ResNet) is compact closed as a corollary of Theorem \ref{span}.  Since every object is self-dual in Cospan(ResNet), the subcategory Circ whose objects are resistor networks with no edges is also compact closed. \hfill $\square$
 
 \section{Applications and future work}
-Bill Lawvere made enormous strides towards unifying 
+[[ Applications of string diagrams to software, particularly quantum algorithms and proofs of correctness.  Mention paper with Jamie on encryption. ]]
+
+I began studying compact closed bicategories in order to write ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
+
+Many concepts in mathematics can be expressed as sets equipped with functions that satisfy relations.  For example, a group is
+\begin{itemize}
+  \item a set $G$ equipped with
+  \item a function $mult\maps G \times G \to G,$
+  \item a function $id\maps 1 \to G,$ and
+  \item a function $inv\maps G \to G$ such that
+  \item for all $a, b, c$ in $G$, $mult(mult(a, b), c) = mult(a, mult(b, c)),$
+  \item for all $a$ in $G$, $mult(a, id()) = a = mult(id(), a),$ and
+  \item for all $a$ in $G$, $mult(a, inv(a)) = mult(inv(a), a) = id().$
+\end{itemize}
+Pointed sets, monoids, groups, rings, directed graphs, and more all have presentations of this form.  We can abstract away the sets and functions to objects and morphisms to get the definition of a ``group object'':
+\begin{itemize}
+  \item an object $G$ equipped with
+  \item a morphism $mult\maps G \times G \to G,$
+  \item a morphism $id\maps 1 \to G,$ and
+  \item a morphism $inv\maps G \to G$ such that
+  \item $mult \circ (mult \times G) = mult \circ (G \times mult),$
+  \item $mult \circ (id \times G) \circ left^{-1} = mult \circ (G \times id) \circ right^{-1} = G,$ and
+  \item $mult \circ (inv \times G) \circ \Delta = mult \circ (G \times inv) \circ \Delta = id,$
+\end{itemize}
+where $left\maps G \to 1 \times G,$ $right\maps G \to G \times 1,$ and $\Delta\maps G \to G \times G$ are the unitors and diagonal morphism in any category with products.  Bill Lawvere showed in his 1963 thesis \cite{Lawvere} that this way of writing the definition of a group is a presentation of a particular category with products (now called a ``Lawvere theory'' in his honor), that any product-preserving functor from this category to the category of sets and functions picks out a group, and that any group can be expressed as such a functor.  Under certain circumstances, these functors always have adjoints, which means that it makes sense to talk about the free group on a set and the underlying set of a group.  Another benefit is that one is free to consider group objects in categories other than Set.  For example, a group object in the category of manifolds and smooth maps is a Lie group, and a group object in the opposite category of commutative rings and ring homomorphisms is a Hopf algebra \cite{nlabgroupobject}.
+
+In the years since Lawvere, other kinds of theory have been proposed; Lawvere's theories assumed the existence of cartesian products, but only a tensor product is needed to write down the notion of a monoid.  The category Vect of vector spaces and linear maps has a tensor product as well as the cartesian product; a monoid in (Vect, $\times$) is just a vector space, but a monoid in (Vect, $\otimes$) is an algebra.  While Lawvere theories have models in categories with products, PROs have models in monoidal categories and PROPs have models in symmetric monoidal categories.  The most general theory of a monoid is a PRO: we can, for instance, consider monoid objects in a category of endofunctors and natural transformations where the tensor product is composition; the resulting concept is a monad.
+
+Lawvere theories play a central role in modern object-oriented programming; what category theorists call a theory, programmers call an interface, and what category theorists call a functor, programmers call an implementation of the interface.  Granted, most popular programming languages sacrifice correctness in the form of proof-bearing code for convenience in the form of tests, but the spirit is there.  As theorem provers become more powerful, languages like Agda are becoming more widely used.
+
+My intent was not to describe a set with structure, but rather a category with structure and stuff: a symmetric monoidal closed category.  I wanted to describe, as a programmer, what it meant to be a programming language in the general sense explained in chapter II.1.
+
+The notion of a ``higher'' theory is an obvious extension of Lawvere's idea, but as far as I know, no one has worked out the details.  A higher theory should be a bicategory of some kind, and its presentation should have objects, 1-morphisms, 2-morphisms, and relations among the 2-morphisms.  Of course, if our theories are bicategories, we should take our models in bicategories, too.  The first 2-category that comes to mind is Cat, as a categorified version of Set; however, the higher theory of a symmetric monoidal closed category needs to be able to describe the adjunction between $- \otimes X$ and $X \lhom -$.  Since all our objects are small categories, this adjunction is most easily expressed as an isomorphism of hom sets, which indicates that the category Set should play a special role.
+
+Prof is the bicategory of small categories, profunctors, and natural transformations.  A profunctor $F\maps C \to D$ is a functor $F\maps C \to \Set^{D^{\op}}.$  One can turn any functor $G\maps R \to S$ into a profunctor like this:
+\[ \begin{array}{rl}G\maps R &\to \Set^{S^{\op}} \\ r & \mapsto s \mapsto \Hom(s, G(r)).\end{array} \]
+An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.
+
+Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations\footnote{2.7.4, page 63 of Kashiwara-Schapira's {\em Categories and Sheaves} [[ Put this in the bibliography ]].}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.
+
+Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above.  (Kelly's {\em Basic concepts of enriched category theory}, Theorem 4.51 [[ Put this in the bibliography ]])
+
+Prof is a compact closed bicategory.  The monoidal product is the cartesian product in Cat and the monoidal unit is the category with a single object and only the identity morphism.  This is a categorification of how if $F(X)$ is the free vector space on the set $X$, then $F(X) \tensor F(Y) = F(X \times Y).$  I denote the associator, symmetric braiding, currying, and unitor natural isomorphisms as \textbf{assoc}, \textbf{swap}, \textbf{curry}, \textbf{left} and \textbf{right}, respectively.  Every object $C$ has a dual $C^* = C^{\op}.$  The internal hom $A \lhom B$ is equivalent to $A^{\op} \times B.$  This means that through judicious use of currying and unitors we can move categories from one side of the arrow to the other:
+\[ \begin{array}{rcl}
+  F& \maps & C \not\to D \\
+  \mbold{right}^{-1} \circ F& \maps & C \not\to D \times I \equiv D^{\op} \lhom I \\
+  \mbold{curry}^{-1}(\mbold{right}^{-1} \circ F)& \maps & C \times D^{\op} \not\to I \\
+  \mbold{curry}^{-1}(\mbold{right}^{-1} \circ F) \circ \mbold{swap}& \maps & D^{\op} \times C \not\to I \\
+  \mbold{curry}(\mbold{curry}^{-1}(\mbold{right}^{-1} \circ F) \circ \mbold{swap})& \maps & D^{\op} \not\to C \lhom I \equiv C^{\op} \times I \\
+  F^* = \mbold{right} \circ \mbold{curry}(\mbold{curry}^{-1}(\mbold{right}^{-1} \circ F) \circ \mbold{swap})& \maps & D^{\op} \not\to C^{\op}
+\end{array} \]
+For profunctors arising from functors, we have
+\[ \begin{array}{rl}F'\maps D &\not\to C \\ d &\mapsto c \mapsto \Hom(F(c), d)\end{array} \]
+
+The theory given below should also be a compact closed 2-category.  The monoidal product is denoted $\boxtimes$, the unit is $J,$ and the dual is ${}^*.$  I believe that 2-functors preserving the compact closed structure pick out symmetric monoidal closed categories; I hope that the forgetful ``underlying category'' 2-functor has a left adjoint.  If it does, then we can say ``the free symmetric monoidal closed category on a category'' and form a 2-monad (or pseudomonad) whose algebras (or pseudoalgebras) are all symmetric monoidal closed categories.
+
+This is my guess as to what the higher theory of a symmetric monoidal closed category looks like:
+\begin{itemize}
+  \item an object $C$
+  \item morphisms
+  \begin{itemize}
+    %  @:C x C -> C
+    \item $\tensor \maps C \boxtimes C \to C$
+    \item $\tensor' \maps C \to C \boxtimes C$
+    %  I:1 -> C
+    \item $I \maps J \to C$
+    \item $I' \maps C \to J$
+    %  -o:C* x C -> C
+    \item $\lhom \maps C^* \boxtimes C \to C$
+    \item $\lhom' \maps C \to C^* \boxtimes C$
+  \end{itemize}
+  \item 2-morphisms
+  \begin{itemize}
+    %  i^@:1 => @'@
+    \item $i^\tensor\maps 1_{C \boxtimes C} \too \tensor' \circ \tensor$
+    %  e^@:@@' => 1
+    \item $e^\tensor\maps \tensor \circ \tensor' \too 1_C$\\
+
+    %  i^I:1 => I'I
+    \item $i^I\maps 1_J \too I' \circ I$
+    %  e^I:II' => 1
+    \item $e^I\maps I \circ I' \too 1_C$\\
+
+    %  i^-o:1 => -o'-o
+    \item $i^\lhom\maps 1_{C^* \boxtimes C} \too \lhom' \circ \lhom$
+    %  e^-o:-o-o' => 1
+    \item $e^\lhom\maps \lhom \circ \lhom' \too 1_C$\\
+
+    %  a:@ o (@ x C) ~=> @ o (C x @)
+    \item $a\maps \tensor \circ (\tensor \boxtimes 1_C) \isotoo \tensor \circ (1_C \boxtimes \tensor) \circ \mbold{assoc}_{C, C, C}$
+    %  b:@ o swap ~=> @
+    \item $b\maps \tensor \isotoo \tensor \circ \mbold{~swap}_{C, C}$
+    %  c:@'* ~=> curry(-o*)
+    \item $c:\tensor' \isotoo \mbold{curry}(\lhom)$
+    
+    %  l:@ o (I x C) o left^{-1} ~=> C
+    \item $l\maps \tensor \circ (I \boxtimes 1_C) \isotoo \mbold{left}_C$
+    %  r:@ o (C x I) o right^{-1} ~=> C
+    \item $r\maps \tensor \circ (1_C \boxtimes I) \isotoo \mbold{right}_C$
+    \item inverses for $a,b,c,l,r$
+  \end{itemize}
+  %
+  \item 3-equalities
+  \begin{itemize}
+    \item pentagon equation
+    \item triangle equation
+    \item hexagon equations
+    \item zigzag equations for each of $\tensor, I, \lhom$
+    \item $a,b,c,l,r$ composed with their inverses equal the identity
+  \end{itemize}
+\end{itemize}
+
+It has one generating object, $C,$ so it makes sense to talk about the underlying category.  We want to be sure that $\tensor, I,$ and $\lhom$ are really functors, not arbitrary profunctors, so the first three pairs of 2-morphisms specify the adjoint relation between each of those morphisms and their prime.  The next five 2-morphisms are the natural isomorphisms in the definition of a symmetric monoidal closed category; that they are isomorphisms is enforced when we get to the 3-equalities.
+
+The currying natural isomorphism is the really interesting bit, since it's the only one that must mention the external hom.  Start with the tensor
+\[ \begin{array}{rl}\tensor\maps C \times C &\not\to C \\ (a,b) &\mapsto c \mapsto \Hom(c, a \tensor b),\end{array} \]
+then take its right adjoint to get
+\[ \begin{array}{rl}\tensor'\maps C & \not\to C \otimes C \\ c & \mapsto (a, b) \mapsto \Hom(a \tensor b, c),\end{array} \]
+which is the first half of the currying isomorphism.
+
+Now start with the internal hom:
+\[ \begin{array}{rl}\lhom\maps C^{op} \times C &\not\to C \\ (b,c) &\mapsto a \mapsto \Hom(a, b \lhom c),\end{array} \]
+Curry:
+\[ \begin{array}{rl}\mbold{curry}(\lhom)\maps C &\not\to C \otimes C \\ c &\mapsto (a, b) \mapsto \Hom(a, b \lhom c),\end{array} \]
+which is the second half of the currying isomorphism.  Explicitly,
+\[ c:\tensor' \isotoo \mbold{curry}(\lhom). \]
+
+The 3-equalities are mostly the coherence laws from the definition of a symmetric monoidal closed category, though we do need to add 3-equalitites $aa^{-1} = 1, a^{-1}a = 1,$ etc. to make $a,b,c,l,r$ into natural {\em iso}morphisms.
+
+The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
+\[ x + y = z \quad \iff \quad x = -y + z. \]
+
+[[ Concurrency ]]
+
+[[ Extended TQFTs ]]
 
 \begin{thebibliography}{99}
 
@@ -8011,6 +8149,10 @@ Press, Cambridge, 2000.
 \bibitem{nlab2pullbacks} {\sl 2-pullbacks}, 
 \href{http://ncatlab.org/nlab/show/2-pullback#strict_weighted_limits}
 {http://ncatlab.org/nlab/show/2-pullback\#strict\_weighted\_limits}
+
+\bibitem{nlabgroupobject} {\sl group object}, 
+\href{http://ncatlab.org/nlab/show/group+object#examples}
+{http://ncatlab.org/nlab/show/group+object\#examples}
  
 \bibitem{Penrose}
 R.\ Penrose, Applications of negative dimensional tensors, in \textsl{Combinatorial Mathematics and its Applications}, ed.\
