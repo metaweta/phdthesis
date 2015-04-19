@@ -7645,7 +7645,7 @@ This is my guess as to what the higher theory of a symmetric monoidal closed cat
     \item inverses for $a,b,c,l,r$
   \end{itemize}
   %
-  \item 3-equalities
+  \item equalities between 2-morphisms
   \begin{itemize}
     \item pentagon equation
     \item triangle equation
@@ -7655,7 +7655,7 @@ This is my guess as to what the higher theory of a symmetric monoidal closed cat
   \end{itemize}
 \end{itemize}
 
-It has one generating object, $C,$ so it makes sense to talk about the underlying category.  We want to be sure that $\tensor, I,$ and $\lhom$ are really functors, not arbitrary profunctors, so the first three pairs of 2-morphisms specify the adjoint relation between each of those morphisms and their prime.  The next five 2-morphisms are the natural isomorphisms in the definition of a symmetric monoidal closed category; that they are isomorphisms is enforced when we get to the 3-equalities.
+It has one generating object, $C,$ so it makes sense to talk about the underlying category.  We want to be sure that $\tensor, I,$ and $\lhom$ are really functors, not arbitrary profunctors, so the first three pairs of 2-morphisms specify the adjoint relation between each of those morphisms and their prime.  The next five 2-morphisms are the natural isomorphisms in the definition of a symmetric monoidal closed category; that they are isomorphisms is enforced when we get to the equalities between 2-morphisms.
 
 The currying natural isomorphism is the really interesting bit, since it's the only one that must mention the external hom.  Start with the tensor
 \[ \begin{array}{rl}\tensor\maps C \times C &\not\to C \\ (a,b) &\mapsto c \mapsto \Hom(c, a \tensor b),\end{array} \]
@@ -7670,12 +7670,16 @@ Curry:
 which is the second half of the currying isomorphism.  Explicitly,
 \[ c:\tensor' \isotoo \mbold{curry}(\lhom). \]
 
-The 3-equalities are mostly the coherence laws from the definition of a symmetric monoidal closed category, though we do need to add 3-equalitites $aa^{-1} = 1, a^{-1}a = 1,$ etc. to make $a,b,c,l,r$ into natural {\em iso}morphisms.
+The equalities of 2-morphisms are mostly the coherence laws from the definition of a symmetric monoidal closed category, though we do need to add equalitites $aa^{-1} = 1, a^{-1}a = 1,$ etc. to make $a,b,c,l,r$ into natural {\em iso}morphisms.
 
 The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
 [[ Concurrency, laziness, and evaluation strategies]]
+While we mod out by rewrite rules in chapter II.1, Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  An {\sl evaluation strategy} for lambda calculus assigns to each 1-morphism a choice of 2-morphism that tells how to get to the next term.  The Church-Rosser theorem says, roughly, that when a lambda term has a normal form, it doesn't matter which rewrites you apply to get there.
+
+Abramsky and Ong \cite{AbramskyOng}, however, point out that the standard theory of lambda calculus differs from the actual practice of lazy functional programming; in Haskell, for instance, it's possible to describe infinite data structures precisely because the evaluation strategy only computes as much of the data structure as is needed to complete the computation.  The evaluation strategy known as ``call-by-need'' or ``lazy evaluation'' only evaluates the leftmost branch of the application tree; it's been shown that if there is a normal form, lazy evaluation will find it, though not necessarily in the fastest way.
+
 
 [[ Extended TQFTs, principle of least action, partition functions at two levels ]]
 
