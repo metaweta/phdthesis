@@ -1,8 +1,4 @@
-%Physics, Topology, Logic and Computation: A Rosetta Stone
-%John Baez and Mike Stay
-%in LaTeX 
-%March 20, 2009
-
+% PhD thesis
 \documentclass[12pt,twoside,openright]{report}
 \usepackage{etex}
 \usepackage[all]{xy}
@@ -1649,6 +1645,7 @@ Our treatment of all four subjects --- physics, topology, logic and computation 
 \label{physics_topology}
 
 \section{Background}
+\label{ptbackground}
 
 Currently our best theories of physics are general relativity and the Standard Model of particle physics.  The first describes gravity without taking quantum theory into account; the second describes all the other forces taking quantum theory into account, but ignores gravity.  So, our world-view is deeply schizophrenic. The field where physicists struggle to solve this problem is called {\em quantum gravity}, since it is widely believed that the solution requires treating gravity in a way that takes quantum theory into account.
 
@@ -7543,9 +7540,9 @@ It is canonical in the sense that we do not need to make any arbitrary choices t
 \hookrightarrow T$ of resistor networks is given by juxtaposition followed by identifying the images of $R$ in $S$ and $T$.  Cospans in ResNet are spans in ResNet${}^{\op},$ where the coproduct and pushout become product and pullback, so Cospan(ResNet) is compact closed as a corollary of Theorem \ref{span}.  Since every object is self-dual in Cospan(ResNet), the subcategory Circ whose objects are resistor networks with no edges is also compact closed. \hfill $\square$
 
 \section{Applications and future work}
-[[ Applications of string diagrams to software, particularly quantum algorithms and proofs of correctness.  Mention paper with Jamie on encryption. ]]
 
-I began studying compact closed bicategories in order to write ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
+\subsection{Generalizing object-oriented programming}
+I began studying compact closed bicategories in order to write down ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
 
 Many concepts in mathematics can be expressed as sets equipped with functions that satisfy relations.  For example, a group is
 \begin{itemize}
@@ -7571,21 +7568,17 @@ where $left\maps G \to 1 \times G,$ $right\maps G \to G \times 1,$ and $\Delta\m
 
 In the years since Lawvere, other kinds of theory have been proposed; Lawvere's theories assumed the existence of cartesian products, but only a tensor product is needed to write down the notion of a monoid.  The category Vect of vector spaces and linear maps has a tensor product as well as the cartesian product; a monoid in (Vect, $\times$) is just a vector space, but a monoid in (Vect, $\otimes$) is an algebra.  While Lawvere theories have models in categories with products, PROs have models in monoidal categories and PROPs have models in symmetric monoidal categories.  The most general theory of a monoid is a PRO: we can, for instance, consider monoid objects in a category of endofunctors and natural transformations where the tensor product is composition; the resulting concept is a monad.
 
-Lawvere theories play a central role in modern object-oriented programming; what category theorists call a theory, programmers call an interface, and what category theorists call a functor, programmers call an implementation of the interface.  Granted, most popular programming languages sacrifice correctness in the form of proof-bearing code for convenience in the form of tests, but the spirit is there.  As theorem provers become more powerful, languages like Agda that require proofs are becoming more widely used.
+In section \ref{ptbackground} we discussed one special kind of Lawvere theory called a ``typed lambda-theory'', where in addition to the cartesian product we are able to talk about the internal hom.  Lambda-theories play a central role in modern object-oriented programming; what category theorists call a theory, programmers call an interface, and what category theorists call a structure-preserving functor between theories, programmers call an implementation of the interface.  Granted, most popular programming languages sacrifice correctness in the form of proof-bearing code for convenience in the form of tests, but the spirit is there.  As theorem provers become more powerful, languages like Agda that require proofs are becoming more widely used.
 
-My intent was not to describe a set with structure, but rather a category with structure and stuff: a symmetric monoidal closed category.  I wanted to describe, as a programmer, what it meant to be a programming language in the general sense explained in chapter II.1.
-
-The notion of a ``higher'' theory is an obvious extension of Lawvere's idea, but as far as I know, no one has worked out the details.  A higher theory should be a bicategory of some kind, and its presentation should have objects, 1-morphisms, 2-morphisms, and relations among the 2-morphisms.  Of course, if our theories are bicategories, we should take our models in bicategories, too.  The first 2-category that comes to mind is Cat, as a categorified version of Set; however, the higher theory of a symmetric monoidal closed category needs to be able to describe the adjunction between $- \otimes X$ and $X \lhom -$.  Since all our objects are small categories, this adjunction is most easily expressed as an isomorphism of hom sets, which indicates that the category Set should play a special role.
+My intent in studying compact closed bicategories was not to describe a set with structure, but rather a category with structure and stuff: a symmetric monoidal closed category.  I wanted to describe, as a programmer, what it meant to be a programming language in the general sense explained in chapter II.1.  The notion of a ``higher'' theory is an obvious extension of Lawvere's idea, but as far as I know, no one has worked out the details.  A higher theory should be a bicategory of some kind, and its presentation should have objects, 1-morphisms, 2-morphisms, and equations among the 2-morphisms.  Of course, if our theories are bicategories, we should take our models in bicategories, too.  The first 2-category that comes to mind is Cat, as a categorified version of Set; however, the higher theory of a symmetric monoidal closed category needs to be able to describe the adjunction between $- \otimes X$ and $X \lhom -$.  Since all our objects are small categories, this adjunction is most easily expressed as an isomorphism of hom sets, which indicates that the category Set should play a special role.
 
 Prof is the bicategory of small categories, profunctors, and natural transformations.  A profunctor $F\maps C \to D$ is a functor $F\maps C \to \Set^{D^{\op}}.$  One can turn any functor $G\maps R \to S$ into a profunctor like this:
 \[ \begin{array}{rl}G\maps R &\to \Set^{S^{\op}} \\ r & \mapsto s \mapsto \Hom(s, G(r)).\end{array} \]
-An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.
-
-Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations\footnote{2.7.4, page 63 of Kashiwara-Schapira's {\em Categories and Sheaves} [[ Put this in the bibliography ]].}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.
+An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.  Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations\footnote{2.7.4, page 63 of Kashiwara-Schapira's {\em Categories and Sheaves} [[ Put this in the bibliography ]].}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.
 
 Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above.  (Kelly's {\em Basic concepts of enriched category theory}, Theorem 4.51 [[ Put this in the bibliography ]])
 
-Prof is a compact closed bicategory.  The monoidal product is the cartesian product in Cat and the monoidal unit is the category with a single object and only the identity morphism.  This is a categorification of how if $F(X)$ is the free vector space on the set $X$, then $F(X) \tensor F(Y) = F(X \times Y).$  I denote the associator, symmetric braiding, currying, and unitor natural isomorphisms as \textbf{assoc}, \textbf{swap}, \textbf{curry}, \textbf{left} and \textbf{right}, respectively.  Every object $C$ has a dual $C^* = C^{\op}.$  The internal hom $A \lhom B$ is equivalent to $A^{\op} \times B.$  This means that through judicious use of currying and unitors we can move categories from one side of the arrow to the other:
+Prof is a compact closed bicategory.  The monoidal product is the cartesian product in Cat and the monoidal unit is the category with a single object and only the identity morphism.  Below, I denote the associator, symmetric braiding, currying, and unitor natural isomorphisms as \textbf{assoc}, \textbf{swap}, \textbf{curry}, \textbf{left} and \textbf{right}, respectively.  Every object $C$ has a dual $C^* = C^{\op}.$  The internal hom $A \lhom B$ is equivalent to $A^{\op} \times B.$  This means that through judicious use of currying and unitors we can move categories from one side of the arrow to the other:
 \[ \begin{array}{rcl}
   F& \maps & C \not\to D \\
   \mbold{right}^{-1} \circ F& \maps & C \not\to D \times I \equiv D^{\op} \lhom I \\
@@ -7675,10 +7668,19 @@ The equalities of 2-morphisms are mostly the coherence laws from the definition 
 The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
-[[ Concurrency, laziness, and evaluation strategies]]
-While we mod out by rewrite rules in chapter II.1, Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  An {\sl evaluation strategy} for lambda calculus assigns to each 1-morphism a choice of 2-morphism that tells how to get to the next term.  The Church-Rosser theorem says, roughly, that when a lambda term has a normal form, it doesn't matter which rewrites you apply to get there.
+\subsection{Concurrency, laziness, evaluation strategies and their relation to physics}
+Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence'': an {\sl evaluation strategy} for lambda calculus assigns to each 1-morphism a choice of 2-morphism that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is confluent: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
 
-Abramsky and Ong \cite{AbramskyOng}, however, point out that the standard theory of lambda calculus differs from the actual practice of lazy functional programming; in Haskell, for instance, it's possible to describe infinite data structures precisely because the evaluation strategy only computes as much of the data structure as is needed to complete the computation.  The evaluation strategy known as ``call-by-need'' or ``lazy evaluation'' only evaluates the leftmost branch of the application tree; it's been shown that if there is a normal form, lazy evaluation will find it, though not necessarily in the fastest way.
+Modern programming, however, deals with many computers all operating on different clocks, communicating over networks with delays, and the order in which messages arrive is important: consider two people racing to get the last concert ticket, or the order in which a deposit and a withdrawal apply to an empty bank account.  If rewrites involve moving messages around, then they will certainly not be confluent.
+
+Robin Milner proposed the pi calculus in 199X [[citation, fix year]].  The pi calculus is to concurrent programming what the lambda calculus is to serial programming, and like lambda calculus has many many variants.  The polyadic asynchronous pi calculus has five term constructors:
+\[\begin{array}{rl}
+  P,Q ::= & 0 \mbox{ do nothing} \\
+  & x?(y_1, \ldots, y_n).P \\
+  & x!(y_1, \ldots, y_n) \\
+  & P | Q \\
+  & new x.P
+\end{array}\]
 
 
 [[ Extended TQFTs, principle of least action, partition functions at two levels ]]
