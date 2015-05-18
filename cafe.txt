@@ -1,42 +1,56 @@
-Greg Meredith and I have a short paper that's been accepted to HDRA 2015 on modeling pi calculus with 2-categories.  To explain what we're doing, I'd like to start with lambda calculus first.
+Greg Meredith and I have a short paper that's been accepted to HDRA 2015 on modeling pi calculus with 2-categories.  It's a small piece of a much larger project.  To explain what we're doing, I'd like to start with lambda calculus first.
 
-Alonzo Church invented the lambda calculus in 1934 as part of his attack on Hilbert's tenth problem.  It was arguably the first "high-level" programming language.  Turing invented his eponymous machines two years later, also to solve Hilbert's tenth problem, only to discover that Church had beaten him to it; in 1937 he proved that the two approches were equivalent in power.  Since Turing machines were much more "mechanical" than the lambda calculus, the development of computing machines relied far more on Turing's approach, and it was only decades later that people started writing compilers for more friendly programming languages.  It has been quipped that "the history of programming languages is the piecemeal rediscovery of the lambda calculus by computer scientists."
+Alonzo Church invented the lambda calculus in 1934 as part of his attack on Hilbert's tenth problem.  It was arguably the first "high-level" programming language.  Turing invented his eponymous machines two years later, also to solve Hilbert's tenth problem, only to discover that Church had beaten him to it; in 1937 he proved that the two approches were equivalent in power.  Since Turing machines were much more "mechanical" than the lambda calculus, the development of computing machines relied far more on Turing's approach, and it was only decades later that people started writing compilers for more friendly programming languages.  I've heard it quipped that "the history of programming languages is the piecemeal rediscovery of the lambda calculus by computer scientists."
 
-The lambda calculus consists of a set of terms together with a reduction relation on the terms.  The set \(T\) of terms is defined recursively, parametric in a set \(V\) of variables.  The base terms are the variables: if \(x\) is an element of \(V\), then \(Var x\) is a term in \(T\).  Next, given any two terms \(t, t' \in T\), we can apply one to the other to get \(App t, t'\).  Finally, we can abstract out a variable from a term: given a variable \(x\) and a term \(t,\) we get a term \(Lam x, t\).  Church denoted this abstraction operation with the Greek letter lambda, giving the calculus its name.  
+The lambda calculus consists of a set of "terms" together with some relations on the terms.  The set \(T\) of terms is defined recursively, parametric in a countably infinite set \(V\) of variables.  The base terms are the variables: if \(x\) is an element of \(V\), then \(Var x\) is a term in \(T\).  Next, given any two terms \(t, t' \in T\), we can apply one to the other to get \(App\, t\, t'\).  Finally, we can abstract out a variable from a term: given a variable \(x\) and a term \(t,\) we get a term \(Lam\, x\, t\).  Church denoted this abstraction operation with the Greek letter lambda, giving the calculus its name.
 
 The term constructors define an algebra, a functor \(LC\) from Set to Set that takes any set of variables \(V\) to the set of terms \(T = LC(V)\).  The term constructors themselves become functions:
 \[
 \begin{array}{rl}
-Var\maps & V \to T\\
-App\maps & T \times T \to T\\
-Lam\maps & V \times T \to T
+Var\colon & V \to T\\
+App\colon & T \times T \to T\\
+Lam\colon & V \times T \to T
 \end{array}
 \]
 
-Church described three relations on terms.  The first relation, alpha, relates any two lambda abstractions that differ only in the variable name.  This is exactly the same as when we consider the function \(f(x) = x^2\) to be identical to the function \(f(y) = y^2\).  The third relation, eta, says that there's no difference between a function \(f\) and a "middle-man" function that gets an input \(x\) and applies the function \(f\) to it: \(Lam x App f x = f\).  Both alpha and eta are equivalences.
+Church described three relations on terms.  The first relation, alpha, relates any two lambda abstractions that differ only in the variable name.  This is exactly the same as when we consider the function \(f(x) = x^2\) to be identical to the function \(f(y) = y^2\).  The third relation, eta, says that there's no difference between a function \(f\) and a "middle-man" function that gets an input \(x\) and applies the function \(f\) to it: \(Lam\, x\, App\, f\, x = f\).  Both alpha and eta are equivalences.
 
-The really important relation is the second one, "beta reduction".  It says that when we have a lambda abstraction \(Lam x, t\) applied to a term \(t'\), then we replace every free occurrence of \(x\) in \(t\) by \(t'\):
-\[ App Lam x t t' \Downarrow_\beta t{t' / x},\]
+The really important relation is the second one, "beta reduction".  In order to define beta reduction, we have to define the <i>free</i> variables of a term: a variable occurring by itself is free; the set of free variables in an application is the union of the free variables in its subterms; and the free variables in a lambda abstraction are the free variables of the subterm except for the abstracted variable.
+\[
+\begin{array}{rl}
+FV(Var\, x) = & \{x\} \\
+FV(App\, t\, t') = & FV(t) \cup FV(t') \\
+FV(Lam\, x\, t) = & FV(t) / \{x\} \\
+\end{array}
+\]
+
+<i>Beta reduction</i> says that when we have a lambda abstraction \(Lam\, x, t\) applied to a term \(t'\), then we replace every free occurrence of \(x\) in \(t\) by \(t'\):
+\[ App\, Lam\, x\, t\, t' \Downarrow_\beta t{t' / x},\]
 where we read the right hand side as "\(t\) with \(t'\) replacing \(x\)".  We see a similar replacement in action when we compose functions:
 \[
 \begin{array}{rl}
 f(x) = & x + 1 \\
 g(y) = & y^2 \\
-g(f(x)) = (x + 1)^2 \\
+g(f(x)) = & (x + 1)^2 \\
 \end{array}
 \]
-We say a term has a normal form if there's some sequence of beta reductions that leads to a term where no beta reduction applies.  When the beta rule applies in more than one place in a term, it doesn't matter which one you choose to do first: any sequence of betas that leads to a normal form will lead to the same normal form.  This property of beta reduction is called "confluence".
 
-Church introduced the notion of types to avoid terms with no normal form---or in programming language parlance, programs that never stop.  Modern programming languages use types to avoid programmer mistakes and encode properties about the program.  We can get a set of well-typed terms by using a coalgebra instead of an algebra.  If we start with a term of type \(A\), we can either generate a variable of type \(A\), an application of a term of type \(B \multimap A\) to a term of type \(B\), or the abstraction of a variable of type \(B\) from a term of type \(A\).  The term destructors become functions between sets annotated by types:
+We say a term has a normal form if there's some sequence of beta reductions that leads to a term where no beta reduction is possible.  When the beta rule applies in more than one place in a term, it doesn't matter which one you choose to do first: any sequence of betas that leads to a normal form will lead to the same normal form.  This property of beta reduction is called <i>confluence</i>.  
+
+"Running" a program in the lambda calculus is the process of computing the normal form by repeated application of beta reduction, and the normal form itself is the result of the computation.  
+
+Church introduced the notion of types to avoid terms with no normal form---or in programming language parlance, programs that never stop.  Modern programming languages use types to avoid programmer mistakes and encode properties about the program.  The simply-typed lambda calculus starts with a set of base types and takes the closure under the binary operation \(\to\) to get the set of types \(Y\).
+
+We can get a set of well-typed terms by using a coalgebra instead of an algebra.  If we start with a term of type \(A\), we can either generate a variable of type \(A\), an application of a term of type \(B \multimap A\) to a term of type \(B\), or the abstraction of a variable of type \(B\) from a term of type \(A\).  The term destructors become functions between variables and terms annotated by types:
 \[
 \begin{array}{rl}
-Var\maps & T^A \to V^A\\
-App\maps & T^A \to T^{B \to A} \times T^B\\
-Lam\maps & T^A \to V^B \times T^A
+Var\colon & (T\times A) \to (V\times A)\\
+App\colon & (T\times A) \to (T\times (B \to A)) \times (T\times B)\\
+Lam\colon & (T\times A) \to (V\times B) \times (T\times A)
 \end{array}
 \]
 
-Suppose we want the most general type for the term \(Lam x App x y\).  We start with the type A.  A lambda abstraction must be a type of the form \(B \to C\), so we unify and say \(A = B\to C\).  The variable \(x\) has to be of type \(B\), and the application \(App x y\) has to be of type \(C\).  We get a type \(C\) from an application of a term \(t\) to a term \(t'\) when \(t\) has the type \(D \to C\) and \(t'\) has the type \(D\), so we know that \(y\) has type \(D\) and \(x\) has type \(D \to C\).  Unifying with the previous type of \(x\), we find that \(B = D \to C\).  So \(x\) has type \(D \to C\), \(y\) has type \(D\), and the resulting type for the entire term is \((D \to C) \to C\).
+Suppose we want the most general type for the term \(Lam\, x\, App\, x\, y\).  We start with the type A.  A lambda abstraction must be a type of the form \(B \to C\), so we unify and say \(A = B\to C\).  The variable \(x\) has to be of type \(B\), and the application \(App\, x\, y\) has to be of type \(C\).  We get a type \(C\) from an application of a term \(t\) to a term \(t'\) when \(t\) has the type \(D \to C\) and \(t'\) has the type \(D\), so we know that \(y\) has type \(D\) and \(x\) has type \(D \to C\).  Unifying with the previous type of \(x\), we find that \(B = D \to C\).  So \(x\) has type \(D \to C\), \(y\) has type \(D\), and the resulting type for the entire term is \((D \to C) \to C\).
 
 Suppose we restrict to the set \(T_1\) of terms with one free variable.  Then given the function \(free:T_1 \to V\) that picks out the free variable and a set \(Y\) of types, then we get a type judgement function \(j:(V \to Y) \to (T_1 \to Y)\) that maps a typing context \(\Gamma: V\to Y\) and a term to the type of the term.  This typing judgement function together with composition defined in terms of application and beta lets us consider terms to be morphisms between types.  Lambek showed that well-typed terms with one free variable modulo the relations alpha, beta, and eta form the free cartesian closed category on the types \(Y\).
 
@@ -49,11 +63,12 @@ In the late 70s and early 80s, Milner and Hoare developed the notion of a "prces
 Like lambda calculus, pi calculus is parametric in a set of channels \(V\) (also known as names or variables).  Pi calculus has the following term constructors:
 \[
 \begin{array}{rll}
-0\maps & 1 \to T & \mbox{do nothing} \\
-|\maps & (T \times T) \to T & \mbox{run concurrently} \\
-\forall n \in \mathbb{N},\;?_n\maps & (V \times (V^n \to T)) \to T & \mbox{wait for input} \\
-\forall n \in \mathbb{N},\;!_n\maps & (V \times V^n) \to T & \mbox{output} \\
-\nu\maps & (V \times T) \to T & \mbox{new channel}\\
-\rho\maps & T \to T & \mbox{replication}
+0\colon & 1 \to T & \mbox{do nothing} \\
+|\colon & (T \times T) \to T & \mbox{run concurrently} \\
+\forall n \in \mathbb{N},\;?_n\colon & (V \times (V^n \to T)) \to T & \mbox{wait for input} \\
+\forall n \in \mathbb{N},\;!_n\colon & (V \times V^n) \to T & \mbox{output} \\
+\nu\colon & (V \times T) \to T & \mbox{new channel}\\
+\rho\colon & T \to T & \mbox{replication}
 \end{array}
 \]
+
