@@ -40,8 +40,20 @@ Suppose we want the most general type for the term \(Lam x App x y\).  We start 
 
 Suppose we restrict to the set \(T_1\) of terms with one free variable.  Then given the function \(free:T_1 \to V\) that picks out the free variable and a set \(Y\) of types, then we get a type judgement function \(j:(V \to Y) \to (T_1 \to Y)\) that maps a typing context \(\Gamma: V\to Y\) and a term to the type of the term.  This typing judgement function together with composition defined in terms of application and beta lets us consider terms to be morphisms between types.  Lambek showed that well-typed terms with one free variable modulo the relations alpha, beta, and eta form the free cartesian closed category on the types \(Y\).
 
+[[Develop lazy lambda calculus]]
+
 Lambda calculus and Turing machines both describe the computation performed by a single machine.  Nowadays, the majority of computation is done over a network.  Information can arrive form multiple sources at random times, and the order in which messages arrive matters: consider two people trying to buy the last ticket to a concert.  To model this kind of computational setup, the reduction relation obviously can't be confluent any more.
 
-In the late 70s and early 80s, Milner and Hoare developed the notion of a "prcess calculus" that explicitly talked about passing messages over "channels", like radio or TV channels.  The terms in the calculus described how to react to various messages.  Both notions of process calculus had a fixed topology: each node in a network had a fixed set of incoming and outgoing channels.  In 1991, Milner published a new calculus called the pi calculus in order to allow for networks with a dynamic topology and to allow for messages to be sent asynchronously, racing to their intended recipient.  In 1992, Milner showed that one can embed lambda calculus into pi calculus, so it's a model for universal computation.
+In the late 70s and early 80s, Milner and Hoare developed the notion of a "prcess calculus" that explicitly talked about passing messages over "channels", like radio or TV channels.  The terms in the calculus described how to react to various messages.  Both notions of process calculus had a fixed topology: each node in a network had a fixed set of incoming and outgoing channels.  In 1989, Milner published a new calculus called the pi calculus in order to allow networks with a dynamic topology and to allow messages to be sent asynchronously, racing to their intended recipient.  In 1990, Milner showed that one can embed lambda calculus into pi calculus, so it's a model for universal computation.
 
-
+Like lambda calculus, pi calculus is parametric in a set of channels \(V\) (also known as names or variables).  Pi calculus has the following term constructors:
+\[
+\begin{array}{rll}
+0\maps & 1 \to T & \mbox{do nothing} \\
+|\maps & (T \times T) \to T & \mbox{run concurrently} \\
+\forall n \in \mathbb{N},\;?_n\maps & (V \times (V^n \to T)) \to T & \mbox{wait for input} \\
+\forall n \in \mathbb{N},\;!_n\maps & (V \times V^n) \to T & \mbox{output} \\
+\nu\maps & (V \times T) \to T & \mbox{new channel}\\
+\rho\maps & T \to T & \mbox{replication}
+\end{array}
+\]
