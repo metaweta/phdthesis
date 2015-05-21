@@ -1,18 +1,10 @@
-Greg Meredith and I have a short paper that's been accepted to HDRA 2015 on modeling pi calculus with 2-categories.  It's a small piece of a much larger project.  To explain what we're doing, I'd like to start with lambda calculus first.
+Greg Meredith and I have a short paper that's been accepted to HDRA 2015 on modeling the asynchronous polyadic pi calculus with 2-categories.  It's a small piece of a much larger project, which I'd like to describe here in a series of posts.
 
-Alonzo Church invented the lambda calculus in 1934 as part of his attack on Hilbert's tenth problem.  It was arguably the first "high-level" programming language.  Turing invented his eponymous machines two years later, also to solve Hilbert's tenth problem, only to discover that Church had beaten him to it; in 1937 he proved that the two approches were equivalent in power.  Since Turing machines were much more "mechanical" than the lambda calculus, the development of computing machines relied far more on Turing's approach, and it was only decades later that people started writing compilers for more friendly programming languages.  I've heard it quipped that "the history of programming languages is the piecemeal rediscovery of the lambda calculus by computer scientists."
+This post will review the first high-level programming language, the "lambda calculus".  [[ Write this part: semantics, domain theory, whatever you end up covering. ]]
 
-John Baez has a set of <a href="http://math.ucr.edu/home/baez/QG.html">lecture notes</a> from <a href="http://math.ucr.edu/home/baez/qg-fall2006/">Fall 2006</a> <a href="http://math.ucr.edu/home/baez/qg-winter2007/">through</a> <a href="http://math.ucr.edu/home/baez/qg-spring2007/">Spring 2007</a> describing Lambek's approach to the category theory of lambda calculus and generalizing it from cartesian closed categories to symmetric monoidal closed categories so it can apply to quantum computation as well.  He and I also have a <a href="http://arxiv.org/abs/0903.0340">paper</a> summarizing the ideas; briefly, certain equivalence classes of terms in the lambda calculus give the morphisms in the free cartesian closed category on a set of types.  In our paper, we take these quivalence classes of programs to be analogous to the quantum processes typically described by string diagrams like Feynman diagrams.
+<h3>The lambda calculus</h3>
 
-The problem with this approach is a mismatch around <i>time</i>: the execution of a computer program happens over time, but in Lambek's approach, we mod out by the very relation (called "beta reduction) that describes a processing step.  Rewrites are morally 2-morphisms.  Various people like <a href="http://www.math.mcgill.ca/rags/WkAdj/LICS.pdf">R. A. G. Seely</a>, <a href="http://math.ucr.edu/home/baez/qg-winter2007/hilken_2lambda_calculus.ps">Barney Hilken</a>, and <a href="https://hal.archives-ouvertes.fr/hal-00540205/file/macy.pdf">Tom Hirschowitz</a> have all contributed to looking at lambda calculus from this perspective.  
-
-Lambda calculus has the property, called <i>confluence</i>, that any two sequences of rewrites of an initial term that reach a final term will reach the same final term.  Confluence means that the order of performing various subcomputations doesn't matter so long as they all finish: in the expression \((2 + 5) * (3 + 6)\) it doesn't matter which addition you do first or whether you distribute the expressions over each other; the answer is the same.  
-
-Modern computation, however, happens over networks, where the relative order of messages arriving matters a great deal: consider two people trying to buy the last ticket to a concert.  Process calculi were developed to model systems where the outcome depends on a race to acquire a resource.  [[Denotational vs operational semantics, full abstraction]]
-
-
-Greg and I look at the "asynchronous polyadic pi calculus".
-
+Alonzo Church invented the lambda calculus as part of his attack on Hilbert's third problem, also known as the <i>Entscheidungsproblem</i>, which asked for an algorithm to solve any mathematical problem.  Church published his proof that no such algorithm exists in 1936.  Turing invented his eponymous machines, also to solve the <i>Entscheidungsproblem</i>, and published his indepentent proof a few months after Church.  When he discovered that Church had beaten him to it, Turing proved in 1937 that the two approches were equivalent in power.  Since Turing machines were much more "mechanical" than the lambda calculus, the development of computing machines relied far more on Turing's approach, and it was only decades later that people started writing compilers for more friendly programming languages.  I've heard it quipped that "the history of programming languages is the piecemeal rediscovery of the lambda calculus by computer scientists."
 
 The lambda calculus consists of a set of "terms" together with some relations on the terms.  The set \(T\) of terms is defined recursively, parametric in a countably infinite set \(V\) of variables.  The base terms are the variables: if \(x\) is an element of \(V\), then \(Var x\) is a term in \(T\).  Next, given any two terms \(t, t' \in T\), we can apply one to the other to get \(App\, t\, t'\).  Finally, we can abstract out a variable from a term: given a variable \(x\) and a term \(t,\) we get a term \(Lam\, x\, t\).  Church denoted this abstraction operation with the Greek letter lambda, giving the calculus its name.
 
@@ -51,22 +43,50 @@ We say a term has a normal form if there's some sequence of beta reductions that
 
 "Running" a program in the lambda calculus is the process of computing the normal form by repeated application of beta reduction, and the normal form itself is the result of the computation.  
 
-Church introduced the notion of types to avoid terms with no normal form---or in programming language parlance, programs that never stop.  Modern programming languages use types to avoid programmer mistakes and encode properties about the program.  The simply-typed lambda calculus starts with a set of base types and takes the closure under the binary operation \(\to\) to get the set of types \(Y\).
+Church introduced the notion of "types" to avoid terms with no normal form---or in programming language parlance, programs that never stop.  Modern programming languages use types to avoid programmer mistakes and encode properties about the program, like proving that secret data is inaccessible outside certain parts of the program.  The "simply-typed" lambda calculus starts with a set of base types and takes the closure under the binary operation \(\to\) to get the set of types \(Y\).  
 
-We can get a set of well-typed terms by using a coalgebra instead of an algebra.  If we start with a term of type \(A\), we can either generate a variable of type \(A\), an application of a term of type \(B \multimap A\) to a term of type \(B\), or the abstraction of a variable of type \(B\) from a term of type \(A\).  The term destructors become functions between variables and terms annotated by types:
+Given types, we can extend the term constructors to take them into account.
 \[
 \begin{array}{rl}
-Var\colon & (T\times A) \to (V\times A)\\
-App\colon & (T\times A) \to (T\times (B \to A)) \times (T\times B)\\
-Lam\colon & (T\times A) \to (V\times B) \times (T\times A)
+Var_A\colon & (V\times A) \to (T\times A)\\
+App_{A,B}\colon & (T\times B\to A) \times (T\times B) \to (T\times A)\\
+Lam_{A,B}\colon & (V\times B) \times (T\times A) \to (T\times A)
 \end{array}
 \]
 
-Suppose we want the most general type for the term \(Lam\, x\, App\, x\, y\).  We start with the type A.  A lambda abstraction must be a type of the form \(B \to C\), so we unify and say \(A = B\to C\).  The variable \(x\) has to be of type \(B\), and the application \(App\, x\, y\) has to be of type \(C\).  We get a type \(C\) from an application of a term \(t\) to a term \(t'\) when \(t\) has the type \(D \to C\) and \(t'\) has the type \(D\), so we know that \(y\) has type \(D\) and \(x\) has type \(D \to C\).  Unifying with the previous type of \(x\), we find that \(B = D \to C\).  So \(x\) has type \(D \to C\), \(y\) has type \(D\), and the resulting type for the entire term is \((D \to C) \to C\).
 
-Suppose we restrict to the set \(T_1\) of terms with one free variable.  Then given the function \(free:T_1 \to V\) that picks out the free variable and a set \(Y\) of types, then we get a type judgement function \(j:(V \to Y) \to (T_1 \to Y)\) that maps a typing context \(\Gamma: V\to Y\) and a term to the type of the term.  This typing judgement function together with composition defined in terms of application and beta lets us consider terms to be morphisms between types.  Lambek showed that well-typed terms with one free variable modulo the relations alpha, beta, and eta form the free cartesian closed category on the types \(Y\).
+
+The Hindley-Milner typing algorithm uses a coalgebra instead of an algebra.  If we start with a term of type \(A\), we can either generate a variable of type \(A\), an application of a term of type \(B \multimap A\) to a term of type \(B\), or the abstraction of a variable of type \(B\) from a term of type \(A\).  The term destructors become functions between sets annotated by types:
+\[
+\begin{array}{rl}
+Var\colon & (T\times A) \to (V\times A)\\
+App_B\colon & (T\times A) \to (T\times (B \to A)) \times (T\times B)\\
+Lam_B\colon & (T\times A) \to (V\times B) \times (T\times A)
+\end{array}
+\]
+
+Suppose we want the most general type for the term \(Lam\, x\, App\, x\, y\).  We start with the type \(A\).  A lambda abstraction must be a type of the form \(B \to C\), so we unify and say \(A = B\to C\).  The variable \(x\), therefore, has to be of type \(B\), and the application \(App\, x\, y\) has to be of type \(C\).  The only way we get a type \(C\) from an application of a term \(t\) to a term \(t'\) is when \(t\) has the type \(D \to C\) and \(t'\) has the type \(D\); in this case, it means that \(x\) has type \(D \to C\) and \(y\) has type \(D\).  Unifying with the previous type of \(x\), we find that \(B = D \to C\).  So \(x\) has type \(D \to C\), \(y\) has type \(D\), and the resulting type for the entire term is \((D \to C) \to C\).
+
+When we take the 
+
+This assignment of types to the variables \(x\) and \(y\) is called a "typing context."  <a href="http://www.cambridge.org/us/academic/subjects/mathematics/logic-categories-and-sets/introduction-higher-order-categorical-logic">Lambek and Scott</a> showed how to treat the types in the typing context as the source of a morphism and the type of the term as the target of the morphism.  Since there's no ordering on the variables, they restricted to the set \(T_1\) of terms with one free variable.  Then given the function \(free:T_1 \to V\) that picks out the free variable and a set \(Y\) of types, we get a type judgement function \(j:(V \to Y) \to (T_1 \to Y)\) that maps a typing context \(\Gamma: V\to Y\) and a term to the type of the term.  This typing judgement function together with composition defined in terms of application and beta lets us consider terms to be morphisms between types.  Lambek and Scott showed that well-typed terms with one free variable modulo the relations alpha, beta, and eta form the free cartesian closed category on the types \(Y\).
+
+
 
 [[Develop lazy lambda calculus]]
+
+[[Denotational vs operational semantics, full abstraction]]
+
+
+----------
+
+Lambda calculus has the property, called <i>confluence</i>, that any two sequences of rewrites of an initial term that reach a final term will reach the same final term.  Confluence means that the order of performing various subcomputations doesn't matter so long as they all finish: in the expression \((2 + 5) * (3 + 6)\) it doesn't matter which addition you do first or whether you distribute the expressions over each other; the answer is the same.  
+
+Modern computation, however, happens over networks, where the relative order of messages arriving matters a great deal: consider two people trying to buy the last ticket to a concert.  Process calculi were developed to model systems where the outcome depends on a race to acquire a resource.  
+
+John Baez has a set of <a href="http://math.ucr.edu/home/baez/QG.html">lecture notes</a> from <a href="http://math.ucr.edu/home/baez/qg-fall2006/">Fall 2006</a> <a href="http://math.ucr.edu/home/baez/qg-winter2007/">through</a> <a href="http://math.ucr.edu/home/baez/qg-spring2007/">Spring 2007</a> describing Lambek's approach to the category theory of lambda calculus and generalizing it from cartesian closed categories to symmetric monoidal closed categories so it can apply to quantum computation as well.  He and I also have a <a href="http://arxiv.org/abs/0903.0340">paper</a> summarizing the ideas.  In our paper, we show how alpha-beta-eta-equivalence classes of programs are analogous to the quantum processes typically described by string diagrams like Feynman diagrams.
+
+One problem with this approach is a mismatch around <i>time</i>: the execution of a computer program happens over time, but in Lambek's approach, we mod out by the very relation (called "beta reduction) that describes a processing step.  Rewrites are morally 2-morphisms.  Various people like <a href="http://www.math.mcgill.ca/rags/WkAdj/LICS.pdf">R. A. G. Seely</a>, <a href="http://math.ucr.edu/home/baez/qg-winter2007/hilken_2lambda_calculus.ps">Barney Hilken</a>, and <a href="https://hal.archives-ouvertes.fr/hal-00540205/file/macy.pdf">Tom Hirschowitz</a> have all contributed to looking at lambda calculus from this perspective.  
 
 Lambda calculus and Turing machines both describe the computation performed by a single machine.  Nowadays, the majority of computation is done over a network.  Information can arrive form multiple sources at random times, and the order in which messages arrive matters: consider two people trying to buy the last ticket to a concert.  To model this kind of computational setup, the reduction relation obviously can't be confluent any more.
 
