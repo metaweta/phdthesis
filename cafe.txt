@@ -1,4 +1,4 @@
-Greg Meredith and I have a short paper that's been accepted to <a href="http://hdra15.gforge.inria.fr/">Higher-Dimensional Rewriting and Applications
+Greg Meredith and I have a <a href="http://arxiv.org/abs/1504.04311">short paper</a> that's been accepted to <a href="http://hdra15.gforge.inria.fr/">Higher-Dimensional Rewriting and Applications
 (HDRA) 2015</a> on modeling the asynchronous polyadic pi calculus with 2-categories.  We avoid domain theory entirely and model the operational semantics directly; full abstraction is almost trivial.  As a nice side-effect, we get a new tool for reasoning about consumption of resources during a computation.  
 
 It's a small piece of a much larger project, which I'd like to describe here in a series of posts.
