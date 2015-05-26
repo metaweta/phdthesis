@@ -452,7 +452,7 @@ We derive an algorithmic analogue of the basic thermodynamic relation
 \[ dE = TdS - PdV + μdN, \]
 where $S$ is the entropy, $T = 1/\beta, P = \gamma/\beta,$ and $\mu = -\delta/\beta$ are algorithmic versions of temperature, pressure, and chemical potential, respectively.  Starting from this relation, we derive analogues of Maxwell's equations and consider thermodynamic cycles like the Carnot cycle or Stoddard cycle.
 
-The halting probability of a universal Turing machine is uncomputable.  However, consider an $N$-bit program $p$ that runs for a long time without stopping---say, $2^{2N}$ steps.  There is a program not much longer than $N$ bits that will run $p$ and, if it ever halts, will output the number of steps $t$ required for $p$ to halt.  This is a short program of length $N + c$ that produces a large number $t$ whose length is greater than $2N$, so $t$ must be nonrandom.  The density of nonrandom numbers near $t$ goes to zero as $t$ goes to infinity, so the density of times at which the program might halt also goes to zero.  By choosing a computable distribution on natural numbers, we turn densities into probabilities: given an $N$-bit program $p$ and a natural number $k,$ we show that we can effectively compute a critical time $t_0$ such that the probability that $p$ halts after running at least $t_0$ steps is less than $2^{-k}.$  Manin \cite{ManinRenorm2} showed that this cutoff was formally equivalent to a high-energy cutoff when renormalizing quantum field theory.
+The halting probability of a universal Turing machine is uncomputable.  However, consider an $N$-bit program $p$ that runs for a long time without stopping---say, $2^{2N}$ steps.  There is a program not much longer than $N$ bits that will run $p$ and, if it ever halts, will output the number of steps $t$ required for $p$ to halt.  This is a short program of length $N + c$ that produces a large number $t$ whose length is greater than $2N$, so $t$ must be nonrandom.  The density of nonrandom numbers near $t$ goes to zero as $t$ goes to infinity, so the density of times at which the program might halt also goes to zero.  By choosing a computably enumerable distribution on natural numbers, we turn densities into probabilities: given an $N$-bit program $p$ and a natural number $k,$ we show that we can effectively compute a critical time $t_0$ such that the probability that $p$ halts after running at least $t_0$ steps is less than $2^{-k}.$  Manin \cite{ManinRenorm2} showed that this cutoff was formally equivalent to a high-energy cutoff when renormalizing quantum field theory.
 
 It is well-known that Wick rotation turns equations describing thermal systems into equations describing quantum systems.  By replacing the energy scale $kT$ in a classical partition function by the imaginary energy $i\hbar/t$, we get a quantum partition function.  Consider a large collection of harmonic oscillators at temperature $T$.  The relative probability of finding any given oscillator with energy $E$ is $\exp(-E/k_B T)$, where $k_B$ is Boltzmann's constant. The average value of an observable $Q$ is, up to a normalizing constant,
 \[ \sum_j Q_j e^{-E_j / (k_B T)}.\]
@@ -496,7 +496,7 @@ Similarly, given a Feynman diagram from a set $P$ of particles to a set $Q$, we 
 \end{center}
 Given any linear transformation from a Hilbert space $P$ to a Hilbert space $Q$, we can use the notion of ``gate teleportation'' \cite{GC} to encode the transformation into a quantum state in $P^* \otimes Q.$  When the function type can be expressed in terms of a dual object and the tensor product, as with Feynman diagrams, the category of cobordisms, or Hilbert spaces, we call the category ``compact closed''.
 
-Feynman diagrams were designed to represent quantum systems interacting.  We assign a Hilbert space of quantum states to each particle such that the pairing and braiding operations are preserved: if we assign the space $U$ to one particle and $V$ to another, then we have to assign $U \otimes V$ to the pair of particles.  We assign a linear transformation to each vertex that tells how the quantum states evolve.  This kind of structure-preserving map is called a ``braided monoidal functor''; every monoidal functor also preserves the dual, so the entire structure of a compact closed category is preserved.
+Feynman diagrams were designed to represent quantum systems interacting.  We assign a Hilbert space of quantum states to each particle such that the pairing and braiding operations are preserved: if we assign the space $U$ to one particle and $V$ to another, then we have to assign $U \otimes V$ to the pair of particles.  We assign a linear transformation to each vertex that tells how the quantum states evolve.  This kind of structure-preserving map is called a ``braided monoidal functor''; every monoidal functor also preserves duals, so the entire structure of a compact closed category is preserved.
 
 We can consider such functors from other compact closed categories into the category Hilb of Hilbert spaces and linear transformations.  For example, we can think of manifolds as modeling empty curved space, and cobordisms as modeling spacetime.  A braided monoidal functor from the category of manifolds and cobordisms to Hilb assigns a Hilbert space of quantum states to space and a linear transformation to spacetime, giving a toy model of quantum gravity.  This toy model does not include matter; it only talks about topological changes in space over time, so the model is called a ``topological quantum field theory''.
 
@@ -512,15 +512,15 @@ If $T$ is the category of finite sets, then we can think of the subset of $C$ co
 
 Compact closed bicategories are interesting to me because they open up at least three areas for future research.  First, Lawvere showed that we can think of categories with products as a kind of programming language.  As a programmer, I can write a Java interface that describes the operations on a monoid (identity element and multiplication) and write tests to check the relations (associativity and unit laws).  This interface, together with the tests, is a presentation of a category with products, called ``the Lawvere theory for monoids''.  Every implementation of the interface describes a functor from the Lawvere theory for monoids into the category Set and vice versa.  The tao of categorification suggests there should be a ``higher Lawvere theory of symmetric monoidal closed categories''; the fact that the currying adjunction between tensor and the internal hom is an isomorphism of profunctors means that this higher theory ought to be a compact closed bicategory and take models in Prof.
 
-Second, Lambek showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation}!  This is only possible because lambda calculus is confluent: it doesn't matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-cells in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-cells for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
+Second, Lambek and Scott showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation}!  This is only possible because lambda calculus is confluent: it doesn't matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-cells in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-cells for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
 
-Finally, this bicategorical approach should also fit better with physics: rewrites are processes that occur over time like particle interactions do.  Extended topological quantum field theories should be compact closed bicategories, so it's not unreasonable to expect a nice quantum interpretation of some kind of linear pi calculus.
+Finally, this bicategorical approach should also fit better with physics: rewrites are processes that occur over time like particle interactions do.  Extended topological quantum field theories should be functors between compact closed bicategories, so it's not unreasonable to expect a nice quantum interpretation of some kind of linear pi calculus.
 
 \part{Algorithmic information theory}
 \chapter{Algorithmic thermodynamics}
 
 
-% This is the abstrct for this chapter, but doesn't say anthing about the larger context. Algorithmic entropy can be seen as a special case of entropy as studied in statistical mechanics.  This viewpoint allows us to apply many techniques developed for use in thermodynamics to the subject of algorithmic information theory.  In particular, suppose we fix a universal prefix-free Turing machine and let $X$ be the set of programs that halt for this machine.  Then we can regard $X$ as a set of `microstates', and treat any function on $X$ as an `observable'.  For any collection of observables, we can study the Gibbs ensemble that maximizes entropy subject to constraints on expected values of these observables.  We illustrate this by taking the log runtime, length, and output of a program as observables analogous to the energy $E$, volume $V$ and number of molecules $N$ in a container of gas.  The conjugate variables of these observables allow us to define quantities which we call the `algorithmic temperature' $T$, `algorithmic pressure' $P$ and `algorithmic potential' $\mu$, since they are analogous to the temperature, pressure and chemical potential.  We derive an analogue of the fundamental thermodynamic relation $d E = TdS - P d V + \mu d N$, and use it to study thermodynamic cycles analogous to those for heat engines.  We also investigate the values of $T, P$ and $\mu$ for which the partition function converges. At some points on the boundary of this domain of convergence, the partition function becomes uncomputable.  Indeed, at these points the partition function itself has nontrivial algorithmic entropy.
+% [[This is the abstrct for this chapter, but doesn't say anthing about the larger context. Algorithmic entropy can be seen as a special case of entropy as studied in statistical mechanics.  This viewpoint allows us to apply many techniques developed for use in thermodynamics to the subject of algorithmic information theory.  In particular, suppose we fix a universal prefix-free Turing machine and let $X$ be the set of programs that halt for this machine.  Then we can regard $X$ as a set of `microstates', and treat any function on $X$ as an `observable'.  For any collection of observables, we can study the Gibbs ensemble that maximizes entropy subject to constraints on expected values of these observables.  We illustrate this by taking the log runtime, length, and output of a program as observables analogous to the energy $E$, volume $V$ and number of molecules $N$ in a container of gas.  The conjugate variables of these observables allow us to define quantities which we call the `algorithmic temperature' $T$, `algorithmic pressure' $P$ and `algorithmic potential' $\mu$, since they are analogous to the temperature, pressure and chemical potential.  We derive an analogue of the fundamental thermodynamic relation $d E = TdS - P d V + \mu d N$, and use it to study thermodynamic cycles analogous to those for heat engines.  We also investigate the values of $T, P$ and $\mu$ for which the partition function converges. At some points on the boundary of this domain of convergence, the partition function becomes uncomputable.  Indeed, at these points the partition function itself has nontrivial algorithmic entropy.]]
 
 \section{Introduction}\label{intro}
 
@@ -552,7 +552,7 @@ We derive an algorithmic analogue of the basic thermodynamic relation
 Here:
 \begin{itemize}
 \item 
-$S$ is the entropy of the Gibbs emsemble,
+$S$ is the entropy of the Gibbs ensemble,
 \item
 $T = 1/\beta$ is the `algorithmic temperature' (analogous to the temperature of a container of gas).  Roughly speaking, this counts how many times you must double the runtime in order to double the number of programs in the ensemble while holding their mean length and output fixed.
 \item
@@ -637,7 +637,7 @@ $c$ such that for each string $x$, there exists a string $y$ with
 Let $U$ be a universal prefix-free Turing machine.  Then we can define some probability measures on $X = \dom(U)$
 as follows.   Let 
 \[  |\cdot | \maps X \to \N \]
-be the function assigning to each bit string its length. Then there is for any constant $\gamma > \ln 2$ a probability measure 
+be the function assigning to each bit string its length. Then there is for any constant $\gamma \ge \ln 2$ a probability measure 
 $p$ given by
 \[   p(x) = \frac{1}{Z} e^{-\gamma |x|}. \]
 Here the normalization constant $Z$ is chosen to make the numbers
@@ -1065,7 +1065,7 @@ So, \textit{in algorithmic thermodynamics, the partition function itself has non
 
 \chapter{Critical time}
 
-The aim of this chapter is to provide a probabilistic, but non-quantum, analysis of the Halting Problem.  Our approach is to have the probability space extend over both space and time and to consider the probability that a random $N$-bit program has halted by a random time. We postulate {\it an a priori computable probability distribution on all possible runtimes} and we prove that given an integer $k>0$, we can effectively compute a time bound $T$ such that the probability that an $N$-bit program will eventually halt given that it has not halted by $T$ is smaller than $2^{-k}$.  
+The aim of this chapter is to provide a probabilistic, but non-quantum, analysis of the Halting Problem.  Our approach is to have the probability space extend over both space and time and to consider the probability that a random $N$-bit program has halted by a random time. We postulate {\it an a priori computably enumerable probability distribution on all possible runtimes} and we prove that given an integer $k>0$, we can effectively compute a time bound $T$ such that the probability that an $N$-bit program will eventually halt given that it has not halted by $T$ is smaller than $2^{-k}$.  
 
 We also show that the set of halting programs (which is computably enumerable, but not computable) can be written as a disjoint union of a computable set and a set of effectively vanishing probability.
 
@@ -1077,7 +1077,7 @@ The Halting Problem for Turing machines is to decide whether an arbitrary Turing
 
 Since many real-world problems arising in the fields of compiler optimisation, automatised software engineering, formal proof systems, and so forth are equivalent to the Halting Problem, there is a strong interest---not merely academic!---in understanding the problem better and in providing alternative solutions.
 
-There are two approaches we can take to calculating the probability that an $N$-bit program will halt.  The first approach, initiated by Chaitin \cite{Chaitin1975},  is to have the probability space range only over programs; this is the approach taken when computing the Omega number, \cite{CDS,Calude}.  In that case, the probability is    $Prob_N = \#\{p \in \Sigma^N \mid p  \mbox{ halts}\}/2^N.$  For a self-delimiting machine, $Prob_N$ goes to zero when $N$ tends to infinity, since it becomes more and more likely that any given $N$-bit string is an extension of a shorter halting program.  For a universal non-self-delimiting Turing machine, the probability is always nonzero for large enough $N$: after some point, the  universal non-self-delimiting Turing machine will simulate a total Turing machine (one that halts on all inputs), so some fixed proportion of the space will always contribute.  The probability in this case is uncomputable, machine-dependent; in general, 1 is the best computable upper bound one can find. In this approach it matters only whether a program halts or not; the time at which a halting program stops is irrelevant.
+There are two approaches we can take to calculating the probability that an $N$-bit program will halt.  The first approach, initiated by Chaitin \cite{Chaitin1975},  is to have the probability space range only over programs; this is the approach taken when computing the Omega number, \cite{CDS,Calude}.  In that case, the probability is $Prob_N = \#\{p \in \{0, 1\}^N \mid p  \mbox{ halts}\}/2^N.$  For a prefix-free machine, $Prob_N$ goes to zero when $N$ tends to infinity, since it becomes more and more likely that any given $N$-bit string is an extension of a shorter halting program.  For a universal non-prefix-free Turing machine, the probability is always nonzero for large enough $N$: after some point, the  universal non-prefix-free Turing machine will simulate a total Turing machine (one that halts on all inputs), so some fixed proportion of the space will always contribute.  The probability in this case is uncomputable, machine-dependent; in general, 1 is the best computable upper bound one can find. In this approach it matters only whether a program halts or not; the time at which a halting program stops is irrelevant.
 
 Our approach is to have the probability space extend over both space and time, and to consider the probability that a random $N$-bit program---which hasn't stopped by some given time---will halt by a random later time.  In this approach, the stopping time of a halting program is paramount. The problem is that there is no uniform distribution on the integers, so we must choose some kind of distribution on times as well.  Any distribution we choose must have that most long times are rare, so in the limit, which distribution we choose doesn't matter very much.
 
@@ -1090,12 +1090,12 @@ Different approaches were proposed by Hamkins and Miasnikov
 
 
 
-Our working hypothesis, crucial for this approach, is to postulate {\it an a priori computable probability distribution on all possible runtimes}. Consequently, the probability space is the product of the space of programs of fixed length (or of all possible lengths), where programs are uniformly distributed, and the time space, which is discrete and has an {\it a priori} computable probability distribution. In this context we show that given an integer $k>0$, we can effectively compute a time bound $T$ such that  the probability on the product space that an $N$-bit program will eventually halt given that it not stopped by $T$ is smaller than
+Our working hypothesis, crucial for this approach, is to postulate {\it an a priori computably enumerable probability distribution on all possible runtimes}. Consequently, the probability space is the product of the space of programs of fixed length (or of all possible lengths), where programs are uniformly distributed, and the time space, which is discrete and has an {\it a priori} computable probability distribution. In this context we show that given an integer $k>0$, we can effectively compute a time bound $T$ such that  the probability on the product space that an $N$-bit program will eventually halt given that it not stopped by $T$ is smaller than
 $2^{-k}$. This phenomenon is similar to the one described for proofs in formal axiomatic systems \cite{CJ}.
 
 We also show that for every integer $k >0$, the set of halting programs (which is computably enumerable, but not computable) can be written as  a disjoint union of a computable set and a set of probability effectively smaller than  $2^{-k}$.
 
-Of course, an important question is to what extent the postulated hypothesis is acceptable or realistic. The next part of the chapter deals with this question offering an argument in favor of the hypothesis.  First we note that for any computable probability distribution most long times are effectively rare, so in the limit they all have the same behavior irrespective of the choice of the distribution. Our second argument is based on the common properties of the times when programs may stop. Our proof consists of three parts: a) the exact time a program stops is algorithmically not too complicated; it is (algorithmically) nonrandom because most  programs either stop `quickly' or never halt, b) an $N$-bit program which hasn't stopped by time $2^{N +\, \mbox{constant }}$ cannot halt at a later random time, c) since nonrandom times are (effectively) rare, the density of times an $N$-bit program can stop vanishes.  
+Of course, an important question is to what extent the postulated hypothesis is acceptable or realistic. The next part of the chapter deals with this question offering an argument in favor of the hypothesis.  First we note that for any computably enumerable probability distribution most long times are effectively rare, so in the limit they all have the same behavior irrespective of the choice of the distribution. Our second argument is based on the common properties of the times when programs may stop. Our proof consists of three parts: a) the exact time a program stops is algorithmically not too complicated; it is (algorithmically) nonrandom because most  programs either stop `quickly' or never halt, b) an $N$-bit program which hasn't stopped by time $2^{N +\, \mbox{constant }}$ cannot halt at a later random time, c) since nonrandom times are (effectively) rare, the density of times an $N$-bit program can stop vanishes.  
 
 
 We will start by examining a particular case in detail, the behavior of all programs of length 3 for a certain Turing machine.  This case study will describe various possibilities of halting/non-halting programs, the difference between a program stopping exactly {\em at} a time and a program stopping {\em by} some time, as well as the corresponding probabilities for each such event.
@@ -1165,7 +1165,7 @@ Here are a few miscellaneous facts we can derive from Table~1:
 \end{itemize}
 
 We can express the above facts in a bit more formal way as follows.  We fix a universal Turing machine $U$ (see section~3 for a definition) 
-and a pair $(N,T)$, where $N$ represents the length of the program and $T$ is the ``time-window'', i.e.\ the interval $\{1,2,\ldots ,T\}$, where the computational time is observed.  The probability space is thus \[\Space_{N,T} = \Sigma^{N} \times \{1,2,\ldots ,T\}.\]
+and a pair $(N,T)$, where $N$ represents the length of the program and $T$ is the ``time-window'', i.e.\ the interval $\{1,2,\ldots ,T\}$, where the computational time is observed.  The probability space is thus \[\Space_{N,T} = \{0, 1\}^{N} \times \{1,2,\ldots ,T\}.\]
 
 Both programs and times are assumed to be {\it uniformly distributed}. For $A \subseteq \Space_{N,T}$ we define  $\Prob_{N,T}(A)$ to be $\#(A)\cdot 2^{-N} \cdot T^{-1}$.
 
@@ -1191,7 +1191,7 @@ $$\Prob_{N,T}(A_{N,T}) = \frac{\#(A_{N,T})}{2^{N} \cdot T} \le \frac{2^{N}}{2^{N
 
 \medskip
 
-\noindent {\bf Comment}. The inequality  $\Prob_{N,T}(B_{N,T}) \le  1$ does not seem to be very informative. However, for all $N$, one can construct a universal Turing machine $U_N$ such that $\Prob_{N,T}(B) = 1;$  $U_{N}$ cannot be self-delimiting (see, for a definition,  section~4).  There is no universal Turing machine  $U$ such that $\Prob_{N,T}(B) = 1, $ for all $N$, so  can we do better than stated in Fact~\ref{prel}?
+\noindent {\bf Comment}. The inequality  $\Prob_{N,T}(B_{N,T}) \le  1$ does not seem to be very informative. However, for all $N$, one can construct a universal Turing machine $U_N$ such that $\Prob_{N,T}(B) = 1;$  $U_{N}$ cannot be prefix-free (see, for a definition,  section~4).  There is no universal Turing machine  $U$ such that $\Prob_{N,T}(B) = 1, $ for all $N$, so  can we do better than stated in Fact~\ref{prel}?
 
 
 More precisely, we are interested in the following problem: 
@@ -1205,7 +1205,7 @@ Can we overcome this serious difficulty?
 \if01
 \medskip
 
-If $U$ is a self-delimiting universal Turing machine, then
+If $U$ is a prefix-free universal Turing machine, then
 
 \[\Omega_{U} = \sum_{N\ge 1} \#\{ p \mid |p|=N, U(p) \mbox{  halts}\}\cdot 2^{-N},\]
 
@@ -1217,7 +1217,7 @@ I suspect we can prove that this limit is {\it not constructive}.
 
 \medskip
 
-Claim 4:   If $U$ is a self-delimiting universal Turing machine, then $$\lim_{N \rightarrow \infty}\Prob_{N,T}(B) \le \lim_{N \rightarrow \infty}
+Claim 4:   If $U$ is a prefix-free universal Turing machine, then $$\lim_{N \rightarrow \infty}\Prob_{N,T}(B) \le \lim_{N \rightarrow \infty}
 \frac{ \#\{ p \mid |p|=N, U(p) \mbox{  halts}\}\ \cdot T}{2^{N} \cdot T} =0.$$
 
 
@@ -1231,7 +1231,7 @@ Claim 4 doesn't talk about asymptotic behavior in time, but rather in program le
 
 \section{Notation}
 
-All strings are binary and the set of strings is denoted by $\Sigma^{*}$.  The length of the string $x$ is denoted by $|x|$. The logarithms are binary too.  Let $\NN = \{1,2,\ldots\}$ and let $\bin:\NN \rightarrow \Sigma^*$ be the computable bijection which associates to every $n\ge 1$ its binary expansion without the leading 1,  
+All strings are binary and the set of strings is denoted by $\{0, 1\}^{*}$.  The length of the string $x$ is denoted by $|x|$. The logarithms are binary too.  Let $\NN = \{1,2,\ldots\}$ and let $\bin:\NN \rightarrow \{0, 1\}^*$ be the computable bijection which associates to every $n\ge 1$ its binary expansion without the leading 1,  
 \ctr{\begin{tabular}{r|c|c|c}
 $n$&$n_2$&$\bin(n)$& $|\bin(n)|$\\
 \hline
@@ -1243,26 +1243,26 @@ $\vdots$&$\vdots$&$\vdots$&$\vdots$
 \end{tabular}}
 
 
-We will work with  Turing machines $M$  which process  strings into  strings. The domain of $M$, $\dom (M)$, is the set of strings on which $M$ halts (is defined).  The  {\it natural complexity} \cite{CSNatural2006} of the string $x\in\Sigma^*$ (with respect to $M$) is $\nabla_M(x) = \min\{n\ge 1 \mid M({\rm bin}(n))=x\}$.  The Invariance Theorem \cite{Calude} has the following form: we can effectively construct a machine $U$ (called {\em universal}) such that for every  machine $M$, there is a constant $\varepsilon>0$ (depending on $U$ and $M$) such that $\nabla_U (x) \leq \varepsilon \cdot \nabla_M (x)$, for all strings $x$. For example, if $U(0^{i}1x) = M_{i}(x)$ (where $(M_{i})$ is an effective enumeration of all Turing machines), then $\nabla_{U}(x) \le (2^{i+1}+1)\cdot \nabla_{M_{i}}(x)$, because $0^{i}1\bin(m) = \bin (2^{i+1 +\lfloor \log (m)\rfloor}+m)$, for all $m\ge 1$. In what follows we will fix a universal Turing machine $U$ and we will write $\nabla$ instead of $\nabla_{U}$. There are some advantages in working with the complexity $\nabla$ instead of the classical complexity $K$ (see \cite{Calude});  for example, for every $N>0$, the inequality $\#\{x\in \Sigma^{*}\,:\, \nabla (x) <N\}\le N$ is  obvious; a better example appears in \cite{cs0} where $\nabla$ is a more natural measure to investigate the relation between incompleteness and uncertainty.
+We will work with  Turing machines $M$  which process  strings into  strings. The domain of $M$, $\dom (M)$, is the set of strings on which $M$ halts (is defined).  The  {\it natural complexity} \cite{CSNatural2006} of the string $x\in\{0, 1\}^*$ (with respect to $M$) is $\nabla_M(x) = \min\{n\ge 1 \mid M({\rm bin}(n))=x\}$.  The Invariance Theorem \cite{Calude} has the following form: we can effectively construct a machine $U$ (called {\em universal}) such that for every  machine $M$, there is a constant $\varepsilon>0$ (depending on $U$ and $M$) such that $\nabla_U (x) \leq \varepsilon \cdot \nabla_M (x)$, for all strings $x$. For example, if $U(0^{i}1x) = M_{i}(x)$ (where $(M_{i})$ is an effective enumeration of all Turing machines), then $\nabla_{U}(x) \le (2^{i+1}+1)\cdot \nabla_{M_{i}}(x)$, because $0^{i}1\bin(m) = \bin (2^{i+1 +\lfloor \log (m)\rfloor}+m)$, for all $m\ge 1$. In what follows we will fix a universal Turing machine $U$ and we will write $\nabla$ instead of $\nabla_{U}$. There are some advantages in working with the complexity $\nabla$ instead of the classical complexity $K$ (see \cite{Calude});  for example, for every $N>0$, the inequality $\#\{x\in \{0, 1\}^{*}\,:\, \nabla (x) <N\}\le N$ is  obvious; a better example appears in \cite{cs0} where $\nabla$ is a more natural measure to investigate the relation between incompleteness and uncertainty.
  
  %Note that if $K_{T}(x) =  \min\{ |y| \mid T(y)=x\},$ then $K_{T}(x) = 
  % \lfloor \nabla_{T}(x) \rfloor$.
 
-\section{Halting according to a computable time distribution}
+\section{Halting according to a computably enumerable time distribution}
 
 \if01 
 We start by observing the physical context for the scenario investigated here.  The running of $U(p)$ is supposed to be done in some physical universe which determines the ``local runtime''; the observer, possibly in another physical universe, has its own ``time'' and ``time probability distribution''.  For example, $U$ may run on a satellite revolving around the Earth and the observer could be located somewhere in New Zealand.\footnote{There may or may not be a clear relation between the machine runtime and observer's time. }
 \fi
 
-We postulate {\it an a priori computable probability distribution on all possible runtimes}. Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an {\it a priori} computable probability distribution. 
+We postulate {\it an a priori computably enumerable probability distribution on all possible runtimes}. Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an {\it a priori} computably enumerable probability distribution. 
 
-In what follows we randomly choose a time $i$  from according to a  probability distribution $\rho(i)$ which effectively converges to 1, that is, there exists a computable function $B$ such that for every $n\ge B(k)$, $$|1-\sum_{i=1}^{n}\rho(i)|< 2^{-k}.$$  
+In what follows we randomly choose a time $i$ according to a probability distribution $\rho(i)$ which effectively converges to 1; that is, there exists a computable function $B$ such that for every $n\ge B(k)$, $$|1-\sum_{i=1}^{n}\rho(i)|< 2^{-k}.$$  
 
 How long does it take for an $N$-bit program $p$ to run without halting on $U$ to conclude that the probability that $U(p)$ eventually stops is less than $2^{-k}$?
  
 It is not difficult to see that the probability that an $N$-bit program which hasn't stopped on $U$ by time $t_{k}$ (which can be effectively computed) will eventually halt is not larger than $\sum_{i\ge t_{k}} \rho(i)$, which effectively converges to 0, that is, there is a computable function $b(k)$ such that for $n\ge b(k)$, $\sum_{i\ge n} \rho(i) < 2^{-k}$.
    
-The probability distribution $\rho(i)$ may or may not be related to the computational runtime of a program for $U$. Here is an example of a probability distribution which effectively converges  to 1 and relates the observer time to the computational runtime. This probability distribution is reminiscent of Chaitin's halting probability \cite{Calude}, but in contrast, is {\it computable}.
+The probability distribution $\rho(i)$ may or may not be related to the computational runtime of a program for $U$. Here is an example of a probability distribution which effectively converges to 1 and relates the observer time to the computational runtime. This probability distribution is reminiscent of Chaitin's halting probability \cite{Calude}.
 
 The idea is to define the distribution at moment $i$ to be $2^{-i}$ divided by the exact time it takes $U(\bin(i))$ to halt, or to be 0 if $U(\bin(i))$ does not halt.  Recall that $t_{p}$ is the exact time $U(p)$ halts (or $t_{p}=\infty$ when $U(p)$ does not halt). 
 
@@ -1278,7 +1278,7 @@ So,  $\Upsilon_{U}$  induces a natural probability distribution on the runtime: 
 \end{equation}
 
 The probability space is 
-\[\Space_{N, \{\rho(i)\}} = \Sigma^{N} \times \{1,2,\ldots \},\]
+\[\Space_{N, \{\rho(i)\}} = \{0, 1\}^{N} \times \{1,2,\ldots \},\]
 \noindent where $N$-bit programs are assumed to be uniformly distributed, and we choose at random a runtime from distribution (\ref{timed}).
 
 \medskip
@@ -1297,8 +1297,8 @@ for $T> k - \lfloor \log \Upsilon_{U} \rfloor$. The bound is computable because 
 
 
 We now consider the probability space to be 
-\[\Space_{\{\rho(i)\}} = \Sigma^{*} \times \{1,2,\ldots \},\]
-\noindent where $N$-bit programs  are assumed to be uniformly distributed, and the runtime is chosen at random from the computable probability distribution  $\{\rho(i)\}$. 
+\[\Space_{\{\rho(i)\}} = \{0, 1\}^{*} \times \{1,2,\ldots \},\]
+\noindent where $N$-bit programs  are assumed to be uniformly distributed, and the runtime is chosen at random from the computably enumerable probability distribution  $\{\rho(i)\}$. 
 
 \medskip
 
@@ -1321,14 +1321,11 @@ Assume that $U$ and $\Space_{\{\rho(i)\}}$ have been fixed.  For every integer $
 
 The common wisdom says that it is possible to write short programs which stop after a very long time. However, it is less obvious that there are only a few such programs; these programs are ``exceptions''. 
 
-Working with self-delimiting Turing machines, Chaitin \cite{busy} has given the following estimation of the complexity\footnote{Chaitin used  program-size complexity.} of the runtime of a program which eventually halts: there is a constant $c$ such that if $U(\bin(i))$ halts in time $t$, then 
+Working with prefix-free Turing machines, Chaitin \cite{busy} has given the following estimation of the complexity\footnote{Chaitin used  program-size complexity.} of the runtime of a program which eventually halts: there is a constant $c$ such that if $U(\bin(i))$ first halts in time $t$\footnote{Of course, if $U(\bin(i))$ halts in time $t$, it stops also in time $t'>t$, but only finitely many $t'$  satisfy the inequality (\ref{chaitin-ineqR}). For the reader more familiar with the program-size complexity $H$---with repsect to a universal prefix-free Turing machine \cite{Calude}---the inequality (\ref{chaitin-ineqR}) corresponds to $H(\bin(t)) \le |\bin(i)| +c$.}, then 
 \begin{equation}
 \label{chaitin-ineqR}\nabla (\bin (t)) \le 2^{|\fbin(i)|}\cdot c \le i\cdot c.
 \end{equation} 
-Here $t$ is the first time $U(\bin(i))$ halts.\footnote{Of course, if $U(\bin(i))$ halts in time $t$, it stops also in time $t'>t$, but only finitely many $t'$  satisfy the inequality (\ref{chaitin-ineqR}). For the reader more familiar with the program-size complexity $H$---with repsect to a universal self-delimiting Turing machine \cite{Calude}---the inequality (\ref{chaitin-ineqR}) corresponds to $H(\bin(t)) \le |\bin(i)| +c$.}   The above relation puts a limit on the {\it complexity}
-of the time $t$ 
- a program $\bin(i)$, that eventually halts on $U$, has to run before it stops; this translates into a  limit on the  time  $t$
-because only finitely many strings have complexity bounded by a constant.  In view of (\ref{chaitin-ineqR}), {\it the bound depends only upon the  length of the program}; the program itself (i.e. $\bin(i)$) does not matter.
+The above relation puts a limit on the {\it complexity} of the time $t$ a program $\bin(i)$, that eventually halts on $U$, has to run before it stops; this translates into a  limit on the  time  $t$ because only finitely many strings have complexity bounded by a constant.  In view of (\ref{chaitin-ineqR}), {\it the bound depends only upon the  length of the program}; the program itself (i.e. $\bin(i)$) does not matter.
 
 
 Because $\lim_{t\rightarrow \infty}\nabla (\bin(t)) = \infty$, there are only finitely many integers $t$ satisfying the inequality (\ref{chaitin-ineqR}). That is, there exists a critical value $T_{\footnotesize critical}$ (depending upon $U$ and  $|\bin(i)|$) such that if for each $t < T_{\footnotesize critical}$, $U(\bin(i))$ does not stop in time $t$, then $U(\bin(i))$ never halts. In other words, 
@@ -1393,7 +1390,7 @@ $2^{2N+2c+1}$ has effectively vanishing to zero chances to stop a later time
 
 \medskip 
 
-A binary string $x$ is ``algorithmically random'' if $\nabla (x) \ge  2^{|x|}/|x|$. Most binary strings of a given length $n$ are  algorithmically random because they have high density:  $\#\{ x \in \Sigma^{*} \,:\, |x|=n, \nabla (x) \ge 2^{n}/n\}\cdot 2^{-n} \ge 1 - 1/n$ which tends to 1 when $n \rightarrow \infty$.\footnote{In the language of program-size complexity, $x$ is ``algorithmically random'' if $H(x) \ge |x| - \log (|x|)$.}
+A binary string $x$ is ``algorithmically random'' if $\nabla (x) \ge  2^{|x|}/|x|$. Most binary strings of a given length $n$ are  algorithmically random because they have high density:  $\#\{ x \in \{0, 1\}^{*} \,:\, |x|=n, \nabla (x) \ge 2^{n}/n\}\cdot 2^{-n} \ge 1 - 1/n$ which tends to 1 when $n \rightarrow \infty$.\footnote{In the language of program-size complexity, $x$ is ``algorithmically random'' if $H(x) \ge |x| - \log (|x|)$.}
 
 A time $t$ will be called ``algorithmically random'' if $\bin (t)$ is algorithmically random. 
 
@@ -1496,11 +1493,11 @@ The set of exponential stopping times has effective zero density.
    
 \section{Halting probabilities for different universal machines}
 
-In this section we show a significant difference between the halting probability of a program of a given length for a universal Turing machine and for a universal self-delimiting  Turing machine: in the first case the probability is always positive, while in the second case the probability tends to zero when the length tends to infinity.
+In this section we show a significant difference between the halting probability of a program of a given length for a universal Turing machine and for a universal prefix-free  Turing machine: in the first case the probability is always positive, while in the second case the probability tends to zero when the length tends to infinity.
 
 \medskip
 
-The probability that an arbitrary string of length $N$ belongs to $A \subset \Sigma^{*}$ is $\Prob_{N}(A) = \#(A\cap \Sigma^{N})\cdot 2^{-N}$, where $ \Sigma^{N}$ is the set of $N$-bit strings. 
+The probability that an arbitrary string of length $N$ belongs to $A \subset \{0, 1\}^{*}$ is $\Prob_{N}(A) = \#(A\cap \{0, 1\}^{N})\cdot 2^{-N}$, where $ \{0, 1\}^{N}$ is the set of $N$-bit strings. 
 
 If $U$ is a universal Turing machine, then the probability that an $N$-bit program $p$ halts on $U$ is  $\Prob_{N}(\dom (U))$. 
 
@@ -1509,7 +1506,7 @@ If $U$ is a universal Turing machine, then the probability that an $N$-bit progr
 \begin{fact} 
 Let $U$ be a universal Turing machine. Then, $\lim_{N \rightarrow \infty} \Prob_{N}(\dom (U)) >0$. 
 \end{fact}
-\myproof We consider the universal Turing machine $U(0^{i}x) = T_{i}(x)$, described in section~3.   If $N$ is sufficiently large, then there exists an $i <N$ such that $T_{i}$ is a total function, i.e. $T_{i}$  is defined on each input, so  $\#(\dom (U) \cap \Sigma^{N}) \ge 2^{N-i-1}$. For all  such  $N$'s, $\Prob_{N}(\dom (U)) \ge 2^{-i-1}>0$.  The result extends to any universal Turing machine because of universality.
+\myproof We consider the universal Turing machine $U(0^{i}x) = T_{i}(x)$, described in section~3.   If $N$ is sufficiently large, then there exists an $i <N$ such that $T_{i}$ is a total function, i.e. $T_{i}$  is defined on each input, so  $\#(\dom (U) \cap \{0, 1\}^{N}) \ge 2^{N-i-1}$. For all  such  $N$'s, $\Prob_{N}(\dom (U)) \ge 2^{-i-1}>0$.  The result extends to any universal Turing machine because of universality.
 
 \QED
 
@@ -1526,12 +1523,12 @@ Let $V$ be a convergent machine. Then, $\lim_{N \rightarrow \infty} \Prob_{N}(\d
 
 \medskip
 
-Recall that a self-delimiting  Turing machine  $V$ is a machine with a prefix-free domain. For such a machine, $\Omega_{V} < 1$, hence we have:
+Recall that a prefix-free  Turing machine  $V$ is a machine with a prefix-free domain. For such a machine, $\Omega_{V} < 1$, hence we have:
 
 \medskip
 
 \begin{cor} 
-Let $V$ be a universal self-delimiting Turing machine.  Then $\lim_{N \rightarrow \infty} \Prob_{N}(\dom (V)) =0$. 
+Let $V$ be a universal prefix-free Turing machine.  Then $\lim_{N \rightarrow \infty} \Prob_{N}(\dom (V)) =0$. 
 \end{cor}
 
 \medskip
@@ -1540,7 +1537,7 @@ The probability that an $N$-bit program never stops on a convergent Turing machi
       
 \section{Final comments}
 
-We studied the halting probability using a new approach, namely we considered the probability space extend over both space and time, and the probability that a random $N$-bit program will halt by a random later time given that it hasn't stopped by some threshhold time.  We postulated {\it an a priori computable probability distribution on all possible runtimes}.  Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an a priori computable probability distribution.   We proved  that given an integer $k>0$, we can effectively compute  a time bound $T$ such that  the probability that an $N$-bit program will eventually halt, given that it has not stopped by time $T$, is smaller than $2^{-k}$.  
+We studied the halting probability using a new approach, namely we considered the probability space extend over both space and time, and the probability that a random $N$-bit program will halt by a random later time given that it hasn't stopped by some threshhold time.  We postulated {\it an a priori computably enumerable probability distribution on all possible runtimes}.  Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an a priori computable probability distribution.   We proved  that given an integer $k>0$, we can effectively compute  a time bound $T$ such that  the probability that an $N$-bit program will eventually halt, given that it has not stopped by time $T$, is smaller than $2^{-k}$.  
 
 We also proved that  the set of halting programs (which is computably enumerable, but not computable) can be written as  a disjoint union of a computable set and a set of probability effectively smaller than any fixed bound.
 
@@ -1607,7 +1604,7 @@ the more purely mathematical discipline of `topological quantum field theory'.
 Meanwhile, quite separately, logicians had begun using categories where the objects represent \emph{propositions} and the morphisms represent \emph{proofs}.  The idea is that a proof is a process going from one proposition (the hypothesis) to another (the conclusion). Later, computer scientists started using categories where the objects represent \emph{data types} and the morphisms represent 
 \emph{programs}.   They also started using `flow charts' to describe programs.  Abstractly, these are very much like Feynman diagrams!
 
-The logicians and computer scientists were never very far from each other.  Indeed, the `Curry--Howard correspondence' relating proofs to programs has been well-known at least since the early 1970s, with roots stretching back earlier \cite{Curry,Howard}.  But, it is only in the 1990s that the logicians and computer scientists bumped into the physicists and topologists.  One reason is the rise of interest in quantum cryptography and quantum computation \cite{ChuangNielsen}. With this, people began to think of quantum processes as forms of information processing, and apply ideas from computer science. It was then realized that the loose analogy between flow charts and Feynman diagrams could be made more precise and powerful with the aid of category theory \cite{AC}.
+The logicians and computer scientists were never very far from each other.  Indeed, the `Curry--Howard correspondence' relating proofs to programs has been well-known at least since the early 1970s, with roots stretching back earlier \cite{Curry,Howard}.  But, it is only in the 1990s that the logicians and computer scientists bumped into the physicists and topologists.  One reason is the rise of interest in quantum cryptography and quantum computation \cite{ChuangNielsen}. With this, people began to think of quantum processes as forms of information processing and to apply ideas from computer science. It was then realized that the loose analogy between flow charts and Feynman diagrams could be made more precise and powerful with the aid of category theory \cite{AC}.
 
 By now there is an extensive network of interlocking analogies between physics, topology, logic and computer science.   They suggest that research in the area of common overlap is actually trying to build a new science: {\it a general science of systems and processes}. Building this science will be very difficult. There are good reasons for this, but also bad ones.  One bad reason is that different fields use different terminology and notation.
 
@@ -1644,7 +1641,7 @@ Our treatment of all four subjects --- physics, topology, logic and computation 
 \section{The Analogy Between Physics and Topology}
 \label{physics_topology}
 
-\section{Background}
+\subsection{Background}
 \label{ptbackground}
 
 Currently our best theories of physics are general relativity and the Standard Model of particle physics.  The first describes gravity without taking quantum theory into account; the second describes all the other forces taking quantum theory into account, but ignores gravity.  So, our world-view is deeply schizophrenic. The field where physicists struggle to solve this problem is called {\em quantum gravity}, since it is widely believed that the solution requires treating gravity in a way that takes quantum theory into account.
@@ -1700,7 +1697,7 @@ To help the reader safely navigate the sea of jargon, here is a chart of the con
 \vskip 1em
 \noindent The category $\Set$ is cartesian closed, while $\Hilb$ and $n\Cob$ are compact symmetric monoidal.
 
-\section{Categories}
+\subsection{Categories}
 \label{categories}
 
 Category theory was born around 1945, with Eilenberg and Mac Lane
@@ -1961,7 +1958,7 @@ satisfying
 \[  A F(g) = F'(g) A \]
 for all group elements $g$. 
 
-\section{Monoidal Categories}
+\subsection{Monoidal Categories}
 \label{monoidal}
 
 In physics, it is often useful to think of two systems sitting side by side as forming a single system.  In topology, the disjoint union of two manifolds is again a manifold in its own right.  In logic, the conjunction of two statement is again a statement.  In programming we can combine two data types into a single `product type'. The concept of `monoidal category' unifies all these examples in a single framework.
@@ -2438,7 +2435,7 @@ is built by combining states of the systems $X$ and $X'$. Bell's theorem \cite{J
 
 Also, in quantum theory we {\it cannot} freely duplicate or delete information.  Wootters and Zurek \cite{WZ} proved a precise theorem to this effect, focused on duplication: the `no-cloning theorem'.  One can also prove a `no-deletion theorem'.  Again, these results rely on the noncartesian tensor product in $\Hilb$.
 
-\section{Braided Monoidal Categories}
+\subsection{Braided Monoidal Categories}
 \label{braided}
 
 In physics, there is often a process that lets us `switch' two systems by moving them around each other.  In topology, there is a tangle that describes the process of switching two points:
@@ -2728,7 +2725,7 @@ $
 
 The example of $\Tang_k$ illustrates an important pattern.  $\Tang_0$ is just a category, because in 0-dimensional space we can only do processes in `series': that is, compose morphisms.  $\Tang_1$ is a monoidal category, because in 1-dimensional space we can also do processes in `parallel': that is, tensor morphisms.  $\Tang_2$ is a braided monoidal category, because in 2-dimensional space there is room to move one object around another.  Next we shall see what happens when space has 3 or more dimensions!
 
-\section{Symmetric Monoidal Categories}
+\subsection{Symmetric Monoidal Categories}
 \label{symmetric}
 
 Sometimes switching two objects and switching them again is the same as doing nothing at all.  Indeed, this situation is very familiar. So, the first braided monoidal categories to be discovered were
@@ -2828,7 +2825,7 @@ $\mathbf{\mathit k = 6}$  &`'         &`'          & `'               \\
 \end{center}
 \end{table}
 
-\section{Closed Categories}
+\subsection{Closed Categories}
 \label{closed}
 
 In quantum mechanics, one can encode a linear operator $f \maps X \to Y$ into a quantum state using a technique called `gate teleportation'
@@ -2860,7 +2857,7 @@ and
 \item functions $\tilde{f}$ that eat elements of $Y$ and spit out functions from $X$ to $Z$.
 \end{itemize}
 This correspondence goes as follows:
-\[          \tilde{f}(x)(y) = f(x,y)  .\]
+\[          \tilde{f}(y)(x) = f(x,y)  .\]
 
 Before considering other examples, we should make the definition of `closed monoidal category' completely precise.  For this we must note that for any category $C$, there is a functor
 \[            \hom \maps C^{\op} \times C \to \Set  .\]
@@ -3353,9 +3350,9 @@ In our rapid introduction to string diagrams, we have not had time to illustrate
 \item Representations of Lie groups play a fundamental role in quantum physics, especially gauge field theory. Every Lie group has a compact symmetric monoidal category of finite-dimensional representations.  In his book
 {\sl Group Theory}, Cvitanovic \cite{Cvitanovic} develops detailed string diagram descriptions of these representation categories for the classical Lie groups 
 $\mathrm{SU}(n)$, $\mathrm{SO}(n)$, $\mathrm{SU}(n)$ and also the more exotic `exceptional' Lie groups. His book also illustrates how this technology can be used to simplify difficult calculations in gauge field theory.
-\item Quantum groups are a generalization of groups which show up in 2d and 3d physics.  The big difference is that a quantum group has compact {\em braided} monoidal category of finite-dimensional representations.  Kauffman's {\sl Knots and Physics} \cite{Kauffman} 
+\item Quantum groups are a generalization of groups which show up in 2d and 3d physics.  The big difference is that a quantum group has a compact {\em braided} monoidal category of finite-dimensional representations.  Kauffman's {\sl Knots and Physics} \cite{Kauffman} 
 is an excellent introduction to how quantum groups show up in knot theory and physics; it is packed with string diagrams. For more details on quantum groups and braided monoidal categories, see the book by Kassel \cite{Kassel}.
-\item Kauffman and Lins \cite{KaufmanLins} have written a beautiful string diagram treatment of the category of representations of the simplest quantum group, $SU_q(2)$.  They also use it to construct some famous 
+\item Kauffman and Lins \cite{KaufmanLins} have written a beautiful string diagram treatment of the category of representations of the simplest quantum group, $\mbox{SU}_q(2)$.  They also use it to construct some famous 
 3-manifold invariants associated to 3d and 4d topological quantum field theories: the Witten--Reshetikhin--Turaev, Turaev--Viro and Crane--Yetter invariants.  In this example, string diagrams are often called 
 `$q$-deformed spin networks' \cite{Smolin}.  For generalizations to other quantum groups, see the more advanced texts by Turaev 
 \cite{Turaev} and by Bakalov and Kirillov \cite{BK}. The key ingredient is a special class of compact braided monoidal categories called `modular tensor categories'.
@@ -3364,7 +3361,7 @@ is an excellent introduction to how quantum groups show up in knot theory and ph
 `Kindergarten quantum mechanics' \cite{Coecke2}.
 \end{itemize}
 
-\section{Dagger Categories}
+\subsection{Dagger Categories}
 \label{dagger}
 
 Our discussion would be sadly incomplete without an important admission: {\it nothing we have done so far with Hilbert spaces used the inner product!}   So, we have not yet touched on the essence of quantum theory.
@@ -3427,7 +3424,7 @@ In all the dagger categories above, the dagger structure interacts in a nice way
 \label{logic}
 \EnableBpAbbreviations 
 
-\section{Background}
+\subsection{Background}
 \label{logic_overview}
 
 Symmetric monoidal closed categories show up not only in physics and topology, but also in logic.  We would like to explain how. To set the stage, it seems worthwhile to sketch a few ideas from
@@ -3564,15 +3561,15 @@ nor $I$.  So, we cannot freely `duplicate' and `delete' propositions using these
 
 By itself, this might seem unbearably restrictive.  However, Girard 
 {\it also} kept the connectives $\wedge$, $\Rightarrow$ and $\top$ in his system, still satisfying the usual rules.  And, he introduced an operation called the `exponential', $!$, which takes a proposition $X$ 
-and turns it into an `arbitrary stock of copies of $X$'.  So, for example, from $!X$ we can prove $1$, and $X$, and $X \tensor X$, and 
+and turns it into an `arbitrary stock of copies of $X$'.  So, for example, from $!X$ we can prove $I$, and $X$, and $X \tensor X$, and 
 $X \tensor X \tensor X$, and so on.  
 
 Full-fledged linear logic has even more connectives than we have described here.  It seems baroque and peculiar at first glance.   It also comes in both classical and intuitionistic versions!  But, {\it just as classical logic can be embedded in intuitionistic logic, intuitionistic logic can be embedded in intuitionistic linear logic} \cite{Girard1}.  So, we do not lose any deductive power.  Instead, we gain the ability to make even more fine-grained distinctions.
 
 In what follows, we discuss the fragment of intuitionistic linear logic involving only $\tensor, \lhom$ and $I$.  This is called
-`multiplicative intuititionistic linear logic' \cite{Hasegawa,Schalk}. It turns out to be the system of logic suitable for closed symmetric monoidal categories --- nothing more or less.
+`multiplicative intuitionistic linear logic' \cite{Hasegawa,Schalk}. It turns out to be the system of logic suitable for closed symmetric monoidal categories --- nothing more or less.
 
-\section{Proofs as Morphisms}
+\subsection{Proofs as Morphisms}
 \label{proof_theory}
 
 In Section \ref{physics_topology} we described categories with various amounts of extra structure, starting from categories pure and simple, and working our way up to monoidal categories, braided monoidal categories, symmetric monoidal categories, and so on.  Our treatment only scratched the surface of an enormously rich taxonomy.  In fact, each kind of category with extra structure corresponds to a system of logic with its own inference rules!
@@ -3691,6 +3688,7 @@ The deduction leading to this will not even fit on the page unless we use our ab
 \AXC{}
 \RightLabel{\scriptsize (ev)}
 \UIC{$Y \tensor (Y \lhom Z) \lHom Z$}
+\RightLabel{\scriptsize ($\circ$)}
 \BIC{$(X \tensor (X \lhom Y)) \tensor (Y \lhom Z) \lHom Z$}
 \RightLabel{\scriptsize ($\alpha^{-1}$)}
 \UIC{$X \tensor ((X \lhom Y) \tensor (Y \lhom Z)) \lHom Z$}
@@ -3755,11 +3753,11 @@ Then the currying rule holds:
 \noindent Most chemists don't think about antimatter very often
 --- but particle physicists do.  They don't use the notation of linear logic or category theory, but they know perfectly well that since a neutrino and a neutron can collide and turn into a proton and an electron:
 \[   \nu \tensor n \lHom p \tensor e , \]
-then a neutron can turn into a antineutrino together with a proton and an electron:
+then a neutron can turn into an antineutrino together with a proton and an electron:
 \[   n \lHom \nu^* \tensor (p \tensor e) . \]
 This is an instance of the currying rule, rule (c).
 
-\section{Logical Theories from Categories}
+\subsection{Logical Theories from Categories}
 \label{theories}
 
 We have sketched how different systems of logic naturally arise from different types of categories.  To illustrate this idea, we introduced a system of logic with inference rules coming from ways to get new morphisms from old in a {\it closed symmetric monoidal category}.  One could substitute many other types of categories here, and get other systems of logic.  
@@ -4071,7 +4069,7 @@ ${f\maps W\to Y,}$ ${g\maps X\to W,}$ ${h\maps Y\to Z.}$
 \section{Computation}
 \label{computation}
 
-\section{Background}
+\subsection{Background}
 \label{computation_overview}
 
 In the 1930s, while Turing was developing what are now called `Turing machines' as a model for computation, Church and his student Kleene were developing a different model, called the `lambda calculus'
@@ -4247,7 +4245,7 @@ Various versions of `quantum' or `linear' lambda calculus have already been stud
 \cite{SV}.  Abramsky and Tzevelekos sketch a version in their paper in this volume \cite{AT}.  We instead explain the `linear type theories'
 developed by Simon Ambler in his 1991 thesis \cite{Ambler}.
 
-\section{The Typed Lambda Calculus}
+\subsection{The Typed Lambda Calculus}
 \label{lambda}
 
 Like the original `untyped' lambda calculus explained above, the typed lambda calculus uses terms to represent both programs and data. However, now every term has a specific type.  A program that inputs data of type $X$ and outputs data of type $Y$ is said to be of type $X
@@ -4298,7 +4296,7 @@ Given types $X$ and $Y$, there is a type $X \times Y$.
 Given types $X$ and $Y$, there is a type $X \lhom Y$.
 \item {\bf Unit type:} There is a type $1$.
 \end{itemize}
-There may be unexpected equations between types: for example we may have a type $X$ satisfying $X \times X = X$.  However, we demand that:
+Next, we may quotient out by some notion of type equality; for example we may have a type $X$ satisfying $X \times X = X$.  However, we demand that:
 \begin{itemize}
 \item If $X = X'$ and $Y = Y'$ then $X \times Y = X' \times Y'$.
 \item If $X = X'$ and $Y = Y'$ then $X \lhom Y = X' \lhom Y'$.
@@ -4365,16 +4363,16 @@ Now we can describe Lambek's classic result relating typed lambda-theories to ca
 \item The objects of $C$ are the types.
 \item The morphisms $f \maps X \to Y$ of $C$
 are equivalence classes of pairs
-$(x,t)$ consisting of a variable $x\!:\!X$ and a term $t\!:\!Y$ with no free variables except perhaps $x$.  Here $(x,t)$ is equivalent to $(x,t')$ if and only if:
+$(x,t)$ consisting of a variable $x\!:\!X$ and a term $t\!:\!Y$ with no free variables except perhaps $x$.  Here $(x,t)$ is equivalent to $(x',t')$ if and only if:
 \[     t \; \sim_{\{x\}} \; t'[x/x'] . \]
 \item Given a morphism $f \maps X \to Y$
 coming from a pair $(x,t)$ and a morphism $g \maps Y \to Z$
 coming from a pair $(y,u)$ as above, the composite 
 $gf \maps X \to Y$ comes from the pair $(x,u[t/y])$.
 \end{itemize}
-We can also reverse this process and get a typed lambda-theory from a cartesian closed category.  In fact, Lambek and Scott nicely explain how to construct a category of category of cartesian closed categories and a category of typed-lambda theories.  They construct functors going back and forth between these categories and show these functors are inverses up to natural isomorphism.  We thus say these categories are `equivalent' \cite{LS}.
+We can also reverse this process and get a typed lambda-theory from a cartesian closed category.  In fact, Lambek and Scott nicely explain how to construct a category of cartesian closed categories and a category of typed-lambda theories.  They construct functors going back and forth between these categories and show these functors are inverses up to natural isomorphism.  We thus say these categories are `equivalent' \cite{LS}.
 
-\section{Linear Type Theories}
+\subsection{Linear Type Theories}
 \label{linear_type_theories}
 
 In his thesis \cite{Ambler}, Ambler described how to generalize Lambek's classic result from cartesian closed categories to closed symmetric monoidal categories.  To do this, he replaced typed lambda-theories with `linear type theories'.  A linear type theory can be seen as a programming language suitable for both classical and quantum computation.  As we have seen, in a noncartesian category like
@@ -4419,7 +4417,7 @@ that is, for any term $t$, we can apply lambda calculus rewrite rules to $c(t)$ 
 Abstraction elimination works by taking a term $t = (\lambda x.u)$
 with a single lambda abstraction and rewriting it into the form
 $(\lambda x.f(x))$, where $f$ has no instances of lambda abstraction. Then we can apply eta reduction, which says $(\lambda x. f(x)) = f$. This lets us rewrite $t$ as a term $f$ that does not involve lambda abstraction.  We shall use the notation $[[u]]_x$ to mean `any term
-$f$ satisfing $f(x) = u$'.
+$f$ satisfying $f(x) = u$'.
 
 There are three cases to consider; each case justifies the definition of one combinator:
 \begin{enumerate}
@@ -4499,7 +4497,7 @@ Given types $X$ and $Y$, there is a type $(X \tensor Y)$.
 Given types $X$ and $Y$, there is a type $(X \lhom Y)$.
 \item {\bf Trivial type:} There is a type $I$.
 \end{itemize}
-There may be equations between types, but we require that:
+Next, we quotient out by some (perhaps empty) set of equations.  We require that:
 \begin{itemize}
 \item If $X = X'$ and $Y = Y'$ then $X \tensor Y = X' \tensor Y'$.
 \item If $X = X'$ and $Y = Y'$ then $X \lhom Y = X' \lhom Y'$.
@@ -4549,8 +4547,7 @@ and $t$.
 \end{itemize}
 Note that any given variable may appear at most once in a term.
 
-Fourth and finally, a linear type theory has {\bf rewrite rules} going between terms of the same type.  As in our treatment of the typed lambda calculus, we only care here about the equivalence relation
-$\sim$ generated by these rewrite rules.  This equivalence relation must have all the properties listed below.  In what follows, we say a term is {\bf basic} if it contains no combinators.  Such a term is just an iterated tensor product of distinct variables, such as
+Fourth and finally, a linear type theory has {\bf rewrite rules} going between terms of the same type.  As in our treatment of the typed lambda calculus, we only care here about the equivalence relation $\sim$ generated by these rewrite rules.  This equivalence relation must have all the properties listed below.  In what follows, we say a term is {\bf basic} if it contains no combinators.  Such a term is just an iterated tensor product of distinct variables, such as
 \[              (z \tensor ((x \tensor y) \tensor w)) .\]
 
 These are the properties that the equivalence relation $\sim$ must have:
@@ -4565,8 +4562,8 @@ $s$ or $s'$, and $s[t/x] \sim s'[t/x]$, then $s \sim s'$.
 \end{itemize}
 \item The equivalence relation is {\bf extensional}: if 
 $f : X \lhom Y$, $g: X \lhom Y$ and 
-$\eval(t \tensor f) = \eval(t \tensor g)$ for all basic terms 
-$t:X$, then $f = g$.  
+$\eval(t \tensor f) \sim \eval(t \tensor g)$ for all basic terms 
+$t:X$, then $f \sim g$.  
 \item We have:
     \begin{itemize}
       \item $\Id(s) \sim s$
@@ -4653,8 +4650,7 @@ In this section we have focused on closed symmetric monoidal categories.  What a
 \section{Conclusions}
 \label{conclusions}
 
-In this chapter we sketched how category theory can serve to clarify the analogies between physics, topology, logic and computation.  Each field has its own concept of `thing' (object) and `process' (morphism)
---- and these things and processes are organized into categories that share many common features.  To keep our task manageable, we focused on those features that are present in every closed symmetric monoidal category.  Table \ref{analogy_detailed}, an expanded version of the Rosetta Stone, shows some of the analogies we found.
+In this chapter we sketched how category theory can serve to clarify the analogies between physics, topology, logic and computation.  Each field has its own concept of `thing' (object) and `process' (morphism) --- and these things and processes are organized into categories that share many common features.  To keep our task manageable, we focused on those features that are present in every closed symmetric monoidal category.  Table \ref{analogy_detailed}, an expanded version of the Rosetta Stone, shows some of the analogies we found.
 
 \begin{table}[h]
 \begin{center}
@@ -4796,7 +4792,7 @@ can now be seen as a {\it quantum process}, a {\it tangle}, a
 
 A compact closed bicategory is a symmetric monoidal bicategory where every object is equipped with a weak dual.  The unit and counit satisfy the usual ``zig-zag'' identities of a compact closed category only up to natural isomorphism, and the isomorphism is subject to a coherence law.
 
-We give several examples of compact closed bicategories and review work leading up to the concept of a compact closed bicategory.  We give the complete definition of a compact closed bicategory, emphasizing the combinatorics of the functors, natural isomorphisms, and equations.  Finally, we prove that each of the examples are compact closed.
+We give several examples of compact closed bicategories and review work leading up to the concept of a compact closed bicategory.  We give the complete definition of a compact closed bicategory, emphasizing the combinatorics of the functors, natural isomorphisms, and equations.  Finally, we prove that each of the examples is compact closed.
 
 In particular, we prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
 
@@ -4814,7 +4810,7 @@ In Section \ref{examples}, we will give several examples of important mathematic
 \section{Examples}
 \label{examples}
 
-In order to get across some of the flavor of these different compact closed bicategories, we will describe the bicategories as well as some weak monoids and monads in them.  The weak monoids and monads play no role in the rest of the chapter, but we have found that comparing and contrasting them helps when trying to develop intuition about the bicategories.  The monoids are variations on the notion of an associative algebra, while the monads are variations on the notion of a category.  We will give proofs that each of these bicategories (with the exception of $nCob_2$) are compact closed in Section \ref{proofs}.
+In order to get across some of the flavor of these different compact closed bicategories, we will describe the bicategories as well as some weak monoids and monads in them.  The weak monoids and monads play no role in the rest of the chapter, but we have found that comparing and contrasting them helps when trying to develop intuition about the bicategories.  The monoids are variations on the notion of an associative algebra, while the monads are variations on the notion of a category.  We will give proofs that each of these bicategories (with the exception of $nCob_2$) is compact closed in Section \ref{proofs}.
 
 \begin{itemize}
   \item A {\bf span} from $A$ to $B$ in a category $T$ is an object $C$
@@ -5046,10 +5042,10 @@ We refer the reader to Tom Leinster's excellent ``Basic bicategories''
 \end{itemize}
 
 \begin{defn}
-  An {\bf equivalence} of objects $A, B$ in a bicategory is a pair of morphisms $f\maps A \to B, g\maps B \to A$ such that there exists an invertible 2-morphism $e:g \circ f \stackrel{\sim}{\Rightarrow} 1_A$ and an invertible 2-morphism $i:f \circ g \stackrel{\sim}{\Rightarrow} 1_B$.
+  An {\bf equivalence} of objects $A, B$ in a bicategory is a pair of morphisms $f\maps A \to B, g\maps B \to A$ together with invertible 2-morphisms $e:g \circ f \stackrel{\sim}{\Rightarrow} 1_A$ and $i:f \circ g \stackrel{\sim}{\Rightarrow} 1_B$.
 \end{defn}
 \begin{defn}
-  An {\bf adjoint equivalence} is one in which the morphisms $f, g$ are adjoint.
+  An {\bf adjoint equivalence} is one in which the 2-morphisms $e$ and $i^{-1}$ exhibit that $g$ is left adjoint to $f$.
 \end{defn}
 For a given morphism $f,$ any two choices of data $(g, e, i)$ making
 $f$ an adjoint equivalence are canonically isomorphic, so any choice is as good as any other.  When $f, g$ form an adjoint equivalence, we write $g = f^\bullet$.  Any equivalence can be improved to an adjoint equivalence.
@@ -5106,6 +5102,11 @@ we can get a new 2-morphism
 \end{center}
 where $e_h:h^\bullet \circ h \Rightarrow 1$ is the 2-morphism from the equivalence.  We denote such variations of a 2-morphism by adding numeric subscripts; the number simply records the order in which we introduce them, not any information about the particular variation.
 
+In the following definitions, I have given some plausible combinatorical reasoning justifying many of the parts of the definition, but except where noted, this is not part of the definition; its intent is merely to help organize the rather long and dry content.  I am not aware of any work on the combinatorics of cells in higher categories beyond that mentioned below by Stasheff, Kapranov and Voevodsky.  
+
+Also, in the illustrations of 2-cells and coherence laws below, I use expressions like $(A \tensor B) \tensor C$ as a shorthand for functors like
+      \[\tensor \circ (\tensor \times 1): \C^3 \to \C.\]
+
 \begin{defn} A {\bf monoidal bicategory} $\C$ is a bicategory in which we can ``multiply'' objects.  It consists of the following: \\
   
 \begin{itemize}
@@ -5123,10 +5124,7 @@ itself.
     \item There are two ways to parenthesize the product of three objects, so we have an {\bf associator} adjoint equivalence pseudonatural in $A,B,C$
         \[ a\maps (A\tensor B) \tensor C \rightarrow A \tensor (B
 \tensor C) \]
-      for moving parentheses from the left pair to the right pair, where
-$(A \tensor B) \tensor C$ is denotes the functor 
-      \[\tensor \circ (\tensor \times 1): \C^3 \to \C,\]
-      and similarly for $A\tensor (B \tensor C).$
+      for moving parentheses from the left pair to the right pair.
     \item There are five ways to parenthesize the product of four objects, so we have a {\bf pentagonator} invertible modification $\pi$
 relating the two different ways of moving parentheses from being clustered at the left to being clustered at the right.  (Mnemonic: Pink Pentagonator.)
       \begin{center}
@@ -5280,9 +5278,7 @@ GReen conGRuences.)
   
   \end{enumerate}
 
-\item Just as in any monoid there is an identity element 1, in every monoidal bicategory there is a {\bf monoidal unit} object $I$. Associated to the monoidal unit are a series of morphisms---one of each dimension---that express how to ``cancel'' the unit in a product. Each morphism of dimension $n>0$ has two Stasheff polytopes of dimension
-$n-1$ as ``subcells'', one for parenthesizing $n+1$
-objects and the other for parenthesizing the $n$ objects left over after cancellation.  There are $n+1$ ways to insert $I$ into 
+\item Just as in any monoid there is an identity element 1, in every monoidal bicategory there is a {\bf monoidal unit} object $I$. Associated to the monoidal unit are a series of morphisms---one of each dimension---that express how to ``cancel'' the unit in a product. Each morphism of dimension $n>0$ has two Stasheff polytopes of dimension $n-1$ as ``subcells'', one for parenthesizing $n+1$ objects and the other for parenthesizing the $n$ objects left over after cancellation.  There are $n+1$ ways to insert $I$ into 
 $n$ objects, so there are $n+1$ morphisms of dimension $n$.
   \begin{enumerate}
     \item There is one monoidal unit object $I$.
@@ -6541,10 +6537,9 @@ $n$-categories \cite{Batanin}.
 \end{defn}
 
 \begin{defn}
-  In a {\bf sylleptic} monoidal bicategory, a full twist is not necessarily equal to the identity, but may be only equivalent to it; 
-this adjoint equivalence is called a {\bf syllepsis}. A sylleptic monoidal bicategory $\C$ is a braided monoidal bicategory equipped with a syllepsis subject to the following axioms. \\
+  A {\bf sylleptic} monoidal bicategory $\C$ is a braided monoidal bicategory equipped with \\
   \begin{itemize} 
-    \item An invertible modification (Mnemonic: Salmon Syllepsis)
+    \item an invertible modification called the syllepsis, (Mnemonic: Salmon Syllepsis)
     \begin{center}
       \begin{tikzpicture}
         \filldraw[white,fill=salmon,fill opacity=0.1] (1.5,0) ellipse
@@ -6557,7 +6552,7 @@ this adjoint equivalence is called a {\bf syllepsis}. A sylleptic monoidal bicat
       \end{tikzpicture}
     \end{center}
   \end{itemize}
-  
+  subject to the following axioms.
   \begin{itemize} 
     \item This equation governs the interaction of the syllepsis with the $(n=1,k=2)$ braiding:
     \begin{center}
@@ -6747,8 +6742,8 @@ arc(0:360:1cm and 5mm);
 \end{defn}  
 
 \begin{defn}
-  Given two bicategories $\mathcal{J}, \mathcal{K}$, two functors $
-{L:\mathcal{J}\to \mathcal{K}}$ and ${R:\mathcal{K} \to \mathcal{J}}$ are
+  Given two bicategories $\mathcal{J}, \mathcal{K}$, two functors 
+${L\maps\mathcal{J}\to \mathcal{K}}$ and ${R\maps\mathcal{K} \to \mathcal{J}}$ are
 {\bf pseudoadjoint} if for all $A \in \mathcal{J}, B \in \mathcal{K}$
 the categories Hom${}_\mathcal{K}(LA, B)$ and Hom${}_\mathcal{J}(A, RB)$
 are adjoint equivalent pseudonaturally in $A$ and $B$.
@@ -6760,7 +6755,7 @@ Monoidal closed bicategories satisfy the obvious weakening of the definition of 
 $A$, the functor $- \tensor A$ has a right pseudoadjoint $A \lhom -.$
 \end{defn}
 
-Similarly, compact closed bicategories weaken the notion of duality from compact closed categories.
+Similarly, compact closed bicategories weaken the notion of duality from compact closed categories.  In the following definition, we abstract the notion of pseudoadjointness from functors between bicategories to arbitrary objects of a bicategory.
 \begin{defn}
   A {\bf compact closed} bicategory is a symmetric monoidal bicategory in which every object has a pseudoadjoint.
 \end{defn}
@@ -7092,7 +7087,7 @@ to (E.center) to (G.center) to (J.center) to (N.center) to (N.east) to
 
 \section{Bicategories of spans}
 \label{Hoffnung}
-At the start of this chapter, we saw that spans of sets form a compact closed bicategory.  Street \cite{Street82} suggested weakening the notion of a map of spans to hold only up to 2-isomorphism, allowing to define spans in bicategories rather than mere categories; Hoffnung \cite
+At the start of this chapter, we stated that spans of sets form a compact closed bicategory.  Street \cite{Street82} suggested weakening the notion of a map of spans to hold only up to 2-isomorphism, allowing to define spans in bicategories rather than mere categories; Hoffnung \cite
 {Hoffnung} worked out the details.
 
 A {\bf span} from $A$ to $B$ in a bicategory $T$ is a pair of morphisms with the same source: ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B.}$
@@ -7668,22 +7663,47 @@ The equalities of 2-morphisms are mostly the coherence laws from the definition 
 The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
-\subsection{Concurrency, laziness, evaluation strategies and their relation to physics}
-Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence'': an {\sl evaluation strategy} for lambda calculus assigns to each 1-morphism a choice of 2-morphism that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is confluent: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
+\subsection{Concurrency, laziness, evaluation strategies}
+
+Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence''.  An {\sl evaluation strategy} assigns to each term a rewrite that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is {\sl confluent}: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which terminating strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
 
 Modern programming, however, deals with many computers all operating on different clocks, communicating over networks with delays, and the order in which messages arrive is important: consider two people racing to get the last concert ticket, or the order in which a deposit and a withdrawal apply to an empty bank account.  If rewrites involve moving messages around, then they will certainly not be confluent.
 
-Robin Milner proposed the pi calculus in 199X [[citation, fix year]].  The pi calculus is to concurrent programming what the lambda calculus is to serial programming, and like lambda calculus has many many variants.  The polyadic asynchronous pi calculus has five term constructors:
-\[\begin{array}{rl}
-  P,Q ::= & 0 \mbox{ do nothing} \\
-  & x?(y_1, \ldots, y_n).P \\
-  & x!(y_1, \ldots, y_n) \\
-  & P | Q \\
-  & new x.P
+Milner, Parrow, and Walker proposed the pi calculus in 1989 \cite{MPW89}.  The pi calculus is to concurrent programming what the lambda calculus is to serial programming, and like lambda calculus, pi calculus has many many variants.  Here's a linear fragment of the pi calculus that's common to several variants:
+\[\begin{array}{rll}
+  P,Q ::= & 0 & \mbox{do nothing} \\
+  |& P | Q & \mbox{concurrency}\\
+  |& x?(y_1, \ldots, y_n).P & \mbox{receive}\\
+  |& x!(y_1, \ldots, y_n) & \mbox{send}
 \end{array}\]
+where $x$ and $y_i$ are taken from a countably infinite set of ``names''.  Structural congruence says that concurrency and do-nothing form a commutative monoid.  Reduction in the pi calculus is given by the comm rule, where $x?(y_1, \ldots, y_n).P \;|\; x!(z_1, \ldots, z_n)$ reduces to $P\{z_i / y_i\}$.  The comm rule does not apply under a prefix, only to terms at the top level.
+
+If we relax the restriction on the comm rule so that it can apply anywhere, then we can model the fragment above in a compact closed bicategory with a strict monoid object $M$ (where the unit and multiplication have right adjoints as above) and a family of adjunctions for each (name, object) pair.  We model processes as 1-morphisms into $M$:
+\[\begin{array}{rl}
+0\maps & J \to M\\
+|\maps & M \boxtimes M \to M\\
+?_{x, T}\maps & T^* \boxtimes M \to J\\
+!_{x, T}\maps & J \to T^* \boxtimes M
+\end{array}\]
+$0$ and $|$ are the unit and multiplication in $M,$ respectively.  $!_{x, T}$ and $?_{x, T}$ are adjoints; the comm rule maps to the counit of the adjunction.  Sending is tensoring $!_{x,T}$ with the value of type $T$ to send, then composing with the counit for $T.$  Receiving is the unit for $T$, the continuation process, the right adjoint of multiplication, and finally $?_{x, T}.$
+
+Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
+\[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} prove full abstraction for the asynchronous polyadic pi calculus rather than its linear fragment above using a cartesian closed 2-category instead of a compact closed bicategory.
+
+The ability to represent reduction contexts is important even for lambda calculus.  An evaluation strategy is a map from terms to rewrites that defines how a computation will proceed; while every sequence of beta reductions that terminates leads to the same term, not all sequences of beta reductions necessarily terminate.  Consider the lambda term
+\[ T = (\lambda x.\lambda y.x) (\lambda x.x) \Omega \]
+where $\Omega$ is a term that maps to itself under beta reduction and therefore has no normal form.  The whole term $T$ says to return the first element of the pair (identity function, $\Omega$).  
+
+Many programming languages, like Java, C, JavaScript, Perl, Python, and Lisp use an ``eager'' evaluation strategy: they calculate the normal form of inputs to a function before calculating the result of the function on the inputs; the term above, implemented in any of these languages, would be an infinite loop.  These semantics are different than the semantics given by Lambek and Scott: in their approach, the result is necessarily the identity function.  Other languages, like Miranda, Lispkit, Lazy ML, Clean, and Haskell are ``lazy'' and only apply beta reduction to inputs when they are needed to complete the computation; in these languages, the result is the identity function.  Haskell also relies on laziness to represent infinite data structures like, for example, the list of all primes.
+
+\subsection{Principle of least action}
+
+In chapter II.1, we made an analogy between programs and Feynman diagrams.  The analogy is precise as far as it goes, but it's unsatisfactory in the sense that Feynman diagrams describe processes happening over time, while Lambek and Scott mod out by the process of computation that occurs over time.  If we use 2-categories that explicitly model rewrites between terms, we get something that could potentially be interpreted in $3\Cob_2$.  In an extended TQFT, there ought to be three notions of partition function: one for each direction of 1-morphism and another for 2-morphisms.  Horizontal morphisms in $3\Cob_2$ are space-like; a program has a length.  Vertical morphisms are time-like; a rewrite occurs over time.  The partition function for horizontal morphisms is concerned with algorithmic information, the shortest program that computes a result.  The partition function for vertical
+morphisms should be concerned with the fastest way to compute a result.  The partition function for 2-morphisms should have something to do with getting the best time-space tradeoff.
+
+The analogy above used a double category, but we might also consider bicategories.  In Hamiltonian mechanics, we think of the state of the system as having a position and a momentum; the position describes a particular arrangement of parts of the system and the momentum describes how that arrangement is changing.  It's my contention that position and momentum are analogous to a term and a rewrite.  Evaluation strategies describe systems in which the momentum depends on the position; a more general notion of evaluation strategy would express both in terms of some other parameter like time.  From a Lagrangian viewpoint, we'd get a notion of stationary action; if each rewrite came with an associated computational cost, something like the variational principle would need to be used to minimize the cost of a computation.  Indeed, dynamic programming is a standard technique in computer science for minimizing the cost of a computation; the canonical example is choosing an association of matrices that minimizes the number of multiplications to perform.
 
 
-[[ Extended TQFTs, principle of least action, partition functions at two levels ]]
 
 \begin{thebibliography}{99}
 
@@ -7970,9 +7990,13 @@ Sci.\ }{\bf 50} (1987), 1--102.  Also available at \hfill \break
 1975. 
 
 \bibitem{Hilken} B.\ Hilken, Towards a proof theory of rewriting: the simply-typed $2\lambda$-calculus, {\sl Theor.\ Comp.\ Sci.\ }{\bf 170} 
-(1996), 407--444.  
+(1996), 407--444.  Also available at \href{http://www.pps.univ-paris-diderot.fr/~mellies/mpri/mpri-ens/articles/hilken-2-lambda-calculus.pdf}{http://www.pps.univ-paris-diderot.fr/~mellies/mpri/mpri-ens/articles/hilken-2-lambda-calculus.pdf}
 
 \bibitem{HS} J.\ R.\ Hindley and J.\ P.\ Seldin, {\sl Lambda-Calculus and Combinators: An Introduction}, Cambridge U.\ Press, Cambridge, 2008.
+
+\bibitem{Hirschowitz} Tom Hirschowitz, Cartesian closed 2-categories and permutation equivalence in higher-order
+rewriting, {\sl Logical Methods in Computer Science}, IfCoLog (International Federation of Computational
+Logic), {\bf 9} (3) (2013), 10--28.  Also available at \href{https://hal.archives-ouvertes.fr/hal-00540205/file/macy.pdf}{https://hal.archives-ouvertes.fr/hal-00540205/file/macy.pdf}
 
 \bibitem{Hoffnung} A.\ Hoffnung, Spans in 2-categories: A monoidal tricategory.  To appear.  Also available at \href
 {http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}
@@ -8030,8 +8054,7 @@ D.\ Kaiser, \textsl{Drawing Theories Apart: The Dispersion of Feynman Diagrams i
 
 \bibitem{KV94} M. Kapranov and V. Voevodsky, 2-categories and Zamolodchikov tetrahedra equations, \textsl{Proc. Symp. Pure Math.} \textbf{56} (1994) 177--259.
 
-\bibitem{Kassel}
-C.\ Kassel, \textsl{Quantum Groups}, Springer, Berlin, 1995.
+\bibitem{Kassel} C.\ Kassel, \textsl{Quantum Groups}, Springer, Berlin, 1995.
 
 \bibitem{KSW98} P.\ Katis, N.\ Sabadini, R.F.C.\ Walters, On partita doppia, \textsl{Theory and Applications of Categories} (Written in 1998, to appear).  Available at \href{http://arxiv.org/abs/0803.2429}{arXiv:0803.2429v1}.
 
@@ -8137,6 +8160,8 @@ Also available at \href{http://www.cs.bu.edu/fac/lnd/dvi/ZL-e.pdf}
 \bibitem{Mellies} P.\ Melli\`es, Axiomatic rewriting theory I: a diagrammatic standardisation theorem, in {\sl Processes, Terms and Cycles: Steps on the Road to Infinity}, Lecture Notes in Computer Science {\bf 3838}, Springer, 2005, pp.\ 554--638.  Also available at 
 \href{http://www.pps.jussieu.fr/~mellies/papers/jwkfestschrift.pdf}
 {http://www.pps.jussieu.fr/~mellies/papers/jwkfestschrift.pdf}.
+
+\bibitem{MPW89} R.\ Milner, J.\ Parrow and D.\ Walker, A Calculus of Mobile Processes Pt.1, {\sl Information and Computation} {\bf 100:1} (1992), 1--40. Also available at \href{http://www.lfcs.inf.ed.ac.uk/reports/89/ECS-LFCS-89-85/}{http://www.lfcs.inf.ed.ac.uk/reports/89/ECS-LFCS-89-85/}
 
 \bibitem{MR} G.\ Moore and N.\ Read, Nonabelions in the the fractional quantum Hall effect, {\sl Nucl.\ Phys.\ B} 
 {\bf 360} (1991), 362--396.
@@ -8262,8 +8287,10 @@ M.-C.\ Shum, Tortile tensor categories,
 
 \bibitem{Stasheff} J.\ Stasheff, Homotopy associativity of $H$-spaces I, II, \textsl{Trans. Amer. Math. Soc.} \textbf{108} (1963), 275--312.
 
+\bibitem{HDRA2015} Michael Stay and L.\ G.\ Meredith, Higher category models of the pi-calculus, to appear.  Available at \arxiv{1504.04311}.
+
 \bibitem{Stern} A.\ Stern, Anyons and the quantum Hall effect --
-a pedagogical review, {\sl Ann.\ Phys.\ }{\bf 323} (2008), 204--249. available at \arxiv{0711.4697}.
+a pedagogical review, {\sl Ann.\ Phys.\ }{\bf 323} (2008), 204--249.  Available at \arxiv{0711.4697}.
 
 \bibitem{Stone} M.\ Stone, ed., {\sl Quantum Hall Effect}, World Scientific, Singapore, 1992.
 
