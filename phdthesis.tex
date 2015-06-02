@@ -7203,136 +7203,181 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{fg}B,$ and 2-morphi
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-%Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
-\vspace{10mm}
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
 
-Let $\iota\maps T \hookrightarrow \Span_2(T)$ be the inclusion functor that takes each object to itself, each morphism ${f\maps A \to B}$ to the span ${A \stackrel{A}{\leftarrow} A \stackrel{f}{\to} B},$ and each 2-morphism $\alpha\maps f \Rightarrow g$ to the map of spans
-\begin{center}
-  \begin{tikzpicture}[scale=2]
-    \node (A2) at (0,1) {$A$};
-    \node (B) at (2,1) {$B$};
-    \node (A1) at (1,0) {$A$}
-      edge [->] node [below left,l] {$A$} (A2)
-      edge [->] node [below right,l] {$g$} (B);
-    \node (A3) at (1,2) {$A$}
-      edge [->] node [above left,l] {$A$} (A2)
-      edge [->] node [above right,l] {$f$} (B)
-      edge [->] node [left,l] {$A$} (A1);
-    \node at (.5,1) {$=$};
-    \node at (1.4,1) {$\Downarrow \alpha$};
-  \end{tikzpicture}
-\end{center}
-Functors between bicategories preserve composition only up to coherent isomorphism; it is thanks to the coherence theorem for bicategories that we can draw the 2-cells in the definition of a compact closed bicategory without specifying a parenthesization.  Given an isomorphism $h$ in $T,$ the span $\iota(h)^\bullet$ is related to the span $\iota(h^{-1})$ by a similar coherent isomorphism.  Both are special cases of the isomorphism in the following lemma.
+
 
 \begin{lemma}
   \label{lemma}
-  Given composable spans ${A \stackrel{f}{\leftarrow} D \stackrel{g}{\to} B}$ and ${B \stackrel{h}{\leftarrow} E \stackrel{j}{\to} C}$ where $g$ and $h$ are invertible, the composite span is isomorphic to the composition of the spans ${A \stackrel{f}{\leftarrow} D \stackrel{D}{\to} D}$ and ${D \stackrel{D}{\leftarrow} D \stackrel{jh^{-1}g}{\to} C}.$
+  Given a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ where $f$ and $g$ are invertible, the weak pullback is isomorphic to the pullback of the identity cospan on $A.$
 \end{lemma}
 {\em Proof.}  
-
+The pullbacks of the two cospans are
 \begin{center}
   \begin{tikzpicture}[scale=2]
-    \node(A) at (0,0) {$A$};
-    \node(B) at (2,0) {$B$};
-    \node(C) at (4,0) {$C$};
-    \node(D) at (1,1) {$D$}
-      edge [->] node [above left,l] {$f$} (A)
-      edge [->] node [above right,l] {$g$} (B);
-    \node(E) at (3,1) {$E$}
-      edge [->] node [above left,l] {$h$} (B)
-      edge [->] node [above right,l] {$j$} (C);
-    \node(DghE) at (2,2) {$D_{gh}E$}
-      edge [->] node [above left,l] {$\pi_1$} (D)
-      edge [->] node [above right,l] {$\pi_2$} (E);
+    \node(C) at (2,0) {$C$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$f$} (C);
+    \node(B) at (3,1) {$B$}
+      edge [->] node [above left,l] {$g$} (C);
+    \node(AfgB) at (2,2) {$A_{fg}B$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
-    \node (DDDD) at (2,3) {$D_{DD}D$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, h^{-1}g\pi'_2\rangle$}(DghE)
-      edge [->, bend right] node [above left,l] {$\pi'_1$} (D)
-      edge [->, bend left] node [above right,l] {$ h^{-1}g\pi'_2$} (E);
+  \end{tikzpicture}
+  $\quad \quad$
+  \begin{tikzpicture}[scale=2]
+    \node(C) at (2,0) {$A$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$A$} (C);
+    \node(B) at (3,1) {$A$}
+      edge [->] node [above left,l] {$A$} (C);
+    \node(AAAA) at (2,2) {$A_{AA}A$}
+      edge [->] node [above left,l] {$\pi'_1$} (A)
+      edge [->] node [above right,l] {$\pi'_2$} (B);
+    \node at (2,1) {$\Rightarrow L$};
+  \end{tikzpicture}
+  .
+\end{center}
+By the first part of the universal property of weak pullbacks, there exist unique morphisms from $A_{AA}A$ to $A_{fg}B$ and back making the following diagrams commute that are evidently inverses.
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \node(C) at (2,0) {$C$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$f$} (C);
+    \node(B) at (3,1) {$B$}
+      edge [->] node [above left,l] {$g$} (C);
+    \node(AfgB) at (2,2) {$A_{fg}B$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node at (2,1) {$\Rightarrow K$};
+    \node (AAAA) at (2,3) {$A_{AA}A$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, g^{-1}f\pi'_2\rangle$}(AfgB)
+      edge [->, bend right] node [above left,l] {$\pi'_1$} (A)
+      edge [->, bend left] node [above right,l] {$g^{-1}f\pi'_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2]
+    \node at (0.5,1.5) {$=$};
+    \node(C) at (2,0) {$C$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$f$} (C);
+    \node(B) at (3,1) {$B$}
+      edge [->] node [above left,l] {$g$} (C);
+    \node at (2,1.5) {$\Rightarrow L$};
+    \node (AAAA) at (2,3) {$A_{AA}A$}
+      edge [->, bend right] node [above left,l] {$\pi'_1$} (A)
+      edge [->, bend left] node [above right,l] {$g^{-1}f\pi'_2$} (B);
   \end{tikzpicture}
 \end{center}
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
-    \node(A) at (0,0) {$A$};
-    \node(B) at (2,0) {$B$};
-    \node(C) at (4,0) {$C$};
-    \node(D) at (1,1) {$D$}
-      edge [->] node [above left,l] {$f$} (A)
-      edge [->] node [above right,l] {$D$} (B);
-    \node(E) at (3,1) {$D$}
-      edge [->] node [above left,l] {$D$} (B)
-      edge [->] node [above right,l] {$jh^{-1}g$} (C);
-    \node(DDDD) at (2,2) {$D_{DD}D$}
-      edge [->] node [above left,l] {$\pi_1'$} (D)
-      edge [->] node [above right,l] {$\pi_2'$} (E);
-    \node at (2,1) {$\Rightarrow K'$};
-    \node (DghD) at (2,3) {$D_{gh}E$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, g^{-1}h\pi_2\rangle$}(DDDD)
-      edge [->, bend right] node [above left,l] {$\pi_1$} (D)
-      edge [->, bend left] node [above right,l] {$ g^{-1}h\pi_2$} (E);
+    \node(C) at (2,0) {$A$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$f$} (C);
+    \node(B) at (3,1) {$A$}
+      edge [->] node [above left,l] {$g$} (C);
+    \node(AfgB) at (2,2) {$A_{AA}A$}
+      edge [->] node [above left,l] {$\pi'_1$} (A)
+      edge [->] node [above right,l] {$\pi'_2$} (B);
+    \node at (2,1) {$\Rightarrow L$};
+    \node (AAAA) at (2,3) {$A_{fg}B$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, f^{-1}g\pi_2\rangle$}(AfgB)
+      edge [->, bend right] node [above left,l] {$\pi_1$} (A)
+      edge [->, bend left] node [above right,l] {$f^{-1}g\pi_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
   \end{tikzpicture}
+  \begin{tikzpicture}[scale=2]
+    \node at (0.5,1.5) {$=$};
+    \node(C) at (2,0) {$A$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [above right,l] {$f$} (C);
+    \node(B) at (3,1) {$A$}
+      edge [->] node [above left,l] {$g$} (C);
+    \node at (2,1.5) {$\Rightarrow K$};
+    \node (AAAA) at (2,3) {$A_{fg}B$}
+      edge [->, bend right] node [above left,l] {$\pi_1$} (A)
+      edge [->, bend left] node [above right,l] {$f^{-1}g\pi_2$} (B);
+  \end{tikzpicture}
 \end{center}
-
 \hfill $\square$
 
+Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to the pullback of the identity cospan on $A.$  With that choice, we have the following corollaries.
 
-When $f$ and $h$ are identities, this is the coherent isomorphism for composition.  When $f$, $g$, and $j$ are identities, this is the coherent isomorphism between $\iota(h)^\bullet$ and $\iota(h^{-1}).$  
+\begin{cor}
+  \label{piling}
+  The composite of $n$ spans of the form $A_i \stackrel{A_i}{\leftarrow} A_i \stackrel{f_i}{\to} A_{i+1}$ is $A_1 \stackrel{\pi_1}{\leftarrow} A_1^n \stackrel{f_n \cdots f_1\pi_n}{\to} A_{n+1}.$
+\end{cor}
+
+\begin{cor}
+  \label{reverse}
+  The composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ where $f$ is invertible is the span $B \stackrel{\pi_1}{\leftarrow} B_{BB}B \stackrel{f^{-1}\pi_2}{\to} A.$
+\end{cor}
+
+We're now ready to prove the main theorem.
 
 \begin{thm}
   \label{Span2}
-  If $T$ is a 2-category with finite products and weak pullbacks, then
-$\Span_2(T)$ is a compact closed bicategory.
+  If $T$ is a 2-category with finite products and weak pullbacks, then $\Span_2(T)$ is a compact closed bicategory.
 \end{thm}
 {\em Proof.} As noted, Hoffnung \cite{Hoffnung} showed that $\Span_3(T)$
-is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 
-3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
+is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
 
-The associator, unitors, and braiding in $\Span_2(T)$ are the inclusions of the corresponding 1-morphisms in $T.$  The pentagonator in $T$ is an identity because the products in $T$ are strict.  Composition of these morphisms is preserved up to coherent isomorphism under inclusion, so the pentagonator in $\Span_2(T)$ is an identity map of spans:
+The associator is the span $(AB)C \stackrel{(AB)C}{\leftarrow} (AB)C \stackrel{a}{\to} A(BC).$  The left and right unitors are the spans $1A \stackrel{1A}{\leftarrow} 1A \stackrel{l}{\to} A$ and $A1 \stackrel{A1}{\leftarrow} A1 \stackrel{r}{\to} A,$ respectively.  The braiding is $AB \stackrel{AB}{\leftarrow} AB \stackrel{b}{\to} BA.$   The cap is $1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} AA;$ the cup is its reverse, $AA \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$
+
+Consider the left 2-unitor with each vertex replaced by an identity morphism:
+
 \begin{center}
-  \begin{tikzpicture}[scale=3]
-    \node (bottom) at (1,0) {$((A \times B) \times C) \times D$};
-    \node (right) at (2,1) {$A \times (B \times (C \times D))$}
-      edge [<-] node [below right,l] {$aa$} (bottom);
-    \node (left) at (0,1) {$((A \times B) \times C) \times D$}
-      edge [<-] node [below left,l] {$((A \times B) \times C) \times D$} (bottom);
-    \node (top) at (1,2) {$((A \times B) \times C) \times D$}
-      edge [->] node [above right,l] {$(A \times a)(a)(a \times D)$} (right)
-      edge [->] node [above left,l] {$((A \times B) \times C) \times D$} (left)
-      edge [->] node [left,pos=.4,l] {$((A \times B) \times C) \times D$} (bottom);
-    \node at (.75,1) {$=$};
-    \node at (1.25,1) {$=$};
+  \begin{tikzpicture}[scale=2]
+    \filldraw[white,fill=brown,fill opacity=0.5](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
+    \node (A) at (  0:2cm) {$A\tensor B$};
+    \node (B) at ( 60:2cm) {$A\tensor B$}
+      edge [->] node [l, above right] {$A\tensor B$} (A);
+    \node (C) at (120:2cm) {$(I \tensor A) \tensor B$}
+      edge [->] node [l, above] {$l \tensor B$} (B);
+    \node (D) at (180:2cm) {$(I \tensor A) \tensor B$}
+      edge [->] node [l, above left] {$(I \tensor A) \tensor B$} (C);
+    \node (E) at (240:2cm) {$I\tensor (A \tensor B)$}
+      edge [<-] node [l, below left] {$a$} (D);
+    \node (F) at (300:2cm) {$I\tensor (A \tensor B)$}
+      edge [<-] node [l, below] {$I\tensor (A \tensor B)$} (E)
+      edge [->] node [l, below right] {$l$} (A);
+    \node at (-0.25,0) {\tikz\node [rotate=-90] {$\Rightarrow$};};
+    \node at (0.25,0) {$\lambda$};
   \end{tikzpicture}
 \end{center}
-Because the pentagonator is an identity, the associahedron is trivial.  Similarly, the 2-unitors are identities, so the unitor prisms are trivial.
 
-The sides of the hexagon 2-morphism $R$ are all inclusions of 1-morphisms from $T;$ if we replace $a^{\bullet}$ with $a^{-1}$, the sides of the hexagon 2-morphism $S$ are also inclusions of 1-morphisms from $T.$  The hexagon equations hold in $T$ because the products in $T$ are strict, so the hexagon isomorphisms in $\Span_2(T)$ are identities up to coherent isomorphism and the shuffle coherence laws and Breen polytope are trivial.
-
-If we replace $b^{\bullet}$ by $b^{-1},$ both sides of the syllepsis are inclusions of 1-morphisms from $T.$  The syllepsis in $T$ is the identity because the products in $T$ are strict, so the syllepsis in $\Span_2(T)$ is an identity up to coherent isomorphism and the coherence laws governing the syllepsis are trivial.
-
-The unit span is the span whose legs are duplication and deletion
-$$i_A: 1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A,$$
-and the counit is its reverse
-$$e_A = i_A^{\bullet}: A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
-One zig-zag morphism is the composite of the following two spans:
+The composite span along the top edge is $(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^3 \stackrel{(l \times B)\pi_3}{\to} A \times B.$  The composite span across the bottom edge is $(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^3 \stackrel{la\pi_3}{\to} A \times B.$  The map of spans between them is
 \begin{center}
   \begin{tikzpicture}[scale=3]
-    \node (1) at (4,0) {$A$};
-    \node (2) at (2,0) {$A\times (A\times A)$};
-    \node (3) at (0,0) {$A$};
-    \node (4) at (3,1) {$A\times A$}
-      edge [->] node [above right,l] {$l \circ (! \times A)$} (1)
-      edge [->] node [above left, l] {$a \circ (\Delta \times A)$} (2);
-    \node (5) at (1,1) {$A\times A$}
-      edge [->] node [above right,l] {$A \times \Delta$} (2)
-      edge [->] node [above left, l] {$r \circ (A \times !)$} (3);
+    \node(A) at (1,0) {$((1\times A)\times B)^3$};
+    \node(B) at (1,2) {$((1\times A)\times B)^3$}
+      edge [->] node [l, right] {$((1\times A)\times B)^3$} (A);
+    \node (C) at (0,1) {$(1\times A)\times B$}
+      edge [<-] node [l, below left] {$\pi_1$} (A)
+      edge [<-] node [l, above left] {$\pi_1$} (B);
+    \node (D) at (2,1) {$A\times B$}
+      edge [<-] node [l, below right] {$la\pi_3$} (A)
+      edge [<-] node [l, above right] {$(l \times B)\pi_3$} (B);
+    \node at (.75,1.25) {=};
+    \node at (1.25,1.25) {=};
   \end{tikzpicture}
 \end{center}
-The other is its reverse.
+The right-hand 2-morphism of the span is the identity because the finite products in $T$ satisfy the triangle equation.
+
+Similar logic applies to the middle and right 2-unitor modifications and the pentagonator modification.  These truncated 2-morphisms fit together with extra identity 2-morphisms that are given by omnitrucation of the coherence laws: we truncate each vertex to get an identity 2-morphism, all of whose edges are identities; and we bevel each edge to get a rectangular identity 2-cell where two of the edges are the same nontrivial 1-morphism and the other two are identity 1-morphisms.  Inserting identities in this way does not change the coherence law in any substantive way, but it makes each face have an even number of sides.  Because the the top and bottom edges of each face are the same length, 
+\begin{itemize}
+  \item the apexes of the spans corresponding to the top and bottom edge of each face are the same by corollary \ref{piling},
+  \item the resulting 2-morphism is an identity for exactly the same reason as the 2-unitor above, and
+  \item the associahedron and unitor prism coherence laws are trivial.
+\end{itemize} 
+
+If we similarly truncate the hexagon modifications $R$ and $S,$ then each reversed associator $A(BC) \stackrel{a}{\leftarrow} (AB)C \stackrel{(AB)C}{\to} (AB)C$ gets precomposed with an identity span, and by corollary \ref{reverse}, the result is the same as if we had used the inverse associator $A(BC) \stackrel{A(BC)}{\leftarrow} A(BC) \stackrel{a^{-1}}{\to} (AB)C$ instead.  Likewise, we can replace the reverse braiding by the inverse braiding.  The shuffle and Breen polytopes, the syllepsis coherence law, and the symmetry coherence law are all trivial by the same argument as above.
+
+The fact that these coherence laws are all trivial proves that $\Span_2(T)$ is a symmetric monoidal bicategory.  We now have to show the existence of the yanking 2-morphisms and that they satisfy the swallowtail coherence law.
 
 The central cospan above is the bottom half of a commuting square expressing that duplication $\Delta$ and deletion $!$ form a weak comonoid in $T$.  We can therefore take the span $A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{\Delta}{\to} A\times A$ with the identity 2-cell as a competitor to the pullback.  The first universal property of the pullback gives a unique morphism $\langle\langle A, A\rangle, \langle A, A\rangle\rangle$ from $A$ to $P$ satisfying the relevant conditions.
 
