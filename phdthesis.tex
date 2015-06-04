@@ -7100,7 +7100,7 @@ A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stack
       edge [<-] node [l,above left] {$f$}(C);
     \node (B) at (2,1) {$X$}
       edge [<-] node [l,above right] {$g$}(C);
-    \node (C') at (1,0) {$S'$}
+    \node (C') at (1,0) {$C'$}
       edge [->] node [l,below left] {$f'$}(A)
       edge [->] node [l,below right] {$g'$}(B)
       edge [<-] node [l,left] {$h$} (C);
@@ -7128,7 +7128,7 @@ Here we show that the bicategory $\Span_2(T)$ whose
 \end{itemize}
 forms a compact closed bicategory.
 
-The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{fg}B,$ 1-morphisms $\pi_1\maps A_{fg}B \to A$ and $\pi_2\maps A_{fg}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{fg}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
+The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{f,g}B,$ 1-morphisms $\pi_1\maps A_{f,g}B \to A$ and $\pi_2\maps A_{f,g}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{f,g}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (2,0) {$C$};
@@ -7136,7 +7136,7 @@ The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$
       edge [->] node [above right, l] {$f$} (C);
     \node (B) at (3,1) {$B$}
       edge [->] node [above left, l] {$g$} (C);
-    \node (X) at (2,2) {$A_{fg}B$}
+    \node (X) at (2,2) {$A_{f,g}B$}
       edge [->] node [above left, l] {$\pi_1$} (A)
       edge [->] node [above right, l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
@@ -7163,7 +7163,7 @@ The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$
     \node at (2, 1.5) {$\Rightarrow K'$};
   \end{tikzpicture}
 \end{center}
-Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{fg}B,$ and 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
+Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$C$};
@@ -7171,10 +7171,10 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{fg}B,$ and 2-morphi
       edge [->] node [below left,l] {$f$} (C);
     \node (B) at (2,1) {$B$}
       edge [->] node [below right,l] {$g$} (C);
-    \node (P2) at (1,2) {$A_{fg}B$}
+    \node (P2) at (1,2) {$A_{f,g}B$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P1) at (-1,2) {$A_{fg}B$}
+    \node (P1) at (-1,2) {$A_{f,g}B$}
       edge [->] node [below left,l] {$\pi_1$} (A);
     \node (X) at (0,3) {$X$}
       edge [->] node [above left,l] {$j$} (P1)
@@ -7189,10 +7189,10 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{fg}B,$ and 2-morphi
       edge [->] node [below left,l] {$f$} (C);
     \node (B) at (2,1) {$B$}
       edge [->] node [below right,l] {$g$} (C);
-    \node (P1) at (1,2) {$A_{fg}B$}
+    \node (P1) at (1,2) {$A_{f,g}B$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P2) at (3,2) {$A_{fg}B$}
+    \node (P2) at (3,2) {$A_{f,g}B$}
       edge [->] node [below right,l] {$\pi_2$} (B);
     \node (X) at (2,3) {$X$}
       edge [->] node [above left,l] {$j$} (P1)
@@ -7205,20 +7205,22 @@ there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \
 
 Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
 
+We denote by $A^{\times n}$ the apex of the span resulting from the composition of $n$ identity spans on $A.$
+
 \begin{lemma}
-  \label{lemma}
-  Given a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ where $f$ and $g$ are invertible, the weak pullback is isomorphic to the pullback of the identity cospan on $A.$
+  \label{piling}
+  Given isomorphisms $f\maps A \to C$ and $g\maps B \to C$, the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ is isomorphic to the weak pullback of the cospan $A \stackrel{A}{\to} A \stackrel{\pi_1}{\leftarrow} A^{\times n}.$
 \end{lemma}
 {\em Proof.}  
-The pullbacks of the two cospans are
+The weak pullbacks of the two cospans are
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node(C) at (2,0) {$C$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$f$} (C);
-    \node(B) at (3,1) {$B$}
-      edge [->] node [above left,l] {$g$} (C);
-    \node(AfgB) at (2,2) {$A_{fg}B$}
+      edge [->] node [below left,l] {$f$} (C);
+    \node(B) at (3,1) {$B^{\times n}$}
+      edge [->] node [below right,l] {$g\pi_1$} (C);
+    \node(AfgB) at (2,2) {$A_{f,g\pi_1}B^{\times n}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
@@ -7227,92 +7229,87 @@ The pullbacks of the two cospans are
   \begin{tikzpicture}[scale=2]
     \node(C) at (2,0) {$A$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$A$} (C);
-    \node(B) at (3,1) {$A$}
-      edge [->] node [above left,l] {$A$} (C);
-    \node(AAAA) at (2,2) {$A_{AA}A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node(B) at (3,1) {$A^{\times n}$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node(AAAA) at (2,2) {$A_{A,\pi_1}A^{\times n}$}
       edge [->] node [above left,l] {$\pi'_1$} (A)
       edge [->] node [above right,l] {$\pi'_2$} (B);
     \node at (2,1) {$\Rightarrow L$};
   \end{tikzpicture}
   .
 \end{center}
-By the first part of the universal property of weak pullbacks, there exist unique morphisms from $A_{AA}A$ to $A_{fg}B$ and back making the following diagrams commute that are evidently inverses.
+By the first part of the universal property of weak pullbacks, there exist unique morphisms from $A_{A,\pi_1}A^{\times n}$ to $A_{f,g\pi_1}B^{\times n}$ and back making the following diagrams commute.  The unique morphisms are evidently inverses.
 \begin{center}
-  \begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$C$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$f$} (C);
-    \node(B) at (3,1) {$B$}
-      edge [->] node [above left,l] {$g$} (C);
-    \node(AfgB) at (2,2) {$A_{fg}B$}
+      edge [->] node [below left,l] {$f$} (C);
+    \node(B) at (3,1) {$B^{\times n}$}
+      edge [->] node [below right,l] {$g\pi_1$} (C);
+    \node(AfgB) at (2,2) {$A_{f,g\pi_1}B^{\times n}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
-    \node (AAAA) at (2,3) {$A_{AA}A$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, g^{-1}f\pi'_2\rangle$}(AfgB)
+    \node (AAAA) at (2,3) {$A_{A,\pi_1}A^{\times n}$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi'_1, (g^{-1}f)^{\times n}\pi'_2\rangle$}(AfgB)
       edge [->, bend right] node [above left,l] {$\pi'_1$} (A)
-      edge [->, bend left] node [above right,l] {$g^{-1}f\pi'_2$} (B);
+      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\times n}\pi'_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
   \end{tikzpicture}
-  \begin{tikzpicture}[scale=2]
-    \node at (0.5,1.5) {$=$};
+  \begin{tikzpicture}[scale=2.5]
+    \node at (0.25,1.5) {$=$};
     \node(C) at (2,0) {$C$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$f$} (C);
-    \node(B) at (3,1) {$B$}
-      edge [->] node [above left,l] {$g$} (C);
-    \node at (2,1.5) {$\Rightarrow L$};
-    \node (AAAA) at (2,3) {$A_{AA}A$}
+      edge [->] node [below left,l] {$f$} (C);
+    \node(B) at (3,1) {$B^{\times n}$}
+      edge [->] node [below right,l] {$g\pi_1$} (C);
+    \node at (2,1.5) {$\Rightarrow fL$};
+    \node (AAAA) at (2,3) {$A_{A,\pi_1}A^{\times n}$}
       edge [->, bend right] node [above left,l] {$\pi'_1$} (A)
-      edge [->, bend left] node [above right,l] {$g^{-1}f\pi'_2$} (B);
+      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\times n}\pi'_2$} (B);
   \end{tikzpicture}
 \end{center}
 
 \begin{center}
-  \begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$A$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$f$} (C);
-    \node(B) at (3,1) {$A$}
-      edge [->] node [above left,l] {$g$} (C);
-    \node(AfgB) at (2,2) {$A_{AA}A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node(B) at (3,1) {$A^{\times n}$}
+      edge [->] node [below right,l] {$\pi_1$} (C);
+    \node(AfgB) at (2,2) {$A_{A,\pi_1}A^{\times n}$}
       edge [->] node [above left,l] {$\pi'_1$} (A)
       edge [->] node [above right,l] {$\pi'_2$} (B);
     \node at (2,1) {$\Rightarrow L$};
-    \node (AAAA) at (2,3) {$A_{fg}B$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, f^{-1}g\pi_2\rangle$}(AfgB)
+    \node (AAAA) at (2,3) {$A_{f,g\pi_1}B^{\times n}$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, (f^{-1}g)^{\times n}\pi_2\rangle$}(AfgB)
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$f^{-1}g\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\times n}\pi_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
   \end{tikzpicture}
-  \begin{tikzpicture}[scale=2]
-    \node at (0.5,1.5) {$=$};
+  \begin{tikzpicture}[scale=2.5]
+    \node at (0.25,1.5) {$=$};
     \node(C) at (2,0) {$A$};
     \node(A) at (1,1) {$A$}
-      edge [->] node [above right,l] {$f$} (C);
-    \node(B) at (3,1) {$A$}
-      edge [->] node [above left,l] {$g$} (C);
-    \node at (2,1.5) {$\Rightarrow K$};
-    \node (AAAA) at (2,3) {$A_{fg}B$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node(B) at (3,1) {$A^{\times n}$}
+      edge [->] node [below right,l] {$\pi_1$} (C);
+    \node at (2,1.5) {$\Rightarrow f^{-1}K$};
+    \node (AAAA) at (2,3) {$A_{f,g\pi_1}B^{\times n}$}
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$f^{-1}g\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\times n}\pi_2$} (B);
   \end{tikzpicture}
 \end{center}
 \hfill $\square$
 
-Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to the pullback of the identity cospan on $A.$  With that choice, we have the following corollaries.
-
-\begin{cor}
-  \label{piling}
-  The composite of $n$ spans of the form $A_i \stackrel{A_i}{\leftarrow} A_i \stackrel{f_i}{\to} A_{i+1}$ is $A_1 \stackrel{\pi_1}{\leftarrow} A_1^n \stackrel{f_n \cdots f_1\pi_n}{\to} A_{n+1}.$
-\end{cor}
+Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A_{A,\pi_1}A^{\times n}.$  With that choice, we have the following corollary.
 
 \begin{cor}
   \label{reverse}
-  The composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ where $f$ is invertible is the span $B \stackrel{\pi_1}{\leftarrow} B_{BB}B \stackrel{f^{-1}\pi_2}{\to} A.$
+  The composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ where $f$ is invertible is the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
 We're now ready to prove the main theorem.
@@ -7324,7 +7321,7 @@ We're now ready to prove the main theorem.
 {\em Proof.} As noted, Hoffnung \cite{Hoffnung} showed that $\Span_3(T)$
 is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
 
-The associator is the span $(AB)C \stackrel{(AB)C}{\leftarrow} (AB)C \stackrel{a}{\to} A(BC).$  The left and right unitors are the spans $1A \stackrel{1A}{\leftarrow} 1A \stackrel{l}{\to} A$ and $A1 \stackrel{A1}{\leftarrow} A1 \stackrel{r}{\to} A,$ respectively.  The braiding is $AB \stackrel{AB}{\leftarrow} AB \stackrel{b}{\to} BA.$   The cap is $1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} AA;$ the cup is its reverse, $AA \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$
+The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
 
 Consider the left 2-unitor with each vertex replaced by an identity morphism:
 
@@ -7348,12 +7345,12 @@ Consider the left 2-unitor with each vertex replaced by an identity morphism:
   \end{tikzpicture}
 \end{center}
 
-The composite span along the top edge is $(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^3 \stackrel{(l \times B)\pi_3}{\to} A \times B.$  The composite span across the bottom edge is $(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^3 \stackrel{la\pi_3}{\to} A \times B.$  The map of spans between them is
+The composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is
 \begin{center}
   \begin{tikzpicture}[scale=3]
-    \node(A) at (1,0) {$((1\times A)\times B)^3$};
-    \node(B) at (1,2) {$((1\times A)\times B)^3$}
-      edge [->] node [l, right] {$((1\times A)\times B)^3$} (A);
+    \node(A) at (1,0) {$((1\times A)\times B)^{\times 3}$};
+    \node(B) at (1,2) {$((1\times A)\times B)^{\times 3}$}
+      edge [->] node [l, right] {$((1\times A)\times B)^{\times 3}$} (A);
     \node (C) at (0,1) {$(1\times A)\times B$}
       edge [<-] node [l, below left] {$\pi_1$} (A)
       edge [<-] node [l, above left] {$\pi_1$} (B);
@@ -7368,14 +7365,16 @@ The right-hand 2-morphism of the span is the identity because the finite product
 
 Similar logic applies to the middle and right 2-unitor modifications and the pentagonator modification.  These truncated 2-morphisms fit together with extra identity 2-morphisms that are given by omnitrucation of the coherence laws: we truncate each vertex to get an identity 2-morphism, all of whose edges are identities; and we bevel each edge to get a rectangular identity 2-cell where two of the edges are the same nontrivial 1-morphism and the other two are identity 1-morphisms.  Inserting identities in this way does not change the coherence law in any substantive way, but it makes each face have an even number of sides.  Because the the top and bottom edges of each face are the same length, 
 \begin{itemize}
-  \item the apexes of the spans corresponding to the top and bottom edge of each face are the same by corollary \ref{piling},
+  \item the apexes of the spans corresponding to the top and bottom edge of each face are the same by lemma \ref{piling},
   \item the resulting 2-morphism is an identity for exactly the same reason as the 2-unitor above, and
   \item the associahedron and unitor prism coherence laws are trivial.
 \end{itemize} 
 
-If we similarly truncate the hexagon modifications $R$ and $S,$ then each reversed associator $A(BC) \stackrel{a}{\leftarrow} (AB)C \stackrel{(AB)C}{\to} (AB)C$ gets precomposed with an identity span, and by corollary \ref{reverse}, the result is the same as if we had used the inverse associator $A(BC) \stackrel{A(BC)}{\leftarrow} A(BC) \stackrel{a^{-1}}{\to} (AB)C$ instead.  Likewise, we can replace the reverse braiding by the inverse braiding.  The shuffle and Breen polytopes, the syllepsis coherence law, and the symmetry coherence law are all trivial by the same argument as above.
+If we similarly truncate the hexagon modifications $R$ and $S,$ then each reversed associator $$A\times (B\times C) \stackrel{a}{\leftarrow} (A\times B)\times C \stackrel{(A\times B)\times C}{\to} (A\times B)\times C$$ gets precomposed with an identity span, and by corollary \ref{reverse}, the result is the same as if we had used the inverse associator $$A\times (B\times C) \stackrel{A\times (B\times C)}{\leftarrow} A\times (B\times C) \stackrel{a^{-1}}{\to} (A\times B)\times C$$ instead.  Likewise, we can replace the reverse braiding by the inverse braiding.  The shuffle and Breen polytopes, the syllepsis coherence law, and the symmetry coherence law are all trivial by the same argument as above.
 
 The fact that these coherence laws are all trivial proves that $\Span_2(T)$ is a symmetric monoidal bicategory.  We now have to show the existence of the yanking 2-morphisms and that they satisfy the swallowtail coherence law.
+
+[[ From here forward needs rewrite ]]
 
 The central cospan above is the bottom half of a commuting square expressing that duplication $\Delta$ and deletion $!$ form a weak comonoid in $T$.  We can therefore take the span $A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{\Delta}{\to} A\times A$ with the identity 2-cell as a competitor to the pullback.  The first universal property of the pullback gives a unique morphism $\langle\langle A, A\rangle, \langle A, A\rangle\rangle$ from $A$ to $P$ satisfying the relevant conditions.
 
