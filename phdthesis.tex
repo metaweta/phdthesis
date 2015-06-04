@@ -421,7 +421,7 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
 
 This thesis is an exploration of some places where ideas in computer science and physics share a common mathematical structure.  The first part of the thesis deals with partition functions in physics and algorithmic information theory.  In physics, partition functions are used to encode information about statistical systems in thermal equilibrium; in algorithmic information theory, they are used to encode information about the probability that a Turing machine will halt given a random program.  We derive analogues of Maxwell's relations in the algorithmic setting and consider thermodynamic cycles such as the Carnot cycle or Stoddard cycle.  We also show that given a program and a probability $P$, we can effectively compute a time after which the probability that the program will eventually halt is less than $P$.  This idea of a time cutoff is reminiscent of a high-energy cutoff in renormalization.
 
-The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory $\Span_2(T)$ of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
+The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory $\Span_2(T)$ of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.
 
 
   \vfill
@@ -4794,7 +4794,7 @@ A compact closed bicategory is a symmetric monoidal bicategory where every objec
 
 We give several examples of compact closed bicategories and review work leading up to the concept of a compact closed bicategory.  We give the complete definition of a compact closed bicategory, emphasizing the combinatorics of the functors, natural isomorphisms, and equations.  Finally, we prove that each of the examples is compact closed.
 
-In particular, we prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  We also prove that given a cocomplete symmetric monoidal category $R$ whose tensor product distributes over its colimits, the bicategory Mat($R$) of natural numbers, matrices of objects of $R$ and matrices of morphisms of $R$ is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  We also give a new proof that the bicategory of small categories, cocontinuous functors between the presheaves on those categories, and natural transformations is compact closed.
+In particular, we prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.  
 
 \section{Introduction}
 
@@ -7326,7 +7326,7 @@ The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{
 Consider the left 2-unitor with each vertex replaced by an identity morphism:
 
 \begin{center}
-  \begin{tikzpicture}[scale=2]
+  \begin{tikzpicture}[scale=1.5]
     \filldraw[white,fill=brown,fill opacity=0.5](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
     \node (A) at (  0:2cm) {$A\tensor B$};
     \node (B) at ( 60:2cm) {$A\tensor B$}
@@ -7345,7 +7345,7 @@ Consider the left 2-unitor with each vertex replaced by an identity morphism:
   \end{tikzpicture}
 \end{center}
 
-The composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is
+The composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is the identity:
 \begin{center}
   \begin{tikzpicture}[scale=3]
     \node(A) at (1,0) {$((1\times A)\times B)^{\times 3}$};
@@ -7363,7 +7363,7 @@ The composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{
 \end{center}
 The right-hand 2-morphism of the span is the identity because the finite products in $T$ satisfy the triangle equation.
 
-Similar logic applies to the middle and right 2-unitor modifications and the pentagonator modification.  These truncated 2-morphisms fit together with extra identity 2-morphisms that are given by omnitrucation of the coherence laws: we truncate each vertex to get an identity 2-morphism, all of whose edges are identities; and we bevel each edge to get a rectangular identity 2-cell where two of the edges are the same nontrivial 1-morphism and the other two are identity 1-morphisms.  Inserting identities in this way does not change the coherence law in any substantive way, but it makes each face have an even number of sides.  Because the the top and bottom edges of each face are the same length, 
+Similar logic applies to the middle and right 2-unitor modifications and the pentagonator modification.  These truncated 2-morphisms fit together with extra identity 2-morphisms that are given by omnitrucation of the coherence laws: we truncate each vertex to get an identity 2-morphism, all of whose edges are identities; and we bevel each edge to get a rectangular identity 2-cell where two of the edges are the same nontrivial 1-morphism and the other two are identity 1-morphisms.  Inserting these identities does not change the coherence law in any substantive way, but it makes each face have an even number of sides.  Because the the top and bottom edges of each face are the same length, 
 \begin{itemize}
   \item the apexes of the spans corresponding to the top and bottom edge of each face are the same by lemma \ref{piling},
   \item the resulting 2-morphism is an identity for exactly the same reason as the 2-unitor above, and
@@ -7374,72 +7374,71 @@ If we similarly truncate the hexagon modifications $R$ and $S,$ then each revers
 
 The fact that these coherence laws are all trivial proves that $\Span_2(T)$ is a symmetric monoidal bicategory.  We now have to show the existence of the yanking 2-morphisms and that they satisfy the swallowtail coherence law.
 
-[[ From here forward needs rewrite ]]
+\newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
+  \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
+    \draw[\ifnum\y>0 black\else white\fi] (\lastx, 0) to[out=90,in=90,looseness=1.7] (\x, 0);
+  \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
+\end{tikzpicture}}
 
-The central cospan above is the bottom half of a commuting square expressing that duplication $\Delta$ and deletion $!$ form a weak comonoid in $T$.  We can therefore take the span $A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{\Delta}{\to} A\times A$ with the identity 2-cell as a competitor to the pullback.  The first universal property of the pullback gives a unique morphism $\langle\langle A, A\rangle, \langle A, A\rangle\rangle$ from $A$ to $P$ satisfying the relevant conditions.
+The yanking 2-morphisms have edges that are not isomorphisms, so the technique above is not sufficient to prove the entire theorem.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A_{A,A}A \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
 
+The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.
 \begin{center}
-  \begin{tikzpicture}[scale=2]
-    \node (1) at (1,0) {$A\times (A\times A)$};
-    \node (2) at (2,1) {$A\times A$}
-      edge [->] node [below right, l] {$a \circ \langle \langle \pi_1, \pi_1\rangle, \pi_2\rangle$} (1);
-    \node (3) at (0,1) {$A\times A$}
-      edge [->] node [below left, l] {$\langle \pi_1, \langle \pi_2, \pi_2\rangle\rangle$} (1);
-    \node (4) at (1,2) {$P$}
-      edge [->] node [above right,m] {$\langle\pi_{11}, \pi_{12}\rangle$} (2)
-      edge [->] node [above left,m] {$\langle\pi_{21}, \pi_{22}\rangle$} (3);
-    \node at (1,1) {$\Leftarrow K$};
-    \node (5) at (1,3) {$A$}
-      edge [->, bend left] node [above right,l] {$\langle A, A\rangle$} (2)
-      edge [->, bend right] node [above left,l] {$\langle A, A\rangle$} (3)
-      edge [->] node [right,m,pos=.9] {$\langle\langle A, A\rangle, \langle A, A\rangle\rangle$} (4);
-    \node at (.5,2) {$=$};
-    \node at (1.5,2) {$=$};
-    \node at (2.5,1) {$=$};
-  \end{tikzpicture}
-  \begin{tikzpicture}[scale=2]
-    \node (1) at (1,0) {$A\times (A\times A)$};
-    \node (2) at (2,1) {$A\times A$}
-      edge [->] node [below right, l] {$a \circ \langle \langle \pi_1, \pi_1\rangle, \pi_2\rangle$} (1);
-    \node (3) at (0,1) {$A\times A$}
-      edge [->] node [below left, l] {$\langle \pi_1, \langle \pi_2, \pi_2\rangle\rangle$} (1);
-    \node (4) at (1,2) {$A$}
-      edge [->] node [above right,l] {$\langle A, A\rangle$} (2)
-      edge [->] node [above left,l] {$\langle A, A\rangle$} (3);
-    \node at (1,1) {$=$};
+  \begin{tikzpicture}
+    \node (Al) at (0,0) {$\bullet$};
+    \node (Ar) at (2,0) {$\bullet$};
+    \node (Aa) at (1,1) {$\bullet$}
+      edge [->] (Al)
+      edge [->] (Ar);
+    \node (lr) at (4,0) {$1 \times \bullet$};
+    \node (la) at (3,1) {$1 \times \bullet$}
+      edge [->] node[auto,l] {$l$} (Ar)
+      edge [->] (lr);
+    \node (Ala) at (2,2) {$\pb{1/1}$}
+      edge [->] node[auto,l] {$\pi_1$} (Aa)
+      edge [->] node[auto,l] {$l^{-1}\pi_2$} (la);
+    \node (ir) at (6,0) {$\pb{1/0,2/0}$};
+    \node (ia) at (5,1) {$\pb{1/0}$}
+      edge [->] node [auto,l] {$!\times \bullet$} (lr)
+      edge [->] node [auto,l] {$\Delta \times \bullet$} (ir);
+    \node (Alia) at (3,3) {$\pb{1/1,3/1,2/0}$}
+      edge [->] node [auto,l] {$\pi_1$} (Ala)
+      edge [->] node [auto,l] {$\pi_2$} (ia);
+
+    \node (Al') at (14,0) {$\bullet$};
+    \node (Ar') at (12,0) {$\bullet$};
+    \node (Aa') at (13,1) {$\bullet$}
+      edge [->] (Al')
+      edge [->] (Ar');
+    \node (lr') at (10,0) {$\bullet \times 1$};
+    \node (la') at (11,1) {$\bullet \times 1$}
+      edge [->] node[auto,l] {$r$} (Ar')
+      edge [->] (lr');
+    \node (Ala') at (12,2) {$\pb{1/1}$}
+      edge [->] node[auto,l] {$\pi_2$} (Aa')
+      edge [->] node[auto,l] {$r^{-1}\pi_1$} (la');
+    \node (ir') at (8,0) {$\pb{1/0,2/0}$};
+    \node (ia') at (9,1) {$\pb{1/0}$}
+      edge [->] node [auto,l] {$\bullet \times !$} (lr')
+      edge [->] node [auto,l] {$\bullet \times \Delta$} (ir');
+    \node (Alia') at (11,3) {$\pb{2/1,3/1,1/0}$}
+      edge [->] node [auto,l] {$\pi_2$} (Ala')
+      edge [->] node [auto,l] {$\pi_1$} (ia');
+      
+    \node (aa) at (7,1) {$\pb{1/0,2/0}$}
+      edge [->] (ir)
+      edge [->] node [auto,l] {$a$} (ir');
+    \node (Aliaa) at (4,4) {$\pb{1/1,3/1,4/0,2/1,5/1,6/0}$}
+      edge [->] node [auto,l] {$\pi_1$} (Alia)
+      edge [->] node [auto,l] {$\pi_2$} (aa);
+      
+    \node at (7,7) {$\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$}
+      edge [->] node [auto,l] {$\pi_1$} (Aliaa)
+      edge [->] node [auto,l] {$\pi_2$} (Alia');
   \end{tikzpicture}
 \end{center}
 
-The morphism $\langle\langle A, A\rangle, \langle A, A\rangle\rangle$ is an obvious candidate for the morphism in the map of spans $\zeta_A$:
-\begin{center}
-  \begin{tikzpicture}[scale=2]
-    \node (1) at (1,0) {$P$};
-    \node (2) at (2,1) {$A$}
-      edge [<-] node [below right, l] {$\pi_{11}$} (1);
-    \node (3) at (0,1) {$A$}
-      edge [<-] node [below left, l] {$\pi_{21}$} (1);
-    \node (4) at (1,2) {$A$}
-      edge [->] node [above right,l] {$A$} (2)
-      edge [->] node [above left,l] {$A$} (3)
-      edge [->] node [right,m] {$\langle\langle A, A\rangle, \langle A, A\rangle\rangle$} (1);
-    \node at (-1,1) {$\zeta_A = $};
-    \node at (.6,1) {$=$};
-    \node at (1.25,1.25) {$=$};
-  \end{tikzpicture}
-\end{center}
-We still have to show that it has an inverse.
-
-Because $T$ has finite products, the composite $\pi_{11}\circ \langle\langle A, A\rangle, \langle A, A\rangle\rangle$ is the identity on $A$.  
-
-Let $K_1\maps \pi_{11}\Rightarrow \pi_{21}, K_2\maps \pi_{12} \Rightarrow \pi_{21},$ and $K_3\maps \pi_{12} \Rightarrow \pi_{22}$ be the result of whiskering the invertible 2-cell $K$ by projections out of $A\times (A\times A).$  Then there is an invertible 2-cell 
-$$\langle\langle\pi_{11}, K_2^{-1}K_1\rangle, \langle K_1, K_3K_2^{-1}K_1\rangle\rangle$$
-that maps the composite $\langle\langle A, A\rangle, \langle A, A\rangle\rangle \circ \pi_{11}$ to the identity on $P.$
-
-Taken together, $\langle\langle A, A\rangle, \langle A, A\rangle\rangle$ and $\pi_{11}$ form an equivalence between $A$ and $P$.  Because we mod out by invertible maps of maps of spans, $\pi_{11}$ is an inverse for $\langle\langle A, A\rangle, \langle A, A\rangle\rangle,$ so $\zeta_A$ is invertible.
-
-The 2-cell $\theta_A$ is given by reversing all the spans above.
-
-$\square$
+The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ is isomorphic to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so we choose weak pullbacks such that they are {\em equal}, making $\zeta$ an identity 2-morphism.  The 2-morphism $\theta$ follows {\em mutatis mutandis}, and the swallowtail coherence law is trivial. \hfill $\square$
 
 \section{Proofs}
 \label{proofs}
@@ -7454,121 +7453,13 @@ $\square$
 \end{thm}
 {\em Proof.} When $C$ is a category with finite products and pullbacks,
 $\Span(C)$ is a special case of Theorem \ref{Span2} where all the
-2-morphisms in the pseudopullbacks are identities. \hfill $\square$
+2-morphisms in the weak pullbacks are identities. \hfill $\square$
 
 \begin{thm}
   The bicategory Rel of sets, relations, and implications, is compact closed.
 \end{thm}
 {\em Proof.} Rel is a wide sub-bicategory of Span(Set)---that is, it has all sets as objects, but only some of the 1-morphisms.  Relations are the jointly-monic spans, the spans for which there is at most one element whose image under the legs of the span picks out any particular pair of related elements.  Implications are maps of jointly-monic spans:
 a function between sets with at most one element is an implication. Since all of the structure morphisms in the definition of a compact closed bicategory are jointly monic and all the 2-morphisms between those structure morphisms exist, Rel is compact closed.\hfill $\square$
-
-\begin{thm}
-  When $R$ is a symmetric 2-rig, the bicategory Mat($R$) of natural numbers, matrices with entries in Ob($R$), and matrices with entries in Mor($R$) is compact closed.
-\end{thm}
-{\em Proof.} The composite of two matrices is given by the usual matrix product, except that we use the monoidal product in $R$ instead of multiplication and the coproduct instead of addition.  The identity matrix has the monoidal unit object in R on the diagonal and the initial object off the diagonal.  Since the monoidal product in $R$ is in general only associative up to an associator, so is the product of matrices; similarly, composing with the identity matrix only gives the same answer up to the unitor for the monoidal product in $R$.  The pentagon and triangle equations for composition hold in Mat($R$) because they hold for the tensor product in $R.$
-
-Mat($R$) is symmetric monoidal under the usual tensor product for matrices, which is associative up to the associator in $R$; the monoidal unit is the object 1 up to the unitor in $R$.  Just as with the usual notion of matrices, the tensor product of two objects $m, n$ is $mn$. The pentagonator and unitors are the identity in Mat($R$) because they are elementwise application of the associator and unitors in $R$, so the associahedra and 2-unitors are trivial.  The symmetry involves a permutation of the rows and columns of the matrix that is its own inverse followed by the symmetry in $R$.  Since $R$ is a symmetric monoidal category, braiding twice in Mat($R$) gives the identity, which in turn implies that the syllepsis and the coherence laws governing it are trivial.  Because the associahedra and unitors are trivial, the hexagon braiding modifications are identities and the coherence laws governing the braiding are trivial.
-
-The dual in Mat($R$) is the identity on objects; on matrices, it is a transposition of the matrix followed by the symmetry in $R.$  The zig-zag morphism
-\begin{center}
-  \begin{tabular}{rcl}
-    $Ae \circ iA$ & = & $(\sum_{m,n} I|n\rangle\langle nmm|)(\sum_{j,k}
-I|kkj\rangle\langle j|)$ \\
-                  & = & $\sum_{j,k,m,n}II|n\rangle\langle nmm|kkj\rangle\langle j|$ \\
-                  & = & $(\sum_j II|j\rangle\langle j|)$
-  \end{tabular}
-\end{center}
-is the same as the identity up to the unitor in $R.$  The swallowtail coherence law is therefore an inverse unitor, an associator, and a unitor, {\em i.e.} the triangle equation in $R$ for the pair of objects
-$(I, I).$\hfill $\square$
-
-\begin{thm}
-  The bicategory Cocont is compact closed.
-\end{thm}
-{\em Proof.} Day and Street \cite{DS97} proved that Cocont is compact closed; here we give a more plebeian proof.  Cocont is a 2-category, and every 2-category is a bicategory whose associator and unitors for composition are identities.  Recall that
-\begin{itemize}
-  \item the objects are small categories,
-  \item morphisms $f:C \to D$ are cocontinuous functors $f:\widehat{C}
-\to \widehat{D},$ and
-  \item 2-morphisms are natural transformations between functors.
-\end{itemize}
-This is a categorification of the compact closed category FinVect, where
-\begin{itemize}
-  \item objects are finite sets and
-  \item morphisms are linear transformations between the free vector spaces on the sets.
-\end{itemize}
-Small categories have replaced finite sets, and cocontinuity has replaced linearity.
-
-Cocont is a monoidal bicategory:
-\begin{itemize}
-  \item $A \tensor B = A \times B,$ where $\times$ is the cartesian product of categories in Cat.
-  \item $I$ is the terminal category.
-  \item $a = \widehat{a^\times},$ where $a^\times$ is the associator in Cat.
-  \item $l = \widehat{l^\times}, r = \widehat{r^\times},$ where
-$l^\times$ and $r^\times$ are the unitors in Cat.
-  \item $\pi$ is an equality because the associator for the cartesian product in Cat satisfies the pentagon equation.
-  \item $\lambda, \mu, \rho$ are equalities because the triangle equations for the left and right unitors in Cat are equations.
-  \item the coherence diagrams---the 14-vertex associahedron and the two
-9-vertex diagrams involving the unitors---are trivial because $\pi,
-\lambda, \mu, \rho$ are equalities rather than merely isomorphisms.
-\end{itemize}
-Next, we need to check the braiding.  Cocont is a braided monoidal bicategory where
-\begin{itemize}
-  \item $b = \widehat{b^\times},$ where $b^\times$ is the braiding for the cartesian product in Cat.
-  \item $R$ and $S$ are equalities because the braiding in Cat satisfies the hexagon equations.
-  \item the polytopes involving $R$ and $S$ are trivial because $R$ and
-$S$ are equalities.
-\end{itemize}
-Third, we need to check the syllepsis.  
-\begin{itemize}
-  \item Because the braiding in Cat is symmetric, Cocont's braiding is also symmetric;
-  \item the syllepsis $v$ is an equality, and
-  \item the polytopes involving $v$ are trivial.
-\end{itemize}
-Finally, to show it is compact closed, we need to check the existence of duals and to verify the swallowtail coherence law.
-\begin{itemize}
-  \item Every small category $A$ has the dual $A^* = A^\op$.
-  \item the counit is
-    \[
-    \begin{array}{rcl}
-      e_A:\widehat{A^\op \times A} & \to     & \widehat{1} \\
-      F                            & \mapsto & \int^A F \\
-      \alpha                       & \mapsto & \int^A \alpha
-    \end{array}
-    \]
-    where $\int^A F$ is the coend of $F$---that is, the coequalizer of the diagram
-    \[ \begin{array}{c}\displaystyle \coprod_{g:a \to a'} F(a', a) \\ \\
-\displaystyle F(g, a) \downarrow \quad \downarrow F(a',g) \\ \\
-\displaystyle \coprod_a F(a,a). \end{array}\]
-  \item the unit is 
-    \[
-    \begin{array}{rcl}
-      i_A:\widehat{1} & \to     & \widehat{A \times A^\op} \\
-      1               & \mapsto & \hom \\
-      h:S\to T        & \mapsto & \hom_h:\hom_S \to \hom_T
-    \end{array}
-    \]
-    where
-    \[
-    \begin{array}{rcl}
-      \hom_S:A^\op \times A & \to     & \Set \\ 
-      (a,a')                & \mapsto & S \times \hom(a,a') \\
-      (f,f')                & \mapsto & S \times \hom(f,f')
-    \end{array}
-    \]
-  \item The 2-morphism $\zeta$ is a natural isomorphism
-  \[ \zeta_a: a \to \int^b \hom(a,b) \times b. \]
-It is canonical in the sense that we do not need to make any arbitrary choices to construct it.  An elegant proof that it is canonical is the following one, shown to the author by Tom Leinster.
-  \[ \begin{array}{rl}
-           & \displaystyle \Set(\int^b \hom(a,b) \times F(b), S) \\ \\
-     \cong & \displaystyle \int_b \Set(\hom(a,b)\times F(b), S) \\ \\
-     \cong & \displaystyle \int_b \Set(\hom(a, b), \Set(F(b), S)) \\ \\
-     \cong & \displaystyle \mbox{Nat}(\hom(a, -), \Set(F(-), S)) \\ \\
-     \cong & \displaystyle \Set(F(a), S) 
-  \end{array} \]  
-  The first isomorphism trades a coend for an end, which is possible because the coend was in the covariant position; the second isomorphism is ``currying,'' which is possible because Set is cartesian closed.  The third is perhaps the most important; just as the coend quotients by a relation, the end picks out those elements that already satisfy a relation.  In this case, the relation is precisely the commuting square in the definition of a natural transformation between the given functors.  Finally, the last isomorphism is the ordinary Yoneda lemma. The proof for the 2-morphism $\theta$ is almost identical.
-\hfill $\square$
-    
-\end{itemize}
 
 \begin{thm}
   The bicategories Cospan(ResNet) and Circ are compact closed.
