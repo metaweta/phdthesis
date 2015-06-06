@@ -7128,7 +7128,7 @@ Here we show that the bicategory $\Span_2(T)$ whose
 \end{itemize}
 forms a compact closed bicategory.
 
-The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{f,g}B,$ 1-morphisms $\pi_1\maps A_{f,g}B \to A$ and $\pi_2\maps A_{f,g}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{f,g}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
+We define composition of spans using the weak pullback in $T$.  The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{f,g}B,$ 1-morphisms $\pi_1\maps A_{f,g}B \to A$ and $\pi_2\maps A_{f,g}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{f,g}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (2,0) {$C$};
@@ -7203,7 +7203,9 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second choice will concern a certain cospan whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A,$ which is obviously not an isomorphism.
+
+To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of weak pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
 
 We denote by $A^{\times n}$ the apex of the span resulting from the composition of $n$ identity spans on $A.$
 
@@ -7312,7 +7314,7 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
   The composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ where $f$ is invertible is the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
-Below we will also choose certain special pullbacks; they will not conflict with this choice because the legs are not isomorphisms but instead involve the duplication map $\Delta.$  We're now ready to prove the main theorem.
+We're now ready to prove the main theorem.
 
 \begin{thm}
   \label{Span2}
@@ -7384,7 +7386,7 @@ The fact that these coherence laws are all trivial proves that $\Span_2(T)$ is a
 
 The yanking 2-morphisms have edges that are not isomorphisms, so the technique above is not sufficient to prove the entire theorem.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A_{A,A}A,$ is denoted $\pb{1 / 1}$, the product $A\times A$ is denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A_{A,A}A \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ is denoted $\pb{1/1,3/1,2/0}.$ 
 
-The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.
+The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.  The resulting seven spans form the bottom rows of the following diagram.
 \begin{center}
   \begin{tikzpicture}
     \node (Al) at (0,0) {$\bullet$};
@@ -7440,7 +7442,9 @@ The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\o
   \end{tikzpicture}
 \end{center}
 
-The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  With an appropriate permutation, we can rearrange the arcs to get $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans.  Therefore, we choose weak pullbacks such that they are {\em equal}; this choice does not conflict with our previous assignment of weak pullbacks when the legs are isomorphisms, because the legs in this case involve the duplication map $\Delta$.  Choosing weak pullbacks such that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ equals $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$ makes $\zeta$ an identity 2-morphism.  The 2-morphism $\theta$ follows {\em mutatis mutandis}, and the swallowtail coherence law is trivial. \hfill $\square$
+The precise weak pullback used for the apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition and its first projection $\pb{1/1,3/1,4/0,2/1,5/1,6/0}$ have not been chosen yet, since their legs involve $\Delta.$  Any choice will do for the apex's first projection, but a particularly nice choice for the apex will make the proof much easier.
+
+The apex has eleven dots connected by ten arcs in a single chain.  With an appropriate permutation, we can rearrange the arcs to get $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans.  Again, since weak pullbacks are defined only up to isomorphism and because we have not already chosen a weak pullback for the final cospan, we choose weak pullbacks such that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ and $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$ are {\em equal}.  Choosing weak pullbacks in this way makes $\zeta$ an identity 2-morphism.  The 2-morphism $\theta$ follows {\em mutatis mutandis}, and with the insertion of appropriate identity 2-morphisms the swallowtail coherence law is trivial. \hfill $\square$
 
 \section{Proofs}
 \label{proofs}
