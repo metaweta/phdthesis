@@ -7203,7 +7203,7 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second choice will concern a certain cospan whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A,$ which is obviously not an isomorphism.
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A.$  The second set of choices does not conflict with the first, since $\Delta$ is not an isomorphism.
 
 To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of weak pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
 
@@ -7241,7 +7241,7 @@ The weak pullbacks of the two cospans are
   \end{tikzpicture}
   .
 \end{center}
-By the first part of the universal property of weak pullbacks, there exist unique morphisms from $A_{A,\pi_1}A^{\times n}$ to $A_{f,g\pi_1}B^{\times n}$ and back making the following diagrams commute.  The unique morphisms are evidently inverses.
+By the first universal property of weak pullbacks, there exist unique morphisms from $A_{A,\pi_1}A^{\times n}$ to $A_{f,g\pi_1}B^{\times n}$ and back making the following diagrams commute.  The unique morphisms are evidently inverses.
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$C$};
@@ -7307,14 +7307,14 @@ By the first part of the universal property of weak pullbacks, there exist uniqu
 \end{center}
 \hfill $\square$
 
-Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A_{A,\pi_1}A^{\times n}.$  With that choice, we have the following corollary.
+Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A_{A,\pi_1}A^{\times n}.$  With that choice, we also have the following useful corollary.
 
 \begin{cor}
   \label{reverse}
-  The composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ where $f$ is invertible is the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
+  Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
-We're now ready to prove the main theorem.
+We are now ready to prove the main theorem.
 
 \begin{thm}
   \label{Span2}
@@ -7322,8 +7322,6 @@ We're now ready to prove the main theorem.
 \end{thm}
 {\em Proof.} As noted, Hoffnung \cite{Hoffnung} showed that $\Span_3(T)$
 is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
-
-We will show that by choosing certain especially nice weak pullbacks and by 
 
 The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
 
@@ -7349,7 +7347,7 @@ Consider the left 2-unitor with each vertex replaced by an identity morphism:
   \end{tikzpicture}
 \end{center}
 
-The composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is the identity:
+Given the choice of weak pullbacks above, the composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is the identity:
 \begin{center}
   \begin{tikzpicture}[scale=3]
     \node(A) at (1,0) {$((1\times A)\times B)^{\times 3}$};
@@ -7442,9 +7440,7 @@ The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\o
   \end{tikzpicture}
 \end{center}
 
-The precise weak pullback used for the apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition and its first projection $\pb{1/1,3/1,4/0,2/1,5/1,6/0}$ have not been chosen yet, since their legs involve $\Delta.$  Any choice will do for the apex's first projection, but a particularly nice choice for the apex will make the proof much easier.
-
-The apex has eleven dots connected by ten arcs in a single chain.  With an appropriate permutation, we can rearrange the arcs to get $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans.  Again, since weak pullbacks are defined only up to isomorphism and because we have not already chosen a weak pullback for the final cospan, we choose weak pullbacks such that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ and $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$ are {\em equal}.  Choosing weak pullbacks in this way makes $\zeta$ an identity 2-morphism.  The 2-morphism $\theta$ follows {\em mutatis mutandis}, and with the insertion of appropriate identity 2-morphisms the swallowtail coherence law is trivial. \hfill $\square$
+We have not chosen the precise objects for the weak pullbacks in the apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition and its first projection $\pb{1/1,3/1,4/0,2/1,5/1,6/0}$ yet, since their legs involve $\Delta.$  Any choice will do for the apex's first projection, but a particularly nice choice for the apex will make the proof much easier.  The apex has eleven dots connected by ten arcs in a single chain.  With an appropriate permutation, we can rearrange the dots to get $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans.  Again, since weak pullbacks are defined only up to isomorphism and because we have not already chosen a weak pullback for the final cospan, we choose weak pullbacks such that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ and $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$ are {\em equal}.  Choosing weak pullbacks in this way makes $\zeta$ an identity 2-morphism; the 2-morphism $\theta$ follows {\em mutatis mutandis}, and with the insertion of appropriate identity 2-morphisms to make everything fit together properly, the swallowtail coherence law is trivial. \hfill $\square$
 
 \section{Proofs}
 \label{proofs}
