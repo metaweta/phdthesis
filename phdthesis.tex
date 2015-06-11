@@ -5122,15 +5122,13 @@ The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures w
 itself.
     \item The tensor product of two objects $A$ and $B$ is the one object $A \tensor B$.
     \item There are two ways to parenthesize the product of three objects, so we have an {\bf associator} adjoint equivalence pseudonatural in $A,B,C$
-        \[ a\maps (A\tensor B) \tensor C \rightarrow A \tensor (B
-\tensor C) \]
+        \[ a\maps (A\tensor B) \tensor C \rightarrow A \tensor (B\tensor C) \]
       for moving parentheses from the left pair to the right pair.
     \item There are five ways to parenthesize the product of four objects, so we have a {\bf pentagonator} invertible modification $\pi$
 relating the two different ways of moving parentheses from being clustered at the left to being clustered at the right.  (Mnemonic: Pink Pentagonator.)
       \begin{center}
         \begin{tikzpicture}
-          \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4
-,2)--(2,0)--(0,1)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4,2)--(2,0)--(0,1)--cycle;
           \node (ABCD1) at (0,3) {$((A \tensor B) \tensor C) \tensor D$};
           \node (ABCD2) at (2,4) {$(A\tensor B) \tensor (C\tensor D)$}
             edge [<-] node [l, above left] {$a$} (ABCD1);
@@ -7307,11 +7305,80 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
 \end{center}
 \hfill $\square$
 
-Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A_{A,\pi_1}A^{\times n}.$  With that choice, we also have the following useful corollary.
+Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel{f}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times n}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A_{A,\pi_1}A^{\times n}=A^{\times (n+1)}.$  With that choice, we also have the following useful corollary.
 
 \begin{cor}
   \label{reverse}
   Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
+\end{cor}
+
+\begin{lemma}
+  \label{permute}
+  The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
+\end{lemma}
+
+{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $K.$  It is obvious that $\pi_1 K = \pi_2, \pi_2 K = \pi_1,$ and $b K = K^{-1}.$  The following 2-cells are equal:
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \node (C) at (1,0) {$A$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node (B) at (2,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node (P2) at (1,2) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P1) at (-1,2) {$A^{\times 2}$}
+      edge [->] node [below left,l] {$\pi_1$} (A);
+    \node (X) at (0,3) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$b$} (P1)
+      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+    \node at (1,1) {$\Rightarrow K$};
+    \node at (0,2) {$\Rightarrow K^{-1}$};
+    \node at (2.25,1.5) {$=$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2]
+    \node (C) at (1,0) {$A$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node (B) at (2,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node (P1) at (1,2) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P2) at (3,2) {$A^{\times 2}$}
+      edge [->] node [below right,l] {$\pi_2$} (B);
+    \node (X) at (2,3) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$b$} (P1)
+      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+    \node at (1,1) {$\Rightarrow K$};
+    \node at (2,2) {$\Rightarrow K$};
+  \end{tikzpicture}
+\end{center}
+(note that on the right hand side, the lower use of $K$ is whiskered by $b,$ becoming $K^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\times 2}$ such that $K^{-1} = \pi_1 \gamma$ and $K = \pi_2 \gamma.$ \hfill $\square$
+
+\begin{cor}
+  The map of spans
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+      \node (C) at (1,0) {$A^{\times 2}$};
+      \node (A) at (0,1) {$A$}
+        edge [<-] node [below left,l] {$\pi_1$} (C);
+      \node (B) at (2,1) {$A$}
+        edge [<-] node [below right,l] {$\pi_2$} (C);
+      \node (D) at (1,2) {$A^{\times 2}$}
+        edge [->] node [above left,l] {$\pi_1$} (A)
+        edge [->] node [above right,l] {$\pi_2$} (B)
+        edge [->] node [right,l] {$b$} (C);
+      \node at (.5,1) {$\Rightarrow K$};
+      \node at (1.5,1) {$\Rightarrow K^{-1}$};
+    \end{tikzpicture}
+  \end{center}
+  is in the same equivalence class as the identity map of spans.
+\end{cor}
+
+\begin{cor}
+  Any permutation of $A^{\times n}$ is naturally isomorphic to the identity.
 \end{cor}
 
 We are now ready to prove the main theorem.
@@ -7325,122 +7392,48 @@ is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the comp
 
 The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
 
-Consider the left 2-unitor with each vertex replaced by an identity morphism:
-
+By adding an identity edge to the pentagonator, our choice of weak pullbacks means that we get an identity map of spans:
 \begin{center}
   \begin{tikzpicture}[scale=1.5]
-    \filldraw[white,fill=brown,fill opacity=0.5](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
-    \node (A) at (  0:2cm) {$A\tensor B$};
-    \node (B) at ( 60:2cm) {$A\tensor B$}
-      edge [->] node [l, above right] {$A\tensor B$} (A);
-    \node (C) at (120:2cm) {$(I \tensor A) \tensor B$}
-      edge [->] node [l, above] {$l \tensor B$} (B);
-    \node (D) at (180:2cm) {$(I \tensor A) \tensor B$}
-      edge [->] node [l, above left] {$(I \tensor A) \tensor B$} (C);
-    \node (E) at (240:2cm) {$I\tensor (A \tensor B)$}
-      edge [<-] node [l, below left] {$a$} (D);
-    \node (F) at (300:2cm) {$I\tensor (A \tensor B)$}
-      edge [<-] node [l, below] {$I\tensor (A \tensor B)$} (E)
-      edge [->] node [l, below right] {$l$} (A);
-    \node at (-0.25,0) {\tikz\node [rotate=-90] {$\Rightarrow$};};
-    \node at (0.25,0) {$\lambda$};
+    \filldraw[white,fill=red,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
+    \node (A) at (  0:2cm) {$A(B(CD))$};
+    \node (B) at ( 60:2cm) {$(AB)(CD)$}
+      edge [->] node [l, above right] {$a$} (A);
+    \node (C) at (120:2cm) {$((AB)C)D$}
+      edge [->] node [l, above] {$a$} (B);
+    \node (D) at (180:2cm) {$((AB)C)D$}
+      edge [->] node [l, above left] {$((AB)C)D$} (C);
+    \node (E) at (240:2cm) {$(A(BC))D$}
+      edge [<-] node [l, below left] {$aD$} (D);
+    \node (F) at (300:2cm) {$A((BC)D)$}
+      edge [<-] node [l, below] {$a$} (E)
+      edge [->] node [l, below right] {$Aa$} (A);
+    \node at (0,0) {$=$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.75]
+    \node (C) at (1,0) {$(((AB)C)D)^{\times 3}$};
+    \node (A) at (0,1) {$((AB)C)D$}
+      edge [<-] node [below left,l] {$\pi_1$} (C);
+    \node (B) at (2,1) {$A(B(CD))$}
+      edge [<-] node [below right,l] {$Aa\circ a\circ aD\circ \pi_3$} (C);
+    \node (D) at (1,2) {$(((AB)C)D)^{\times 3}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$a\circ a\circ \pi_3$} (B)
+      edge [->] node [right,l] {$(((AB)C)D)^{\times 3}$} (C);
+    \node at (.75,1.25) {$=$};
+    \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
+The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  Similarly, the hexagon modifications and the syllepsis are identity maps of spans: the composite morphisms along the top and bottom of each 2-morphism have the same number of edges, so the apexes of the composite spans are equal.  The hexagon equations hold in the underlying category of $T$, and braiding twice is the identity in $T$, so the right-hand 2-morphism in each map of spans is the identity.
 
-Given the choice of weak pullbacks above, the composite span along the top edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{(l \times B)\pi_3}{\to} A \times B.$$  The composite span across the bottom edge is $$(1\times A)\times B \stackrel{\pi_1}{\leftarrow} ((1\times A)\times B)^{\times 3} \stackrel{la\pi_3}{\to} A \times B.$$  The map of spans between them is the identity:
-\begin{center}
-  \begin{tikzpicture}[scale=3]
-    \node(A) at (1,0) {$((1\times A)\times B)^{\times 3}$};
-    \node(B) at (1,2) {$((1\times A)\times B)^{\times 3}$}
-      edge [->] node [l, right] {$((1\times A)\times B)^{\times 3}$} (A);
-    \node (C) at (0,1) {$(1\times A)\times B$}
-      edge [<-] node [l, below left] {$\pi_1$} (A)
-      edge [<-] node [l, above left] {$\pi_1$} (B);
-    \node (D) at (2,1) {$A\times B$}
-      edge [<-] node [l, below right] {$la\pi_3$} (A)
-      edge [<-] node [l, above right] {$(l \times B)\pi_3$} (B);
-    \node at (.75,1.25) {=};
-    \node at (1.25,1.25) {=};
-  \end{tikzpicture}
-\end{center}
-The right-hand 2-morphism of the span is the identity because the finite products in $T$ satisfy the triangle equation.
+We recover a five-sided pentagonator by composing this identity map of spans with the left unitor for composition; since composition of maps of spans is strictly associative, the pentagonator is equal to the left unitor for composition.  Similarly, the three-sided 2-unitors for the monoidal product are also all equal to the left unitor for composition.
 
-Similar logic applies to the middle and right 2-unitor modifications and the pentagonator modification.  These truncated 2-morphisms fit together with extra identity 2-morphisms that are given by omnitrucation of the coherence laws: we truncate each vertex to get an identity 2-morphism, all of whose edges are identities; and we bevel each edge to get a rectangular identity 2-cell where two of the edges are the same nontrivial 1-morphism and the other two are identity 1-morphisms.  Inserting these identities does not change the coherence law in any substantive way, but it makes each face have an even number of sides.  Because the the top and bottom edges of each face are the same length, 
-\begin{itemize}
-  \item the apexes of the spans corresponding to the top and bottom edge of each face are the same by Lemma \ref{piling},
-  \item the resulting 2-morphism is an identity for exactly the same reason as the 2-unitor above, and
-  \item the associahedron and unitor prism coherence laws are trivial.
-\end{itemize} 
+[[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
 
-If we similarly truncate the hexagon modifications $R$ and $S,$ then each reversed associator $$A\times (B\times C) \stackrel{a}{\leftarrow} (A\times B)\times C \stackrel{(A\times B)\times C}{\to} (A\times B)\times C$$ gets precomposed with an identity span, and by Corollary \ref{reverse}, the result is the same as if we had used the inverse associator $$A\times (B\times C) \stackrel{A\times (B\times C)}{\leftarrow} A\times (B\times C) \stackrel{a^{-1}}{\to} (A\times B)\times C$$ instead.  Likewise, we can replace the reverse braiding by the inverse braiding.  The shuffle and Breen polytopes, the syllepsis coherence law, and the symmetry coherence law are all trivial by the same argument as above.
 
-The fact that these coherence laws are all trivial proves that $\Span_2(T)$ is a symmetric monoidal bicategory.  We now have to show the existence of the yanking 2-morphisms and that they satisfy the swallowtail coherence law.
+**HERE**
 
-\newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
-  \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
-    \draw[\ifnum\y>0 black\else white\fi] (\lastx, 0) to[out=90,in=90,looseness=1.7] (\x, 0);
-  \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
-\end{tikzpicture}}
-
-The yanking 2-morphisms have edges that are not isomorphisms, so the technique above is not sufficient to prove the entire theorem.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A_{A,A}A,$ is denoted $\pb{1 / 1}$, the product $A\times A$ is denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A_{A,A}A \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ is denoted $\pb{1/1,3/1,2/0}.$ 
-
-The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.  The resulting seven spans form the bottom rows of the following diagram.
-\begin{center}
-  \begin{tikzpicture}
-    \node (Al) at (0,0) {$\bullet$};
-    \node (Ar) at (2,0) {$\bullet$};
-    \node (Aa) at (1,1) {$\bullet$}
-      edge [->] (Al)
-      edge [->] (Ar);
-    \node (lr) at (4,0) {$1 \times \bullet$};
-    \node (la) at (3,1) {$1 \times \bullet$}
-      edge [->] node[auto,l] {$l$} (Ar)
-      edge [->] (lr);
-    \node (Ala) at (2,2) {$\pb{1/1}$}
-      edge [->] node[auto,l] {$\pi_1$} (Aa)
-      edge [->] node[auto,l] {$l^{-1}\pi_2$} (la);
-    \node (ir) at (6,0) {$\pb{1/0,2/0}$};
-    \node (ia) at (5,1) {$\pb{1/0}$}
-      edge [->] node [auto,l] {$!\times \bullet$} (lr)
-      edge [->] node [auto,l] {$\Delta \times \bullet$} (ir);
-    \node (Alia) at (3,3) {$\pb{1/1,3/1,2/0}$}
-      edge [->] node [auto,l] {$\pi_1$} (Ala)
-      edge [->] node [auto,l] {$\pi_2$} (ia);
-
-    \node (Al') at (14,0) {$\bullet$};
-    \node (Ar') at (12,0) {$\bullet$};
-    \node (Aa') at (13,1) {$\bullet$}
-      edge [->] (Al')
-      edge [->] (Ar');
-    \node (lr') at (10,0) {$\bullet \times 1$};
-    \node (la') at (11,1) {$\bullet \times 1$}
-      edge [->] node[auto,l] {$r$} (Ar')
-      edge [->] (lr');
-    \node (Ala') at (12,2) {$\pb{1/1}$}
-      edge [->] node[auto,l] {$\pi_2$} (Aa')
-      edge [->] node[auto,l] {$r^{-1}\pi_1$} (la');
-    \node (ir') at (8,0) {$\pb{1/0,2/0}$};
-    \node (ia') at (9,1) {$\pb{1/0}$}
-      edge [->] node [auto,l] {$\bullet \times !$} (lr')
-      edge [->] node [auto,l] {$\bullet \times \Delta$} (ir');
-    \node (Alia') at (11,3) {$\pb{2/1,3/1,1/0}$}
-      edge [->] node [auto,l] {$\pi_2$} (Ala')
-      edge [->] node [auto,l] {$\pi_1$} (ia');
-      
-    \node (aa) at (7,1) {$\pb{1/0,2/0}$}
-      edge [->] (ir)
-      edge [->] node [auto,l] {$a$} (ir');
-    \node (Aliaa) at (4,4) {$\pb{1/1,3/1,4/0,2/1,5/1,6/0}$}
-      edge [->] node [auto,l] {$\pi_1$} (Alia)
-      edge [->] node [auto,l] {$\pi_2$} (aa);
-      
-    \node at (7,7) {$\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$}
-      edge [->] node [auto,l] {$\pi_1$} (Aliaa)
-      edge [->] node [auto,l] {$\pi_2$} (Alia');
-  \end{tikzpicture}
-\end{center}
-
-We have not chosen the precise objects for the weak pullbacks in the apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition and its first projection $\pb{1/1,3/1,4/0,2/1,5/1,6/0}$ yet, since their legs involve $\Delta.$  Any choice will do for the apex's first projection, but a particularly nice choice for the apex will make the proof much easier.  The apex has eleven dots connected by ten arcs in a single chain.  With an appropriate permutation, we can rearrange the dots to get $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans.  Again, since weak pullbacks are defined only up to isomorphism and because we have not already chosen a weak pullback for the final cospan, we choose weak pullbacks such that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ and $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$ are {\em equal}.  Choosing weak pullbacks in this way makes $\zeta$ an identity 2-morphism; the 2-morphism $\theta$ follows {\em mutatis mutandis}, and with the insertion of appropriate identity 2-morphisms to make everything fit together properly, the swallowtail coherence law is trivial. \hfill $\square$
+\hfill $\square$
 
 \section{Proofs}
 \label{proofs}
