@@ -5118,14 +5118,12 @@ $(f \otimes g) \circ (f' \otimes g') \Rightarrow
 
 The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures whose vertices enumerate the ways to parenthesize the tensor product of $n$ objects, so the number of vertices is given by the Catalan numbers; for each polytope, we have a corresponding $(n-2)$-morphism of the same shape with directed edges and faces:
   \begin{enumerate}
-    \item The tensor product of one object $A$ is the one object $A$
-itself.
+    \item The tensor product of one object $A$ is the one object $A$ itself.
     \item The tensor product of two objects $A$ and $B$ is the one object $A \tensor B$.
     \item There are two ways to parenthesize the product of three objects, so we have an {\bf associator} adjoint equivalence pseudonatural in $A,B,C$
         \[ a\maps (A\tensor B) \tensor C \rightarrow A \tensor (B\tensor C) \]
       for moving parentheses from the left pair to the right pair.
-    \item There are five ways to parenthesize the product of four objects, so we have a {\bf pentagonator} invertible modification $\pi$
-relating the two different ways of moving parentheses from being clustered at the left to being clustered at the right.  (Mnemonic: Pink Pentagonator.)
+    \item There are five ways to parenthesize the product of four objects, so we have a {\bf pentagonator} invertible modification $\pi$ relating the two different ways of moving parentheses from being clustered at the left to being clustered at the right.  (Mnemonic: Pink Pentagonator.)
       \begin{center}
         \begin{tikzpicture}
           \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4,2)--(2,0)--(0,1)--cycle;
@@ -5147,42 +5145,26 @@ relating the two different ways of moving parentheses from being clustered at th
       \begin{center}
         \begin{tikzpicture}[line join=round]
           \begin{scope}[scale=.2]
-            \filldraw[fill=red,fill opacity=0.7](-4.306,-3.532)--(-2.391
-,-.901)--(-2.391,3.949)--(-5.127,.19)--(-5.127,-2.581)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-4.306,-3.532)--(-2.391
-,-.901)--(2.872,-1.858)--(4.306,-3.396)--(3.212,-4.9)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](2.872,-1.858)--(2.872
-,5.07)--(-.135,5.617)--(-2.391,3.949)--(-2.391,-.901)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](4.306,-3.396)--(4.306
-,3.532)--(2.872,5.07)--(2.872,-1.858)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](-2.872,1.858)--(-.135
-,5.617)--(-2.391,3.949)--(-5.127,.19)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](3.212,-4.9)--(4.306
-,-3.396)--(4.306,3.532)--(2.391,.901)--(2.391,-3.949)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](-4.306
-,-3.532)--(3.212,-4.9)--(2.391,-3.949)--(-5.127,-2.581)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-2.872,1.858)--(2.391
-,.901)--(4.306,3.532)--(2.872,5.07)--(-.135,5.617)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-5.127,-2.581)--(-5.127
-,.19)--(-2.872,1.858)--(2.391,.901)--(2.391,-3.949)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-4.306,-3.532)--(-2.391,-.901)--(-2.391,3.949)--(-5.127,.19)--(-5.127,-2.581)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-4.306,-3.532)--(-2.391,-.901)--(2.872,-1.858)--(4.306,-3.396)--(3.212,-4.9)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](2.872,-1.858)--(2.872,5.07)--(-.135,5.617)--(-2.391,3.949)--(-2.391,-.901)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](4.306,-3.396)--(4.306,3.532)--(2.872,5.07)--(2.872,-1.858)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](-2.872,1.858)--(-.135,5.617)--(-2.391,3.949)--(-5.127,.19)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](3.212,-4.9)--(4.306,-3.396)--(4.306,3.532)--(2.391,.901)--(2.391,-3.949)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](-4.306,-3.532)--(3.212,-4.9)--(2.391,-3.949)--(-5.127,-2.581)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-2.872,1.858)--(2.391,.901)--(4.306,3.532)--(2.872,5.07)--(-.135,5.617)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-5.127,-2.581)--(-5.127,.19)--(-2.872,1.858)--(2.391,.901)--(2.391,-3.949)--cycle;
           \end{scope}
         \end{tikzpicture}% End sketch output
       \end{center}
-    The associahedron is a cube with three of its edges bevelled. It holds in the bicategory $\C$, where we have used juxtaposition instead of $\tensor$ for brevity and the unmarked 2-morphisms are instances of the pseudonaturality invertible modification for the associator.  (Mnemonic for the rectangular invertible modifications: 
-GReen conGRuences.)
+    The associahedron is a cube with three of its edges bevelled. It holds in the bicategory $\C$, where we have used juxtaposition instead of $\tensor$ for brevity and the unmarked 2-morphisms are instances of the pseudonaturality invertible modification for the associator.  (Mnemonic for the rectangular invertible modifications: GReen conGRuences.)
       \begin{center}
         \begin{tikzpicture}[line join=round]
-          \filldraw[white,fill=green,fill opacity=0.1](-2.872
-,1.858)--(-.135,5.617)--(-2.391,3.949)--(-5.127,.19)--cycle;
-          \filldraw[white,fill=red,fill opacity=0.1](3.212,-4.9)--(4.306
-,-3.396)--(4.306,3.532)--(2.391,.901)--(2.391,-3.949)--cycle;
-          \filldraw[white,fill=green,fill opacity=0.1](-4.306
-,-3.532)--(3.212,-4.9)--(2.391,-3.949)--(-5.127,-2.581)--cycle;
-          \filldraw[white,fill=red,fill opacity=0.1](-2.872
-,1.858)--(2.391,.901)--(4.306,3.532)--(2.872,5.07)--(-.135,5.617)--cycle;
-          \filldraw[white,fill=red,fill opacity=0.1](-5.127
-,-2.581)--(-5.127,.19)--(-2.872,1.858)--(2.391,.901)--(2.391
-,-3.949)--cycle;
+          \filldraw[white,fill=green,fill opacity=0.1](-2.872,1.858)--(-.135,5.617)--(-2.391,3.949)--(-5.127,.19)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](3.212,-4.9)--(4.306,-3.396)--(4.306,3.532)--(2.391,.901)--(2.391,-3.949)--cycle;
+          \filldraw[white,fill=green,fill opacity=0.1](-4.306,-3.532)--(3.212,-4.9)--(2.391,-3.949)--(-5.127,-2.581)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](-2.872,1.858)--(2.391,.901)--(4.306,3.532)--(2.872,5.07)--(-.135,5.617)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](-5.127,-2.581)--(-5.127,.19)--(-2.872,1.858)--(2.391,.901)--(2.391,-3.949)--cycle;
           \begin{scope}[font=\fontsize{8}{8}\selectfont]
             \node (A) at (-2.391,3.949) {$(A(B(CD)))E$};
             \node (B) at (-5.127,.19) {$(A((BC)D))E$}
@@ -5216,8 +5198,7 @@ GReen conGRuences.)
             \node at (-.5,-1) {$\pi$};
             \node at (1,3) {\tikz\node [rotate=-45] {$\Rightarrow$};};
             \node at (1.5,3) {$A \pi$};
-            \node at (3,-1.5) {\tikz\node [rotate=-45] 
-{$\Rightarrow$};};
+            \node at (3,-1.5) {\tikz\node [rotate=-45] {$\Rightarrow$};};
             \node at (3.5,-1.5) {$\pi$};
             \node at (-1,-3.7) {$\cong$};
             \node at (-2.5,3) {$\cong$};
@@ -5227,17 +5208,10 @@ GReen conGRuences.)
         =
         \\
         \begin{tikzpicture}[line join=round]
-          \filldraw[white,fill=red,fill opacity=0.1](-4.306
-,-3.532)--(-2.391,-.901)--(-2.391,3.949)--(-5.127,.19)--(-5.127
-,-2.581)--cycle;
-          \filldraw[white,fill=red,fill opacity=0.1](-4.306
-,-3.532)--(-2.391,-.901)--(2.872,-1.858)--(4.306,-3.396)--(3.212
-,-4.9)--cycle;
-          \filldraw[white,fill=red,fill opacity=0.1](2.872
-,-1.858)--(2.872,5.07)--(-.135,5.617)--(-2.391,3.949)--(-2.391
-,-.901)--cycle;
-          \filldraw[white,fill=green,fill opacity=0.1](4.306
-,-3.396)--(4.306,3.532)--(2.872,5.07)--(2.872,-1.858)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](-4.306,-3.532)--(-2.391,-.901)--(-2.391,3.949)--(-5.127,.19)--(-5.127,-2.581)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](-4.306,-3.532)--(-2.391,-.901)--(2.872,-1.858)--(4.306,-3.396)--(3.212,-4.9)--cycle;
+          \filldraw[white,fill=red,fill opacity=0.1](2.872,-1.858)--(2.872,5.07)--(-.135,5.617)--(-2.391,3.949)--(-2.391,-.901)--cycle;
+          \filldraw[white,fill=green,fill opacity=0.1](4.306,-3.396)--(4.306,3.532)--(2.872,5.07)--(2.872,-1.858)--cycle;
           \begin{scope}[font=\fontsize{8}{8}\selectfont]
             \node (A) at (-2.391,3.949) {$(A(B(CD)))E$};
             \node (B) at (-5.127,.19) {$(A((BC)D))E$}
@@ -5276,20 +5250,16 @@ GReen conGRuences.)
   
   \end{enumerate}
 
-\item Just as in any monoid there is an identity element 1, in every monoidal bicategory there is a {\bf monoidal unit} object $I$. Associated to the monoidal unit are a series of morphisms---one of each dimension---that express how to ``cancel'' the unit in a product. Each morphism of dimension $n>0$ has two Stasheff polytopes of dimension $n-1$ as ``subcells'', one for parenthesizing $n+1$ objects and the other for parenthesizing the $n$ objects left over after cancellation.  There are $n+1$ ways to insert $I$ into 
-$n$ objects, so there are $n+1$ morphisms of dimension $n$.
+\item Just as in any monoid there is an identity element 1, in every monoidal bicategory there is a {\bf monoidal unit} object $I$. Associated to the monoidal unit are a series of morphisms---one of each dimension---that express how to ``cancel'' the unit in a product. Each morphism of dimension $n>0$ has two Stasheff polytopes of dimension $n-1$ as ``subcells'', one for parenthesizing $n+1$ objects and the other for parenthesizing the $n$ objects left over after cancellation.  There are $n+1$ ways to insert $I$ into $n$ objects, so there are $n+1$ morphisms of dimension $n$.
   \begin{enumerate}
     \item There is one monoidal unit object $I$.
-    \item There are two {\bf unitor} adjoint equivalences $l$ and $r$
-that are pseudonatural in $A$.  The Stasheff polytopes for two objects and for one object are both points, so the unitors are line segments joining them.
+    \item There are two {\bf unitor} adjoint equivalences $l$ and $r$ that are pseudonatural in $A$.  The Stasheff polytopes for two objects and for one object are both points, so the unitors are line segments joining them.
         \[ l\maps I \tensor A \rightarrow A \]
         \[ r\maps A \tensor I \rightarrow A. \]
-    \item There are three {\bf 2-unitor} invertible modifications
-$\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line segment and the Stasheff polytope for two objects is a point, so these modifications are triangles.  (Mnemonic: Umber Unitor.)
+    \item There are three {\bf 2-unitor} invertible modifications $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line segment and the Stasheff polytope for two objects is a point, so these modifications are triangles.  (Mnemonic: Umber Unitor.)
       \begin{center}
         \begin{tikzpicture}
-          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0
-,0)--cycle;
+          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
           \node (IAB1) at (0,2) {$(I\tensor A)\tensor B$};
           \node (IAB2) at (3,1) {$I\tensor (A \tensor B)$}
             edge [<-] node [l, above right] {$a$} (IAB1);
@@ -5301,8 +5271,7 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
       \end{center}
       \begin{center}
         \begin{tikzpicture}
-          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0
-,0)--cycle;
+          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
           \node (AB) at (0,0) {$A \tensor B$};
           \node (AIB2) at (3,1) {$A\tensor (I\tensor B)$}
             edge [->] node [l, below right] {$A \tensor l$} (AB);
@@ -5314,8 +5283,7 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
       \end{center}
       \begin{center}
         \begin{tikzpicture}
-          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0
-,0)--cycle;
+          \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
           \node (ABI1) at (0,2) {$(A \tensor B) \tensor I$};
           \node (ABI2) at (3,1) {$A \tensor (B \tensor I)$}
             edge [<-] node [l, above right] {$a$} (ABI1);
@@ -5330,10 +5298,8 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
 % IBCD
     \begin{center}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=red,fill opacity=0.1](-1,1)--(1,1)--(1
-,-1)--(-1,-1)--(-1.1,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(2,0)--(1
-,-1)--cycle;
+        \filldraw[white,fill=red,fill opacity=0.1](-1,1)--(1,1)--(1,-1)--(-1,-1)--(-1.1,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(2,0)--(1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1.1,0) {$(I(BC))D$};
           \node (B) at (-1,1) {$((IB)C)D$}
@@ -5354,14 +5320,10 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
         \end{scope}
       \end{tikzpicture}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1.1
-,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,-1)--(0
-,0)--(-1.1,0)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2
-,0)--(1,1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,-1)--(0,0)--(2
-,0)--(1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1.1,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,-1)--(0,0)--(-1.1,0)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2,0)--(1,1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,-1)--(0,0)--(2,0)--(1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1.1,0) {$(I(BC))D$};
           \node (B) at (-1,1) {$((IB)C)D$}
@@ -5390,12 +5352,9 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
 % AICD
     \begin{center}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=red,fill opacity=0.1](-1,-1)--(-1,1)--(1
-,1)--(1.1,0)--(1,-1)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(1.1,0)--(2
-,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1.1,0)--(1,-1)--(2
-,0)--cycle;
+        \filldraw[white,fill=red,fill opacity=0.1](-1,-1)--(-1,1)--(1,1)--(1.1,0)--(1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(1.1,0)--(2,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1.1,0)--(1,-1)--(2,0)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1,1) {$((AI)C)D$};
           \node (B) at (1,1) {$(AI)(CD)$}
@@ -5420,12 +5379,9 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
         \end{scope}
       \end{tikzpicture}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1
-,-1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2
-,0)--(1,1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](0,0)--(2,0)--(1
-,-1)--(-1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1,-1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2,0)--(1,1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](0,0)--(2,0)--(1,-1)--(-1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1,1) {$((AI)C)D$};
           \node (B) at (1,1) {$(AI)(CD)$}
@@ -5450,10 +5406,8 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
 % ABID
     \begin{center}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=red,fill opacity=0.1](-1,1)--(1,1)--(1
-,-1)--(-1,-1)--(-1.1,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(2,0)--(1
-,-1)--cycle;
+        \filldraw[white,fill=red,fill opacity=0.1](-1,1)--(1,1)--(1,-1)--(-1,-1)--(-1.1,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(2,0)--(1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1.1,0) {$((AB)I)D$};
           \node (B) at (-1,1) {$(AB)(ID)$}
@@ -5474,14 +5428,10 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
         \end{scope}
       \end{tikzpicture}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1.1
-,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,-1)--(0
-,0)--(-1.1,0)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2
-,0)--(1,1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,-1)--(0,0)--(2
-,0)--(1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1.1,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,-1)--(0,0)--(-1.1,0)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2,0)--(1,1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,-1)--(0,0)--(2,0)--(1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1.1,0) {$((AB)I)D$};
           \node (B) at (-1,1) {$(AB)(ID)$}
@@ -5510,12 +5460,9 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
 % ABCI
     \begin{center}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=red,fill opacity=0.1](-1,-1)--(-1,1)--(1
-,1)--(1.1,0)--(1,-1)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(1.1,0)--(2
-,0)--cycle;
-        \filldraw[white,fill=brown,fill opacity=0.5](1.1,0)--(1,-1)--(2
-,0)--cycle;
+        \filldraw[white,fill=red,fill opacity=0.1](-1,-1)--(-1,1)--(1,1)--(1.1,0)--(1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1,1)--(1.1,0)--(2,0)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](1.1,0)--(1,-1)--(2,0)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1,1) {$(AB)(CI)$};
           \node (B) at (1,1) {$A(B(CI))$}
@@ -5539,12 +5486,9 @@ $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line se
         \end{scope}
       \end{tikzpicture}
       \begin{tikzpicture}[scale=1.6]
-        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1
-,-1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2
-,0)--(1,1)--cycle;
-        \filldraw[white,fill=green,fill opacity=0.1](0,0)--(2,0)--(1
-,-1)--(-1,-1)--cycle;
+        \filldraw[white,fill=brown,fill opacity=0.5](-1,1)--(0,0)--(-1,-1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](-1,1)--(0,0)--(2,0)--(1,1)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](0,0)--(2,0)--(1,-1)--(-1,-1)--cycle;
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
           \node (A) at (-1,1) {$(AB)(CI)$};
           \node (B) at (1,1) {$A(B(CI))$}
@@ -5655,68 +5599,38 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
 \choose 1} = 4,$ so in a braided strictly monoidal bicategory, these polytopes are tetrahedra whose faces are the $(2,1)$ polytope.
         \begin{center}
           \begin{tikzpicture}[line join=round,scale=.2]
-            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(.172
-,6.631)--(-5.449,-3.146)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(5.828
-,-3.167)--(-5.449,-3.146)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(.172
-,6.631)--(5.828,-3.167)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-5.449,-3.146)--(.172
-,6.631)--(5.828,-3.167)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(.172,6.631)--(-5.449,-3.146)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(5.828,-3.167)--(-5.449,-3.146)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.551,-.318)--(.172,6.631)--(5.828,-3.167)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-5.449,-3.146)--(.172,6.631)--(5.828,-3.167)--cycle;
           \end{tikzpicture}% End sketch output
         \end{center}
         Again, when the associator is not the identity, the vertices get truncated, this time being replaced by pentagonators; as a side-effect, four of the six edges are also beveled.
         \begin{center}
           \begin{tikzpicture}[line join=round,scale=.2]
-            \filldraw[fill=green,fill opacity=0.7](3.11,-1.226)--(1.675
-,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](3.281,.425)--(2.009
-,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11
-,-1.226)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-3.234
-,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798
-,2.636)--(-3.062,.436)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-1.566,-1.557)--(-2.132
-,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112,-1.562)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](2.548,-2.203)--(1.112
-,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515,-3.155)--(.894
-,-3.158)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](-3.234
-,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](1.519,2.346)--(-1.16
-,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009,2.629)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](3.281,.425)--(2.791
-,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11,-1.226)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-3.234,-1.214)--(-2.668
-,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062,.436)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](3.281,.425)--(2.009
-,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](-3.062,.436)--(-1.798
-,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](2.791,.142)--(1.519
-,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515,-3.155)--(.894
-,-3.158)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](3.11,-1.226)--(1.675,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](3.281,.425)--(2.009,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11,-1.226)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-3.234,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798,2.636)--(-3.062,.436)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-1.566,-1.557)--(-2.132,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112,-1.562)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](2.548,-2.203)--(1.112,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515,-3.155)--(.894,-3.158)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](-3.234,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](1.519,2.346)--(-1.16,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009,2.629)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](3.281,.425)--(2.791,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11,-1.226)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-3.234,-1.214)--(-2.668,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062,.436)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](3.281,.425)--(2.009,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](-3.062,.436)--(-1.798,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](2.791,.142)--(1.519,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515,-3.155)--(.894,-3.158)--cycle;
           \end{tikzpicture}% End sketch output
         \end{center}
         This equation governs shuffling one object $A$ into three objects $B, C, D$: \\
         \begin{center}
           \begin{tikzpicture}[line join=round,scale=1.25]
-            \filldraw[white,fill=red,fill opacity=0.1](1.519
-,2.346)--(-1.16,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009
-,2.629)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](3.281
-,.425)--(2.791,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11
-,-1.226)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-3.234
-,-1.214)--(-2.668,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062
-,.436)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](3.281
-,.425)--(2.009,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](-3.062
-,.436)--(-1.798,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](2.791
-,.142)--(1.519,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515
-,-3.155)--(.894,-3.158)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](1.519,2.346)--(-1.16,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009,2.629)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](3.281,.425)--(2.791,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11,-1.226)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-3.234,-1.214)--(-2.668,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062,.436)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](3.281,.425)--(2.009,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](-3.062,.436)--(-1.798,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](2.791,.142)--(1.519,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515,-3.155)--(.894,-3.158)--cycle;
             \begin{scope}[font=\fontsize{8}{8}\selectfont]
               \node (A) at (-.144,3.591) {};
               \node[anchor=south] at (A) {$(A(BC))D$};
@@ -5784,22 +5698,12 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
           =
           \\
           \begin{tikzpicture}[line join=round,scale=1.25]
-            \filldraw[white,fill=green,fill opacity=0.1](3.11
-,-1.226)--(1.675,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](3.281
-,.425)--(2.009,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11
-,-1.226)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](-3.234
-,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798
-,2.636)--(-3.062,.436)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-1.566
-,-1.557)--(-2.132,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112
-,-1.562)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](2.548
-,-2.203)--(1.112,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515
-,-3.155)--(.894,-3.158)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](-3.234
-,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](3.11,-1.226)--(1.675,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](3.281,.425)--(2.009,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11,-1.226)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](-3.234,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798,2.636)--(-3.062,.436)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-1.566,-1.557)--(-2.132,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112,-1.562)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](2.548,-2.203)--(1.112,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515,-3.155)--(.894,-3.158)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](-3.234,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
             \begin{scope}[font=\fontsize{8}{8}\selectfont]
               \node (A) at (-.144,3.591) {};
               \node[anchor=south] at (A) {$(A(BC))D$};
@@ -5872,22 +5776,12 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
         This equation governs shuffling one object $D$ into three objects $A,B,C$: \\
         \begin{center}
           \begin{tikzpicture}[line join=round,scale=1.25]
-            \filldraw[white,fill=red,fill opacity=0.1](1.519
-,2.346)--(-1.16,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009
-,2.629)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](3.281
-,.425)--(2.791,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11
-,-1.226)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-3.234
-,-1.214)--(-2.668,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062
-,.436)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](3.281
-,.425)--(2.009,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](-3.062
-,.436)--(-1.798,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](2.791
-,.142)--(1.519,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515
-,-3.155)--(.894,-3.158)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](1.519,2.346)--(-1.16,2.351)--(-1.798,2.636)--(-.144,3.591)--(2.009,2.629)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](3.281,.425)--(2.791,.142)--(.894,-3.158)--(2.548,-2.203)--(3.11,-1.226)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-3.234,-1.214)--(-2.668,-2.194)--(-.515,-3.155)--(-2.425,.152)--(-3.062,.436)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](3.281,.425)--(2.009,2.629)--(1.519,2.346)--(2.791,.142)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](-3.062,.436)--(-1.798,2.636)--(-1.16,2.351)--(-2.425,.152)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](2.791,.142)--(1.519,2.346)--(-1.16,2.351)--(-2.425,.152)--(-.515,-3.155)--(.894,-3.158)--cycle;
             \begin{scope}[font=\fontsize{8}{8}\selectfont]
               \node (A) at (-.144,3.591) {};
               \node[anchor=south] at (A) {$A((BC)D)$};
@@ -5955,22 +5849,12 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
           =
           \\
           \begin{tikzpicture}[line join=round,scale=1.25]
-            \filldraw[white,fill=green,fill opacity=0.1](3.11
-,-1.226)--(1.675,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](3.281
-,.425)--(2.009,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11
-,-1.226)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](-3.234
-,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798
-,2.636)--(-3.062,.436)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-1.566
-,-1.557)--(-2.132,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112
-,-1.562)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](2.548
-,-2.203)--(1.112,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515
-,-3.155)--(.894,-3.158)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](-3.234
-,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](3.11,-1.226)--(1.675,-.585)--(1.112,-1.562)--(2.548,-2.203)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](3.281,.425)--(2.009,2.629)--(-.144,3.591)--(-.235,2.722)--(1.675,-.585)--(3.11,-1.226)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](-3.234,-1.214)--(-2.132,-.578)--(-.235,2.722)--(-.144,3.591)--(-1.798,2.636)--(-3.062,.436)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-1.566,-1.557)--(-2.132,-.578)--(-.235,2.722)--(1.675,-.585)--(1.112,-1.562)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](2.548,-2.203)--(1.112,-1.562)--(-1.566,-1.557)--(-2.668,-2.194)--(-.515,-3.155)--(.894,-3.158)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](-3.234,-1.214)--(-2.132,-.578)--(-1.566,-1.557)--(-2.668,-2.194)--cycle;
             \begin{scope}[font=\fontsize{8}{8}\selectfont]
               \node (A) at (-.144,3.591) {};
               \node[anchor=south] at (A) {$A((BC)D)$};
@@ -6041,88 +5925,50 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
           \end{tikzpicture}% End sketch output
         \end{center}
         
-      \item $(n=2,k=2)$: ${{2+2} \choose 2} = 6;$ in a braided strictly monoidal bicategory, this polytope is composed mostly of (2,1) triangles
-, but there is a pair of braidings that commute, so one face is a square.
+      \item $(n=2,k=2)$: ${{2+2} \choose 2} = 6;$ in a braided strictly monoidal bicategory, this polytope is composed mostly of (2,1) triangles, but there is a pair of braidings that commute, so one face is a square.
         \begin{center}
           \begin{tikzpicture}[line join=round, scale=.5]
-            \filldraw[fill=blue,fill opacity=0.7](-5.635,-.347)--(-1.888
-,.116)--(0,-1.695)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(0
-,-1.695)--(1.888,.116)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](0,2.083)--(-1.888
-,.116)--(0,-1.695)--(1.888,.116)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(-5.635
-,-.347)--(0,-1.695)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(1.888
-,.116)--(0,2.083)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](0,2.083)--(-1.888
-,.116)--(-5.635,-.347)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(-5.635
-,-.347)--(0,2.083)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-5.635,-.347)--(-1.888,.116)--(0,-1.695)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(0,-1.695)--(1.888,.116)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](0,2.083)--(-1.888,.116)--(0,-1.695)--(1.888,.116)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(-5.635,-.347)--(0,-1.695)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(1.888,.116)--(0,2.083)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](0,2.083)--(-1.888,.116)--(-5.635,-.347)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](5.635,-.347)--(-5.635,-.347)--(0,2.083)--cycle;
           \end{tikzpicture}% End sketch output
         \end{center}
         When the associator is not the identity, the six vertices get truncated and six of the edges get beveled.
         \begin{center}
           \begin{tikzpicture}[line join=round, scale=.5]
-            \filldraw[fill=green,fill opacity=0.7](0,-.807)--(-.944
-,.116)--(-1.678,-.488)--(-.546,-1.564)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0
-,-.807)--(.546,-1.564)--(1.678,-.488)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0
-,-.807)--(-.944,.116)--(0,1.079)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](.546,-1.564)--(.453
-,-1.75)--(-.453,-1.75)--(-.546,-1.564)--(0,-.807)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](0,1.079)--(-.944
-,.116)--(-1.72,.642)--(-.588,1.829)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0
-,1.079)--(.588,1.829)--(1.72,.642)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](1.678,-.488)--(2.075
-,-.32)--(2.109,.417)--(1.72,.642)--(.944,.116)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-1.72,.642)--(-2.109
-,.417)--(-2.075,-.32)--(-1.678,-.488)--(-.944,.116)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](.588,1.829)--(.492
-,2.021)--(-.492,2.021)--(-.588,1.829)--(0,1.079)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](1.678,-.488)--(2.075
-,-.32)--(2.573,-.48)--(2.308,-.977)--(.453,-1.75)--(.546,-1.564)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-.546,-1.564)--(-.453
-,-1.75)--(-2.308,-.977)--(-2.573,-.48)--(-2.075,-.32)--(-1.678
-,-.488)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-.453,-1.75)--(-2.308
-,-.977)--(-1.412,-.174)--(1.412,-.174)--(2.308,-.977)--(.453
-,-1.75)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](1.72,.642)--(.588
-,1.829)--(.492,2.021)--(2.405,.899)--(2.625,.433)--(2.109,.417)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](-.588,1.829)--(-.492
-,2.021)--(-2.405,.899)--(-2.625,.433)--(-2.109,.417)--(-1.72
-,.642)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](2.075,-.32)--(2.573
-,-.48)--(2.625,.433)--(2.109,.417)--cycle;
-            \filldraw[fill=green,fill opacity=0.7](-2.075,-.32)--(-2.573
-,-.48)--(-2.625,.433)--(-2.109,.417)--cycle;
-            \filldraw[fill=blue,fill opacity=0.7](.492,2.021)--(-.492
-,2.021)--(-2.405,.899)--(-1.412,-.174)--(1.412,-.174)--(2.405
-,.899)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](2.625,.433)--(2.405
-,.899)--(1.412,-.174)--(2.308,-.977)--(2.573,-.48)--cycle;
-            \filldraw[fill=red,fill opacity=0.7](-2.625,.433)--(-2.405
-,.899)--(-1.412,-.174)--(-2.308,-.977)--(-2.573,-.48)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](0,-.807)--(-.944,.116)--(-1.678,-.488)--(-.546,-1.564)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0,-.807)--(.546,-1.564)--(1.678,-.488)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0,-.807)--(-.944,.116)--(0,1.079)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](.546,-1.564)--(.453,-1.75)--(-.453,-1.75)--(-.546,-1.564)--(0,-.807)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](0,1.079)--(-.944,.116)--(-1.72,.642)--(-.588,1.829)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](.944,.116)--(0,1.079)--(.588,1.829)--(1.72,.642)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](1.678,-.488)--(2.075,-.32)--(2.109,.417)--(1.72,.642)--(.944,.116)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-1.72,.642)--(-2.109,.417)--(-2.075,-.32)--(-1.678,-.488)--(-.944,.116)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](.588,1.829)--(.492,2.021)--(-.492,2.021)--(-.588,1.829)--(0,1.079)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](1.678,-.488)--(2.075,-.32)--(2.573,-.48)--(2.308,-.977)--(.453,-1.75)--(.546,-1.564)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.546,-1.564)--(-.453,-1.75)--(-2.308,-.977)--(-2.573,-.48)--(-2.075,-.32)--(-1.678,-.488)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.453,-1.75)--(-2.308,-.977)--(-1.412,-.174)--(1.412,-.174)--(2.308,-.977)--(.453,-1.75)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](1.72,.642)--(.588,1.829)--(.492,2.021)--(2.405,.899)--(2.625,.433)--(2.109,.417)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](-.588,1.829)--(-.492,2.021)--(-2.405,.899)--(-2.625,.433)--(-2.109,.417)--(-1.72,.642)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](2.075,-.32)--(2.573,-.48)--(2.625,.433)--(2.109,.417)--cycle;
+            \filldraw[fill=green,fill opacity=0.7](-2.075,-.32)--(-2.573,-.48)--(-2.625,.433)--(-2.109,.417)--cycle;
+            \filldraw[fill=blue,fill opacity=0.7](.492,2.021)--(-.492,2.021)--(-2.405,.899)--(-1.412,-.174)--(1.412,-.174)--(2.405,.899)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](2.625,.433)--(2.405,.899)--(1.412,-.174)--(2.308,-.977)--(2.573,-.48)--cycle;
+            \filldraw[fill=red,fill opacity=0.7](-2.625,.433)--(-2.405,.899)--(-1.412,-.174)--(-2.308,-.977)--(-2.573,-.48)--cycle;
           \end{tikzpicture}% End sketch output
         \end{center}
         This equation governs shuffling two objects $A, B$ into two objects $C, D$: \\
         \begin{center}
           \begin{tikzpicture}[line join=round, scale=2.5, font=\fontsize
 {5}{5}\selectfont]
-            \filldraw[white,fill=blue,fill opacity=0.1](-.453
-,-1.75)--(-2.308,-.977)--(-1.412,-.174)--(1.412,-.174)--(2.308
-,-.977)--(.453,-1.75)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](.492
-,2.021)--(-.492,2.021)--(-2.405,.899)--(-1.412,-.174)--(1.412
-,-.174)--(2.405,.899)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](2.625
-,.433)--(2.405,.899)--(1.412,-.174)--(2.308,-.977)--(2.573,-.48)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-2.625
-,.433)--(-2.405,.899)--(-1.412,-.174)--(-2.308,-.977)--(-2.573
-,-.48)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](-.453,-1.75)--(-2.308,-.977)--(-1.412,-.174)--(1.412,-.174)--(2.308,-.977)--(.453,-1.75)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](.492,2.021)--(-.492,2.021)--(-2.405,.899)--(-1.412,-.174)--(1.412,-.174)--(2.405,.899)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](2.625,.433)--(2.405,.899)--(1.412,-.174)--(2.308,-.977)--(2.573,-.48)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-2.625,.433)--(-2.405,.899)--(-1.412,-.174)--(-2.308,-.977)--(-2.573,-.48)--cycle;
             \node (A) at (-2.573,-.48) {};
             \node [left] at (A) {$(A(BC))D$};
 
@@ -6189,41 +6035,21 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
           \\ = \\
           \begin{tikzpicture}[line join=round, scale=2.5, font=\fontsize
 {5}{5}\selectfont]
-            \filldraw[white,fill=green,fill opacity=0.1](0
-,-.807)--(-.944,.116)--(-1.678,-.488)--(-.546,-1.564)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0
-,-.807)--(.546,-1.564)--(1.678,-.488)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0
-,-.807)--(-.944,.116)--(0,1.079)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](.546
-,-1.564)--(.453,-1.75)--(-.453,-1.75)--(-.546,-1.564)--(0,-.807)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](0
-,1.079)--(-.944,.116)--(-1.72,.642)--(-.588,1.829)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0
-,1.079)--(.588,1.829)--(1.72,.642)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](1.678
-,-.488)--(2.075,-.32)--(2.109,.417)--(1.72,.642)--(.944,.116)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](-1.72
-,.642)--(-2.109,.417)--(-2.075,-.32)--(-1.678,-.488)--(-.944
-,.116)--cycle;
-            \filldraw[white,fill=red,fill opacity=0.1](.588
-,1.829)--(.492,2.021)--(-.492,2.021)--(-.588,1.829)--(0,1.079)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](1.678
-,-.488)--(2.075,-.32)--(2.573,-.48)--(2.308,-.977)--(.453,-1.75)--(.546
-,-1.564)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](-.546
-,-1.564)--(-.453,-1.75)--(-2.308,-.977)--(-2.573,-.48)--(-2.075
-,-.32)--(-1.678,-.488)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](1.72
-,.642)--(.588,1.829)--(.492,2.021)--(2.405,.899)--(2.625,.433)--(2.109
-,.417)--cycle;
-            \filldraw[white,fill=blue,fill opacity=0.1](-.588
-,1.829)--(-.492,2.021)--(-2.405,.899)--(-2.625,.433)--(-2.109
-,.417)--(-1.72,.642)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](2.075
-,-.32)--(2.573,-.48)--(2.625,.433)--(2.109,.417)--cycle;
-            \filldraw[white,fill=green,fill opacity=0.1](-2.075
-,-.32)--(-2.573,-.48)--(-2.625,.433)--(-2.109,.417)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](0,-.807)--(-.944,.116)--(-1.678,-.488)--(-.546,-1.564)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0,-.807)--(.546,-1.564)--(1.678,-.488)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0,-.807)--(-.944,.116)--(0,1.079)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](.546,-1.564)--(.453,-1.75)--(-.453,-1.75)--(-.546,-1.564)--(0,-.807)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](0,1.079)--(-.944,.116)--(-1.72,.642)--(-.588,1.829)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](.944,.116)--(0,1.079)--(.588,1.829)--(1.72,.642)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](1.678,-.488)--(2.075,-.32)--(2.109,.417)--(1.72,.642)--(.944,.116)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](-1.72,.642)--(-2.109,.417)--(-2.075,-.32)--(-1.678,-.488)--(-.944,.116)--cycle;
+            \filldraw[white,fill=red,fill opacity=0.1](.588,1.829)--(.492,2.021)--(-.492,2.021)--(-.588,1.829)--(0,1.079)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](1.678,-.488)--(2.075,-.32)--(2.573,-.48)--(2.308,-.977)--(.453,-1.75)--(.546,-1.564)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](-.546,-1.564)--(-.453,-1.75)--(-2.308,-.977)--(-2.573,-.48)--(-2.075,-.32)--(-1.678,-.488)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](1.72,.642)--(.588,1.829)--(.492,2.021)--(2.405,.899)--(2.625,.433)--(2.109,.417)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](-.588,1.829)--(-.492,2.021)--(-2.405,.899)--(-2.625,.433)--(-2.109,.417)--(-1.72,.642)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](2.075,-.32)--(2.573,-.48)--(2.625,.433)--(2.109,.417)--cycle;
+            \filldraw[white,fill=green,fill opacity=0.1](-2.075,-.32)--(-2.573,-.48)--(-2.625,.433)--(-2.109,.417)--cycle;
 
             \node (A) at (-2.573,-.48) {};
             \node [left] at (A) {$(A(BC))D$};
@@ -6429,12 +6255,9 @@ $n$-categories \cite{Batanin}.
     \begin{center}
       \begin{tikzpicture}
         \begin{scope}[scale=.8, font=\fontsize{8}{8}\selectfont]
-          \filldraw[white,fill=blue,fill opacity=0.1] (1,2.5)--(0,4)--(0
-,8)--(1,9.5)--(4,11.5)--(6,11.5)--cycle;
-          \filldraw[white,fill=blue,fill opacity=0.1] (9,9.5)--(10
-,8)--(10,4)--(9,2.5)--(6,0.5)--(4,0.5)--cycle;
-          \filldraw[white,fill=green,fill opacity=0.1] (6,11.5)--(9
-,9.5)--(4,0.5)--(1,2.5)--cycle;
+          \filldraw[white,fill=blue,fill opacity=0.1] (1,2.5)--(0,4)--(0,8)--(1,9.5)--(4,11.5)--(6,11.5)--cycle;
+          \filldraw[white,fill=blue,fill opacity=0.1] (9,9.5)--(10,8)--(10,4)--(9,2.5)--(6,0.5)--(4,0.5)--cycle;
+          \filldraw[white,fill=green,fill opacity=0.1] (6,11.5)--(9,9.5)--(4,0.5)--(1,2.5)--cycle;
           \node (ABC1) at (1, 2.5) {};
           \node [below left, l] at (ABC1) {$A(BC)$};
           \node (ABC2) at (0, 4) {}
@@ -6481,12 +6304,9 @@ $n$-categories \cite{Batanin}.
       \\ = \\
       \begin{tikzpicture}
         \begin{scope}[scale=.8, font=\fontsize{8}{8}\selectfont]
-          \filldraw[white,fill=blue,fill opacity=0.1] (0,8)--(1,9.5)--(4
-,11.5)--(6,11.5)--(9,9.5)--(10,8)--cycle;
-          \filldraw[white,fill=blue,fill opacity=0.1] (10,4)--(9
-,2.5)--(6,0.5)--(4,0.5)--(1,2.5)--(0,4)--cycle;
-          \filldraw[white,fill=green,fill opacity=0.1] (0,4)--(0,8)--(10
-,8)--(10,4)--cycle;
+          \filldraw[white,fill=blue,fill opacity=0.1] (0,8)--(1,9.5)--(4,11.5)--(6,11.5)--(9,9.5)--(10,8)--cycle;
+          \filldraw[white,fill=blue,fill opacity=0.1] (10,4)--(9,2.5)--(6,0.5)--(4,0.5)--(1,2.5)--(0,4)--cycle;
+          \filldraw[white,fill=green,fill opacity=0.1] (0,4)--(0,8)--(10,8)--(10,4)--cycle;
           \node (ABC1) at (1, 2.5) {};
           \node [below left, l] at (ABC1) {$A(BC)$};
           \node (ABC2) at (0, 4) {}
@@ -6701,10 +6521,8 @@ arc(0:360:1cm and 5mm);
     \item for all objects $A$ and $B$ of $\C$, the following equation holds: \\
     \begin{center}
       \begin{tikzpicture}[scale=.75]
-        \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(6
-,0)--cycle;
-        \filldraw[white,fill=salmon,fill opacity=0.1](0,4)--(0,0)--(6
-,0)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(6,0)--cycle;
+        \filldraw[white,fill=salmon,fill opacity=0.1](0,4)--(0,0)--(6,0)--cycle;
         \node (AB1) at (0,4) {$A \tensor B$};
         \node (BA1) at (6,4) {$B \tensor A$}
           edge [<-] node [l, above] {$b$} (AB1);
@@ -6719,10 +6537,8 @@ arc(0:360:1cm and 5mm);
         \node (=) at (7,2) {=};
       \end{tikzpicture}
       \begin{tikzpicture}[scale=.75]
-        \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(0
-,0)--cycle;
-        \filldraw[white,fill=salmon,fill opacity=0.1](0,0)--(6,0)--(6
-,4)--cycle;
+        \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(0,0)--cycle;
+        \filldraw[white,fill=salmon,fill opacity=0.1](0,0)--(6,0)--(6,4)--cycle;
         \node (AB1) at (0,4) {$A \tensor B$};
         \node (BA1) at (6,4) {$B \tensor A$}
           edge [<-] node [l, above] {$b$} (AB1);
@@ -6980,26 +6796,16 @@ We have drawn the diagrams in a strictly monoidal compact closed bicategory for 
 
 \begin{center}
   \begin{tikzpicture}[scale=.75]
-    \filldraw [white,fill=brown,fill opacity=0.5] (6,0)--(4,3)--(8
-,3)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (4,6)--(8,6)--(8
-,3)--(4,3)--cycle;
-    \filldraw [white,fill=red,fill opacity=0.1] (4,6)--(8,6)--(9,9)--(6
-,11)--(3,9)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (3,9)--(0,11)--(3
-,13)--(6,11)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (6,11)--(9,9)--(12
-,11)--(9,13)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (6,11)--(3,13)--(6
-,14)--(9,13)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (3,13)--(3,16)--(6
-,17)--(6,14)--cycle;
-    \filldraw [white,fill=green,fill opacity=0.1] (6,17)--(6,14)--(9
-,13)--(9,16)--cycle;
-    \filldraw [white,fill=brown,fill opacity=0.5] (0,11)--(3,13)--(3
-,16)--cycle;
-    \filldraw [white,fill=brown,fill opacity=0.5] (12,11)--(9,13)--(9
-,16)--cycle;
+    \filldraw [white,fill=brown,fill opacity=0.5] (6,0)--(4,3)--(8,3)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (4,6)--(8,6)--(8,3)--(4,3)--cycle;
+    \filldraw [white,fill=red,fill opacity=0.1] (4,6)--(8,6)--(9,9)--(6,11)--(3,9)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (3,9)--(0,11)--(3,13)--(6,11)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (6,11)--(9,9)--(12,11)--(9,13)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (6,11)--(3,13)--(6,14)--(9,13)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (3,13)--(3,16)--(6,17)--(6,14)--cycle;
+    \filldraw [white,fill=green,fill opacity=0.1] (6,17)--(6,14)--(9,13)--(9,16)--cycle;
+    \filldraw [white,fill=brown,fill opacity=0.5] (0,11)--(3,13)--(3,16)--cycle;
+    \filldraw [white,fill=brown,fill opacity=0.5] (12,11)--(9,13)--(9,16)--cycle;
     
     \node (A) at (6,0) {$AA^*$};
     \node (B) at (4,3) {$(AI)A^*$}
@@ -7309,7 +7115,7 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
 
 \begin{cor}
   \label{reverse}
-  Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
+  Given an isomorphisms $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
 \begin{lemma}
@@ -7317,7 +7123,7 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
   The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
 \end{lemma}
 
-{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $K.$  It is obvious that $\pi_1 K = \pi_2, \pi_2 K = \pi_1,$ and $b K = K^{-1}.$  The following 2-cells are equal:
+{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $K.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $K b = K^{-1}.$  The following 2-cells are equal:
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$A$};
@@ -7392,7 +7198,7 @@ is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the comp
 
 The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
 
-By adding an identity edge to the pentagonator, our choice of weak pullbacks means that we get an identity map of spans:
+By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal.
 \begin{center}
   \begin{tikzpicture}[scale=1.5]
     \filldraw[white,fill=red,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
@@ -7424,9 +7230,53 @@ By adding an identity edge to the pentagonator, our choice of weak pullbacks mea
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
-The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  Similarly, the hexagon modifications and the syllepsis are identity maps of spans: the composite morphisms along the top and bottom of each 2-morphism have the same number of edges, so the apexes of the composite spans are equal.  The hexagon equations hold in the underlying category of $T$, and braiding twice is the identity in $T$, so the right-hand 2-morphism in each map of spans is the identity.
+The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the left unitor for composition; since composition of maps of spans is strictly associative, the pentagonator is equal to the left unitor for composition.  
 
-We recover a five-sided pentagonator by composing this identity map of spans with the left unitor for composition; since composition of maps of spans is strictly associative, the pentagonator is equal to the left unitor for composition.  Similarly, the three-sided 2-unitors for the monoidal product are also all equal to the left unitor for composition.
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4,2)--(2,0)--(0,1)--cycle;
+    \node (ABCD1) at (0,3) {$((A  B)  C)  D$};
+    \node (ABCD2) at (2,4) {$(A B)  (C D)$}
+      edge [<-] node [l, above left] {$a$} (ABCD1);
+    \node (ABCD3) at (4,2) {$A  (B  (C  D))$}
+      edge [<-] node [l, above right] {$a$} (ABCD2);
+    \node (ABCD4) at (2,0) {$A  ((B  C)  D)$}
+      edge [->] node [l, below right] {$A  a$} (ABCD3);
+    \node (ABCD5) at (0,1) {$(A  (B  C))  D$}
+      edge [->] node [l, below left] {$a$} (ABCD4)
+      edge [<-] node [l, left] {$a  D$} (ABCD1);
+    \node (ABCD6) at (1.5,2.5) {$((A  B)  C)  D$}
+      edge [<-] node [l, auto] {$((A  B)  C)  D$} (ABCD1)
+      edge [->] node [l, auto] {$a$} (ABCD2);
+    \node at (1.25,3) {\tikz\node [rotate=90] {$\Rightarrow$};};
+    \node at (1.4,3) {$l^\circ$};
+    \node at (2,2) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+Similarly, the 2-unitors for the monoidal product are all equal to the inverse of the left unitor for composition.
+
+\begin{center}
+  \begin{tikzpicture}[scale=2.5]
+    \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
+    \node (IAB1) at (0,2) {$(I A) B$};
+    \node (IAB2) at (3,1) {$I (A  B)$}
+      edge [<-] node [l, above right] {$a$} (IAB1);
+    \node (AB) at (0,0) {$A  B$}
+      edge [<-] node [l, below right] {$l$} (IAB2)
+      edge [<-] node [l, left] {$l  B$} (IAB1);
+    \node at (1,1) {$(I A) B$}
+      edge [<-] node [l, right] {$(I A) B$} (IAB1)
+      edge [->] node [l, auto] {$lB$} (AB);
+    \node at (4,1) {etc.};
+    \node at (.3,1) {$\Leftarrow l^{\circ-1}$};
+    \node at (2,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
+
+The hexagon modifications and the syllepsis are identity maps of spans: the composite morphisms along the top and bottom of each 2-morphism have the same number of edges, so the apexes of the composite spans are equal.  The hexagon equations hold in the underlying category of $T$, and braiding twice is the identity in $T$, so the right-hand 2-morphism in each map of spans is the identity.
 
 [[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
 
