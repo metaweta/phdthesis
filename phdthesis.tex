@@ -6356,8 +6356,7 @@ $n$-categories \cite{Batanin}.
     \item an invertible modification called the syllepsis, (Mnemonic: Salmon Syllepsis)
     \begin{center}
       \begin{tikzpicture}
-        \filldraw[white,fill=salmon,fill opacity=0.1] (1.5,0) ellipse
-(37pt and 22pt);
+        \filldraw[white,fill=salmon,fill opacity=0.1] (1.5,0) ellipse (37pt and 22pt);
         \node (AB) at (0,0) {$AB$};
         \node (BA) at (3,0) {$BA$}
           edge [<-, out=135, in=45] node [above,l] {$b$} (AB)
@@ -6399,15 +6398,10 @@ arc(0:180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and
       \end{tikzpicture}
       \begin{tikzpicture}
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
-          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm)
-arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and
-5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--cycle;
-          \filldraw [white,fill=salmon, fill opacity=0.1] (60:2cm)
-arc(0:360:1cm and 5mm);
-          \filldraw [white,fill=salmon, fill opacity=0.1] (180:2cm)
-[rotate=120] arc(0:360:1cm and 5mm);
-          \filldraw [white,fill=salmon, fill opacity=0.1] (300:2cm)
-[rotate=240] arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm) arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--cycle;
+          \filldraw [white,fill=salmon, fill opacity=0.1] (60:2cm) arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=salmon, fill opacity=0.1] (180:2cm) [rotate=120] arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=salmon, fill opacity=0.1] (300:2cm) [rotate=240] arc(0:360:1cm and 5mm);
           \node (A) at (  0:2cm) {};
           \node at (A) [right] {$B(CA)$};
           \node (B) at ( 60:2cm) {}
@@ -6415,8 +6409,7 @@ arc(0:360:1cm and 5mm);
           \node at (B) [above right] {$(BC)A$};
           \node (C) at (120:2cm) {}
             edge [->, out=45, in=135] node [l, above] {$b$} (B)
-            edge [->, out=-45, in=-135] node [l, below] {$b^\bullet$}
-(B);
+            edge [->, out=-45, in=-135] node [l, below] {$b^\bullet$} (B);
           \node at (C) [above left] {$A(BC)$};
           \node (D) at (180:2cm) {}
             edge [->] node [l, above left] {$a$} (C);
@@ -6428,8 +6421,7 @@ arc(0:360:1cm and 5mm);
           \node (F) at (300:2cm) {}
             edge [<-] node [l, below] {$a$} (E)
             edge [->, out=15, in=285] node [l, below right] {$Bb$} (A)
-            edge [->, out=105, in=195] node [l, above left] 
-{$Bb^\bullet$} (A);
+            edge [->, out=105, in=195] node [l, above left] {$Bb^\bullet$} (A);
           \node at (F) [below right] {$B(AC)$};
           \node at (0,0) {$\Downarrow S^\bullet$};
           \node at (90:1.732cm) {$\Downarrow v$};
@@ -6442,9 +6434,7 @@ arc(0:360:1cm and 5mm);
     \begin{center}
       \begin{tikzpicture}
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
-          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm)
-arc(0:180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and
-5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and 5mm)--cycle;
+          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm) arc(0:180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and 5mm)--cycle;
           \node (A) at (  0:2cm) {};
           \node at (A) [right] {$(CA)B$};
           \node (B) at ( 60:2cm) {}
@@ -6469,15 +6459,10 @@ arc(0:180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:180:1cm and
       \end{tikzpicture}
       \begin{tikzpicture}
         \begin{scope}[font=\fontsize{8}{8}\selectfont]
-          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm)
-arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and
-5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--cycle;
-          \filldraw [white,fill=salmon, fill opacity=0.1] (60:2cm)
-arc(0:360:1cm and 5mm);
-          \filldraw [white,fill=salmon, fill opacity=0.1] (180:2cm)
-[rotate=120] arc(0:360:1cm and 5mm);
-          \filldraw [white,fill=salmon, fill opacity=0.1] (300:2cm)
-[rotate=240] arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=blue,fill opacity=0.1] (0:2cm)--(60:2cm) arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--(180:2cm) [rotate=120] arc(0:-180:1cm and 5mm)--cycle;
+          \filldraw [white,fill=salmon, fill opacity=0.1] (60:2cm) arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=salmon, fill opacity=0.1] (180:2cm) [rotate=120] arc(0:360:1cm and 5mm);
+          \filldraw [white,fill=salmon, fill opacity=0.1] (300:2cm) [rotate=240] arc(0:360:1cm and 5mm);
           \node (A) at (  0:2cm) {};
           \node at (A) [right] {$(CA)B$};
           \node (B) at ( 60:2cm) {}
@@ -6485,16 +6470,14 @@ arc(0:360:1cm and 5mm);
           \node at (B) [above right] {$C(AB)$};
           \node (C) at (120:2cm) {}
             edge [->, out=45, in=135] node [l, above] {$b$} (B)
-            edge [->, out=-45, in=-135] node [l, below] {$b^\bullet$}
-(B);
+            edge [->, out=-45, in=-135] node [l, below] {$b^\bullet$} (B);
           \node at (C) [above left] {$(AB)C$};
           \node (D) at (180:2cm) {}
             edge [->] node [l, above left] {$a^\bullet$} (C);
           \node at (D) [left] {$A(BC)$};
           \node (E) at (240:2cm) {}
             edge [<-, out=165, in=255] node [l, below left] {$Ab$} (D)
-            edge [<-, out=75, in=-15] node [l, above right] 
-{$Ab^\bullet$} (D);
+            edge [<-, out=75, in=-15] node [l, above right] {$Ab^\bullet$} (D);
           \node at (E) [below left] {$A(CB)$};
           \node (F) at (300:2cm) {}
             edge [<-] node [l, below] {$a^\bullet$} (E)
@@ -7374,7 +7357,10 @@ Similarly, the 2-unitors for the monoidal product are all equal to the inverse o
 
 The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
 
-The hexagon modification $S$ is more complicated, because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add two identity edges before the reversed associator in the target span.  The resulting map of spans is an identity.  We recover a six-sided $S$ by using two inverse left unitors for composition on the source span and two left unitors for composition on the target span.
+The hexagon modification $S$ is more complicated because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add two identity edges before the reversed associator in the target span.  The resulting map of spans is an identity.  We recover a six-sided $S$ by using two inverse left unitors for composition on the source span and two left unitors for composition on the target span.
+
+The unitors for composition cancel out: suppose we call the three copies of $A(BC)$ in the apex $X, Y,$ and $Z$.  The inverse unitors duplicate $X$ and $Z$ giving $XXYZZ,$ and the unitors project away the second $X$ and the first $Z$, giving $XYZ$ again.  The result is that $S$ is an identity map of spans.
+
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
@@ -7422,12 +7408,40 @@ The hexagon modification $S$ is more complicated, because it has three reversed 
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
-The unitors for composition cancel out: suppose we call the three copies of $A(BC)$ in the apex $X, Y,$ and $Z$.  The inverse unitors duplicate $X$ and $Z$ giving $XXYZZ,$ and the unitors project away the second $X$ and the first $Z$, giving $XYZ$ again.  The result is that $S$ is an identity map of spans.
 
 Similarly, we can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  Since the duplication and deletion are both in the first position, they cancel out, giving an identity map of spans for the syllepsis.
 
-[[draw that here.]]
-
+\begin{center}
+  \begin{tikzpicture}[scale=3, bend angle=270]
+    \filldraw[white,fill=salmon,fill opacity=0.1] (1,1) ellipse (30pt and 20pt);
+    \node (A) at (0,1) {$AB$};
+    \node (B) at (1,1.3) {$AB$}
+      edge [<-] node [l,above left] {$AB$} (A);
+    \node (C) at (1,.6) {$AB$}
+      edge [<-] node [l,below left] {$AB$} (A);
+    \node (D) at (2,1) {$BA$}
+      edge [<-] node [l,above right] {$b$} (B)
+      edge [<-] node [l,below right] {$b^\bullet$} (C)
+      edge [<-, bend right] node [l,below] {$b^\bullet$} (A)
+      edge [<-, bend left] node [l,above] {$b$} (A);
+    \node at (1,1) {$=$};
+    \node at (.6,1.4) {$\Downarrow l^{\circ-1}$};
+    \node at (1.3,.5) {$\Downarrow l^{\circ}$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.75]
+    \node (C) at (1,0) {$AB$};
+    \node (A) at (0,1) {$AB$}
+      edge [<-] node [below left,l] {$\pi_1$} (C);
+    \node (B) at (2,1) {$BA$}
+      edge [<-] node [below right,l,pos=.75] {$b^{-1}\circ \pi_2$} (C);
+    \node (D) at (1,2) {$AB$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l,pos=.25] {$b\circ \pi_2$} (B)
+      edge [->] node [right,l] {$AB$} (C);
+    \node at (.75,1.25) {$=$};
+    \node at (1.25,1.25) {$=$};
+  \end{tikzpicture}
+\end{center}
 
 [[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
 
