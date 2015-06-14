@@ -7398,19 +7398,35 @@ The hexagon modification $S$ is more complicated, because it has three reversed 
       edge [<-] node [l, left] {$C(AB)$} (B)
       edge [->] node [l,below] {$a^\bullet$} (A);
     \node at (30:1.4cm) {$\Leftarrow l^{\circ -1}$};
-    \node (G) at (240:1cm) {$A(CB)$}
+    \node (G) at (270:1cm) {$A(CB)$}
       edge [<-] node [l, left] {$A(CB)$} (E)
       edge [->] node [l,below] {$a^\bullet$} (F);
-    \node at (300:1cm) {$A(CB)$}
-      edge [<-] node [l, above] {$A(CB)$} (G)
-      edge [->] node [l,right] {$a^\bullet$} (F);
-    \node at (260:1.5) {$\Downarrow l^\circ$};
-    \node at (290:1.25) {$\Downarrow l^\circ$};
+    \node at (330:1cm) {$A(CB)$}
+      edge [<-] node [l, left] {$A(CB)$} (F)
+      edge [->] node [l,above] {$bB$} (A);
+    \node at (270:1.5) {$\Downarrow l^\circ$};
+    \node at (330:1.5) {$\Rightarrow l^\circ$};
     \node at (0,0) {$=$};
   \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.75]
+    \node (C) at (1,0) {$(A(BC))^{\times 3}$};
+    \node (A) at (0,1) {$A(BC)$}
+      edge [<-] node [below left,l] {$\pi_1$} (C);
+    \node (B) at (2,1) {$(CA)B$}
+      edge [<-] node [below right,l,pos=.75] {$bB\circ a^{-1}\circ Ab\circ \pi_3$} (C);
+    \node (D) at (1,2) {$(A(BC))^{\times 3}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l,pos=.25] {$a^{-1}\circ b\circ a^{-1}\circ \pi_3$} (B)
+      edge [->] node [right,l] {$(A(BC))^{\times 3}$} (C);
+    \node at (.75,1.25) {$=$};
+    \node at (1.25,1.25) {$=$};
+  \end{tikzpicture}
 \end{center}
+The unitors for composition cancel out: suppose we call the three copies of $A(BC)$ in the apex $X, Y,$ and $Z$.  The inverse unitors duplicate $X$ and $Z$ giving $XXYZZ,$ and the unitors project away the second $X$ and the first $Z$, giving $XYZ$ again.  The result is that $S$ is an identity map of spans.
 
+Similarly, we can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  Since the duplication and deletion are both in the first position, they cancel out, giving an identity map of spans for the syllepsis.
 
+[[draw that here.]]
 
 
 [[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
