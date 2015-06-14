@@ -5557,8 +5557,7 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
         When the associator is not the identity, the triangles' vertices get replaced with associators, effectively truncating them, and we are left with hexagon invertible modifications. (Mnemonic: Blue Braiding.)
         \begin{center}
           \begin{tikzpicture}
-            \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm
-)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
             \node (A) at (  0:2cm) {$B(CA)$};
             \node (B) at ( 60:2cm) {$(BC)A$}
               edge [->] node [l, above right] {$a$} (A);
@@ -5576,8 +5575,7 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
             \node at (0.25,0) {$R$};
           \end{tikzpicture}
           \begin{tikzpicture}
-            \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm
-)--cycle;
+            \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
             \node (A) at (  0:2cm) {$(CA)B$};
             \node (B) at ( 60:2cm) {$C(AB)$}
               edge [->] node [l, above right] {$a^\bullet$} (A);
@@ -5590,9 +5588,7 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
             \node (F) at (300:2cm) {$(AC)B$}
               edge [<-] node [l, below] {$a^\bullet$} (E)
               edge [->] node [l, below right] {$bB$} (A);
-            \node at (-0.25,0) {\tikz\node [rotate=-90] 
-{$\Rightarrow$};};
-            \node at (0.25,0) {$S$};
+            \node at (0,0) {$\Downarrow S$};
           \end{tikzpicture}
         \end{center}
       \item $(n=3,k=1)$ and $(n=1,k=3)$: ${{3+1} \choose 1} = {{1+3}
@@ -7123,7 +7119,7 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
   The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
 \end{lemma}
 
-{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $K.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $K b = K^{-1}.$  The following 2-cells are equal:
+{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $L.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $L b = L^{-1}.$  The following 2-morphisms are equal:
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$A$};
@@ -7139,8 +7135,8 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
     \node (X) at (0,3) {$A^{\times 2}$}
       edge [->] node [above left,l] {$b$} (P1)
       edge [->] node [above right,l] {$A^{\times 2}$} (P2);
-    \node at (1,1) {$\Rightarrow K$};
-    \node at (0,2) {$\Rightarrow K^{-1}$};
+    \node at (1,1) {$\Rightarrow L$};
+    \node at (0,2) {$\Rightarrow L^{-1}$};
     \node at (2.25,1.5) {$=$};
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2]
@@ -7157,11 +7153,11 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
     \node (X) at (2,3) {$A^{\times 2}$}
       edge [->] node [above left,l] {$b$} (P1)
       edge [->] node [above right,l] {$A^{\times 2}$} (P2);
-    \node at (1,1) {$\Rightarrow K$};
-    \node at (2,2) {$\Rightarrow K$};
+    \node at (1,1) {$\Rightarrow L$};
+    \node at (2,2) {$\Rightarrow L$};
   \end{tikzpicture}
 \end{center}
-(note that on the right hand side, the lower use of $K$ is whiskered by $b,$ becoming $K^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\times 2}$ such that $K^{-1} = \pi_1 \gamma$ and $K = \pi_2 \gamma.$ \hfill $\square$
+(note that on the right hand side, the lower use of $L$ is whiskered by $b,$ becoming $L^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\times 2}$ such that $L^{-1} = \pi_1 \gamma$ and $L = \pi_2 \gamma.$ \hfill $\square$
 
 \begin{cor}
   The map of spans
@@ -7176,8 +7172,8 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
         edge [->] node [above left,l] {$\pi_1$} (A)
         edge [->] node [above right,l] {$\pi_2$} (B)
         edge [->] node [right,l] {$b$} (C);
-      \node at (.5,1) {$\Rightarrow K$};
-      \node at (1.5,1) {$\Rightarrow K^{-1}$};
+      \node at (.5,1) {$\Rightarrow L$};
+      \node at (1.5,1) {$\Rightarrow L^{-1}$};
     \end{tikzpicture}
   \end{center}
   is in the same equivalence class as the identity map of spans.
@@ -7186,6 +7182,108 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
 \begin{cor}
   Any permutation of $A^{\times n}$ is naturally isomorphic to the identity.
 \end{cor}
+
+\begin{lemma}
+  Given a span $$A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B$$ where $f$ is an isomorphism, the left unitor for composition is the map of spans
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+      \node (A) at (1,0) {$A$};
+      \node (B) at (0,1) {$A$}
+        edge [->] node [l, below left] {$A$} (A);
+      \node (C) at (2,1) {$C$}
+        edge [->] node [l, auto] {$f$} (A);
+      \node (D) at (1,2) {$A^{\times 2}$}
+        edge [->] node [l, above left] {$\pi_1$} (B)
+        edge [->] node [l, auto] {$f^{-1}\pi_2$} (C)
+        edge [->] node [l, auto, pos=.25] {$\pi_1$} (A);
+      \node at (.5,1) {$=$};
+      \node at (1.5,1) {$\Rightarrow L$};
+    \end{tikzpicture}
+  \end{center}
+  where $L\maps \pi_1 \Rightarrow \pi_2$ is the 2-morphism from the weak pullback.
+\end{lemma}
+{\em Proof.}
+Lemma \ref{piling} and our choice of weak pullback gives us the source span and $L$.  By the first universal property of the weak pullback, there exists a unique morphism $\Delta\maps A \to A^{\times 2}$ such that $\pi_1\Delta = A, \pi_2\Delta = A,$ and $L\Delta = A.$
+\begin{center}
+  \begin{tikzpicture}[scale=2.5]
+    \node(C) at (2,0) {$A$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node(B) at (3,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node(AAAA) at (2,2) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node at (2,1) {$\Rightarrow L$};
+    \node (D) at (2,3) {$A$}
+      edge [->, dashed] node [right,l] {$\Delta$}(AAAA)
+      edge [->, bend right] node [above left,l] {$A$} (A)
+      edge [->, bend left] node [above right,l] {$A$} (B);
+    \node at (1.75,2.5) {=};
+    \node at (2.25,2.5) {=};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.5]
+    \node at (0.7,1) {$=$};
+    \node(C) at (2,0) {$A$};
+    \node(A) at (1,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node(B) at (3,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node (D) at (2,3) {$A$}
+      edge [->, bend right] node [above left,l] {$A$} (A)
+      edge [->, bend left] node [above right,l] {$A$} (B);
+    \node at (2,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+The following 2-morphisms are equal:
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \node (C) at (1,0) {$A$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node (B) at (2,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node (P2) at (1,2) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P1) at (-1,2) {$A^{\times 2}$}
+      edge [->] node [below left,l] {$\pi_1$} (A);
+    \node (D) at (-0.5,2.5) {$A$}
+      edge [->] node [above left,l] {$\Delta$} (P1)
+      edge [->] node [above right,l] {$A$} (A);
+    \node (X) at (0,3) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (D)
+      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+    \node at (1,1) {$\Rightarrow L$};
+    \node at (-.6,2) {$=$};
+    \node at (0.25,2) {$=$};
+    \node at (2.25,1.5) {$=$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2]
+    \node (C) at (1,0) {$A$};
+    \node (A) at (0,1) {$A$}
+      edge [->] node [below left,l] {$A$} (C);
+    \node (B) at (2,1) {$A$}
+      edge [->] node [below right,l] {$A$} (C);
+    \node (P1) at (1,2) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$\pi_2$} (B);
+    \node (P2) at (3,2) {$A^{\times 2}$}
+      edge [->] node [below right,l] {$\pi_2$} (B);
+    \node (D) at (1.5,2.5) {$A$}
+      edge [->] node [above left,l] {$\Delta$} (P1)
+      edge [->] node [above right,l] {$A$} (B);
+    \node (X) at (2,3) {$A^{\times 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (D)
+      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+    \node at (1.4,2) {$=$};
+    \node at (1,1) {$\Rightarrow L$};
+    \node at (2.25,2) {$\Rightarrow L$};
+  \end{tikzpicture}
+\end{center}
+(note that on the right-hand side, the lower 2-morphism is whiskered by $\Delta,$ so it is the identity 2-morphism) so by the second universal property of the weak pullback, there exists a unique invertible 2-morphism $\gamma\maps \Delta\pi_1 \Rightarrow A^{\times 2}$ such that $\pi_1\gamma = \pi_1$ and $\pi_2\gamma = L.$
+
+The first universal property of the weak pullback proves that $\pi_1$ is a one-sided inverse to $\Delta.$  It is not a 2-sided inverse in $T$, but the second universal property of the weak pullback shows that the composite $\Delta\pi_1$ is isomorphic to the identity, so when $\pi_1$ and $\Delta$ are used as maps of spans, they are inverses in $\Span_2(T)$. \hfill $\square$
 
 We are now ready to prove the main theorem.
 
@@ -7196,7 +7294,7 @@ We are now ready to prove the main theorem.
 {\em Proof.} As noted, Hoffnung \cite{Hoffnung} showed that $\Span_3(T)$
 is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
 
-The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$
+The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  The ``bulleted'' morphisms like $a^\bullet$ are the reverse spans.
 
 By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal.
 \begin{center}
@@ -7269,14 +7367,51 @@ Similarly, the 2-unitors for the monoidal product are all equal to the inverse o
       edge [<-] node [l, right] {$(I A) B$} (IAB1)
       edge [->] node [l, auto] {$lB$} (AB);
     \node at (4,1) {etc.};
-    \node at (.3,1) {$\Leftarrow l^{\circ-1}$};
+    \node at (.3,1) {$\Rightarrow l^{\circ-1}$};
     \node at (2,1) {$=$};
   \end{tikzpicture}
 \end{center}
 
 The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
 
-The hexagon modifications and the syllepsis are identity maps of spans: the composite morphisms along the top and bottom of each 2-morphism have the same number of edges, so the apexes of the composite spans are equal.  The hexagon equations hold in the underlying category of $T$, and braiding twice is the identity in $T$, so the right-hand 2-morphism in each map of spans is the identity.
+The hexagon modification $S$ is more complicated, because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add two identity edges before the reversed associator in the target span.  The resulting map of spans is an identity.  We recover a six-sided $S$ by using two inverse left unitors for composition on the source span and two left unitors for composition on the target span.
+\begin{center}
+  \begin{tikzpicture}[scale=2]
+    \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
+    \node (A) at (  0:2cm) {$(CA)B$};
+    \node (B) at ( 60:2cm) {$C(AB)$}
+      edge [->] node [l, above right] {$a^\bullet$} (A);
+    \node (C) at (120:2cm) {$(AB)C$}
+      edge [->] node [l, above] {$b$} (B);
+    \node (D) at (180:2cm) {$A(BC)$}
+      edge [->] node [l, above left] {$a^\bullet$} (C);
+    \node (E) at (240:2cm) {$A(CB)$}
+      edge [<-] node [l, below left] {$Ab$} (D);
+    \node (F) at (300:2cm) {$(AC)B$}
+      edge [<-] node [l, below] {$a^\bullet$} (E)
+      edge [->] node [l, below right] {$bB$} (A);
+    \node at (150:1cm) {$A(BC)$}
+      edge [<-] node [l, below] {$A(BC)$} (D)
+      edge [->] node [l, right] {$a^\bullet$} (C);
+    \node at (150:1.4cm) {$\Rightarrow l^{\circ -1}$};
+    \node at (30:1cm) {$C(AB)$}
+      edge [<-] node [l, left] {$C(AB)$} (B)
+      edge [->] node [l,below] {$a^\bullet$} (A);
+    \node at (30:1.4cm) {$\Leftarrow l^{\circ -1}$};
+    \node (G) at (240:1cm) {$A(CB)$}
+      edge [<-] node [l, left] {$A(CB)$} (E)
+      edge [->] node [l,below] {$a^\bullet$} (F);
+    \node at (300:1cm) {$A(CB)$}
+      edge [<-] node [l, above] {$A(CB)$} (G)
+      edge [->] node [l,right] {$a^\bullet$} (F);
+    \node at (260:1.5) {$\Downarrow l^\circ$};
+    \node at (290:1.25) {$\Downarrow l^\circ$};
+    \node at (0,0) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+
+
 
 [[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
 
