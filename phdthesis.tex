@@ -7358,7 +7358,9 @@ The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an i
 
 The hexagon modification $S$ is more complicated because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add two identity edges before the reversed associator in the target span.  The resulting map of spans is an identity.  We recover a six-sided $S$ by using two inverse left unitors for composition on the source span and two left unitors for composition on the target span.
 
-The unitors for composition cancel out: suppose we call the three copies of $A(BC)$ in the apex $X, Y,$ and $Z$.  The inverse unitors duplicate $X$ and $Z$ giving $XXYZZ,$ and the unitors project away the second $X$ and the first $Z$, giving $XYZ$ again.  The result is that $S$ is an identity map of spans.
+The unitors for composition cancel out: 
+$$(A(BC) \times \pi_2 \times \pi_2) \circ (\Delta \times A(BC) \times \Delta) = (A(BC))^{\times 3},$$  
+so $S$ is an identity map of spans.
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
