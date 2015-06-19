@@ -6824,24 +6824,18 @@ We have drawn the diagrams in a strictly monoidal compact closed bicategory for 
       edge [->] node [above left, l] {$l^\bullet A^*$} (H)
       edge [->] node [right, l] {$l^\bullet$} (K);
     \begin{scope}[on background layer]
-      \fill[white,fill=yellow,fill opacity=0.1] (A.center) to (B.center)
-to (D.center) to (F.center) to (H.center) to (M.center) to (M.west) to
-[bend right=90] (A.west) to (A.center);
+      \fill[white,fill=yellow,fill opacity=0.1] (A.center) to (B.center) to (D.center) to (F.center) to (H.center) to (M.center) to (M.west) to [bend right=90] (A.west) to (A.center);
     \end{scope}
-    \draw [->, black] (M.west) to [bend right=90] node [left, l] 
-{$AA^*$} (A.west);
-    \node at (2.5,13.5) [above] {$\lambda^*$};
+    \draw [->, black] (M.west) to [bend right=90] node [left, l] {$AA^*$} (A.west);
+    \node at (2.5,13.5) [above] {$\lambda^\bullet$};
     \node at (2.5,13.5) {$\Rightarrow$};
     \node (N) at (9,16) {$AA^*$}
       edge [->] node [left, l] {$r^\bullet$} (L)
       edge [->] node [above right, l] {$Ar^\bullet$} (J);
     \begin{scope}[on background layer]
-      \fill[white,fill=yellow,fill opacity=0.1] (A.center) to (C.center)
-to (E.center) to (G.center) to (J.center) to (N.center) to (N.east) to
-[bend left=90] (A.east) to (A.center);
+      \fill[white,fill=yellow,fill opacity=0.1] (A.center) to (C.center) to (E.center) to (G.center) to (J.center) to (N.center) to (N.east) to [bend left=90] (A.east) to (A.center);
     \end{scope}
-    \draw [->, black] (N.east) to [bend left=90] node [right, l] 
-{$AA^*$} (A.east);
+    \draw [->, black] (N.east) to [bend left=90] node [right, l] {$AA^*$} (A.east);
     \node at (9.5,13.5) [above] {$\rho_1$};
     \node at (9.5,13.5) {$\Rightarrow$};
     \node (O) at (6,14) {$II$}
@@ -6851,8 +6845,7 @@ to (E.center) to (G.center) to (J.center) to (N.center) to (N.east) to
     \node (P) at (6,17) {$I$}
       edge [->] node [above, l] {$i$} (M)
       edge [->] node [above, l] {$i$} (N)
-      edge [->] node [left, l] {$l^\bullet$} node [right, l] 
-{$r^\bullet$} (O);
+      edge [->] node [left, l] {$l^\bullet$} node [right, l] {$r^\bullet$} (O);
     \node at (4.5,15) {$\cong$};
     \node at (7.5,15) {$\cong$};
     \node at (1,6) [above] {$\zeta A^*$};
@@ -7015,7 +7008,7 @@ The weak pullbacks of the two cospans are
     \node(A) at (1,1) {$A$}
       edge [->] node [below left,l] {$A$} (C);
     \node(B) at (3,1) {$A^{\times n}$}
-      edge [->] node [below right,l] {$A$} (C);
+      edge [->] node [below right,l] {$\pi_1$} (C);
     \node(AAAA) at (2,2) {$A_{A,\pi_1}A^{\times n}$}
       edge [->] node [above left,l] {$\pi'_1$} (A)
       edge [->] node [above right,l] {$\pi'_2$} (B);
@@ -7093,11 +7086,11 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
 
 \begin{cor}
   \label{reverse}
-  Given an isomorphisms $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B_{B,B}B \stackrel{f^{-1}\pi_2}{\to} A.$
+  Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B^{\times 2} \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
 \begin{lemma}
-  \label{permute}
+  \label{swap}
   The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
 \end{lemma}
 
@@ -7162,6 +7155,7 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
 \end{cor}
 
 \begin{cor}
+  \label{permute}
   Any permutation of $A^{\times n}$ is naturally isomorphic to the identity.
 \end{cor}
 
@@ -7182,10 +7176,10 @@ Since we must choose weak pullbacks for each cospan, given a cospan $A \stackrel
       \node at (1.5,1) {$\Rightarrow L$};
     \end{tikzpicture}
   \end{center}
-  where $L\maps \pi_1 \Rightarrow \pi_2$ is the 2-morphism from the weak pullback.
+  where $L\maps \pi_1 \Rightarrow \pi_2$ is the 2-morphism from the weak pullback $A^{\times 2}$.
 \end{lemma}
 {\em Proof.}
-Lemma \ref{piling} and our choice of weak pullback gives us the source span and $L$.  By the first universal property of the weak pullback, there exists a unique morphism $\Delta\maps A \to A^{\times 2}$ such that $\pi_1\Delta = A, \pi_2\Delta = A,$ and $L\Delta = A.$
+Lemma \ref{piling} and our choice of weak pullback give us the source span and $L$.  By the first universal property of the weak pullback, there exists a unique morphism $\Delta\maps A \to A^{\times 2}$ such that $\pi_1\Delta = A, \pi_2\Delta = A,$ and $L\Delta = A.$
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$A$};
@@ -7267,6 +7261,10 @@ The following 2-morphisms are equal:
 
 The first universal property of the weak pullback proves that $\pi_1$ is a one-sided inverse to $\Delta.$  It is not a 2-sided inverse in $T$, but the second universal property of the weak pullback shows that the composite $\Delta\pi_1$ is isomorphic to the identity, so when $\pi_1$ and $\Delta$ are used as maps of spans, they are inverses in $\Span_2(T)$. \hfill $\square$
 
+\begin{cor}
+  In light of Lemma \ref{swap} and the previous lemma, the left and the right unitor for composition are equal to each other.
+\end{cor}
+
 We are now ready to prove the main theorem.
 
 \begin{thm}
@@ -7310,7 +7308,7 @@ By adding an identity edge to the pentagonator, we get an identity map of spans:
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
-The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the left unitor for composition; since composition of maps of spans is strictly associative, the pentagonator is equal to the left unitor for composition.  
+The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the unitor for composition; since composition of maps of spans is strictly associative, the pentagonator is equal to the unitor for composition.  
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7334,7 +7332,7 @@ The right-hand 2-morphism in the map of spans is an identity because the pentago
   \end{tikzpicture}
 \end{center}
 
-Similarly, the 2-unitors for the monoidal product are all equal to the inverse of the left unitor for composition.
+Similarly, the 2-unitors for the monoidal product are all equal to the inverse of the unitor for composition.
 
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
@@ -7356,11 +7354,9 @@ Similarly, the 2-unitors for the monoidal product are all equal to the inverse o
 
 The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
 
-The hexagon modification $S$ is more complicated because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add two identity edges before the reversed associator in the target span.  The resulting map of spans is an identity.  We recover a six-sided $S$ by using two inverse left unitors for composition on the source span and two left unitors for composition on the target span.
+The hexagon modification $S$ is more complicated because it has three reversed associators.  If we add an identity edge before each reversed associator, then by Lemma \ref{reverse} the apexes are the same as if we had used inverse associators instead.  To get the same number of edges in the source span as in the target span, we add another identity edge before the last edge in the target span.  The resulting eight-sided 2-morphism is an identity.  We recover a six-sided $S$ by using two inverse unitors for composition on the source span and two unitors for composition on the target span.
 
-The unitors for composition cancel out: 
-$$(A(BC) \times \pi_2 \times \pi_2) \circ (\Delta \times A(BC) \times \Delta) = (A(BC))^{\times 3},$$  
-so $S$ is an identity map of spans.
+The unitors for composition cancel out: since by Corollary \ref{permute} the order of the copies of $A(BC)$ in the apex of the source span doesn't matter, any choice of two copies of $A(BC)$ to project out is equal to any other.  The two duplications are cancelled by the two projections, making $S$ an identity map of spans.
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7410,7 +7406,7 @@ so $S$ is an identity map of spans.
   \end{tikzpicture}
 \end{center}
 
-Similarly, we can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  Since the duplication and deletion are both in the first position, they cancel out, giving an identity map of spans for the syllepsis.
+We can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  By Corollary \ref {permute} the duplication and projection cancel out, giving an identity map of spans for the syllepsis.
 
 \begin{center}
   \begin{tikzpicture}[scale=3, bend angle=270]
@@ -7444,8 +7440,126 @@ Similarly, we can insert an identity morphism in the source and target of the sy
   \end{tikzpicture}
 \end{center}
 
-[[Show that the associahedron gives a permutation; it's in the same equivalence class as the identity; any diagram with an even number of odd-sided faces can be split such that half are on the front and half on the back so they all cancel out; all the coherence laws for a symmetric monoidal bicategory have an even number of odd-sided faces.]]
+Since the hexagon modifications and the syllepsis are both identities, the Breen polytope and the coherence laws for the syllepsis are trivial.
 
+Hoffnung proved that $\Span_2(T)$ is a monoidal bicategory, so we don't have to prove that the associahedron or unitor coherence laws hold.  However, it's instructive to see how the associahedron holds, because the pattern applies to the shuffle polytopes, too.  The associahedron coherence law has three pentagonators on the front and three on the back; both the front and back are maps of spans $(((AB)C)D)^{\times 6} \Rightarrow (((AB)C)D)^{\times 3}$ that use three unitors for composition.  Since by Corollary \ref{permute} the order of the copies of $((AB)C)D$ doesn't matter, any choice of three copies of $((AB)C)D$ to project out is equal to any other, so the front and the back of the coherence law are equal.
+
+Since the shuffle polytopes have an even number of pentagonators, we can slice them so that half of the pentagonators are on the front and half are on the back; by Corollary \ref{permute}, the order of the objects in the apex of the spans doesn't matter, so the front and back faces of the shuffle polytopes must be equal.
+
+Since the shuffle polytopes, the Breen polytope, and the syllepsis coherence laws all hold, $\Span_2(T)$ is a symmetric monoidal bicategory.
+
+\newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
+  \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
+    \draw[\ifnum\y>0 black\else white\fi] (\lastx, 0) to[out=90,in=90,looseness=1.7] (\x, 0);
+  \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
+\end{tikzpicture}}
+
+The yanking 2-morphisms include $e$ and $i$ on their edges, which are only sometimes isomorphisms, so the technique above is not sufficient to prove the entire theorem.  When $\Delta$ is an isomorphism, we define $\zeta$ by first adding an identity edge before the reversed unitor in the target morphism and five identities to the source morphism.  The result is a 12-sided identity 2-morphism.  We recover a six-sided 2-morphism $\zeta$ by adding five inverse unitors for composition to the source and one unitor for composition to the target.  Therefore, the 2-morphism $\zeta$ is equal to the product of four inverse unitors for composition.  Since $\theta$ is the reverse map of spans to $\zeta,$ $\theta$ is also equal to the product of four inverse unitors for composition.
+
+\begin{center}
+  \begin{tikzpicture}[scale=3.5]
+    \filldraw[white,fill=yellow,fill opacity=0.1](30:2cm)--(90:2cm)--(150:2cm)--(210:2cm)--(270:2cm)--(330:2cm)--cycle;
+    \node (A1) at (150:2cm) {$A$};
+    \node (A2) at (210:2cm) {$A$} edge [<-] node [l, auto] {$A$} (A1);
+    \node (B2) at (90:2cm) {$IA$} edge [<-] node [l, auto, swap] {$l^\bullet$} (A1);
+    \node (B3) at (30:2cm) {$(AA^*)A$} edge [<-] node [l, auto, swap] {$iA$} (B2);
+    \node (B4) at (330:2cm) {$A(A^*A)$} edge [<-] node [l, auto, swap] {$a$} (B3);
+    \node (B5) at (270:2cm) {$AI$} 
+      edge [<-] node [l, auto, swap] {$Ae$} (B4)
+      edge [->] node [l, auto] {$r$} (A2);
+    \coordinate (CS) at (120:1cm);
+    \coordinate (CE) at (210:1.4cm);
+    \node (C2) at (CS) {$A$} edge [<-] node [l, above right] {$A$} (A1);
+    \node (C3) at ($ (CS)!.25!(CE) $) {$A$} 
+      edge [<-] node [l, right] {$A$} (C2) 
+      edge [<-] node [l, above right] {$A$} (A1);
+    \node (C4) at ($ (CS)!.50!(CE) $) {$A$} 
+      edge [<-] node [l, right] {$A$} (C3)
+      edge [<-] node [l, above right] {$A$} (A1);
+    \node (C5) at ($ (CS)!.75!(CE) $) {$A$} 
+      edge [<-] node [l, right] {$A$} (C4)  
+      edge [<-] node [l, above right] {$A$} (A1);
+    \node (C6) at (CE) {$A$} 
+      edge [<-] node [l, right] {$A$} (C5)
+      edge [<-] node [l, above right] {$A$} (A1)
+      edge [->] node [l, below right] {$A$} (A2);
+    \coordinate (DS) at (-.8,.8);
+    \coordinate (DE) at (-1.4,-.6);
+    \node at (DS) {$\Rightarrow l^{\circ-1}$};
+    \node at ($ (DS)!.25!(DE) $) {$\Rightarrow l^{\circ-1}$};
+    \node at ($ (DS)!.50!(DE) $) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
+    \node at ($ (DS)!.70!(DE) $) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
+    \node at (DE) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
+    \node (E2) at (120:1.3cm) {$A$}
+      edge [<-] node [l,auto,swap] {$A$} (A1)
+      edge [->] node [l,auto,swap] {$l^\bullet$} (B2);
+    \node at (120:1.5cm) {$\Uparrow l^\circ$};
+    \node at (0,0) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+
+
+
+As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A_{A,A}A \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
+
+The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.
+\begin{center}
+  \begin{tikzpicture}
+    \node (Al) at (0,0) {$\bullet$};
+    \node (Ar) at (2,0) {$\bullet$};
+    \node (Aa) at (1,1) {$\bullet$}
+      edge [->] (Al)
+      edge [->] (Ar);
+    \node (lr) at (4,0) {$1 \times \bullet$};
+    \node (la) at (3,1) {$1 \times \bullet$}
+      edge [->] node[auto,l] {$l$} (Ar)
+      edge [->] (lr);
+    \node (Ala) at (2,2) {$\pb{1/1}$}
+      edge [->] node[auto,l] {$\pi_1$} (Aa)
+      edge [->] node[auto,l] {$l^{-1}\pi_2$} (la);
+    \node (ir) at (6,0) {$\pb{1/0,2/0}$};
+    \node (ia) at (5,1) {$\pb{1/0}$}
+      edge [->] node [auto,l] {$!\times \bullet$} (lr)
+      edge [->] node [auto,l] {$\Delta \times \bullet$} (ir);
+    \node (Alia) at (3,3) {$\pb{1/1,3/1,2/0}$}
+      edge [->] node [auto,l] {$\pi_1$} (Ala)
+      edge [->] node [auto,l] {$\pi_2$} (ia);
+
+    \node (Al') at (14,0) {$\bullet$};
+    \node (Ar') at (12,0) {$\bullet$};
+    \node (Aa') at (13,1) {$\bullet$}
+      edge [->] (Al')
+      edge [->] (Ar');
+    \node (lr') at (10,0) {$\bullet \times 1$};
+    \node (la') at (11,1) {$\bullet \times 1$}
+      edge [->] node[auto,l] {$r$} (Ar')
+      edge [->] (lr');
+    \node (Ala') at (12,2) {$\pb{1/1}$}
+      edge [->] node[auto,l] {$\pi_2$} (Aa')
+      edge [->] node[auto,l] {$r^{-1}\pi_1$} (la');
+    \node (ir') at (8,0) {$\pb{1/0,2/0}$};
+    \node (ia') at (9,1) {$\pb{1/0}$}
+      edge [->] node [auto,l] {$\bullet \times !$} (lr')
+      edge [->] node [auto,l] {$\bullet \times \Delta$} (ir');
+    \node (Alia') at (11,3) {$\pb{2/1,3/1,1/0}$}
+      edge [->] node [auto,l] {$\pi_2$} (Ala')
+      edge [->] node [auto,l] {$\pi_1$} (ia');
+      
+    \node (aa) at (7,1) {$\pb{1/0,2/0}$}
+      edge [->] (ir)
+      edge [->] node [auto,l] {$a$} (ir');
+    \node (Aliaa) at (4,4) {$\pb{1/1,3/1,4/0,2/1,5/1,6/0}$}
+      edge [->] node [auto,l] {$\pi_1$} (Alia)
+      edge [->] node [auto,l] {$\pi_2$} (aa);
+      
+    \node at (7,7) {$\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$}
+      edge [->] node [auto,l] {$\pi_1$} (Aliaa)
+      edge [->] node [auto,l] {$\pi_2$} (Alia');
+  \end{tikzpicture}
+\end{center}
+
+The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ is isomorphic to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so we choose weak pullbacks such that they are {\em equal}, making $\zeta$ an identity 2-morphism.  The 2-morphism $\theta$ follows {\em mutatis mutandis}, and the swallowtail coherence law is trivial. \hfill $\square$
 
 **HERE**
 
