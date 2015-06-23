@@ -4810,19 +4810,16 @@ can now be seen as a {\it quantum process}, a {\it tangle}, a
 
 One failing of the approach in this chapter is the mismatch around the treatment of {\em time}.  A computer is a physical device, and we could, at least in principle, use Feynman diagrams to describe it.  However, the analogy described in this chapter associates a Feynman diagram with an equivalence class of programs that {\em mods out by the process of computation}: the equivalence class explicitly ignores changes that happen over time!
 
-If we want a categorical semantics for computation that treats time in the same way that physics does, we need to go up one dimension from categories to ``bicategories''.  The next chapter defines compact closed bicategories and proves that a particular bicategory of spans is compact closed as preparation for future work not in this thesis.
+If we want a categorical semantics for computation that treats time in the same way that physics does, we need to go up one dimension from categories to ``bicategories''.  The next chapter defines compact closed bicategories and proves that a particular bicategory of spans is compact closed as preparation for future work outlined in the conclusion.
 
 \chapter{Compact Closed Bicategories}
 
 \section{Introduction}
 
-When moving from set theory to category theory and higher to
-$n$-category theory, we typically weaken equations at one level to natural isomorphisms at the next.  These isomorphisms are then subject to new coherence equations.  For example, multiplication in a monoid is associative, but the tensor product in a monoidal category is, in general, only associative up to a natural isomorphism.  This ``associator'' natural isomorphism has to satisfy some extra equations that are trivial in the case of the monoid.  In a similar way, when we move from compact closed categories to compact closed bicategories, the
-``zig-zag'' equations governing the dual get weakened to natural isomorphisms and we need to introduce some new coherence laws.
+When moving from set theory to category theory and higher to $n$-category theory, we typically weaken equations at one level to natural isomorphisms at the next.  These isomorphisms are then subject to new coherence equations.  For example, multiplication in a monoid is associative, but the tensor product in a monoidal category is, in general, only associative up to a natural isomorphism.  This ``associator'' natural isomorphism has to satisfy some extra equations that are trivial in the case of the monoid.  In a similar way, when we move from compact closed categories to compact closed bicategories, the ``zig-zag'' equations governing the dual get weakened to natural isomorphisms and we need to introduce some new coherence laws.
 
 In Section \ref{examples}, we will give several examples of important mathematical structures and how they arise in relation to compact closed bicategories.  Following the examples, in Section \ref{previous} we give the history of the concept and related work.  Next, in Section \ref
 {definition} we give the complete definition, which to our knowledge has not appeared elsewhere; we try to motivate each piece of the definition so that the reader could afterwards reconstruct the definition without the aid of this thesis.  In Section \ref{Hoffnung}, we prove that a construction by Hoffnung is an instance of a compact closed bicategory. We prove our assertions about the examples in Section \ref{proofs}. Most of these are corollaries of the main theorem.  
-
 
 \section{Examples}
 \label{examples}
@@ -7607,10 +7604,12 @@ a function between sets with at most one element is an implication. Since all of
 
 \section{Conclusion}
 
-[[ Stuff about CCBs ]]
+Compact closed bicategories are symmetric monoidal bicategories in which each object has a pseduoadjoint.  Given a 2-category $T$ with finite products and iso-comma objects, the bicategory $\Span_2(T)$ of objects of $T$, spans in $T$, and isomorphism equivalence classes of maps of spans forms a compact closed bicategory.  As a corollary, the bicategories Cospan(ResNet) and Circ are compact closed.  If we take $T$ to be the 2-category Gpd of groupoids, $\Span_2(T)$ provides a vast generalization of linear algebra \cite{Gpdify}.
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+
+There is a deep relationship between logic, type theory, topology, and physics that centers on the notions of state and process.  It lets us take concepts like the notion of a partition function from physics and transport it over to computer science to reason about the statistical properties of collections of programs.  It lets us assign quantum meaning to drawings of particles' worldlines.  It lets us use programming languages to construct proofs, and use types to prove that our programs are well-behaved.  By generalizing this relationship to add another dimension, I believe we will reap several benefits beyond those we currently enjoy; here I describe three ideas for applications and future work.
 
 \section*{Generalizing object-oriented programming}
 I began studying compact closed bicategories in order to write down ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
@@ -7645,9 +7644,7 @@ My intent in studying compact closed bicategories was not to describe a set with
 
 Prof is the bicategory of small categories, profunctors, and natural transformations.  A profunctor $F\maps C \to D$ is a functor $F\maps C \to \Set^{D^{\op}}.$  One can turn any functor $G\maps R \to S$ into a profunctor like this:
 \[ \begin{array}{rl}G\maps R &\to \Set^{S^{\op}} \\ r & \mapsto s \mapsto \Hom(s, G(r)).\end{array} \]
-An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.  Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations\footnote{2.7.4, page 63 of Kashiwara-Schapira's {\em Categories and Sheaves} [[ Put this in the bibliography ]].}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.
-
-Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above.  (Kelly's {\em Basic concepts of enriched category theory}, Theorem 4.51 [[ Put this in the bibliography ]])
+An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.  Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations \cite[2.7.4]{KS06}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.  Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above \cite[Theorem 4.51]{Kelly82}.
 
 Prof is a compact closed bicategory.  The monoidal product is the cartesian product in Cat and the monoidal unit is the category with a single object and only the identity morphism.  Below, I denote the associator, symmetric braiding, currying, and unitor natural isomorphisms as \textbf{assoc}, \textbf{swap}, \textbf{curry}, \textbf{left} and \textbf{right}, respectively.  Every object $C$ has a dual $C^* = C^{\op}.$  The internal hom $A \lhom B$ is equivalent to $A^{\op} \times B.$  This means that through judicious use of currying and unitors we can move categories from one side of the arrow to the other:
 \[ \begin{array}{rcl}
@@ -7739,7 +7736,7 @@ The equalities of 2-morphisms are mostly the coherence laws from the definition 
 The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
-\section*{Concurrency, laziness, evaluation strategies}
+\section*{Categorical models of concurrency}
 
 Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence''.  An {\sl evaluation strategy} assigns to each term a rewrite that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is {\sl confluent}: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which terminating strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
 
@@ -7763,14 +7760,16 @@ If we relax the restriction on the comm rule so that it can apply anywhere, then
 \end{array}\]
 $0$ and $|$ are the unit and multiplication in $M,$ respectively.  $!_{x, T}$ and $?_{x, T}$ are adjoints; the comm rule maps to the counit of the adjunction.  Sending is tensoring $!_{x,T}$ with the value of type $T$ to send, then composing with the counit for $T.$  Receiving is the unit for $T$, the continuation process, the right adjoint of multiplication, and finally $?_{x, T}.$
 
-Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
-\[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} prove full abstraction for the asynchronous polyadic pi calculus rather than its linear fragment above using a cartesian closed 2-category instead of a compact closed bicategory.
-
-All popular programming languages, including ``eager'' ones like Java, C, JavaScript, Perl, Python, and Lisp, and ``lazy'' ones like Miranda, Lispkit, Lazy ML, Clean, and Haskell do not reduce terms under a lambda abstraction: the JavaScript program
+All popular programming languages---from ``eager'' ones like Java, C, JavaScript, Perl, Python, and Lisp, to ``lazy'' ones like Miranda, Lispkit, Lazy ML, Clean, and Haskell---do not reduce terms under a lambda abstraction: the JavaScript program
 \begin{verbatim}
   function loop() { while(1){} };
 \end{verbatim}
-does not cause the web browser to lock up unless the function is invoked.  When considering the function defined by a lambda term, 
+does not cause the web browser to lock up unless the function is invoked.  If we model beta reduction as a 2-morphism like Seely suggested, it seems reasonable to try to model lambda calculus using a cartesian closed 2-category; however, the currying isomorphism
+\[ \hom(A\times B, C) \cong \hom(A, B \to C) \]
+implies that if a term $M$ rewrites to $M'$ via beta reduction in the context $\Gamma, x: X$, then it's necessarily true that in the context $\Gamma,$ the term $\lambda x.M$ must rewrite to $\lambda x.M'$ under beta---but that is forbidden in the languages listed above.  If we mod out by beta and look for semantics in Set, then there's no real problem---but when we switch from lambda calculus to pi calculus, it breaks everything.  Even if a pi calculus term $M$ rewrites to $M'$ under the comm rule, it {\em must not} be possible for the term $x(y).M$ to rewrite to $x(y).M'$: the semantics of the term $x(y).M$ {\em requires} a message to be received on the channel $x$ before any progress is made on reducing $M$.
+
+Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
+\[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} used these ideas to prove full abstraction for the asynchronous polyadic pi calculus using a symmetric monoidal closed 2-category.  There is much more work to be done along these lines, particularly with respect to the categorical semantics of Caires' behavioral / spatial types.
 
 \section*{Principle of least action}
 
@@ -7828,6 +7827,8 @@ H.\ Gausterer and H.\ Grosse, Springer, Berlin, 2000, pp.\ 25--93. Also availabl
 
 \bibitem{Seminar} J.\ Baez, Classical versus quantum computation, U.\ C.\ Riverside seminar notes by D.\ Wise.  Available at
 \href{http://math.ucr.edu/home/baez/qg-fall2006/index.html#computation}{http://math.ucr.edu/home/baez/qg-fall2006/} and\\ \href{http://math.ucr.edu/home/baez/qg-winter2007/index.html#computation}{http://math.ucr.edu/home/baez/qg-winter2007}.
+
+\bibitem{Gpdify} J.\ Baez, Groupoidification. \href{http://math.ucr.edu/home/baez/groupoidification/}{http://math.ucr.edu/home/baez/groupoidification/}
 
 \bibitem{B3} J.\ Baez, Higher-dimensional algebra and Planck-scale physics, in {\sl Physics Meets Philosophy at the Planck Length}, eds.\
 C.\ Callender and N.\ Huggett, Cambridge U.\ Press, Cambridge,
@@ -7902,6 +7903,8 @@ T.\ Ehrhard, J.-Y.\ Girard, P.\ Ruet, P.\ Scott, Cambridge U.\ Press, Cambridge,
 {\sl A Course in Universal Algebra}, Springer, Berlin, 1981.  Also available at \href{http://www.math.uwaterloo.ca/~snburris/htdocs/ualg.html}
 {http://www.math.uwaterloo.ca/$\sim$snburris/htdocs/ualg.html}.
 
+\bibitem{Caires} L\. Caires, Logical Semantics of Types for Concurrency, \textsl{Proceedings of CALCO'07}, Springer-Verlag, Lecture Notes in Computer Science (2007).  Also available at \href{http://ctp.di.fct.unl.pt/~lcaires/papers/CALCO-Caires-1.0.pdf}{http://ctp.di.fct.unl.pt/$\sim$lcaires/papers/CALCO-Caires-1.0.pdf}
+
 \bibitem{Calude} C.\ S.\ Calude, {\sl Information and Randomness: 
 An Algorithmic Perspective}, Springer, Berlin, 2002.
 
@@ -7920,14 +7923,14 @@ C. S. Calude, Elena Calude, M. J. Dinneen. A new measure of the difficulty  of  
 \bibitem{CST2004} C.\ S.\ Calude, L.\ Staiger, S.\ A.\ Terwijn, On partial randomness, {\sl Ann.\ Appl.\ Pure Logic}\textbf{138} (2006)
 20--30. Also available at
 \href{http://www.cs.auckland.ac.nz/CDMTCS//researchreports/239cris.pdf}
-{$\langle$http://www.cs.auckland.ac.nz/CDMTCS//researchreports/239cris.pdf$\rangle$}.
+{http://www.cs.auckland.ac.nz/CDMTCS//researchreports/239cris.pdf}.
 
-\bibitem{cs0} C.~S. Calude, M.~A. Stay. From Heisenberg to G\"odel via Chaitin,  Internat. J. Theoret. Phys.  44, 7 (2005), 1053--1065.
+\bibitem{cs0} C.~S. Calude, M.~A. Stay. From Heisenberg to G\"odel via Chaitin,  Internat. J. Theoret. Phys.  44, 7 (2005), 1053--1065.  Also available at \href{http://arxiv.org/abs/quant-ph/0402197}{arXiv:quant-ph/0402197}.
 
 \bibitem{CSHalting2006} C.\ S.\ Calude and M.\ A.\ Stay, Most Programs Stop Quickly or Never Halt, 
 {\sl Adv.\ Appl.\ Math.\ }\textbf{40} (3), 295--308. Also available as
 \href{http://arxiv.org/abs/cs/0610153}
-{$\langle$arXiv:cs/0610153$\rangle$}.
+{arXiv:cs/0610153}.
 
 \bibitem{CSNatural2006} C.\ S.\ Calude and M.\ A.\ Stay, Natural halting probabilities, partial randomness, and zeta functions, \textsl{Inform. and Comput.}, \textbf{204} (2006), 
 1718--1739. 
@@ -7981,7 +7984,7 @@ H.\ B.\ Curry, J.\ R. Findley and J.\ P.\ Selding, {\sl Combinatory Logic}, Vol.
 \href{http://www.nbi.dk/GroupTheory/}{
 http://www.nbi.dk/GroupTheory/}.
 
-\bibitem{D'A} G. D'Abramo. Asymptotic behavior and halting probability of Turing Machines, April 2006.  Available at \href{http://arxiv.org/abs/math/0512390}{math.HO/0512390}.
+\bibitem{D'A} G. D'Abramo. Asymptotic behavior and halting probability of Turing Machines, April 2006.  Available at \href{http://arxiv.org/abs/math/0512390}{arXiv:math.HO/0512390}.
 
 \bibitem{Day} B.\ Day. On closed categories of functors. In Saunders Mac Lane, editor, Reports of the Midwest Category Seminar, {\sl Lecture Notes in Mathematics}, \textbf{137} (1970) 1--38.
 
@@ -8011,7 +8014,7 @@ S.\ Eilenberg and S.\ Mac Lane, General theory of natural equivalences, \textsl{
 \href{http://strangepaths.com/wp-content/uploads/2007/11/conservativelogic.pdf}
 {$\langle$http://strangepaths.com/wp-content/uploads/2007/11/conservativelogic.pdf$\rangle$}.
 
-\bibitem{FKLW} M.\ Freedman, A.\ Kitaev, M.\ Larsen and Z.\ Wang, Topological quantum computation.  Available at \href{http://arxiv.org/abs/quant-ph/0101025}{  arXiv:quant-ph/0101025v2}.
+\bibitem{FKLW} M.\ Freedman, A.\ Kitaev, M.\ Larsen and Z.\ Wang, Topological quantum computation.  Available at \href{http://arxiv.org/abs/quant-ph/0101025}{arXiv:quant-ph/0101025v2}.
 
 \bibitem{FKW} M.\ Freedman, A.\ Kitaev and Z.\ Wang, Simulation of topological field theories by quantum computers, {\sl Comm. Math. Phys.\ }{\bf 227}
 (2002), 587--603.  Also available at \quantph{0001071}.
@@ -8076,7 +8079,7 @@ Logic), {\bf 9} (3) (2013), 10--28.  Also available at \href{https://hal.archive
 {http://arxiv.org/abs/1112.0560}{arXiv:1112.0560}
 
 \bibitem{Houston} R.\ Houston, {\sl Linear Logic without Units}, PhD Thesis, University of Manchester (2007).  Available at \href
-{http://arxiv.org/abs/1305.2231}{arxiv:1305.2231}
+{http://arxiv.org/abs/1305.2231}{arXiv:1305.2231}
 
 \bibitem{Howard} W.\ A.\ Howard, The formulae-as-types notion of constructions, in {\sl To H.\ B.\ Curry: Essays on Combinatory Logic, Lambda Calculus and Formalism}, eds.\ J.\ P.\ Seldin and J.\ R.\
 Hindley, Academic Press, New York, 1980, pp.\ 479--490.
@@ -8124,21 +8127,25 @@ A.\ Joyal and R.\ Street, Braided tensor categories,
 \bibitem{JSV} A.\ Joyal, R.\ Street and D.\ Verity, Traced monoidal categories, \textsl{Math. Proc. of the Cambridge Phil. Soc.} \textbf{119:3} (1996) 447--468.
 
 \bibitem{Kaiser}
-D.\ Kaiser, \textsl{Drawing Theories Apart: The Dispersion of Feynman Diagrams in Postwar Physics}, U.\ Chicago Press, Chicago, 2005.
+D.\ Kaiser, \textsl{Drawing Theories Apart: The Dispersion of Feynman Diagrams in Postwar Physics}, U.\ Chicago Press, Chicago (2005).
 
-\bibitem{KV94} M. Kapranov and V. Voevodsky, 2-categories and Zamolodchikov tetrahedra equations, \textsl{Proc. Symp. Pure Math.} \textbf{56} (1994) 177--259.
+\bibitem{KV94} M.\ Kapranov and V.\ Voevodsky, 2-categories and Zamolodchikov tetrahedra equations, \textsl{Proc. Symp. Pure Math.} \textbf{56} (1994) 177--259.
 
-\bibitem{Kassel} C.\ Kassel, \textsl{Quantum Groups}, Springer, Berlin, 1995.
+\bibitem{KS06} M.\ Kashiwara, P.\ Schapira, \textsl{Categories and Sheaves}, Grundlehren der Mathematischen Wissenschaften \textbf{332}, Springer (2006)
+
+\bibitem{Kassel} C.\ Kassel, \textsl{Quantum Groups}, Springer, Berlin (1995).
 
 \bibitem{KSW98} P.\ Katis, N.\ Sabadini, R.F.C.\ Walters, On partita doppia, \textsl{Theory and Applications of Categories} (Written in 1998, to appear).  Available at \href{http://arxiv.org/abs/0803.2429}{arXiv:0803.2429v1}.
 
 \bibitem{KW99} P.\ Katis, R.F.C.\ Walters, The compact closed bicategory of left adjoints, \textsl{Math.\ Proc.\ of the Cambridge Philosophical Society} \textbf{130:1} (2001) 77--87.  Also available at \href{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.4825}{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.4825}.
 
 \bibitem{Kauffman} 
-L.\ H.\ Kauffman, {\sl Knots and Physics}, World Scientific, Singapore, 1991.
+L.\ H.\ Kauffman, {\sl Knots and Physics}, World Scientific, Singapore (1991).
 
 \bibitem{KaufmanLins} 
-L.\ H.\ Kauffman and S.\ Lins, {\sl Temperley--Lieb Recoupling Theory and Invariants of 3-Manifolds}, Princeton U.\ Press, Princeton, 1994.
+L.\ H.\ Kauffman and S.\ Lins, {\sl Temperley--Lieb Recoupling Theory and Invariants of 3-Manifolds}, Princeton U.\ Press, Princeton (1994).
+
+\bibitem{Kelly82} G.\ M.\ Kelly, \textsl{Basic Concepts of Enriched Category Theory}, Cambridge University Press, Lecture Notes in Mathematics \textbf{64} (1982).  Also available at \href{http://www.tac.mta.ca/tac/reprints/articles/10/tr10abs.html}{http://www.tac.mta.ca/tac/reprints/articles/10/tr10abs.html}.
 
 \bibitem{KellyCC} G.\ M.\ Kelly, Many variable functorial calculus I, \textsl{Coherence in Categories, Lecture Notes in Math.}, \textbf{281} (1972) 66--105.
 
