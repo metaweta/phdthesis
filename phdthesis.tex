@@ -404,7 +404,7 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
   {\hfill \em \fontsize{16}{16}\selectfont
     \begin{tabular}{rr}
       & Michael Stay \\
-      & January 2013 \\ & \\
+      & January 2015 \\ & \\
       Supervisors: & \\
       & Cristian Calude\\
       & John C. Baez \\
@@ -6993,9 +6993,9 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A.$  The second set of choices does not conflict with the first, since $\Delta$ is not an isomorphism.
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A.$  [[ Talk about how they don't conflict when $\Delta$ is an isomorphism. ]]
 
-To our knowledge, no one has completely defined equivalence of symmetric monoidal bicategories yet; the correct definition should have the property that different choices of weak pullback should give equivalent symmetric monoidal bicategories. [[TODO: From John: ``Chris Schommer-Pries has been doing a lot of work on symmetric monoidal bicategories lately, since a paper based on his thesis was rejected by a journal for not justifying diagrammatic calculations with these gadgets.  I sent you a list of references on this recently - 2 things by Bruce Bartlett explaining S-P's work and one by Gurski et al - and you should cite these even if you don't use them.  Jamie Vicary should know a lot about this, because his massive paper with Bruce, Chris S-P and Chris Douglas has been held up by this problem.'']]
+Gurski and Osorno \cite{GO} proved that in a symmetric monoidal bicategory, every diagram of constraint 2-cells commutes---with the usual caveat that we have to work with diagrams that come from free symmetric monoidal bicategories---and that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
 
 We denote by $A^{\times n}$ the apex of the span resulting from the composition of $n$ identity spans on $A.$
 
@@ -7606,6 +7606,8 @@ a function between sets with at most one element is an implication. Since all of
 
 Compact closed bicategories are symmetric monoidal bicategories in which each object has a pseduoadjoint.  Given a 2-category $T$ with finite products and iso-comma objects, the bicategory $\Span_2(T)$ of objects of $T$, spans in $T$, and isomorphism equivalence classes of maps of spans forms a compact closed bicategory.  As a corollary, the bicategories Cospan(ResNet) and Circ are compact closed.  If we take $T$ to be the 2-category Gpd of groupoids, $\Span_2(T)$ provides a vast generalization of linear algebra \cite{Gpdify}.
 
+[[ More here. ]]
+
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
@@ -7858,7 +7860,9 @@ S.\ French, D.\ Rickles and J.\ Saatsi, Oxford U.\ Press, Oxford,
 \bibitem{BW} M.\ Barr and C.\ Wells, {\sl Toposes, Triples and Theories}, Springer Verlag, Berlin, 1983.  Revised and corrected version available at \href{http://www.cwru.edu/artsci/math/wells/pub/ttt.html}{
 http://www.cwru.edu/artsci/math/wells/pub/ttt.html}.
 
-\bibitem{Batanin}M.\ A.\ Batanin, {\sl The Eckman-Hilton argument and higher operads.}  Available at
+\bibitem{Bartlett} B.\ Bartlett, Quasistrict symmetric monoidal 2-categories via wire diagrams.  Available at \href{http://arxiv.org/abs/1409.2148}{arXiv:1409.2148}.
+
+\bibitem{Batanin}M.\ A.\ Batanin, The Eckman-Hilton argument and higher operads.  Available at
 \href{http://arxiv.org/abs/math/0207281}{arXiv:math/0207281}.
 
 \bibitem{JSBell} J.\ S.\ Bell, On the Einstein-Podolsky-Rosen paradox, {\sl Physics} {\bf 1} (1964), 195--200.
@@ -8055,6 +8059,8 @@ Sci.\ }{\bf 50} (1987), 1--102.  Also available at \hfill \break
 \bibitem{Gurski} n.\ Gurski, An algebraic theory of tricategories, PhD thesis, University of Chicago, (2007).  Available at
 \href{http://gauss.math.yale.edu/~mg622/tricats.pdf}
 {http://gauss.math.yale.edu/$\sim$mg622/tricats.pdf}
+
+\bibitem{GO} N.\ Gurski and A.\ Osorno, Infinite loop spaces, and coherence for symmetric monoidal bicategories, Advances in Mathematics \textbf{246} (2013) 1--32.  Also available at \href{http://arxiv.org/abs/1210.1174v1}{arXiv:1210.1174v1}.
 
 \bibitem{HM} J.~D. Hamkins, A. Miasnikov. The halting problem is decidable on a set of asymptotic probability one, \textsl{Notre Dame J. Formal Logic} \textbf{47} (4) (2006), 515--524.
 
