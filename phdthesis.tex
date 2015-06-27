@@ -7469,53 +7469,6 @@ Since the shuffle polytopes, the Breen polytope, and the syllepsis coherence law
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-The yanking 2-morphisms include $e$ and $i$ on their edges, which are only sometimes isomorphisms, so the technique above is not sufficient to prove the entire theorem.  When $\Delta$ is an isomorphism in $T$, we define $\zeta$ by first adding an identity edge before the reversed unitor in the target morphism and five identities to the source morphism.  The result is a 12-sided identity 2-morphism.  We recover a six-sided 2-morphism $\zeta$ by adding five inverse unitors for composition to the source and one unitor for composition to the target.  Therefore, the 2-morphism $\zeta$ is equal to the product of four inverse unitors for composition.  Since $\theta$ is the reverse map of spans to $\zeta,$ $\theta$ is also equal to the product of four inverse unitors for composition.
-
-\begin{center}
-  \begin{tikzpicture}[scale=3.5]
-    \filldraw[white,fill=yellow,fill opacity=0.1](30:2cm)--(90:2cm)--(150:2cm)--(210:2cm)--(270:2cm)--(330:2cm)--cycle;
-    \node (A1) at (150:2cm) {$A$};
-    \node (A2) at (210:2cm) {$A$} edge [<-] node [l, auto] {$A$} (A1);
-    \node (B2) at (90:2cm) {$IA$} edge [<-] node [l, auto, swap] {$l^\bullet$} (A1);
-    \node (B3) at (30:2cm) {$(AA^*)A$} edge [<-] node [l, auto, swap] {$iA$} (B2);
-    \node (B4) at (330:2cm) {$A(A^*A)$} edge [<-] node [l, auto, swap] {$a$} (B3);
-    \node (B5) at (270:2cm) {$AI$} 
-      edge [<-] node [l, auto, swap] {$Ae$} (B4)
-      edge [->] node [l, auto] {$r$} (A2);
-    \coordinate (CS) at (120:1cm);
-    \coordinate (CE) at (210:1.4cm);
-    \node (C2) at (CS) {$A$} edge [<-] node [l, above right] {$A$} (A1);
-    \node (C3) at ($ (CS)!.25!(CE) $) {$A$} 
-      edge [<-] node [l, right] {$A$} (C2) 
-      edge [<-] node [l, above right] {$A$} (A1);
-    \node (C4) at ($ (CS)!.50!(CE) $) {$A$} 
-      edge [<-] node [l, right] {$A$} (C3)
-      edge [<-] node [l, above right] {$A$} (A1);
-    \node (C5) at ($ (CS)!.75!(CE) $) {$A$} 
-      edge [<-] node [l, right] {$A$} (C4)  
-      edge [<-] node [l, above right] {$A$} (A1);
-    \node (C6) at (CE) {$A$} 
-      edge [<-] node [l, right] {$A$} (C5)
-      edge [<-] node [l, above right] {$A$} (A1)
-      edge [->] node [l, below right] {$A$} (A2);
-    \coordinate (DS) at (-.8,.8);
-    \coordinate (DE) at (-1.4,-.6);
-    \node at (DS) {$\Rightarrow l^{\circ-1}$};
-    \node at ($ (DS)!.25!(DE) $) {$\Rightarrow l^{\circ-1}$};
-    \node at ($ (DS)!.50!(DE) $) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
-    \node at ($ (DS)!.70!(DE) $) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
-    \node at (DE) {$\stackrel{\Rightarrow}{l^{\circ-1}}$};
-    \node (E2) at (120:1.3cm) {$A$}
-      edge [<-] node [l,auto,swap] {$A$} (A1)
-      edge [->] node [l,auto,swap] {$l^\bullet$} (B2);
-    \node at (120:1.5cm) {$\Uparrow l^\circ$};
-    \node at (0,0) {$=$};
-  \end{tikzpicture}
-\end{center}
-
-When 
-
-
 As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A_{A,A}A \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
 
 The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and postcompose with an identity morphism.
