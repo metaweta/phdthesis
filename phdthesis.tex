@@ -15,6 +15,7 @@
 \usepackage{pstricks-add, pst-grad, pst-plot}
 \usepackage[tiling]{pst-fill}
 \usepackage{pstcol}
+\usepackage{pdfpages}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usetikzlibrary{matrix,arrows}
 \usetikzlibrary{backgrounds}
@@ -379,7 +380,7 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
   \end{scope}
 }
 
-% Defining this here since I don't use tac.cls
+% Defining this here since I do not use tac.cls
 \newcommand{\pushright}[1]{#1}
 
 \def\endproof{\pushright{$\Box$}%\vrule width5pt height 5pt depth 0pt}%
@@ -427,10 +428,11 @@ The second part of the thesis reviews symmetric monoidal closed categories and b
   \pagebreak
 
   \chapter*{Acknowledgements}
-  ...
+  Thanks to Google for funding and 20\% time.  Thanks to Cristian Calude for forgiveness of unintended consequences.  Thanks to John Baez for teaching so that even I could understand.  Thanks to both for years of friendship, good advice, patience, and faith in me.  Thanks most of all to my wife Miriam, for loving me despite everything.
   
   \vfill
   \pagebreak
+  \setcounter{page}{9}
 
   \tableofcontents
   \vfill
@@ -441,7 +443,7 @@ The second part of the thesis reviews symmetric monoidal closed categories and b
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-There is a nice analogy between the set of possible arrangements of gas particles in a piston and the set of halting programs written in a given programming language.  In chapter I.1, we talk about ``observables'' in each case: just as we can ask for the volume of the convex hull of the particles, their total kinetic energy, or how many particles there are, we can ask for the length of a program, its runtime, or the amount of memory it uses.  We associate thermodynamic conjugate variables to each observable: just as pressure is conjugate to volume, we can talk about the ``algorithmic pressure'' that is conjugate to the size of the program.  We single out one observable property of a program to play the role of internal energy and then define the entropy of a distribution on programs and analogues of Maxwell's equations.  Finally, by considering loops in the pressure/volume space, we describe an ``algorithmic heat engine''.
+There is a nice analogy between the set of possible arrangements of gas particles in a piston and the set of halting programs written in a given programming language.  In Chapter I.1, we talk about ``observables'' in each case: just as we can ask for the volume of the convex hull of the particles, their total kinetic energy, or how many particles there are, we can ask for the length of a program, its runtime, or the amount of memory it uses.  We associate thermodynamic conjugate variables to each observable: just as pressure is conjugate to volume, we can talk about the ``algorithmic pressure'' that is conjugate to the size of the program.  We single out one observable property of a program to play the role of internal energy and then define the entropy of a distribution on programs and analogues of Maxwell's equations.  Finally, by considering loops in the pressure/volume space, we describe an ``algorithmic heat engine''.
 
 Algorithmic entropy is a special case of the entropy as studied in statistical mechanics.  A Gibbs ensemble is a probability measure that maximizes the entropy subject to constraints on the average values of some observables.  In most work on algorithmic entropy, the relevant observable is the length of a program; however, the full structure of thermodynamics only appears when we consider multiple observables.  We focus on the log of the runtime $E$, the length $V$, and the output $N$.  The Gibbs ensemble is of the form
 \[ p = \frac{1}{Z} e^{-\beta E(x) - \gamma V(x) - \delta N(x)} \]
@@ -453,7 +455,7 @@ We derive an algorithmic analogue of the basic thermodynamic relation
 \[ dE = TdS - PdV + μdN, \]
 where $S$ is the entropy, $T = 1/\beta, P = \gamma/\beta,$ and $\mu = -\delta/\beta$ are algorithmic versions of temperature, pressure, and chemical potential, respectively.  Starting from this relation, we derive analogues of Maxwell's equations and consider thermodynamic cycles like the Carnot cycle or Stoddard cycle.
 
-The halting probability of a universal Turing machine is uncomputable.  However, in chapter I.2, we show that we can effectively bound the probability that a particular program halts.  Consider an $N$-bit program $p$ that runs for a long time without stopping---say, $2^{2N}$ steps.  There is a program not much longer than $N$ bits that will run $p$ and, if it ever halts, will output the number of steps $t$ required for $p$ to halt.  This is a short program of length $N + c$ that produces a large number $t$ whose length is greater than $2N$, so $t$ must be nonrandom.  The density of nonrandom numbers near $t$ goes to zero as $t$ goes to infinity, so the density of times at which the program might halt also goes to zero.  By choosing a computably enumerable distribution on natural numbers, we turn densities into probabilities: given an $N$-bit program $p$ and a natural number $k,$ we show that we can effectively compute a critical time $t_0$ such that the probability that $p$ halts after running at least $t_0$ steps is less than $2^{-k}.$  Manin \cite{ManinRenorm2} referenced the published version of this chapter and showed that this critical time is formally equivalent to a high-energy cutoff when renormalizing quantum field theory.
+The halting probability of a universal Turing machine is uncomputable.  However, in Chapter I.2, we show that we can effectively bound the probability that a particular program halts.  Consider an $N$-bit program $p$ that runs for a long time without stopping---say, $2^{2N}$ steps.  There is a program not much longer than $N$ bits that will run $p$ and, if it ever halts, will output the number of steps $t$ required for $p$ to halt.  This is a short program of length $N + c$ that produces a large number $t$ whose length is greater than $2N$, so $t$ must be nonrandom.  The density of nonrandom numbers near $t$ goes to zero as $t$ goes to infinity, so the density of times at which the program might halt also goes to zero.  By choosing a computably enumerable distribution on natural numbers, we turn densities into probabilities: given an $N$-bit program $p$ and a natural number $k,$ we show that we can effectively compute a critical time $t_0$ such that the probability that $p$ halts after running at least $t_0$ steps is less than $2^{-k}.$  Manin \cite{ManinRenorm2} referenced the published version of this chapter and showed that this critical time is formally equivalent to a high-energy cutoff when renormalizing quantum field theory.
 
 It is well-known that Wick rotation turns equations describing thermal systems into equations describing quantum systems.  By replacing the energy scale $kT$ in a classical partition function by the imaginary energy $i\hbar/t$, we get a quantum partition function.  Consider a large collection of harmonic oscillators at temperature $T$.  The relative probability of finding any given oscillator with energy $E$ is $\exp(-E/k_B T)$, where $k_B$ is Boltzmann's constant. The average value of an observable $Q$ is, up to a normalizing constant,
 \[ \sum_j Q_j e^{-E_j / (k_B T)}.\]
@@ -463,9 +465,9 @@ Now consider a single quantum harmonic oscillator in a superposition of basis st
   = & \sum_j Q_j e^{-E_j it/ \hbar}\langle j|j\rangle \\
   = & \sum_j Q_j e^{-E_j it/ \hbar}.
 \end{align*}
-Feynman's path integral formulation of quantum mechanics considers a sum over paths $\gamma$ rather than a sum over states, each weighted by a phase $e^{-iS(\gamma)/\hbar}$, where $S(\gamma)$ is the classical action of the path.  When we move from quantum mechanics to quantum field theory, the partition function sums over diagrams rather than paths.  Feynman diagrams form a category: there's a trivial diagram for any set of particles where they don't interact at all, and we can compose any two diagrams where the output particles of one diagram match the input particles of the next.  This category is equipped with certain structure that also appears in programming languages, linear logic, and topology.  
+Feynman's path integral formulation of quantum mechanics considers a sum over paths $\gamma$ rather than a sum over states, each weighted by a phase $e^{-iS(\gamma)/\hbar}$, where $S(\gamma)$ is the classical action of the path.  When we move from quantum mechanics to quantum field theory, the partition function sums over diagrams rather than paths.  Feynman diagrams form a category: there is a trivial diagram for any set of particles where they do not interact at all, and we can compose any two diagrams where the output particles of one diagram match the input particles of the next.  This category is equipped with certain structure that also appears in programming languages, linear logic, and topology.  
 
-The shared structure is called a ``symmetric monoidal closed category''; the contribution of chapter II.1 of this thesis is an exposition of existing work on symmetric monoidal closed categories and the extension of the appropriate version of the Curry-Howard isomorphism to Feynman diagrams and Hilbert spaces.  
+The shared structure is called a ``symmetric monoidal closed category''; the contribution of Chapter II.1 of this thesis is an exposition of existing work on symmetric monoidal closed categories and the extension of the appropriate version of the Curry-Howard isomorphism to Feynman diagrams and Hilbert spaces.  
 
 A category consists of a collection of ``objects'' and, for each pair $(x, y)$ of objects, a set of ``morphisms'' from $x$ to $y$.  Morphisms are composable if the target of one matches the source of the next; every object has an identity morphism from the object to itself; and composition is associative and unital.  Feynman diagrams form a category in which objects are particle types and morphisms are graphs of interactions between them.  We interpret Feynman diagrams in the category of Hilbert spaces and linear transformations; that is, we associate to each particle a Hilbert space of states and to each diagram a linear transformation that tells how those states change over time.  In computer science, we have a category of data types with typed functions between them; in the Haskell community, this category is called ``Hask''.  In linear logic, we have categories whose objects are propositions and whose morphisms are constructive proofs.  In topology, we have categories whose objects are manifolds of a certain dimension and whose morphisms are cobordisms.
 
@@ -503,7 +505,7 @@ Feynman diagrams were designed to represent quantum systems interacting.  We ass
 
 We can consider such functors from other compact closed categories into the category Hilb of Hilbert spaces and linear transformations.  For example, we can think of manifolds as modeling empty curved space, and cobordisms as modeling spacetime.  A braided monoidal functor from the category of manifolds and cobordisms to Hilb assigns a Hilbert space of quantum states to space and a linear transformation to spacetime, giving a toy model of quantum gravity.  This toy model does not include matter; it only talks about topological changes in space over time, so the model is called a ``topological quantum field theory''.
 
-The structure of a compact closed category can be generalized to ``bicategories'', where in addition to morphisms between objects we have 2-morphisms between morphisms.  In chapter II.2, we lay out the complete definition of a compact closed bicategory (the parts of which have not appeared together in a single place before) and then prove that various useful bicategories are compact closed.  We take special note of bicategories of ``spans''.
+The structure of a compact closed category can be generalized to ``bicategories'', where in addition to morphisms between objects we have 2-morphisms between morphisms.  In Chapter II.2, we lay out the complete definition of a compact closed bicategory (the parts of which have not appeared together in a single place before) and then prove that various useful bicategories are compact closed.  We take special note of bicategories of ``spans''.
 
 In particular, given a category $T$ with pullbacks, we can define a bicategory $\Span(T)$ whose
 \begin{itemize}
@@ -511,13 +513,13 @@ In particular, given a category $T$ with pullbacks, we can define a bicategory $
   \item morphisms from $A$ to $B$ are ``spans'' consisting of an ``apex'' object $C$ and an ordered pair of morphisms $(f:C\to A, g:C \to B)$ from $T$, and
   \item 2-morphisms are morphisms from $C$ to $C'$ such that the obvious diagram commutes.
 \end{itemize}
-If $T$ is the category of finite sets, then we can think of the subset of $C$ consisting of those elements $c$ such that $f(c) = a$ and $g(c) = b$ as being a ``matrix element'' at row $a$ and column $b$.  If we simply count these subsets, we get a matrix of natural numbers, and the pullback corresponds to matrix multiplication.  By using categories $T$ other than the category of finite sets, we get a vast generalization of linear algebra.  We conclude chapter II.2 with a proof that when we take the monoidal tricategory of spans described by Hoffnung \cite{Hoffnung} and mod out by 3-isomorphisms, we get a compact closed bicategory.
+If $T$ is the category of finite sets, then we can think of the subset of $C$ consisting of those elements $c$ such that $f(c) = a$ and $g(c) = b$ as being a ``matrix element'' at row $a$ and column $b$.  If we simply count these subsets, we get a matrix of natural numbers, and the pullback corresponds to matrix multiplication.  By using categories $T$ other than the category of finite sets, we get a vast generalization of linear algebra.  We conclude Chapter II.2 with a proof that when we take the monoidal tricategory of spans described by Hoffnung \cite{Hoffnung} and mod out by 3-isomorphisms, we get a compact closed bicategory.
 
 Compact closed bicategories are interesting to us because they open up at least three areas for future research.  First, Lawvere showed that we can think of categories with products as a kind of programming language.  As programmers, we can write a Java interface that describes the operations on a monoid (identity element and multiplication) and write tests to check the relations (associativity and unit laws).  This interface, together with the tests, is a presentation of a category with products, called ``the Lawvere theory for monoids''.  Every implementation of the interface describes a functor from the Lawvere theory for monoids into the category Set and vice versa.  The tao of categorification suggests there should be a ``higher Lawvere theory of symmetric monoidal closed categories''; the fact that the currying adjunction between tensor and the internal hom is an isomorphism of profunctors means that this higher theory ought to be a compact closed bicategory and take models in Prof.
 
-Second, Lambek and Scott showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation.}  This is only possible because lambda calculus is confluent: it doesn't matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-morphisms in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-morphisms for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
+Second, Lambek and Scott showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation.}  This is only possible because lambda calculus is confluent: it does not matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-morphisms in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-morphisms for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
 
-Finally, this bicategorical approach should also fit better with physics: rewrites are processes that occur over time like particle interactions do.  Extended topological quantum field theories should be functors between compact closed bicategories, so it's not unreasonable to expect a nice quantum interpretation of some kind of linear pi calculus.
+Finally, this bicategorical approach should also fit better with physics: rewrites are processes that occur over time like particle interactions do.  Extended topological quantum field theories should be functors between compact closed bicategories, so it is not unreasonable to expect a nice quantum interpretation of some kind of linear pi calculus.
 
 \setcounter{chapter}{0}
 \part{Algorithmic information theory}
@@ -624,13 +626,7 @@ But now the role of the prior becomes more clear, because there is no probabilit
 
 In what follows we will take $X$ to be --- roughly speaking --- the set of all programs that eventually halt and output a natural number.  As we shall see, while this set is countably infinite, there are still some natural probability measures on it, which we may take as priors.
 
-To make this precise, we recall the concept of a universal prefix-free Turing machine.  In what follows we use {\bf string} to mean a bit string, that is, a finite, possibly empty, list of 0's and
-1's.  If $x$ and $y$ are strings, let $x||y$ be the concatenation of
-$x$ and $y.$ A \textbf{prefix} of a string $z$ is a substring beginning with the first letter, that is, a string $x$ such that $z =
-x||y$ for some $y$.  A \textbf{prefix-free} set of strings is one in which no element is a prefix of any other.  The \textbf{domain}
-$\dom(M)$ of a Turing machine $M$ is the set of strings that cause $M$
-to eventually halt.  We call the strings in $\dom(M)$
-\textbf{programs}.  We assume that when the $M$ halts on the program
+To make this precise, we recall the concept of a universal prefix-free Turing machine.  In what follows we use {\bf string} to mean a bit string, that is, a finite, possibly empty, list of 0's and 1's.  If $x$ and $y$ are strings, let $x||y$ be the concatenation of $x$ and $y.$ A \textbf{prefix} of a string $z$ is a substring beginning with the first letter, that is, a string $x$ such that $z = x||y$ for some $y$.  A \textbf{prefix-free} set of strings is one in which no element is a prefix of any other.  The \textbf{domain} $\dom(M)$ of a Turing machine $M$ is the set of strings that cause $M$ to eventually halt.  We call the strings in $\dom(M)$ \textbf{programs}.  We assume that when the $M$ halts on the program
 $x$, it outputs a natural number $M(x)$.  Thus we may think of the machine $M$ as giving a function $M \maps \dom(M) \to \N$.
 
 A \textbf{prefix-free Turing machine} is one whose halting programs form a prefix-free set.  A prefix-free machine $U$ is {\bf universal}
@@ -709,8 +705,7 @@ As nicely discussed by Jaynes \cite{Jaynes1957,Jaynes2003}, the solution, if it 
 for some numbers $s_i \in \R$ depending on the desired mean values 
 $\overline{C}_i$.  Here the normalizing factor $Z$ is called the 
 {\bf partition function}:
-\[             Z = \sum_{x \in X} e^{-(s_1 C_1(x) + \cdots + s_n C_n(x))} 
-\;.  \]
+\[             Z = \sum_{x \in X} e^{-(s_1 C_1(x) + \cdots + s_n C_n(x))} \;.  \]
 
 In thermodynamics, $X$ represents the set of {\bf microstates} of some physical system.  A probability measure on $X$ is also known as an
 {\bf ensemble}.  Each function $C_i \maps X \to \R$ is called an {\bf observable}, and the corresponding quantity $s_i$ is called the {\bf conjugate variable} of that observable.  For example, the conjugate of the energy $E$ is the inverse of temperature $T$, in units where Boltzmann's constant equals 1.  The conjugate of the volume $V$ --- of a piston full of gas, for example --- is the pressure $P$ divided by the temperature.  And in a gas containing molecules of various types, the conjugate of the number $N_i$ of molecules of the $i$th type is minus the `chemical potential' $\mu_i$, again divided by temperature. For easy reference, we list these observables and their conjugate variables below.
@@ -1066,11 +1061,11 @@ $n - c$ bits of algorithmic entropy with respect to that machine.  Tadaki \cite{
 
 So, \textit{in algorithmic thermodynamics, the partition function itself has nontrivial entropy}.  Tadaki has shown that the same is true for algorithmic pressure (which in his analogy he calls `temperature').   This reflects the self-referential nature of computation.  
 
-The bits of $\Omega$ are uncomputable; we can never be {\em sure} that a computed estimate is correct in its initial digits.  However, in the next chapter we show that we can make the probability that we are wrong an arbitrarily small nonzero number.  
+The bits of $\Omega$ are uncomputable; we can never be {\em sure} that a computed estimate is correct in its initial digits.  However, in the next chapter we show that we can make the probability that we are wrong an arbitrarily small positive number.  
 
 \chapter{Critical time}
 
-In the last chapter, we looked at partition functions and how they relate the entropy of physical systems like a piston of gas to the algorithmic entropy of a particular output of a computer.  A special output of the partition function for a prefix-free universal Turing machine is the machine's ``$\Omega$ number,'' the probability that it will run to completion and produce an output, as opposed to failing with a syntax error or going into an infinite loop.  Given the first $n$ digits of a machine's $\Omega$ number, there is a program that will compute whether or not any program up to $n$ bits long halts or not.  However, the bits of the $\Omega$ number for a prefix-free universal Turing machine are uncomputable; past a finite initial segment, there's no way to know for certain that the bits are correct.
+In the last chapter, we looked at partition functions and how they relate the entropy of physical systems like a piston of gas to the algorithmic entropy of a particular output of a computer.  A special output of the partition function for a prefix-free universal Turing machine is the machine's ``$\Omega$ number,'' the probability that it will run to completion and produce an output, as opposed to failing with a syntax error or going into an infinite loop.  Given the first $n$ digits of a machine's $\Omega$ number, there is a program that will compute whether or not any program up to $n$ bits long halts or not.  However, the bits of the $\Omega$ number for a prefix-free universal Turing machine are uncomputable; past a finite initial segment, there is no way to know for certain that the bits are correct.
 
 The aim of this chapter is to provide a probabilistic, but non-quantum, analysis of the halting problem.  Our approach is to have the probability space extend over both space and time and to consider the probability that a random $N$-bit program has halted by a random time. We postulate {\it an a priori computably enumerable probability distribution on all possible runtimes} and we prove that given an integer $k>0$, we can effectively compute a time bound $T$ such that the probability that an $N$-bit program will eventually halt given that it has not halted by $T$ is smaller than $2^{-k}$.  
 
@@ -1086,7 +1081,7 @@ Since many real-world problems arising in the fields of compiler optimisation, a
 
 There are two approaches we can take to calculating the probability that an $N$-bit program will halt.  The first approach, initiated by Chaitin \cite{Chaitin1975},  is to have the probability space range only over programs; this is the approach taken when computing the Omega number, \cite{CDS,Calude}.  In that case, the probability is $Prob_N = \#\{p \in \{0, 1\}^N \mid p  \mbox{ halts}\}/2^N.$  For a prefix-free machine, $Prob_N$ goes to zero when $N$ tends to infinity, since it becomes more and more likely that any given $N$-bit string is an extension of a shorter halting program.  For a universal non-prefix-free Turing machine, the probability is always nonzero for large enough $N$: after some point, the  universal non-prefix-free Turing machine will simulate a total Turing machine (one that halts on all inputs), so some fixed proportion of the space will always contribute.  The probability in this case is uncomputable, machine-dependent; in general, 1 is the best computable upper bound one can find. In this approach it matters only whether a program halts or not; the time at which a halting program stops is irrelevant.
 
-Our approach is to have the probability space extend over both space and time, and to consider the probability that a random $N$-bit program---which hasn't stopped by some given time---will halt by a random later time.  In this approach, the stopping time of a halting program is paramount. The problem is that there is no uniform distribution on the integers, so we must choose some kind of distribution on times as well.  Any distribution we choose must have that most long times are rare, so in the limit, which distribution we choose doesn't matter very much.
+Our approach is to have the probability space extend over both space and time, and to consider the probability that a random $N$-bit program---which has not stopped by some given time---will halt by a random later time.  In this approach, the stopping time of a halting program is paramount. The problem is that there is no uniform distribution on the integers, so we must choose some kind of distribution on times as well.  Any distribution we choose must have that most long times are rare, so in the limit, which distribution we choose does not matter very much.
 
 The new approach was proposed by Calude and Pavlov \cite{CP} (see also \cite{ACP}) where a mathematical quantum ``device" was constructed to probabilistically solve the Halting Problem.  The procedure has two steps: a) based on the length of the program and an  {\it a priori} admissible error $2^{-k}$, a finite time $T$ is effectively computed, b) a quantum ``device", designed to work on a randomly chosen test-vector is run for the time $T$; if the device produces a click, then the program halts; otherwise, the program probably does not halt, with probability higher than $1-2^{-k}$. This result uses an unconventional model of quantum computing, an infinite dimensional Hilbert space.  This  quantum proposal has been discussed in  Ziegler \cite{Z}.
 
@@ -1102,7 +1097,7 @@ $2^{-k}$. This phenomenon is similar to the one described for proofs in formal a
 
 We also show that for every integer $k >0$, the set of halting programs (which is computably enumerable, but not computable) can be written as  a disjoint union of a computable set and a set of probability effectively smaller than  $2^{-k}$.
 
-Of course, an important question is to what extent the postulated hypothesis is acceptable or realistic. The next part of the chapter deals with this question offering an argument in favor of the hypothesis.  First we note that for any computably enumerable probability distribution most long times are effectively rare, so in the limit they all have the same behavior irrespective of the choice of the distribution. Our second argument is based on the common properties of the times when programs may stop. Our proof consists of three parts: a) the exact time a program stops is algorithmically not too complicated; it is (algorithmically) nonrandom because most  programs either stop `quickly' or never halt, b) an $N$-bit program which hasn't stopped by time $2^{N +\, \mbox{constant }}$ cannot halt at a later random time, c) since nonrandom times are (effectively) rare, the density of times an $N$-bit program can stop vanishes.  
+Of course, an important question is to what extent the postulated hypothesis is acceptable or realistic. The next part of the chapter deals with this question offering an argument in favor of the hypothesis.  First we note that for any computably enumerable probability distribution most long times are effectively rare, so in the limit they all have the same behavior irrespective of the choice of the distribution. Our second argument is based on the common properties of the times when programs may stop. Our proof consists of three parts: a) the exact time a program stops is algorithmically not too complicated; it is (algorithmically) nonrandom because most  programs either stop `quickly' or never halt, b) an $N$-bit program which has not stopped by time $2^{N +\, \mbox{constant }}$ cannot halt at a later random time, c) since nonrandom times are (effectively) rare, the density of times an $N$-bit program can stop vanishes.  
 
 
 We will start by examining a particular case in detail, the behavior of all programs of length 3 for a certain Turing machine.  This case study will describe various possibilities of halting/non-halting programs, the difference between a program stopping exactly {\em at} a time and a program stopping {\em by} some time, as well as the corresponding probabilities for each such event.
@@ -1114,7 +1109,7 @@ Some comments will be made about the ``practicality'' of the results presented i
 
 \section{A case study}
 
-We consider all programs of length $N=3$ for a simple Turing machine $M$  whose domain is the finite set $\{000,010,011,100,110,111\}$. The halting ``history'' of these programs, presented in Table~1, shows the times at which the programs in the domain of $M$ halt. The program $M(p_{1})$ halts at time $t=1$, so it is indicated by an ``h'' on the row corresponding to $p_{1}$ and time $t=1$; the program $M(p_{4})$ hasn't halted at time $t=5$, so on the row corresponding to $p_{4}$ and time $t=4$ there is a blank. Finally, programs which haven't stopped by time $t=17$ never stop.
+We consider all programs of length $N=3$ for a simple Turing machine $M$  whose domain is the finite set $\{000,010,011,100,110,111\}$. The halting ``history'' of these programs, presented in Table~1, shows the times at which the programs in the domain of $M$ halt. The program $M(p_{1})$ halts at time $t=1$, so it is indicated by an ``h'' on the row corresponding to $p_{1}$ and time $t=1$; the program $M(p_{4})$ has not halted at time $t=5$, so on the row corresponding to $p_{4}$ and time $t=4$ there is a blank. Finally, programs which have not stopped by time $t=17$ never stop.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline Program/time & $t=1$ & $t=2$ & $t=5$ & $t=8$ & $\ldots$ & $ t=14$ & $t=15$ & $t=16$ & $t=17$\\
@@ -1156,7 +1151,7 @@ Here are a few miscellaneous facts we can derive from Table~1:
 \item the `probability' that a random 3-bit program eventually stops is 
 \[\#\{\mbox{3-bit programs that halt}\}/ \#\{\mbox{3-bit programs}\}=\frac{6}{8}\raisebox{0.4ex}{,}\]
 
-\item the program  $M(p_{4})$ hasn't stopped by time $t=5$, but stops at time $t=8$,
+\item the program  $M(p_{4})$ has not stopped by time $t=5$, but stops at time $t=8$,
 
 \item the `probability' that a 3-bit program does not stop by time $t=5$ and that it eventually halts is 
 \begin{align*}
@@ -1205,7 +1200,7 @@ More precisely, we are interested in the following problem:
 \begin{quote} \it We are given a universal Turing machine $U$ and a randomly chosen program $p$ of length $N$ that we know  not to stop by time $t$. Can we effectively evaluate the `probability' that $U(p)$ eventually stops? 
 \end{quote}
 
-An obvious way to proceed is the following. Simply, run in parallel all programs of length $N$ till the time  $T_{N} = \max\{t_{p} \mid  |p|=N, U(p) \mbox{  halts} \} = \min\{t\mid \mbox{for all } |p|=N, t_{p} \le t\}$, where $t_{p} $ is the exact time $U(p)$ halts (if indeed it stops). In other words, get the analogue of the Table~1 for $U$ and $N$, and then calculate directly all probabilities. This method, as simple as it may look, isn't very useful, since the time $T_{N}$ is {\it not computable}   because of the undecidability of the Halting Problem.
+An obvious way to proceed is the following. Simply, run in parallel all programs of length $N$ till the time  $T_{N} = \max\{t_{p} \mid  |p|=N, U(p) \mbox{  halts} \} = \min\{t\mid \mbox{for all } |p|=N, t_{p} \le t\}$, where $t_{p} $ is the exact time $U(p)$ halts (if indeed it stops). In other words, get the analogue of the Table~1 for $U$ and $N$, and then calculate directly all probabilities. This method, as simple as it may look, is not very useful, since the time $T_{N}$ is {\it not computable}   because of the undecidability of the Halting Problem.
 
 Can we overcome this serious difficulty?
 
@@ -1228,7 +1223,7 @@ Claim 4:   If $U$ is a prefix-free universal Turing machine, then $$\lim_{N \rig
 \frac{ \#\{ p \mid |p|=N, U(p) \mbox{  halts}\}\ \cdot T}{2^{N} \cdot T} =0.$$
 
 
-Claim 4 doesn't talk about asymptotic behavior in time, but rather in program length.  I.e. it says,  ``long programs run a long time on average".
+Claim 4 does not talk about asymptotic behavior in time, but rather in program length.  I.e. it says,  ``long programs run a long time on average".
 \fi
  
  
@@ -1267,7 +1262,7 @@ In what follows we randomly choose a time $i$ according to a probability distrib
 
 How long does it take for an $N$-bit program $p$ to run without halting on $U$ to conclude that the probability that $U(p)$ eventually stops is less than $2^{-k}$?
  
-It is not difficult to see that the probability that an $N$-bit program which hasn't stopped on $U$ by time $t_{k}$ (which can be effectively computed) will eventually halt is not larger than $\sum_{i\ge t_{k}} \rho(i)$, which effectively converges to 0, that is, there is a computable function $b(k)$ such that for $n\ge b(k)$, $\sum_{i\ge n} \rho(i) < 2^{-k}$.
+It is not difficult to see that the probability that an $N$-bit program which has not stopped on $U$ by time $t_{k}$ (which can be effectively computed) will eventually halt is not larger than $\sum_{i\ge t_{k}} \rho(i)$, which effectively converges to 0, that is, there is a computable function $b(k)$ such that for $n\ge b(k)$, $\sum_{i\ge n} \rho(i) < 2^{-k}$.
    
 The probability distribution $\rho(i)$ may or may not be related to the computational runtime of a program for $U$. Here is an example of a probability distribution which effectively converges to 1 and relates the observer time to the computational runtime. This probability distribution is reminiscent of Chaitin's halting probability \cite{Calude}.
 
@@ -1353,7 +1348,7 @@ Without loss of generality, we assume that the universal Turing machine $U$ has 
 \item if $U(p)$ halts, then it halts at the step $t_{p} = \bin^{-1}(U(time(p)))$.
 \end{enumerate}
 
-Intuitively, $time(p)$ either calculates the number of steps $t_{p}$ till $U(p)$ halts and prints $\bin(t_{p})$, or, if $U(p)$ is not defined, never halts. The constant $c$ can be taken to be less than or equal to 2, as the counting instruction is used only once, and we need one more instruction to print its value; however, we  don't need to print the value $U(p)$. 
+Intuitively, $time(p)$ either calculates the number of steps $t_{p}$ till $U(p)$ halts and prints $\bin(t_{p})$, or, if $U(p)$ is not defined, never halts. The constant $c$ can be taken to be less than or equal to 2, as the counting instruction is used only once, and we need one more instruction to print its value; however, we  do not need to print the value $U(p)$. 
 
 \medskip
 
@@ -1544,7 +1539,7 @@ The probability that an $N$-bit program never stops on a convergent Turing machi
       
 \section{Final comments}
 
-We studied the halting probability using a new approach, namely we considered the probability space extend over both space and time, and the probability that a random $N$-bit program will halt by a random later time given that it hasn't stopped by some threshhold time.  We postulated {\it an a priori computably enumerable probability distribution on all possible runtimes}.  Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an a priori computable probability distribution.   We proved  that given an integer $k>0$, we can effectively compute  a time bound $T$ such that  the probability that an $N$-bit program will eventually halt, given that it has not stopped by time $T$, is smaller than $2^{-k}$.  
+We studied the halting probability using a new approach, namely we considered the probability space extend over both space and time, and the probability that a random $N$-bit program will halt by a random later time given that it has not stopped by some threshhold time.  We postulated {\it an a priori computably enumerable probability distribution on all possible runtimes}.  Consequently, the probability space is the product of the space of programs---either taken to be all programs of a fixed length, where programs are uniformly distributed, or to be all programs of all possible lengths, where the distribution depends on the length---and the time space, which is discrete and has an a priori computable probability distribution.   We proved  that given an integer $k>0$, we can effectively compute  a time bound $T$ such that  the probability that an $N$-bit program will eventually halt, given that it has not stopped by time $T$, is smaller than $2^{-k}$.  
 
 We also proved that the set of halting programs (which is computably enumerable, but not computable) can be written as  a disjoint union of a computable set and a set of probability effectively smaller than any fixed bound.
 
@@ -1572,7 +1567,7 @@ Now consider a single quantum harmonic oscillator in a superposition of basis st
   = & \sum_j Q_j e^{-E_j it/ \hbar}\langle j|j\rangle \\
   = & \sum_j Q_j e^{-E_j it/ \hbar}.
 \end{align*}
-Feynman's path integral formulation of quantum mechanics considers a sum over paths $\gamma$ rather than a sum over states, each weighted by a phase $e^{-iS(\gamma)/\hbar}$, where $S(\gamma)$ is the classical action of the path.  When we move from quantum mechanics to quantum field theory, the partition function sums over diagrams rather than paths.  Feynman diagrams form a category: there's a trivial diagram for any set of particles where they don't interact at all, and we can compose any two diagrams where the output particles of one diagram match the input particles of the next.  This category is equipped with certain structure that also appears in programming languages, linear logic, and topology.
+Feynman's path integral formulation of quantum mechanics considers a sum over paths $\gamma$ rather than a sum over states, each weighted by a phase $e^{-iS(\gamma)/\hbar}$, where $S(\gamma)$ is the classical action of the path.  When we move from quantum mechanics to quantum field theory, the partition function sums over diagrams rather than paths.  Feynman diagrams form a category: there is a trivial diagram for any set of particles where they do not interact at all, and we can compose any two diagrams where the output particles of one diagram match the input particles of the next.  This category is equipped with certain structure that also appears in programming languages, linear logic, and topology.
 
 Part II of this thesis will explore this shared structure in detail.  Chapter II.1 is an expository chapter that describes the gradual discovery of this structure over the course of a century, beginning with the Curry-Howard isomorphism and extending to Feynman diagrams and topological quantum field theory.  Chapter II.2 ``categorifies'' this structure and concludes with a proof that a particular bicategory of spans is an example.
 
@@ -1648,7 +1643,7 @@ At present, the deductive systems in mathematical logic look like hieroglyphs to
 %}
 \end{center}
 \end{table}
-The rest of this chapter expands on this table by comparing how categories are used in physics, topology, logic, and computation. Unfortunately, these different fields focus on slightly different kinds of categories.  Though most physicists don't know it, quantum physics has long made use of `compact symmetric monoidal categories'.  Knot theory uses 
+The rest of this chapter expands on this table by comparing how categories are used in physics, topology, logic, and computation. Unfortunately, these different fields focus on slightly different kinds of categories.  Though most physicists do not know it, quantum physics has long made use of `compact symmetric monoidal categories'.  Knot theory uses 
 `compact braided monoidal categories', which are slightly more general. However, it became clear in the 1990's that these more general gadgets are useful in physics too. Logic and computer science used to focus on `cartesian closed categories' --- 
 where `cartesian' can be seen, roughly, as an antonym of `quantum'. However, thanks to work on linear logic and quantum computation, some logicians and computer scientists have dropped their insistence on cartesianness: now they study more general sorts of `closed symmetric monoidal categories'.
 
@@ -2206,7 +2201,7 @@ Now let us turn to examples.  Here it is crucial to realize that the same catego
 \begin{itemize}
 
 \item There is a way to make $\Set$ into a monoidal category where
-$X \tensor Y$ is the cartesian product $X \times Y$ and the unit object is any one-element set.  Note that this tensor product is not strictly associative, since $(x, (y, z)) \ne ((x, y), z),$ but there's a natural isomorphism $(X \times Y) \times Z \iso X \times (Y \times Z)$, and this is our associator.  Similar considerations give the left and right unitors.  In this monoidal category, the tensor product of $f \maps X \to Y$ and $f' \maps X' \to Y'$ is the function
+$X \tensor Y$ is the cartesian product $X \times Y$ and the unit object is any one-element set.  Note that this tensor product is not strictly associative, since $(x, (y, z)) \ne ((x, y), z),$ but there is a natural isomorphism $(X \times Y) \times Z \iso X \times (Y \times Z)$, and this is our associator.  Similar considerations give the left and right unitors.  In this monoidal category, the tensor product of $f \maps X \to Y$ and $f' \maps X' \to Y'$ is the function
 \[
 \begin{array}{rccl}
         f \times f' & \maps X\times X'& \to& Y\times Y' \\
@@ -3135,7 +3130,7 @@ Now, in a compact monoidal category, we have:
   \pnode(3,0){B3}
   \nccurve{A3}{B3} \naput{$X\lhom Z$}
 \end{pspicture}\]
-But in general, closed monoidal categories don't allow arrows pointing up!  So for these, drawing the internal hom is more of a challenge. We can use the same style of notation as long as we add a decoration --- a
+But in general, closed monoidal categories do not allow arrows pointing up!  So for these, drawing the internal hom is more of a challenge. We can use the same style of notation as long as we add a decoration --- a
 {\bf clasp} --- that binds two strings together:
 \[\begin{pspicture}(0,0)(4,2)
   \psset{angleA=-90,angleB=90,ArrowInside=->,arrowscale=2}
@@ -3186,7 +3181,7 @@ Note that where we bent back the wire labelled $X$, a cap like this appeared:
   \nccurve[angleA=90,angleB=180]{A1}{C1} \naput[npos=0]{$X$}
   \nccurve[angleA=0,angleB=90]{C1}{B1} \naput[npos=1]{$X$}
 \end{pspicture}\]
-Closed monoidal categories don't really have a cap unless they are compact.  So, we drew a {\bf bubble} enclosing $f$ and the cap, to keep us from doing any illegal manipulations.  In the compact case, both the bubble and the clasp are unnecessary, so we can draw 
+Closed monoidal categories do not really have a cap unless they are compact.  So, we drew a {\bf bubble} enclosing $f$ and the cap, to keep us from doing any illegal manipulations.  In the compact case, both the bubble and the clasp are unnecessary, so we can draw 
 $\tilde{f}$ like this:
 \[\begin{pspicture}(0,0)(2,4)
   \psset{angleA=-90,angleB=90,ArrowInside=->,arrowscale=2}
@@ -3739,7 +3734,7 @@ We can go ahead making further deductions in this system of logic, but the reall
 \noindent which are closely related to duplication and deletion in a cartesian category.  Omitting these rules is a distinctive feature of linear logic \cite{Girard1}.  The word `linear' should remind us of the category $\Hilb$.  As noted in Section
 \ref{monoidal}, this category with its usual tensor product is noncartesian, so it does not permit duplication and deletion. But, what does omitting these rules mean {\it in terms of logic?}
 
-Ordinary logic deals with propositions, so we have been thinking of the above system of logic in the same way.  Linear logic deals not just with propositions, but also other resources --- for example, physical things!  Unlike propositions in ordinary logic, we typically can't duplicate or delete these other resources.  In classical logic, if we know that a proposition $X$ is true, we can use $X$ as many or as few times as we like when trying to prove some proposition $Y$.   But if we have a cup of milk, we can't use it to make cake and then use it again to make butter.  Nor can we make it disappear without a trace: even if we pour it down the drain, it must go somewhere.
+Ordinary logic deals with propositions, so we have been thinking of the above system of logic in the same way.  Linear logic deals not just with propositions, but also other resources --- for example, physical things!  Unlike propositions in ordinary logic, we typically ca not duplicate or delete these other resources.  In classical logic, if we know that a proposition $X$ is true, we can use $X$ as many or as few times as we like when trying to prove some proposition $Y$.   But if we have a cup of milk, we ca not use it to make cake and then use it again to make butter.  Nor can we make it disappear without a trace: even if we pour it down the drain, it must go somewhere.
 
 In fact, these ideas are familiar in chemistry.  Consider the following resources:
 \[
@@ -3770,8 +3765,8 @@ Then the currying rule holds:
  \AXC{$Y \tensor X \lHom Z$} \doubleLine \UIC{$X \lHom Y^\ast \tensor Z$} \DP 
 \end{center}
  
-\noindent Most chemists don't think about antimatter very often
---- but particle physicists do.  They don't use the notation of linear logic or category theory, but they know perfectly well that since a neutrino and a neutron can collide and turn into a proton and an electron:
+\noindent Most chemists do not think about antimatter very often
+--- but particle physicists do.  They do not use the notation of linear logic or category theory, but they know perfectly well that since a neutrino and a neutron can collide and turn into a proton and an electron:
 \[   \nu \tensor n \lHom p \tensor e , \]
 then a neutron can turn into an antineutrino together with a proton and an electron:
 \[   n \lHom \nu^* \tensor (p \tensor e) . \]
@@ -4199,7 +4194,7 @@ We should admit that languages of a different sort --- `imperative programming l
 
 However, most functional programming languages are more regimented than the original lambda calculus.  As we have seen, in the lambda calculus as originally developed by Church and Kleene, any term can be applied to any other.  In real life, programming involves many kinds of data.  For example, suppose we are writing a program that involves days of the week.  It would not make sense to write 
 \[       \Times(\overline{3})(\Tuesday)  \]
-because Tuesday is not a number.  We might choose to represent Tuesday by a number in some program, but doubling that number doesn't have a good interpretation: is the first day of the week Sunday or Monday?
+because Tuesday is not a number.  We might choose to represent Tuesday by a number in some program, but doubling that number does not have a good interpretation: is the first day of the week Sunday or Monday?
 Is the week indexed from zero or one?  These are arbitrary choices that affect the result.  We could let the programmer make the choices, but the resulting unstructured framework easily leads to mistakes.  
 
 It is better to treat data as coming in various `types', such as integers, floating-point numbers, alphanumeric strings, and so on. Thus, whenever we introduce a variable in a program, we should make a `type declaration' saying what type it is.  For example, we might write:
@@ -4749,8 +4744,7 @@ $X \lhom Y$ &
 \end{center}
 \end{table}
 
-However, we only scratched the surface!   There is much more to say about categories equipped with extra structure, and how we can use them to strengthen the ties between physics, topology, logic and computation ---
-not to mention what happens when we go from categories to $n$-categories, as we do in the next chapter. But the real fun starts when we exploit these analogies to come up with new ideas and surprising connections.  Here is an example.
+However, we only scratched the surface!   There is much more to say about categories equipped with extra structure, and how we can use them to strengthen the ties between physics, topology, logic and computation---not to mention what happens when we go from categories to $n$-categories, as we do in the next chapter. But the real fun starts when we exploit these analogies to come up with new ideas and surprising connections.  Here is an example.
 
 In the late 1980s, Witten \cite{Witten}
 realized that string theory was deeply connected to a 3d topological quantum field theory and thus the theory of knots and tangles 
@@ -6934,28 +6928,7 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformations $!_A\maps A \to 1$ and $\Delta_A\maps A \to A \times A$ for those cases when $A$ is {\em not} an isomorphism.  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
-\begin{center}
-  \begin{tikzpicture}
-    \node (C) at (1,0) {$1$};
-    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
-    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
-    \node at (1,2) {$A_{!,!}A$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
-    \node at (1,1) {$=$};
-  \end{tikzpicture}
-\end{center}
-whereas when $A$ is not terminal, the weak pullback is
-\begin{center}
-  \begin{tikzpicture}
-    \node (C) at (1,0) {$1$};
-    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
-    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
-    \node at (1,2) {$A_{!,!}1$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
-    \node at (1,1) {$=$};
-  \end{tikzpicture}
-  .
-\end{center}
-
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory. 
 
 Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
 
@@ -7059,14 +7032,35 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
 \end{center}
 \hfill $\square$
 
-By the coherence theorm for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  With that choice, we also have the following useful corollary.
+By the coherence theorm for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
+\begin{center}
+  \begin{tikzpicture}
+    \node (C) at (1,0) {$1$};
+    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
+    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
+    \node at (1,2) {$A_{!,!}A$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
+    \node at (1,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+whereas when $A$ is not terminal, the weak pullback is
+\begin{center}
+  \begin{tikzpicture}
+    \node (C) at (1,0) {$1$};
+    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
+    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
+    \node at (1,2) {$A_{!,!}1$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
+    \node at (1,1) {$=$};
+  \end{tikzpicture}
+  .
+\end{center}
 
+With that choice, we also have the following useful corollary.
 \begin{cor}
   \label{reverse}
   Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B^{\times 2} \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
-\iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Because we mod out by isomorphisms of maps of spans, some spans that at first sight appear different are actually the same.
 \begin{lemma}
   \label{swap}
   The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
@@ -7134,9 +7128,10 @@ By the coherence theorm for bicategories, there is a unique isomorphism $a^{\cir
 
 \begin{cor}
   \label{permute}
-  Any permutation of $A^{\times n}$ is naturally isomorphic to the identity.
+  A span is invariant under permutations of its apex.
 \end{cor}
 
+\iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{lemma}
   Given a span $$A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B$$ where $f$ is an isomorphism, the left unitor for composition is the map of spans
   \begin{center}
@@ -7395,7 +7390,7 @@ We can insert an identity morphism in the source and target of the syllepsis to 
   \end{tikzpicture}
 \end{center}
 
-Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoidal bicategory.  The swallowtail coherence law, however, involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that this coherence law holds.
+Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoidal bicategory.  
 
 \newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
   \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
@@ -7403,11 +7398,11 @@ Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoida
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and the isomorphism between the objects with an arc.  For example, the weak pullback $A^{\times 2} = A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\times 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
+The swallowtail coherence law involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ in Cat are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote each object with a dot and an isomorphism between objects with an arc.  The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\times 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\times 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
 
-The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique; because there is only the identity 2-morphism on morphisms into a terminal object, $\zeta_A$ is trivial.  
+The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  
 
-When neither $\Delta_A$ nor $!_A$ are isomorphisms, the composite span is
+When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique and $\zeta_A$ is trivial.  When $A$ is not terminal, the composite span is
 \begin{center}
   \begin{tikzpicture}
     \node (Al) at (0,0) {$\bullet$};
@@ -7464,12 +7459,7 @@ When neither $\Delta_A$ nor $!_A$ are isomorphisms, the composite span is
   .
 \end{center}
 
-The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so we choose weak pullbacks such that they are equal.  With judicious use of unitors for composition we recover the six-sided 2-morphism $\zeta.$ 
-
-When $\Delta_A$ is an isomorphism but $!_A$ is not, inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms; therefore any choice of weak pullback for these cospans is as good as any other.  
-
-The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, the swallowtail coherence law is trivial and $\Span_2(T)$ is compact closed.
-\hfill $\square$
+Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter here.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so by Corollary \ref{permute}, this composite span is equal to the composition of ten identity spans.  With judicious use of unitors for composition we recover a six-sided 2-morphism $\zeta.$  The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, any coherence law involving $\pi, \lambda, \mu, \rho, \zeta, \theta$ and identity 2-morphisms---like the swallowtail coherence law---must hold in $\Span_2(T).$   Therefore, $\Span_2(T)$ is compact closed. \hfill $\square$
 
 \begin{cor}
   \label{span}
@@ -7487,7 +7477,7 @@ $\Span(C)$ is a special case of Theorem \ref{Span2} where all the
 
 \section{Conclusion}
 
-Compact closed bicategories are symmetric monoidal bicategories in which each object has a pseduoadjoint.  Given a 2-category $T$ with finite products and iso-comma objects, the bicategory $\Span_2(T)$ of objects of $T$, spans in $T$, and isomorphism equivalence classes of maps of spans forms a compact closed bicategory.  As a corollary, the bicategories Cospan(ResNet) and Circ are compact closed.  If we take $T$ to be the 2-category Gpd of groupoids, $\Span_2(T)$ provides a vast generalization of linear algebra \cite{Gpdify}.
+Compact closed bicategories are symmetric monoidal bicategories in which each object has a pseduoadjoint.  Given a 2-category $T$ with finite products and iso-comma objects, the bicategory $\Span_2(T)$ of objects of $T$, spans in $T$, and isomorphism equivalence classes of maps of spans forms a compact closed bicategory.  As a corollary, the bicategories Cospan(ResNet) and Circ are compact closed.
 
 In the next chapter, we examine potential uses for compact closed bicategories in a generalization of universal algebra, in quantum physics, and in semantics for concurrent programming languages.
 
@@ -7496,7 +7486,7 @@ In the next chapter, we examine potential uses for compact closed bicategories i
 There is a deep relationship between logic, type theory, topology, and physics that centers on the notions of state and process.  It lets us take concepts like the notion of a partition function from physics and transport it over to computer science to reason about the statistical properties of collections of programs.  It lets us assign quantum meaning to drawings of particles' worldlines.  It lets us use programming languages to construct proofs, and use types to prove that our programs are well-behaved.  By generalizing this relationship to add another dimension, I believe we will reap several benefits beyond those we currently enjoy; here I describe three ideas for applications and future work.
 
 \section{Generalizing object-oriented programming}
-I began studying compact closed bicategories in order to write down ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
+I began studying compact closed bicategories in order to write down ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first and look at ``universal algebra''.
 
 Many concepts in mathematics can be expressed as sets equipped with functions that satisfy relations.  For example, a group is
 \begin{itemize}
@@ -7518,17 +7508,17 @@ Pointed sets, monoids, groups, rings, directed graphs, and more all have present
   \item $mult \circ (id \times G) \circ left^{-1} = mult \circ (G \times id) \circ right^{-1} = G,$ and
   \item $mult \circ (inv \times G) \circ \Delta = mult \circ (G \times inv) \circ \Delta = id,$
 \end{itemize}
-where $left\maps G \to 1 \times G,$ $right\maps G \to G \times 1,$ and $\Delta\maps G \to G \times G$ are the unitors and diagonal morphism in any category with products.  Bill Lawvere showed in his 1963 thesis \cite{Lawvere} that this way of writing the definition of a group is a presentation of a particular category with products (now called a ``Lawvere theory'' in his honor), that any product-preserving functor from this category to the category of sets and functions picks out a group, and that any group can be expressed as such a functor.  Under certain circumstances, these functors always have adjoints, which means that it makes sense to talk about the free group on a set and the underlying set of a group.  Another benefit is that one is free to consider group objects in categories other than Set.  For example, a group object in the category of manifolds and smooth maps is a Lie group, and a group object in the opposite category of commutative rings and ring homomorphisms is a Hopf algebra \cite{nlabgroupobject}.
+where $left\maps G \to 1 \times G,$ $right\maps G \to G \times 1,$ and $\Delta\maps G \to G \times G$ are the unitors and diagonal morphism in any category with products.  Bill Lawvere showed in his 1963 thesis \cite{Lawvere} that this way of writing the definition of a group is a presentation of a particular category with products (now called a ``Lawvere theory'' in his honor), that any product-preserving functor from this category to the category of sets and functions picks out a group, and that any group can be expressed as such a functor.  Under certain circumstances, these functors always have adjoints, which means that it makes sense to talk about the free group on a set and the underlying set of a group.  Another benefit is that one is free to consider group objects in categories other than Set.  For example, a group object in the category of manifolds and smooth maps is a Lie group \cite{nlabgroupobject}.
 
-In the years since Lawvere, other kinds of theory have been proposed; Lawvere's theories assumed the existence of cartesian products, but only a tensor product is needed to write down the notion of a monoid.  The category Vect of vector spaces and linear maps has a tensor product as well as the cartesian product; a monoid in (Vect, $\times$) is just a vector space, but a monoid in (Vect, $\otimes$) is an algebra.  While Lawvere theories have models in categories with products, PROs have models in monoidal categories and PROPs have models in symmetric monoidal categories.  The most general theory of a monoid is a PRO: we can, for instance, consider monoid objects in a category of endofunctors and natural transformations where the tensor product is composition; the resulting concept is a monad.
+In the years since Lawvere, other kinds of theory have been proposed; Lawvere's theories assumed the existence of cartesian products, but only a tensor product is needed to write down the notion of a monoid.  The category Vect of vector spaces and linear maps has a tensor product as well as the cartesian product; a monoid in (Vect, $\times$) is just a vector space, but a monoid in (Vect, $\otimes$) is an algebra \cite{nlabgroupobject}.  While Lawvere theories have models in categories with products, PROs have models in monoidal categories and PROPs have models in symmetric monoidal categories.  The most general theory of a monoid is a PRO: we can, for instance, consider monoid objects in a category of endofunctors and natural transformations, where the tensor product is composition; the resulting concept is a monad.
 
-In section \ref{ptbackground} we discussed one special kind of Lawvere theory called a ``typed lambda-theory'', where in addition to the cartesian product we are able to talk about the internal hom.  Lambda-theories play a central role in modern object-oriented programming; what category theorists call a theory, programmers call an interface, and what category theorists call a structure-preserving functor between theories, programmers call an implementation of the interface.  Granted, most popular programming languages sacrifice correctness in the form of proof-bearing code for convenience in the form of tests, but the spirit is there.  As theorem provers become more powerful, languages like Agda that require proofs are becoming more widely used.
+In Section \ref{ptbackground} we discussed one special kind of Lawvere theory called a ``typed lambda-theory'', where in addition to the cartesian product we are able to talk about the internal hom.  Lambda-theories play a central role in modern object-oriented programming; what category theorists call a theory, programmers call an interface, and what category theorists call a structure-preserving functor between theories, programmers call an implementation of the interface.  Granted, most popular programming languages sacrifice correctness in the form of proof-bearing code for convenience in the form of tests, but the spirit is there; and as theorem provers become more powerful, languages like Agda that require proofs are becoming more widely used.
 
-My intent in studying compact closed bicategories was not to describe a set with structure, but rather a category with structure and stuff: a symmetric monoidal closed category.  I wanted to describe, as a programmer, what it meant to be a programming language in the general sense explained in chapter II.1.  The notion of a ``higher'' theory is an obvious extension of Lawvere's idea, but as far as I know, no one has worked out the details.  A higher theory should be a bicategory of some kind, and its presentation should have objects, 1-morphisms, 2-morphisms, and equations among the 2-morphisms.  Of course, if our theories are bicategories, we should take our models in bicategories, too.  The first 2-category that comes to mind is Cat, as a categorified version of Set; however, the higher theory of a symmetric monoidal closed category needs to be able to describe the adjunction between $- \otimes X$ and $X \lhom -$.  Since all our objects are small categories, this adjunction is most easily expressed as an isomorphism of hom sets, which indicates that the category Set should play a special role.
+My intent in studying compact closed bicategories was not to describe a set with structure, but rather a category with structure and stuff: a symmetric monoidal closed category.  I wanted to describe, as a programmer, what it meant to be a programming language in the general sense explained in Chapter II.1.  The notion of a ``higher'' theory is an obvious extension of Lawvere's idea, but as far as I know, no one has worked out the details.  A higher theory should be a bicategory of some kind, and its presentation should have objects, 1-morphisms, 2-morphisms, and equations among the 2-morphisms.  Of course, if our theories are bicategories, we should take our models in bicategories, too.  The first 2-category that comes to mind is Cat, as a categorified version of Set; however, the higher theory of a symmetric monoidal closed category needs to be able to describe the adjunction between $- \otimes X$ and $X \lhom -$.  Since all our objects are small categories, this adjunction is most easily expressed as an isomorphism of hom sets, which indicates that the category Set should play a special role.
 
 Prof is the bicategory of small categories, profunctors, and natural transformations.  A profunctor $F\maps C \to D$ is a functor $F\maps C \to \Set^{D^{\op}}.$  One can turn any functor $G\maps R \to S$ into a profunctor like this:
 \[ \begin{array}{rl}G\maps R &\to \Set^{S^{\op}} \\ r & \mapsto s \mapsto \Hom(s, G(r)).\end{array} \]
-An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.  Composing profunctors is very much like multiplying matrices, in that there's a ``summation'' (really a coend) over the middle category; composition is not associative, but there's an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations \cite[2.7.4]{KS06}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.  Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above \cite[Theorem 4.51]{Kelly82}.
+An object in $\Set^{C^{\op}}$ is called ``a presheaf on $C$''.  Composing profunctors is very much like multiplying matrices, in that there is a ``summation'' (really a coend) over the middle category; composition is not associative, but there is an associator.  If we restrict Prof to Cauchy-complete categories, then Prof is equivalent (as a mere category) to Cocont, the 2-category of presheaf categories, cocontinuous ({\em i.e.} small-colimit-preserving) functors, and natural transformations \cite[2.7.4]{KS06}.  So we can ``strictify'' composition if we'd like, and ignore the associator and unitors for composition.  Also, if we restrict to Cauchy-complete categories in Prof, then we also have the nice property that a profunctor has a right adjoint if and only if it comes from a functor as described above \cite[Theorem 4.51]{Kelly82}.
 
 Prof is a compact closed bicategory.  The monoidal product is the cartesian product in Cat and the monoidal unit is the category with a single object and only the identity morphism.  Below, I denote the associator, symmetric braiding, currying, and unitor natural isomorphisms as \textbf{assoc}, \textbf{swap}, \textbf{curry}, \textbf{left} and \textbf{right}, respectively.  Every object $C$ has a dual $C^* = C^{\op}.$  The internal hom $A \lhom B$ is equivalent to $A^{\op} \times B.$  This means that through judicious use of currying and unitors we can move categories from one side of the arrow to the other:
 \[ \begin{array}{rcl}
@@ -7602,7 +7592,7 @@ This is my guess as to what the higher theory of a symmetric monoidal closed cat
 
 It has one generating object, $C,$ so it makes sense to talk about the underlying category.  We want to be sure that $\tensor, I,$ and $\lhom$ are really functors, not arbitrary profunctors, so the first three pairs of 2-morphisms specify the adjoint relation between each of those morphisms and their prime.  The next five 2-morphisms are the natural isomorphisms in the definition of a symmetric monoidal closed category; that they are isomorphisms is enforced when we get to the equalities between 2-morphisms.
 
-The currying natural isomorphism is the really interesting bit, since it's the only one that must mention the external hom.  Start with the tensor
+The currying natural isomorphism is the really interesting bit, since it is the only one that must mention the external hom.  Start with the tensor
 \[ \begin{array}{rl}\tensor\maps C \times C &\not\to C \\ (a,b) &\mapsto c \mapsto \Hom(c, a \tensor b),\end{array} \]
 then take its right adjoint to get
 \[ \begin{array}{rl}\tensor'\maps C & \not\to C \otimes C \\ c & \mapsto (a, b) \mapsto \Hom(a \tensor b, c),\end{array} \]
@@ -7617,12 +7607,12 @@ which is the second half of the currying isomorphism.  Explicitly,
 
 The equalities of 2-morphisms are mostly the coherence laws from the definition of a symmetric monoidal closed category, though we do need to add equalitites $aa^{-1} = 1, a^{-1}a = 1,$ etc. to make $a,b,c,l,r$ into natural {\em iso}morphisms.
 
-The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
+The upshot is that compact closed bicategories seem like the natural language to express what it means to be monoidal, symmetric, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition (which is ``symmetric'', {\em i.e.} commutative), the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
 \section{Categorical models of concurrency}
 
-Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence''.  An {\sl evaluation strategy} assigns to each term a rewrite that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is {\sl confluent}: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which terminating strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
+Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence''.  An {\sl evaluation strategy} assigns to each term a rewrite that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is {\sl confluent}: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It is precisely because it does not matter which terminating strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
 
 Modern programming, however, deals with many computers all operating on different clocks, communicating over networks with delays, and the order in which messages arrive is important: consider two people racing to get the last concert ticket, or the order in which a deposit and a withdrawal apply to an empty bank account.  If rewrites involve moving messages around, then they will certainly not be confluent.
 
@@ -7635,7 +7625,7 @@ Milner, Parrow, and Walker proposed the pi calculus in 1989 \cite{MPW89}.  The p
 \end{array}\]
 where $x$ and $y_i$ are taken from a countably infinite set of ``names''.  Structural congruence says that concurrency and do-nothing form a commutative monoid.  Reduction in the pi calculus is given by the comm rule, where $x?(y_1, \ldots, y_n).P \;|\; x!(z_1, \ldots, z_n)$ reduces to $P\{z_i / y_i\}$.  The comm rule does not apply under a prefix, only to terms at the top level.
 
-If we relax the restriction on the comm rule so that it can apply anywhere, then we can model the fragment above in a compact closed bicategory with a strict monoid object $M$ (where the unit and multiplication have right adjoints as above) and a family of adjunctions for each (name, object) pair.  We model processes as 1-morphisms into $M$:
+Jamie Vicary pointed out to me that if we relax the restriction on the comm rule so that it can apply anywhere, then we can model the fragment above in a compact closed bicategory with a strict monoid object $M$ (where the unit and multiplication have right adjoints as above) and a family of adjunctions for each (name, object) pair.  We model processes as 1-morphisms into $M$:
 \[\begin{array}{rl}
 0\maps & J \to M\\
 |\maps & M \boxtimes M \to M\\
@@ -7650,17 +7640,23 @@ All popular programming languages---from ``eager'' ones like Java, C, JavaScript
 \end{verbatim}
 does not cause the web browser to lock up unless the function is invoked.  If we model beta reduction as a 2-morphism like Seely suggested, it seems reasonable to try to model lambda calculus using a cartesian closed 2-category; however, the currying isomorphism
 \[ \hom(A\times B, C) \cong \hom(A, B \to C) \]
-implies that if a term $M$ rewrites to $M'$ via beta reduction in the context $\Gamma, x: X$, then it's necessarily true that in the context $\Gamma,$ the term $\lambda x.M$ must rewrite to $\lambda x.M'$ under beta---but that is forbidden in the languages listed above.  If we mod out by beta and look for semantics in Set, then there's no real problem---but when we switch from lambda calculus to pi calculus, it breaks everything.  Even if a pi calculus term $M$ rewrites to $M'$ under the comm rule, it {\em must not} be possible for the term $x(y).M$ to rewrite to $x(y).M'$: the semantics of the term $x(y).M$ {\em requires} a message to be received on the channel $x$ before any progress is made on reducing $M$.
+implies that if a term $M$ rewrites to $M'$ via beta reduction in the context $\Gamma, x: X$, then it is necessarily true that in the context $\Gamma,$ the term $\lambda x.M$ must rewrite to $\lambda x.M'$ under beta---but that is forbidden in the languages listed above.  If we mod out by beta and look for semantics in Set, then there is no real problem---but when we switch from lambda calculus to pi calculus, it breaks everything.  Even if a pi calculus term $M$ rewrites to $M'$ under the comm rule, it {\em must not} be possible for the term $x(y).M$ to rewrite to $x(y).M'$: the semantics of the term $x(y).M$ {\em requires} a message to be received on the channel $x$ before any progress is made on reducing $M$.
 
-Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
-\[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} used these ideas to prove full abstraction for the asynchronous polyadic pi calculus using a symmetric monoidal closed 2-category.  There is much more work to be done along these lines, particularly with respect to the categorical semantics of Caires' behavioral / spatial types.
+Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not quite as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
+\[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} used these ideas to prove full abstraction for the asynchronous polyadic pi calculus using a symmetric monoidal closed 2-category.  There is much more work to be done along these lines, particularly with respect to the categorical semantics of Caires' behavioral / spatial types \cite{Caires}.
 
 \section{Principle of least action}
 
-In chapter II.1, we made an analogy between programs and Feynman diagrams.  The analogy is precise as far as it goes, but it's unsatisfactory in the sense that Feynman diagrams describe processes happening over time, while Lambek and Scott mod out by the process of computation that occurs over time.  If we use 2-categories that explicitly model rewrites between terms, we get something that could potentially be interpreted in $3\Cob_2$.  In an extended TQFT, there ought to be three notions of partition function: one for each direction of 1-morphism and another for 2-morphisms.  Horizontal morphisms in $3\Cob_2$ are space-like; a program has a length.  Vertical morphisms are time-like; a rewrite occurs over time.  The partition function for horizontal morphisms is concerned with algorithmic information, the shortest program that computes a result.  The partition function for vertical
-morphisms should be concerned with the fastest way to compute a result.  The partition function for 2-morphisms should have something to do with getting the best time-space tradeoff.
+In Chapter II.1, we made an analogy between programs and Feynman diagrams.  The analogy is precise as far as it goes, but it is unsatisfactory in the sense that Feynman diagrams describe processes happening over time, while Lambek and Scott mod out by the process of computation that occurs over time.  If we use 2-categories that explicitly model rewrites between terms, we get something that could potentially be interpreted in $3\Cob_2$.  In an extended TQFT, there ought to be three notions of partition function: one for each direction of 1-morphism and another for 2-morphisms.  Horizontal morphisms in $3\Cob_2$ are space-like; a program has a length.  Vertical morphisms are time-like; a rewrite occurs over time.  The partition function for horizontal morphisms is concerned with algorithmic information, the shortest program that computes a result.  The partition function for vertical morphisms should be concerned with the fastest way to compute a result.  The partition function for 2-morphisms should have something to do with getting the best time-space tradeoff.
 
-The analogy above used a double category, but we might also consider bicategories.  In Hamiltonian mechanics, we think of the state of the system as having a position and a momentum; the position describes a particular arrangement of parts of the system and the momentum describes how that arrangement is changing.  It's my contention that position and momentum are analogous to a term and a rewrite.  Evaluation strategies describe systems in which the momentum depends on the position; a more general notion of evaluation strategy would express both in terms of some other parameter like time.  From a Lagrangian viewpoint, we'd get a notion of stationary action; if each rewrite came with an associated computational cost, something like the variational principle would need to be used to minimize the cost of a computation.  Indeed, dynamic programming is a standard technique in computer science for minimizing the cost of a computation; the canonical example is choosing an association of matrices that minimizes the number of multiplications to perform.
+The analogy above used a double category, but we might also consider bicategories.  In Hamiltonian mechanics, we think of the state of the system as having a position and a momentum; the position describes a particular arrangement of parts of the system and the momentum describes how that arrangement is changing.  It is my contention that position and momentum are analogous to a term and a rewrite.  Evaluation strategies describe systems in which the momentum depends on the position; a more general notion of evaluation strategy would express both in terms of some other parameter like time.  From a Lagrangian viewpoint, we would get a notion of stationary action; if each rewrite came with an associated computational cost, something like the variational principle would need to be used to minimize the cost of a computation.  Indeed, dynamic programming is a standard technique in computer science for minimizing the cost of a computation; the canonical example is choosing an association of matrices that minimizes the number of multiplications to perform.
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+When we think about ``stuff happening'', we are naturally led to a consideration of states and processes, which form symmetric monoidal closed categories.  Looking for states and processes in logic, topology, physics, and computer science gives us propositions and proofs, strings and nodes, particles and interactions, and types and programs, respectively, which is a big generalization of the Curry-Howard isomorphism.  By summing over states or processes, we get partition functions, where entropy plays a major role and we can do thermodynamics---including with programs instead of particles.  When summing over halting programs, even the bits of the value of the partition function have entropy.  
+
+The analogy between physical processes and programs is not quite as nice as we would like, but if we add one dimension to get symmetric monoidal closed {\em bi}categories, there is promise for an even deeper analogy between type theory and physics with potential applications in resistor networks, circuits, programming language design, the semantics of concurrency, and a better understanding of spacetime.
 
 \begin{thebibliography}{99}
 
