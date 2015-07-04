@@ -420,7 +420,7 @@ electron/.style={postaction=decorate, decoration={markings, mark=at position 0.5
   \chapter*{Abstract}
 This thesis is an exploration of some places where ideas in computer science and physics share a common mathematical structure.  The first part of the thesis deals with partition functions in physics and algorithmic information theory.  In physics, partition functions are used to encode information about statistical systems in thermal equilibrium; in algorithmic information theory, they are used to encode information about the probability that a Turing machine will halt given a random program.  We derive analogues of Maxwell's relations in the algorithmic setting and consider thermodynamic cycles such as the Carnot cycle or Stoddard cycle.  We also show that given a program and a probability $P$, we can effectively compute a time after which the probability that the program will eventually halt is less than $P$.  This idea of a time cutoff is reminiscent of a high-energy cutoff in renormalization.
 
-The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory $\Span_2(T)$ of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  As corollaries, the bicategory of sets, spans, and maps of spans is compact closed; the bicategory of sets, relations, and implications is compact closed, and certain bicategories of ``resistor networks'' are compact closed.
+The second part of the thesis reviews symmetric monoidal closed categories and bicategories.   We begin with an expository chapter on symmetric monoidal closed categories and demonstrate how they form a broad generalization of the Curry-Howard isomorphism, including string diagrams in physics, cobordisms in topology, multiplicative intuitionistic linear logic, and the simply-typed lambda calculus in computer science.  We then go up one dimension and present the complete definition of a special kind of symmetric monoidal closed bicategory called a compact closed bicategory.  We emphasize the combinatorial aspects and prove that given a 2-category $T$ with finite products and weak pullbacks, the bicategory $\Span_2(T)$ of objects of $T$, spans, and isomorphism classes of maps of spans is compact closed.  As a corollary, certain bicategories of ``resistor networks'' are compact closed.
 
 
   \vfill
@@ -515,7 +515,7 @@ If $T$ is the category of finite sets, then we can think of the subset of $C$ co
 
 Compact closed bicategories are interesting to us because they open up at least three areas for future research.  First, Lawvere showed that we can think of categories with products as a kind of programming language.  As programmers, we can write a Java interface that describes the operations on a monoid (identity element and multiplication) and write tests to check the relations (associativity and unit laws).  This interface, together with the tests, is a presentation of a category with products, called ``the Lawvere theory for monoids''.  Every implementation of the interface describes a functor from the Lawvere theory for monoids into the category Set and vice versa.  The tao of categorification suggests there should be a ``higher Lawvere theory of symmetric monoidal closed categories''; the fact that the currying adjunction between tensor and the internal hom is an isomorphism of profunctors means that this higher theory ought to be a compact closed bicategory and take models in Prof.
 
-Second, Lambek and Scott showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation.}  This is only possible because lambda calculus is confluent: it doesn't matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-cells in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-cells for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
+Second, Lambek and Scott showed that simply-typed lambda calculus forms a cartesian closed category, but only if we {\em ignore the process of computation.}  This is only possible because lambda calculus is confluent: it doesn't matter in what order the rewrite rules are applied.  Concurrent calculi like Milner's pi calculus are not confluent; once we can express contention for resources---like a deposit to and a withdrawal from the same bank account---it matters a great deal in which order the rewrites occur.  This suggests that we need to explicitly account for rewrites using 2-morphisms in a bicategorical setting.  The higher theory of a symmetric monoidal closed category above provides many of the pieces we need for the pi calculus: the unit object can be the zero process, the tensor product can be concurrency, and the internal hom should be involved in putting a process under a prefix.  The 2-morphisms for adjunctions in this bicategory drawn as string diagrams look amazingly like synchronization on a name.
 
 Finally, this bicategorical approach should also fit better with physics: rewrites are processes that occur over time like particle interactions do.  Extended topological quantum field theories should be functors between compact closed bicategories, so it's not unreasonable to expect a nice quantum interpretation of some kind of linear pi calculus.
 
@@ -1552,7 +1552,7 @@ Finally we showed that runtimes much longer than the lengths of their respective
 
 Can we use this type of analysis for developing a probabilistic approach for proving theorems? 
 
-The class of problems which can be treated in this way are the ``finitely refutable conjectures''.  A conjecture is finitely refutable if verifying a finite number of instances suffices to disprove it \cite{CJL}.  The method seems simple: we choose  a natural universal Turing machine $U$ and to each such conjecture $C$ we can effectively associate a program $\Pi_{C}$ such that $C$ is true iff $U(\Pi_{C})$ never halts.  Running $U(\Pi_{C})$ for a time longer than the threshold will produce a good evidence of the likelihood validity of the conjecture.  For example, it has been shown \cite{CCD} that for a natural $U$, the length of the program validating the Riemann Hypothesis is 7,780 bits, while for the Goldbach's Conjecture the length of the program is 3,484 bits.
+The class of problems which can be treated in this way are the ``finitely refutable conjectures''.  A conjecture is finitely refutable if verifying a finite number of instances suffices to disprove it \cite{CJL}.  The method seems simple: we choose a natural universal Turing machine $U$ and to each such conjecture $C$ we can effectively associate a program $\Pi_{C}$ such that $C$ is true iff $U(\Pi_{C})$ never halts.  Running $U(\Pi_{C})$ for a time longer than the threshold will produce a good evidence of the likelihood validity of the conjecture.  For example, it has been shown \cite{CCD} that for a natural $U$, the length of the program validating the Riemann Hypothesis is 7,780 bits, while for the Goldbach's Conjecture the length of the program is 3,484 bits.
 
 Of course, the choice of the probability distribution on the runtime is paramount.  Further, there are at least two types of problems with this approach. 
 
@@ -4818,13 +4818,12 @@ If we want a categorical semantics for computation that treats time in the same 
 
 When moving from set theory to category theory and higher to $n$-category theory, we typically weaken equations at one level to natural isomorphisms at the next.  These isomorphisms are then subject to new coherence equations.  For example, multiplication in a monoid is associative, but the tensor product in a monoidal category is, in general, only associative up to a natural isomorphism.  This ``associator'' natural isomorphism has to satisfy some extra equations that are trivial in the case of the monoid.  In a similar way, when we move from compact closed categories to compact closed bicategories, the ``zig-zag'' equations governing the dual get weakened to natural isomorphisms and we need to introduce some new coherence laws.
 
-In Section \ref{examples}, we will give several examples of important mathematical structures and how they arise in relation to compact closed bicategories.  Following the examples, in Section \ref{previous} we give the history of the concept and related work.  Next, in Section \ref
-{definition} we give the complete definition, which to our knowledge has not appeared elsewhere; we try to motivate each piece of the definition so that the reader could afterwards reconstruct the definition without the aid of this thesis.  In Section \ref{Hoffnung}, we prove that a construction by Hoffnung is an instance of a compact closed bicategory. We prove our assertions about the examples in Section \ref{proofs}. Most of these are corollaries of the main theorem.  
+In Section \ref{examples}, we will give several examples of important mathematical structures and how they arise in relation to compact closed bicategories.  Following the examples, in Section \ref{previous} we give the history of the concept and related work.  Next, in Section \ref{definition} we give the complete definition, which to our knowledge has not appeared elsewhere; we try to motivate each piece of the definition so that the reader could afterwards reconstruct the definition without the aid of this thesis.  In Section \ref{Hoffnung}, we prove that a construction by Hoffnung is an instance of a compact closed bicategory and a few others as corollaries.
 
 \section{Examples}
 \label{examples}
 
-In order to get across some of the flavor of these different compact closed bicategories, we will describe the bicategories as well as some weak monoids and monads in them.  The weak monoids and monads play no role in the rest of the chapter, but we have found that comparing and contrasting them helps when trying to develop intuition about the bicategories.  The monoids are variations on the notion of an associative algebra, while the monads are variations on the notion of a category.  We will give proofs that each of these bicategories (with the exception of $nCob_2$) is compact closed in Section \ref{proofs}.
+In order to get across some of the flavor of these different compact closed bicategories, we will describe the bicategories as well as some weak monoids and monads in them.  That these bicategories are compact closed is mostly folklore; we prove that a few of them are compact closed as corollaries of the main theorem at the end of this chapter.  The weak monoids and monads play no role in the rest of the chapter, but we have found that comparing and contrasting them helps when trying to develop intuition about the bicategories.  The monoids are variations on the notion of an associative algebra, while the monads are variations on the notion of a category.
 
 \begin{itemize}
   \item A {\bf span} from $A$ to $B$ in a category $T$ is an object $C$
@@ -4872,48 +4871,39 @@ in $T$ together with an ordered pair of morphisms $(f\maps C \to A, g\maps C\to 
   \end{center}
   Since the pullback is associative only up to a natural isomorphism, the same is true of the composition of two spans, so this construction does not give a 2-category; however, we do get a bicategory $\Span(T)$ of objects of $T$, spans in $T$, and maps of spans.
 
-  If $T$ is a category with finite products as well as pullbacks, then the bicategory $\Span(T)$ is a compact closed bicategory where the tensor product is given by the product in $T.$  A weak monoid object in
-$\Span(T)$ is a categorification of the notion of an associative algebra.
-  For example, one weak monoid in Span(Set) is equivalent to the category of polynomial functors from Set to itself; such functors can be
-``added'' using disjoint union, ``multiplied'' using the cartesian product, and ``scaled'' by sets \cite{GK}.  A monad in Span($T$) is a category internal to $T$ \cite{Ben67}.
-  \item Sets, relations, and implications form the compact closed bicategory Rel, where the tensor product is given by the product in Set. Let $R$ be the ring of truth values; then a weak monoid object $M$ in Rel is a quantale on the powerset of $M$ \cite{ShulCafe}, while a monad in Rel is a preorder.
-  \item A {\bf 2-rig} is a cocomplete monoidal category where the tensor product distributes over the colimits \cite{HDA3}, though for the purpose of constructing a compact closed bicategory we only need the tensor product to distribute over finite coproducts.  Given a symmetric
-2-rig $R$, Mat($R$) is the compact closed bicategory of finitely-generated free $R$-modules, where the tensor product is the usual tensor product for matrices.  A weak monoid object in Mat($R$) is a categorified finite-dimensional associative algebra over $R.$  A monad in Mat($R$) is a finite $R$-enriched category.  A {\bf finite 2-rig} $S$
-is only finitely cocomplete, but Mat($S$) is still compact closed. Kapranov and Voevodsky \cite{KV94} described a bicategory equivalent to Mat(FinVect) and called its objects ``2-vector spaces''.
+  If $T$ is a category with finite products as well as pullbacks, then the bicategory $\Span(T)$ is a compact closed bicategory where the tensor product is given by the product in $T.$  A weak monoid object in $\Span(T)$ is a categorification of the notion of an associative algebra.  For example, one weak monoid in Span(Set) is equivalent to the category of polynomial functors from Set to itself; such functors can be ``added'' using disjoint union, ``multiplied'' using the cartesian product, and ``scaled'' by sets \cite{GK}.  A monad in Span($T$) is a category internal to $T$ \cite{Ben67}.
+  
+  \item Sets, relations, and implications form the compact closed bicategory Rel, where the tensor product is given by the product in Set.  A weak monoid object $M$ in Rel is a quantale on the powerset of $M$ \cite{ShulCafe}, while a monad in Rel is a preorder.
+
+  \item A {\bf 2-rig} is a cocomplete monoidal category where the tensor product distributes over the colimits \cite{HDA3}, though for the purpose of constructing a compact closed bicategory we only need the tensor product to distribute over finite coproducts.  Given a symmetric 2-rig $R$, Mat($R$) is the compact closed bicategory of finitely-generated free $R$-modules, where the tensor product is the usual tensor product for matrices.  A weak monoid object in Mat($R$) is a categorified finite-dimensional associative algebra over $R.$  A monad in Mat($R$) is a finite $R$-enriched category.  A {\bf finite 2-rig} $S$ is only finitely cocomplete, but Mat($S$) is still compact closed. Kapranov and Voevodsky \cite{KV94} described a bicategory equivalent to Mat(FinVect) and called its objects ``2-vector spaces''.
+
   \item For a category $C$, let $\widehat{C} = \Set^{C^{\op}}$ be the category of presheaves on $C$.  The 2-category Cocont has
     \begin{itemize}
       \item small categories as objects;
-      \item cocontinuous functors $f:\widehat{C} \to \widehat{D}$
-between the categories of presheaves on the source and target as morphisms;
+      \item cocontinuous functors $f:\widehat{C} \to \widehat{D}$ between the categories of presheaves on the source and target as morphisms;
       \item natural transformations as 2-morphisms.
     \end{itemize}
     We can think of cocontinuous functors as being ``Set-linear transformations'', since they preserve sums.  Day and Street \cite{DS97}
 proved that Cocont is a compact closed 2-category.
-    \item Recall that a profunctor $F:C \not\to R$ is a functor $F:C^
-{\op} \times R \to \Set$; we can think of profunctors as being rather like matrices, where the set $F(c,r)$ is the ``matrix element'' at row
-$r$ and column $c$.  Composition of profunctors is given by taking the coend of the inner coordinates, just as matrix multiplication done by summing over the inner index.  Small categories, profunctors, and natural transformations form the compact closed bicategory Prof, where the tensor product is the product in Cat.  A weak monoid object in Prof is a promonoidal category \cite{Day, Houston}. A symmetric monoidal monad in Prof is a Freyd category, also known as an ``Arrow'' in the functional programming community \cite{Asada, JHH}.
+
+  \item Recall that a profunctor $F:C \not\to R$ is a functor $F:C^{\op} \times R \to \Set$; we can think of profunctors as being rather like matrices, where the set $F(c,r)$ is the ``matrix element'' at row $r$ and column $c$.  Composition of profunctors is given by taking the coend of the inner coordinates, just as matrix multiplication done by summing over the inner index.  Small categories, profunctors, and natural transformations form the compact closed bicategory Prof, where the tensor product is the product in Cat.  A weak monoid object in Prof is a promonoidal category \cite{Day, Houston}. A symmetric monoidal monad in Prof is a Freyd category, also known as an ``Arrow'' in the functional programming community \cite{Asada, JHH}.
 
     Cattani and Winskel \cite{CW04} showed that Cocont and Prof are equivalent as bicategories.  Though they do not explicitly state it, the equivalence they construct is symmetric monoidal; since symmetric monoidal equivalences preserve the dual, Cocont and Prof are equivalent as compact closed bicategories.
-  \item  So far the examples have been rather algebraic in flavor, but there are topological examples, too.  The category $\nCob$ is the compact closed category whose
+  \item So far the examples have been rather algebraic in flavor, but there are topological examples, too.  The category $\nCob$ is the compact closed category whose
     \begin{itemize}
       \item objects are $(n-1)$-dimensional manifolds and
-      \item morphisms are diffeomorphism classes of collared
-      $n$-dimensional cobordisms between them,
+      \item morphisms are diffeomorphism classes of collared $n$-dimensional cobordisms between them,
     \end{itemize}
-    where the tensor product is disjoint union.  Atiyah \cite
-{AtiyahTQFT} introduced the category informally in his paper defining topological quantum field theories.
+    where the tensor product is disjoint union.  Atiyah \cite{AtiyahTQFT} introduced the category informally in his paper defining topological quantum field theories.
 
     Morton \cite{Morton} defined the bicategory $\nCob_2$ whose
     \begin{itemize}
       \item objects are $(n-2)$-dimensional manifolds,
-      \item morphisms are collared $(n-1)$-dimensional cobordisms, 
-      or ``manifolds with boundary'', and
-      \item 2-morphisms are diffeomorphism classes of collared 
-      $n$-dimensional maps of cobordisms, or ``manifolds with corners''.
+      \item morphisms are collared $(n-1)$-dimensional cobordisms, or ``manifolds with boundary'', and
+      \item 2-morphisms are diffeomorphism classes of collared $n$-dimensional maps of cobordisms, or ``manifolds with corners''.
     \end{itemize}
-    The collars are necessary to preserve the smoothness when composing 1- and 2-morphisms.  Schommer-Pries proved a purely algebraic characterization of $2\mbox{Cob}_2$, essentially proving the
-``Baez-Dolan cobordism hypothesis'' for the $n=2$ case \cite{HDATQFT}. We expect that $\nCob_2$ will be found to be compact closed, but we will not prove it in this thesis.
-
+    The collars are necessary to preserve the smoothness when composing 1- and 2-morphisms.  Schommer-Pries proved a purely algebraic characterization of $2\mbox{Cob}_2$, essentially proving the ``Baez-Dolan cobordism hypothesis'' for the $n=2$ case \cite{HDATQFT}.
+    
     \item In a letter to the author, John Baez defined two interesting compact closed bicategories.
     
     A {\bf directed multigraph} is a finite set $E$ of edges and a finite set $V$ of vertices equipped with functions $s, t:E \to V$
@@ -4963,8 +4953,7 @@ mapping each edge to its source and target.  A {\bf resistor network} is a direc
       \end{tikzpicture}
     \end{center}
 
-    Resistor networks and morphisms between them form a category ResNet;
-this category has finite limits and colimits.
+    Resistor networks and morphisms between them form a category ResNet; this category has finite limits and colimits.
     
     There is a compact closed bicategory Cospan(ResNet) with an important compact closed subbicategory Circ consisting of cospans whose feet are resistor networks with no edges.  A morphism in Circ is a {\bf circuit,} a resistor network with chosen sets of input and output vertices across which one can measure a voltage drop.
 \end{itemize}
@@ -4978,22 +4967,17 @@ B\'enabou \cite{Ben67} defined bicategories and showed that small categories, di
 {Ben73}.  He defined $V$-enriched profunctors when $V$ is a cocomplete monoidal or symmetric monoidal closed category, defined $V$-Prof and proved that any $V$-enriched functor, regarded as a $V$-profunctor, has a right adjoint.  More applications and details are in his lecture notes
 \cite{Ben00}.
 
-Kapranov and Voevodsky \cite{KV94} defined braided semistrict monoidal
-2-categories, but their definition left out some necessary axioms.  Baez and Neuchl \cite{HDA1} gave an improved definition, but it was still missing a clause; Crans \cite{Crans} gave the complete definition.  See Baez and Langford \cite{HDA4} and Shulman \cite{Shulman} for details.
+Kapranov and Voevodsky \cite{KV94} defined braided semistrict monoidal 2-categories, but their definition left out some necessary axioms.  Baez and Neuchl \cite{HDA1} gave an improved definition, but it was still missing a clause; Crans \cite{Crans} gave the complete definition.  See Baez and Langford \cite{HDA4} and Shulman \cite{Shulman} for details.
 
 Gordon, Power, and Street \cite{GPS} defined fully weak tricategories; a monoidal bicategory is a one-object tricategory.
 
-Another name for semistrict monoidal 2-categories is ``Gray monoids'', 
-{\em i.e.} monoid objects in the 2-category Gray \cite{Gray}.  Day and Street \cite{DS97} defined compact closed Gray monoids, and appealed to the coherence theorem of Gordon, Power, and Street to extend compact closedness to arbitrary bicategories.  The semistrict approach is somewhat artificial when dealing with most ``naturally occurring''
-bicategories, since the associator for composition of 1-morphisms is rarely the identity.  However, this approach does apply to Cocont.
+Another name for semistrict monoidal 2-categories is ``Gray monoids'', {\em i.e.} monoid objects in the 2-category Gray \cite{Gray}.  Day and Street \cite{DS97} defined compact closed Gray monoids, and appealed to the coherence theorem of Gordon, Power, and Street to extend compact closedness to arbitrary bicategories.  The semistrict approach is somewhat artificial when dealing with most ``naturally occurring'' bicategories, since the associator for composition of 1-morphisms is rarely the identity.  Cocont is a notable exception.
 
-Katis, Sabadini and Walters \cite{KSW98} gave a precise account of the double-entry bookkeeping method {\em partita doppia} in terms of the compact closed bicategory Span(RGraph); in a later paper \cite{KW99}, they cite a handwritten note by McCrudden for the ``swallowtail''
-coherence law we use in this thesis.
+Katis, Sabadini and Walters \cite{KSW98} gave a precise account of the double-entry bookkeeping method {\em partita doppia} in terms of the compact closed bicategory Span(RGraph); in a later paper \cite{KW99}, they cite a handwritten note by McCrudden for the ``swallowtail'' coherence law we use in this thesis.
 
 Preller and Lambek \cite{PL07} generalized compact monoidal categories in a different direction.  They considered a compact monoidal category to be a one-object bicategory satisfying some criteria, and then extend that definition to multiple objects.  The resulting concept of ``compact bicategory'' is {\em not} what is being studied in this thesis.
 
-McCrudden \cite{McCrudden} gave the first fully general definitions of braided, sylleptic, and symmetric monoidal bicategories.  Schommer-Pries
-\cite{SPT} gave the correct notion of a monoidal transformation between monoidal functors between monoidal bicategories.
+McCrudden \cite{McCrudden} gave the first fully general definitions of braided, sylleptic, and symmetric monoidal bicategories.  Schommer-Pries \cite{SPT} gave the correct notion of a monoidal transformation between monoidal functors between monoidal bicategories.
 
 Carboni and Walters \cite{CW87} proved that $V$-Prof is a cartesian bicategory.  Later, they showed \cite{CW04} that Prof is equivalent to Cocont as a bicategory.  Together with Kelly and Wood \cite{CKWW08}, they proved that any cartesian bicategory is symmetric monoidal in the sense of McCrudden.
 
@@ -5011,11 +4995,9 @@ the objects of $\C(A,B)$ are called {\bf 1-morphisms}, while the morphisms of $\
     \item for each triple of objects $A, B, C$ in $\C$, a {\bf composition} functor 
         \[ \circ_{A,B,C}\maps \C(B, C) \times \C(A, B) \to \C(A, C).\]
       We will leave off the indices and write it as an infix operator.
-    \item for each object $A$ in $\C$, an object $1_A$ in $\C(A,A)$
-called the {\bf identity 1-morphism on $A$}.  We will often write this simply as $A$.
+    \item for each object $A$ in $\C$, an object $1_A$ in $\C(A,A)$ called the {\bf identity 1-morphism on $A$}.  We will often write this simply as $A$.
     \item for each quadruple of objects $A, B, C, D$, a natural isomorphism called the {\bf associator for composition}; if $(f,g,h)$ is an object of $\C(C,D) \times \C(B,C) \times \C(A,B),$ then 
-      $$\acirc_{f,g,h} \maps (f \circ g) \circ h \to f \circ (g
-\circ h).$$
+      $$\acirc_{f,g,h} \maps (f \circ g) \circ h \to f \circ (g \circ h).$$
     \item for each pair of objects $A, B$ in $\C$, natural isomorphisms called {\bf left and right unitors for composition.}  If $f$ is an object of $\C(A,B)$, then
       \[\begin{array}{l}
         \lcirc_f\maps B \circ f \stackrel{\sim}{\to} f\\
@@ -5044,8 +5026,7 @@ called the {\bf identity 1-morphism on $A$}.  We will often write this simply as
   \end{enumerate}
 \end{defn}
 
-The associator $\acirc$ and unitors $\rcirc, \lcirc$ for composition of
-1-morphisms are necessary, but when we are drawing commutative diagrams of 1-morphisms they are very hard to show; fortunately, by the coherence theorem for bicategories \cite{LeinsterBB}, any consistent choice is equivalent to any other, so we leave them out.
+The associator $\acirc$ and unitors $\rcirc, \lcirc$ for composition of 1-morphisms are necessary, but when we are drawing commutative diagrams of 1-morphisms they are very hard to show; fortunately, by the coherence theorem for bicategories \cite{LeinsterBB}, any consistent choice is equivalent to any other, so we leave them out.
 
 We refer the reader to Tom Leinster's excellent ``Basic bicategories''
 \cite{LeinsterBB} for definitions of
@@ -5118,17 +5099,14 @@ where $e_h:h^\bullet \circ h \Rightarrow 1$ is the 2-morphism from the equivalen
 
 In the following definitions, I have given some plausible combinatorical reasoning justifying many of the parts of the definition, but except where noted, this is not part of the definition; its intent is merely to help organize the rather long and dry content.  I am not aware of any work on the combinatorics of cells in higher categories beyond that mentioned below by Stasheff, Kapranov and Voevodsky.  
 
-Also, in the illustrations of 2-cells and coherence laws below, I use expressions like $(A \tensor B) \tensor C$ as a shorthand for functors like
+Also, in the illustrations of 2-morphisms and coherence laws below, I use expressions like $(A \tensor B) \tensor C$ as a shorthand for functors like
       \[\tensor \circ (\tensor \times 1): \C^3 \to \C.\]
 
 \begin{defn} A {\bf monoidal bicategory} $\C$ is a bicategory in which we can ``multiply'' objects.  It consists of the following: \\
   
 \begin{itemize}
 \item A bicategory $\C$.
-\item A {\bf tensor product} functor $\otimes:\C \times \C \rightarrow
-\C$.  This functor involves an invertible ``tensorator'' 2-morphism
-$(f \otimes g) \circ (f' \otimes g') \Rightarrow 
-(f \circ f') \otimes (g \circ g')$ which we elide in most of the coherence equations below.  The coherence theorem for monoidal bicategories implies that any 2-morphism involving the tensorator is the same no matter how it is inserted \cite[Remark~3.1.6]{Gurski}, so like the associator for composition of 1-morphisms, we leave it out.
+\item A {\bf tensor product} functor $\otimes:\C \times \C \rightarrow \C$.  This functor involves an invertible ``tensorator'' 2-morphism $(f \otimes g) \circ (f' \otimes g') \Rightarrow (f \circ f') \otimes (g \circ g')$ which we elide in most of the coherence equations below.  The coherence theorem for monoidal bicategories implies that any 2-morphism involving the tensorator is the same no matter how it is inserted \cite[Remark~3.1.6]{Gurski}, so like the associator for composition of 1-morphisms, we leave it out.
 
 The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures whose vertices enumerate the ways to parenthesize the tensor product of $n$ objects, so the number of vertices is given by the Catalan numbers; for each polytope, we have a corresponding $(n-2)$-morphism of the same shape with directed edges and faces:
   \begin{enumerate}
@@ -6956,7 +6934,28 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformation $\Delta$ that takes any object $A$ in $T$ to $A \times A.$  [[ Fix this. ]]
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  The first set of choices we make will concern cospans whose legs are both isomorphisms; the second set of choices will concern certain cospans whose legs involve the natural transformations $!_A\maps A \to 1$ and $\Delta_A\maps A \to A \times A$ for those cases when $A$ is {\em not} an isomorphism.  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
+\begin{center}
+  \begin{tikzpicture}
+    \node (C) at (1,0) {$1$};
+    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
+    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
+    \node at (1,2) {$A_{!,!}A$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
+    \node at (1,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+whereas when $A$ is not terminal, the weak pullback is
+\begin{center}
+  \begin{tikzpicture}
+    \node (C) at (1,0) {$1$};
+    \node (A) at (0,1) {$A$} edge [->] node [below left,l] {$!$} (C);
+    \node (B) at (2,1) {$1$} edge [->] node [below right,l] {$!$} (C);
+    \node at (1,2) {$A_{!,!}1$} edge [->] node[above left, l] {$\pi_1$} (A) edge [->] node[above right, l] {$\pi_2$} (B);
+    \node at (1,1) {$=$};
+  \end{tikzpicture}
+  .
+\end{center}
+
 
 Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
 
@@ -7060,7 +7059,7 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
 \end{center}
 \hfill $\square$
 
-By the coherence theorm for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be {\em equal} to $A^{\times (n+m)}.$  With that choice, we also have the following useful corollary.
+By the coherence theorm for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  With that choice, we also have the following useful corollary.
 
 \begin{cor}
   \label{reverse}
@@ -7137,7 +7136,6 @@ By the coherence theorm for bicategories, there is a unique isomorphism $a^{\cir
   \label{permute}
   Any permutation of $A^{\times n}$ is naturally isomorphic to the identity.
 \end{cor}
-\fi %%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{lemma}
   Given a span $$A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B$$ where $f$ is an isomorphism, the left unitor for composition is the map of spans
@@ -7241,11 +7239,10 @@ The following 2-morphisms are equal:
 
 The first universal property of the weak pullback proves that $\pi_1$ is a one-sided inverse to $\Delta.$  It is not a 2-sided inverse in $T$, but the second universal property of the weak pullback shows that the composite $\Delta\pi_1$ is isomorphic to the identity, so when $\pi_1$ and $\Delta$ are used as maps of spans, they are inverses in $\Span_2(T)$. \hfill $\square$
 
-\iffalse %%%%%%%%
 \begin{cor}
   In light of Lemma \ref{swap} and the previous lemma, the left and the right unitor for composition are equal to each other.
 \end{cor}
-\fi %%%%%%%%%%
+\fi %%%%%%%%%%%%%%%%%%%%%%%%
 
 We are now ready to prove the main theorem.
 
@@ -7292,7 +7289,7 @@ By adding an identity edge to the pentagonator, we get an identity map of spans:
 \end{center}
 The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the unitor for composition.  
 
-The coherence theorem for bicategories says that any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only pentagonators and identity 2-morphisms---like the associahedron---must hold in $\Span_2(T).$
+The coherence theorem for bicategories \cite{LeinsterBB} says that any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only pentagonators and identity 2-morphisms---like the associahedron---must hold in $\Span_2(T).$
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7338,7 +7335,7 @@ Similarly, the 2-unitors $\lambda, \mu,$ and $\rho$ for the monoidal product are
 
 The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
 
-The hexagon modification $S$ is more complicated because it has three uses of $a^\bullet.$  If we add an identity edge before each one, then by Lemma \ref{reverse} the apexes are the same as if we had used $a^{-1}$ instead.  To get the same number of edges in the source span as in the target span, we add another identity edge before the last edge in the target span.  The resulting eight-sided 2-morphism is an identity.  We recover a six-sided $S$ by using two inverse unitors for composition on the source span and two unitors for composition on the target span.
+The hexagon modification $S$ is more complicated because it has three uses of $a^\bullet.$  If we add an identity edge before each one, then by Corollary \ref{reverse} the apexes are the same as if we had used $a^{-1}$ instead.  To get the same number of edges in the source span as in the target span, we add another identity edge before the last edge in the target span.  The resulting eight-sided 2-morphism is an identity.  We recover a six-sided $S$ by using two inverse unitors for composition on the source span and two unitors for composition on the target span.
 
 By the coherence theorem for bicategories, any coherence law involving only $\pi, R, S$ and identity 2-morphisms---like the shuffle and Breen polytopes---must hold in $\Span_2(T).$
 
@@ -7398,7 +7395,7 @@ We can insert an identity morphism in the source and target of the syllepsis to 
   \end{tikzpicture}
 \end{center}
 
-All of the coherence laws for a symmetric monoidal bicategory hold in $\Span_2(T),$ so it is a symmetric monoidal bicategory.  The swallowtail coherence law, however, involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that this coherence law holds.
+Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoidal bicategory.  The swallowtail coherence law, however, involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that this coherence law holds.
 
 \newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
   \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
@@ -7406,9 +7403,11 @@ All of the coherence laws for a symmetric monoidal bicategory hold in $\Span_2(T
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and isomorphisms between the objects with an arc.  For example, the weak pullback $A^{\times 2} = A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\times 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
+As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote an object with a dot and the isomorphism between the objects with an arc.  For example, the weak pullback $A^{\times 2} = A_{A,A}A,$ would be denoted $\pb{1 / 1}$, the product $A\times A$ would be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\times 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ would be denoted $\pb{1/1,3/1,2/0}.$
 
-The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.
+The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique; because there is only the identity 2-morphism on morphisms into a terminal object, $\zeta_A$ is trivial.  
+
+When neither $\Delta_A$ nor $!_A$ are isomorphisms, the composite span is
 \begin{center}
   \begin{tikzpicture}
     \node (Al) at (0,0) {$\bullet$};
@@ -7462,54 +7461,41 @@ The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\o
       edge [->] node [auto,l] {$\pi_1$} (Aliaa)
       edge [->] node [auto,l] {$\pi_2$} (Alia');
   \end{tikzpicture}
+  .
 \end{center}
 
-The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so we choose weak pullbacks such that they are {\em equal}, making $\zeta$ an identity 2-morphism.  
+The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so we choose weak pullbacks such that they are equal.  With judicious use of unitors for composition we recover the six-sided 2-morphism $\zeta.$ 
 
-This choice does not conflict with our choice [[Ugh.  Terrible writing.]] of weak pullbacks for cospans of the form $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are isomorphisms in $T$.  The only way that $!_A\maps A \to 1$ can be an isomorphism is if $A$ is terminal; in this case, the previous choice $\pb{1/1,3/1,2/1,0/1}$ is equal to the current choice $\pb{1/1,3/1,2/0}$ because there's a unique way for $A$ to be isomorphic to itself.
+When $\Delta_A$ is an isomorphism but $!_A$ is not, inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms; therefore any choice of weak pullback for these cospans is as good as any other.  
 
-The morphism $\Delta_A:A \to A\times A$ can in some 2-categories be an isomorphism for nontrivial $A$, but the way it is used in the composition of spans above is not as part of a cospan of the form used in Lemma \ref{\piling}.  We are therefore free to choose any weak pullback in the isomorphism class; the particular choice is, in this case, irrelevant.
-
-The 2-morphism $\theta$ follows {\em mutatis mutandis}, and the swallowtail coherence law is trivial. \hfill $\square$
-
-**HERE**
-
+The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, the swallowtail coherence law is trivial and $\Span_2(T)$ is compact closed.
 \hfill $\square$
 
-\section{Proofs}
-\label{proofs}
-\begin{thm}
+\begin{cor}
   \label{span}
   When $C$ is a category with finite products and pullbacks, the bicategory Span($C$) of objects of $C$, spans in $C,$ and maps of spans is compact closed.
-\end{thm}
+\end{cor}
 {\em Proof.} When $C$ is a category with finite products and pullbacks,
 $\Span(C)$ is a special case of Theorem \ref{Span2} where all the
 2-morphisms in the weak pullbacks are identities. \hfill $\square$
 
-\begin{thm}
-  The bicategory Rel of sets, relations, and implications, is compact closed.
-\end{thm}
-{\em Proof.} Rel is a wide sub-bicategory of Span(Set)---that is, it has all sets as objects, but only some of the 1-morphisms.  Relations are the jointly-monic spans, the spans for which there is at most one element whose image under the legs of the span picks out any particular pair of related elements.  Implications are maps of jointly-monic spans:
-a function between sets with at most one element is an implication. Since all of the structure morphisms in the definition of a compact closed bicategory are jointly monic and all the 2-morphisms between those structure morphisms exist, Rel is compact closed.\hfill $\square$
-
-\begin{thm}
+\begin{cor}
   The bicategories Cospan(ResNet) and Circ are compact closed.
-\end{thm}
+\end{cor}
 {\em Proof.} The coproduct of two resistor networks is given by juxtaposition; the pushout of a cospan $S \hookleftarrow R
-\hookrightarrow T$ of resistor networks is given by juxtaposition followed by identifying the images of $R$ in $S$ and $T$.  Cospans in ResNet are spans in ResNet${}^{\op},$ where the coproduct and pushout become product and pullback, so Cospan(ResNet) is compact closed as a corollary of Theorem \ref{span}.  Since every object is self-dual in Cospan(ResNet), the subcategory Circ whose objects are resistor networks with no edges is also compact closed. \hfill $\square$
+\hookrightarrow T$ of resistor networks is given by juxtaposition followed by identifying the images of $R$ in $S$ and $T$.  Cospans in ResNet are spans in ResNet${}^{\op},$ where the coproduct and pushout become product and pullback, so Cospan(ResNet) is compact closed by the previous corollary.  Since every object is self-dual in Cospan(ResNet), the subcategory Circ whose objects are resistor networks with no edges is also compact closed. \hfill $\square$
 
 \section{Conclusion}
 
 Compact closed bicategories are symmetric monoidal bicategories in which each object has a pseduoadjoint.  Given a 2-category $T$ with finite products and iso-comma objects, the bicategory $\Span_2(T)$ of objects of $T$, spans in $T$, and isomorphism equivalence classes of maps of spans forms a compact closed bicategory.  As a corollary, the bicategories Cospan(ResNet) and Circ are compact closed.  If we take $T$ to be the 2-category Gpd of groupoids, $\Span_2(T)$ provides a vast generalization of linear algebra \cite{Gpdify}.
 
-[[ More here. ]]
+In the next chapter, we examine potential uses for compact closed bicategories in a generalization of universal algebra, in quantum physics, and in semantics for concurrent programming languages.
 
-\chapter*{Conclusion}
-\addcontentsline{toc}{chapter}{Conclusion}
+\chapter{Future Work}
 
 There is a deep relationship between logic, type theory, topology, and physics that centers on the notions of state and process.  It lets us take concepts like the notion of a partition function from physics and transport it over to computer science to reason about the statistical properties of collections of programs.  It lets us assign quantum meaning to drawings of particles' worldlines.  It lets us use programming languages to construct proofs, and use types to prove that our programs are well-behaved.  By generalizing this relationship to add another dimension, I believe we will reap several benefits beyond those we currently enjoy; here I describe three ideas for applications and future work.
 
-\section*{Generalizing object-oriented programming}
+\section{Generalizing object-oriented programming}
 I began studying compact closed bicategories in order to write down ``the higher theory of a symmetric monoidal closed category''.  To explain what I mean, I think it would be instructive to go down one dimension first.
 
 Many concepts in mathematics can be expressed as sets equipped with functions that satisfy relations.  For example, a group is
@@ -7634,7 +7620,7 @@ The equalities of 2-morphisms are mostly the coherence laws from the definition 
 The upshot is that compact closed bicategories seem like the natural language in which to express what it means to be symmetric, monoidal, and closed.  For instance, if we take models in the 2-category Rel of sets, relations, and implications, we get abelian groups: the tensor product becomes addition, the dual becomes negation, and currying becomes a bi-implication
 \[ x + y = z \quad \iff \quad x = -y + z. \]
 
-\section*{Categorical models of concurrency}
+\section{Categorical models of concurrency}
 
 Seely \cite{Seely} suggested that the process of computation in the lambda calculus should be modeled by rewrite rules; Hilken \cite{Hilken} later did this explicitly, and Hirschowitz \cite{Hirschowitz} categorified the whole categorical framework for talking about lambda calculus.  However, none of these approaches moved beyond ``confluence''.  An {\sl evaluation strategy} assigns to each term a rewrite that tells how to get to the next term.  The Church-Rosser theorem says that the lambda calculus is {\sl confluent}: while an evaluation strategy may never reach an answer, if two of them do, they will agree on the answer.  It's precisely because it doesn't matter which terminating strategy we use that we can mod out by the rewrite 2-morphisms to get a cartesian closed category.  This confluence means that lambda calculus is a fundamentally serial approach to programming.
 
@@ -7669,7 +7655,7 @@ implies that if a term $M$ rewrites to $M'$ via beta reduction in the context $\
 Restricting the comm rule to specific reduction contexts is not hard, but the resulting theory is not as pretty; it involves introducing a 1-morphism $C\maps M \to M$ to mark the reduction context and weakening the adjunction between $?_{x, T}$ and $!_{x, T}$ to a mere 2-morphism 
 \[ comm\maps (T^* \boxtimes C) \circ (T^* \boxtimes |) \circ (!_{x, T} \boxtimes M) \circ (?_{x, T} \boxtimes M) \circ (T^* \boxtimes |') \Rightarrow T^* \boxtimes C.\]  Greg Meredith and I \cite{AC} used these ideas to prove full abstraction for the asynchronous polyadic pi calculus using a symmetric monoidal closed 2-category.  There is much more work to be done along these lines, particularly with respect to the categorical semantics of Caires' behavioral / spatial types.
 
-\section*{Principle of least action}
+\section{Principle of least action}
 
 In chapter II.1, we made an analogy between programs and Feynman diagrams.  The analogy is precise as far as it goes, but it's unsatisfactory in the sense that Feynman diagrams describe processes happening over time, while Lambek and Scott mod out by the process of computation that occurs over time.  If we use 2-categories that explicitly model rewrites between terms, we get something that could potentially be interpreted in $3\Cob_2$.  In an extended TQFT, there ought to be three notions of partition function: one for each direction of 1-morphism and another for 2-morphisms.  Horizontal morphisms in $3\Cob_2$ are space-like; a program has a length.  Vertical morphisms are time-like; a rewrite occurs over time.  The partition function for horizontal morphisms is concerned with algorithmic information, the shortest program that computes a result.  The partition function for vertical
 morphisms should be concerned with the fastest way to compute a result.  The partition function for 2-morphisms should have something to do with getting the best time-space tradeoff.
