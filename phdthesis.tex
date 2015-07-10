@@ -5093,8 +5093,9 @@ where $e_h:h^\bullet \circ h \Rightarrow 1$ is the 2-morphism from the equivalen
 
 In the following definitions, I have given some plausible combinatorical reasoning justifying many of the parts of the definition, but except where noted, this is not part of the definition; its intent is merely to help organize the rather long and dry content.  I am not aware of any work on the combinatorics of cells in higher categories beyond that mentioned below by Stasheff, Kapranov and Voevodsky.  
 
-Also, in the illustrations of 2-morphisms and coherence laws below, I use expressions like $(A \tensor B) \tensor C$ as a shorthand for functors like
-      \[\tensor \circ (\tensor \times 1): \C^3 \to \C.\]
+Also, some of the illustrations of 2-morphisms and coherence laws below are quite large.  In order to preserve legibility, I use expressions like $(A B) C$ as a shorthand for functors like
+      \[\tensor \circ (\tensor \times 1): \C^3 \to \C,\]
+since parentheses suffice to show where the tensor product should be.
 
 \begin{defn} A {\bf monoidal bicategory} $\C$ is a bicategory in which we can ``multiply'' objects.  It consists of the following: \\
   
@@ -5105,24 +5106,24 @@ Also, in the illustrations of 2-morphisms and coherence laws below, I use expres
 The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures whose vertices enumerate the ways to parenthesize the tensor product of $n$ objects, so the number of vertices is given by the Catalan numbers; for each polytope, we have a corresponding $(n-2)$-morphism of the same shape with directed edges and faces:
   \begin{enumerate}
     \item The tensor product of one object $A$ is the one object $A$ itself.
-    \item The tensor product of two objects $A$ and $B$ is the one object $A \tensor B$.
+    \item The tensor product of two objects $A$ and $B$ is the one object $(A B)$.
     \item There are two ways to parenthesize the product of three objects, so we have an {\bf associator} adjoint equivalence pseudonatural in $A,B,C$
-        \[ a\maps (A\tensor B) \tensor C \rightarrow A \tensor (B\tensor C) \]
+        \[ a\maps (A B) C \rightarrow A (B C) \]
       for moving parentheses from the left pair to the right pair.
     \item There are five ways to parenthesize the product of four objects, so we have a {\bf pentagonator} invertible modification $\pi$ relating the two different ways of moving parentheses from being clustered at the left to being clustered at the right.  (Mnemonic: Pink Pentagonator.)
       \begin{center}
         \begin{tikzpicture}
           \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4,2)--(2,0)--(0,1)--cycle;
-          \node (ABCD1) at (0,3) {$((A \tensor B) \tensor C) \tensor D$};
-          \node (ABCD2) at (2,4) {$(A\tensor B) \tensor (C\tensor D)$}
+          \node (ABCD1) at (0,3) {$((A B) C) D$};
+          \node (ABCD2) at (2,4) {$(A B) (C D)$}
             edge [<-] node [l, above left] {$a$} (ABCD1);
-          \node (ABCD3) at (4,2) {$A \tensor (B \tensor (C \tensor D))$}
+          \node (ABCD3) at (4,2) {$A (B (C D))$}
             edge [<-] node [l, above right] {$a$} (ABCD2);
-          \node (ABCD4) at (2,0) {$A \tensor ((B \tensor C) \tensor D)$}
-            edge [->] node [l, below right] {$A \tensor a$} (ABCD3);
-          \node (ABCD5) at (0,1) {$(A \tensor (B \tensor C)) \tensor D$}
+          \node (ABCD4) at (2,0) {$A ((B C) D)$}
+            edge [->] node [l, below right] {$A a$} (ABCD3);
+          \node (ABCD5) at (0,1) {$(A (B C)) D$}
             edge [->] node [l, below left] {$a$} (ABCD4)
-            edge [<-] node [l, left] {$a \tensor D$} (ABCD1);
+            edge [<-] node [l, left] {$a D$} (ABCD1);
           \node at (1,2) {\tikz\node [rotate=90] {$\Rightarrow$};};
           \node at (1.5,2) {$\pi$};
         \end{tikzpicture}
@@ -5143,7 +5144,7 @@ The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures w
           \end{scope}
         \end{tikzpicture}% End sketch output
       \end{center}
-    The associahedron is a cube with three of its edges bevelled. It holds in the bicategory $\C$, where we have used juxtaposition instead of $\tensor$ for brevity and the unmarked 2-morphisms are instances of the pseudonaturality invertible modification for the associator.  (Mnemonic for the rectangular invertible modifications: GReen conGRuences.)
+    The associahedron is a cube with three of its edges bevelled. It holds in the bicategory $\C$, where the unmarked 2-morphisms are instances of the pseudonaturality invertible modification for the associator.  (Mnemonic for the rectangular invertible modifications: GReen conGRuences.)
       \begin{center}
         \begin{tikzpicture}[line join=round]
           \filldraw[white,fill=green,fill opacity=0.1](-2.872,1.858)--(-.135,5.617)--(-2.391,3.949)--(-5.127,.19)--cycle;
@@ -5240,41 +5241,41 @@ The {\bf Stasheff polytopes} \cite{Stasheff} are a series of geometric figures w
   \begin{enumerate}
     \item There is one monoidal unit object $I$.
     \item There are two {\bf unitor} adjoint equivalences $l$ and $r$ that are pseudonatural in $A$.  The Stasheff polytopes for two objects and for one object are both points, so the unitors are line segments joining them.
-        \[ l\maps I \tensor A \rightarrow A \]
-        \[ r\maps A \tensor I \rightarrow A. \]
+        \[ l\maps I A \rightarrow A \]
+        \[ r\maps A I \rightarrow A. \]
     \item There are three {\bf 2-unitor} invertible modifications $\lambda, \mu,$ and $\rho$. The Stasheff polytope for three objects is a line segment and the Stasheff polytope for two objects is a point, so these modifications are triangles.  (Mnemonic: Umber Unitor.)
       \begin{center}
         \begin{tikzpicture}
           \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
-          \node (IAB1) at (0,2) {$(I\tensor A)\tensor B$};
-          \node (IAB2) at (3,1) {$I\tensor (A \tensor B)$}
+          \node (IAB1) at (0,2) {$(I A) B$};
+          \node (IAB2) at (3,1) {$I (A  B)$}
             edge [<-] node [l, above right] {$a$} (IAB1);
-          \node (AB) at (0,0) {$A \tensor B$}
+          \node (AB) at (0,0) {$A  B$}
             edge [<-] node [l, below right] {$l$} (IAB2)
-            edge [<-] node [l, left] {$l \tensor B$} (IAB1);
+            edge [<-] node [l, left] {$l  B$} (IAB1);
           \node at (1,1) {$\Rightarrow \lambda$};
         \end{tikzpicture}
       \end{center}
       \begin{center}
         \begin{tikzpicture}
           \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
-          \node (AB) at (0,0) {$A \tensor B$};
-          \node (AIB2) at (3,1) {$A\tensor (I\tensor B)$}
-            edge [->] node [l, below right] {$A \tensor l$} (AB);
-          \node (AIB1) at (0,2) {$(A\tensor I) \tensor B$}
+          \node (AB) at (0,0) {$A  B$};
+          \node (AIB2) at (3,1) {$A (I B)$}
+            edge [->] node [l, below right] {$A  l$} (AB);
+          \node (AIB1) at (0,2) {$(A I)  B$}
             edge [->] node [l, above] {$a$} (AIB2)
-            edge [->] node [l, left] {$r \tensor B$} (AB);
+            edge [->] node [l, left] {$r  B$} (AB);
           \node at (1,1) {$\Rightarrow \mu$};
         \end{tikzpicture}
       \end{center}
       \begin{center}
         \begin{tikzpicture}
           \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
-          \node (ABI1) at (0,2) {$(A \tensor B) \tensor I$};
-          \node (ABI2) at (3,1) {$A \tensor (B \tensor I)$}
+          \node (ABI1) at (0,2) {$(A  B)  I$};
+          \node (ABI2) at (3,1) {$A  (B  I)$}
             edge [<-] node [l, above right] {$a$} (ABI1);
-          \node (AB) at (0,0) {$A \tensor B$}
-            edge [<-] node [l, below right] {$A \tensor r$} (ABI2)
+          \node (AB) at (0,0) {$A  B$}
+            edge [<-] node [l, below right] {$A  r$} (ABI2)
             edge [<-] node [l, left] {$r$} (ABI1);
           \node at (1,1) {$\Rightarrow \rho$};
         \end{tikzpicture}
@@ -6209,9 +6210,7 @@ $k$-element list; there are ${n+k \choose k}$ ways to do this.  General shuffle 
       \end{tikzpicture}
     \end{center}
     In a braided strictly monoidal bicategory, the two proofs become the front and back face of another coherence law governing the interaction of the (2,1)-shuffle polytopes; when the associator is nontrivial, the vertices get truncated.  That the coherence law is necessary was something of a surprise: Kapranov and Voevodsky did not include it in their definition of braided semistrict monoidal 2-categories; Breen
-\cite{Breen} corrected the definition.  We therefore call the following coherence law the ``Breen polytope''.  In retrospect, we can see that this is the start of a series of polytopes whose faces are
-``permutohedra'' \cite{Permutohedra}; the need for the Breen polytope and the rest of the series became clear in Batanin's approach to weak 
-$n$-categories \cite{Batanin}.
+\cite{Breen} corrected the definition.  We therefore call the following coherence law the ``Breen polytope''.  In retrospect, we can see that this is the start of a more subtle collection of polytopes relevant to braided monoidal $n$-categories, which can be systematically obtained using Batanin's approach to weak $n$-categories \cite{Batanin}.
     \begin{center}
       \begin{tikzpicture}
         \begin{scope}[scale=.8, font=\fontsize{8}{8}\selectfont]
@@ -6464,12 +6463,12 @@ $n$-categories \cite{Batanin}.
       \begin{tikzpicture}[scale=.75]
         \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(6,0)--cycle;
         \filldraw[white,fill=salmon,fill opacity=0.1](0,4)--(0,0)--(6,0)--cycle;
-        \node (AB1) at (0,4) {$A \tensor B$};
-        \node (BA1) at (6,4) {$B \tensor A$}
+        \node (AB1) at (0,4) {$A  B$};
+        \node (BA1) at (6,4) {$B  A$}
           edge [<-] node [l, above] {$b$} (AB1);
-        \node (BA2) at (0,0) {$B \tensor A$}
+        \node (BA2) at (0,0) {$B  A$}
           edge [<-] node [l, left] {$b$} (AB1);
-        \node (AB2) at (6,0) {$A \tensor B$}
+        \node (AB2) at (6,0) {$A  B$}
           edge [->] node [l, right] {$b$} (BA1)
           edge [<-] node [l, above right] {1} (AB1)
           edge [<-] node [l, below] {$b$} (BA2);
@@ -6480,13 +6479,13 @@ $n$-categories \cite{Batanin}.
       \begin{tikzpicture}[scale=.75]
         \filldraw[white,fill=green,fill opacity=0.1](0,4)--(6,4)--(0,0)--cycle;
         \filldraw[white,fill=salmon,fill opacity=0.1](0,0)--(6,0)--(6,4)--cycle;
-        \node (AB1) at (0,4) {$A \tensor B$};
-        \node (BA1) at (6,4) {$B \tensor A$}
+        \node (AB1) at (0,4) {$A  B$};
+        \node (BA1) at (6,4) {$B  A$}
           edge [<-] node [l, above] {$b$} (AB1);
-        \node (BA2) at (0,0) {$B \tensor A$}
+        \node (BA2) at (0,0) {$B  A$}
           edge [->] node [l, above left] {1} (BA1)
           edge [<-] node [l, left] {$b$} (AB1);
-        \node (AB2) at (6,0) {$A \tensor B$}
+        \node (AB2) at (6,0) {$A  B$}
           edge [->] node [l, right] {$b$} (BA1)
           edge [<-] node [l, below] {$b$} (BA2);
         \node (v) at (4,1) {$\Downarrow v_1$};
@@ -6547,7 +6546,7 @@ This means that every object $A$ is equipped with a (weak) {\bf dual}, an object
       \node [right] at ($ (A1)!.5!(A2) $) {$#5$};
     \end{scope}
   }
-  \[ i_A: I \to A \tensor A^* \quad \quad e_A: A^* \tensor A \to I \]
+  \[ i_A: I \to A  A^* \quad \quad e_A: A^*  A \to I \]
   \begin{center}
     \begin{tikzpicture}
       \cap[0,0,A];
@@ -6558,7 +6557,7 @@ This means that every object $A$ is equipped with a (weak) {\bf dual}, an object
     \end{tikzpicture}
   \end{center}
 and two ``zig-zag'' 2-isomorphisms (Mnemonic: Yellow Yanking or Xanthic Zig-zag)
-  \[ \zeta_A: A \Rightarrow (A \tensor e_A) \circ (i_A \tensor A) \]
+  \[ \zeta_A: A \Rightarrow (A  e_A) \circ (i_A  A) \]
   \begin{center}
     \begin{tikzpicture}
       \node (A) at (0,0) {$A$};
@@ -6584,7 +6583,7 @@ and two ``zig-zag'' 2-isomorphisms (Mnemonic: Yellow Yanking or Xanthic Zig-zag)
       \cup[1,0,];
     \end{tikzpicture}
   \end{center}
-  \[ \theta_A: A^* \Rightarrow (e_A \tensor A^*) \circ (A^* \tensor i_A) \]
+  \[ \theta_A: A^* \Rightarrow (e_A  A^*) \circ (A^*  i_A) \]
   \begin{center}
     \begin{tikzpicture}
       \node (A) at (0,0) {$A^*$};
@@ -6817,7 +6816,7 @@ At the start of this chapter, we stated that spans of sets form a compact closed
 
 A {\bf span} from $A$ to $B$ in a bicategory $T$ is a pair of morphisms with the same source: ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B.}$
 
-A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B}$ and ${A \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\to} B}$ is a triple $(h\maps C\to C', \alpha\maps f \Rightarrow f'h, \beta\maps g \Rightarrow g'h):$
+A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stackrel{g}{\to} B}$ and ${A \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\to} B}$ is a triple $(h\maps C\to C', \alpha\maps f \Rightarrow f'h, \beta\maps g \Rightarrow g'h)$ such that $\alpha$ and $\beta$ are invertible.
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,2) {$C$};
@@ -6833,7 +6832,7 @@ A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stack
     \node at (1.5,1) {$\beta \Downarrow$};
   \end{tikzpicture}
 \end{center}
-A {\bf map of maps of spans} is a 2-morphism $\gamma\maps h \Rightarrow h'$ such that $\alpha' = (f'\gamma) \alpha$ and $\beta' = (g'\gamma) \beta$.  Maps and maps of maps compose in the obvious ways.
+A {\bf map of maps of spans} is a 2-morphism $\gamma\maps h \Rightarrow h'$ such that $\alpha' = (f'\gamma)\cdot \alpha$ and $\beta' = (g'\gamma)\cdot \beta$.  Maps and maps of maps compose in the obvious ways.
 
 Hoffnung showed that any 2-category $T$ with finite products and strict iso-comma objects (hereafter called ``weak pullbacks'') gives rise to a monoidal tricategory Span($T$) whose
 \begin{itemize}
@@ -6845,15 +6844,12 @@ Hoffnung showed that any 2-category $T$ with finite products and strict iso-comm
 The tensor product of two spans $A \stackrel{f}{\leftarrow} C \stackrel{g}{\rightarrow} B$ 
 and $A' \stackrel{f'}{\leftarrow} C' \stackrel{g'}{\rightarrow} B'$ is the span
 \[A \times A' \stackrel{f \times f'}{\leftarrow} C \times C' \stackrel{g \times g'}{\rightarrow} B \times B'.\]
-Here we show that the bicategory $\Span_2(T)$ whose
-\begin{itemize}
-  \item objects are objects of $T$,
-  \item morphisms are spans in $T$, and
-  \item 2-morphisms are 3-isomorphism classes of maps of spans.
-\end{itemize}
-forms a compact closed bicategory.
 
-We define composition of spans using the weak pullback in $T$.  The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{f,g}B,$ 1-morphisms $\pi_1\maps A_{f,g}B \to A$ and $\pi_2\maps A_{f,g}B \to B$, and a 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2),$ there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{f,g}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
+In this section, we will use $A$ to mean the object $A$, the identity 1-morphism on $A$, or the identity 2-morphism on the identity 1-morphism on $A,$ depending on the context.  Similarly, we will use $f$ to mean either the 1-morphism $f$ or the identity 2-morphism on $f$, depending on the context.  We will use juxtaposition to mean horizontal composition, {\em i.e.} composition of 1-morphisms: given $f\maps A \to B$ and $g\maps B \to C,$ we get $gf\maps A \to C.$  We also use juxtaposition to denote ``whiskering'': given a 2-morphism $K,$ we denote by $fK$ the the horizontal composition of $K$ and the identity 2-morphism on $f.$  We denote vertical composition of 2-morphisms $K\maps f\Rightarrow g$ and $L\maps g\Rightarrow h$ by $L\cdot K\maps f\Rightarrow h.$  We use $\pi_n$ to mean a projection out of a weak pullback, {\em not} a variant of the pentagonator 2-morphism.
+
+We define composition of spans using the weak pullback in $T$.  The weak pullback of a cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ consists of an object $A_{f,g}B,$ 1-morphisms $\pi_1\maps A_{f,g}B \to A$ and $\pi_2\maps A_{f,g}B \to B$, and an invertible 2-morphism $K\maps f\pi_1 \Rightarrow g\pi_2.$  
+
+The weak pullback satisfies two universal properties.  First, given any competitor $(X, \pi'_1\maps X \to A, \pi'_2\maps X \to B, K'\maps f\pi'_1 \Rightarrow g\pi'_2)$ where $K'$ is invertible, there exists a unique 1-morphism $\langle\pi'_1, \pi'_2\rangle\maps X \Rightarrow A_{f,g}B$ such that $\pi_1\langle\pi'_1, \pi'_2\rangle = \pi'_1, \pi_2\langle\pi'_1, \pi'_2\rangle = \pi'_2,$ and $K\langle\pi'_1, \pi'_2\rangle = K'.$
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (2,0) {$C$};
@@ -6888,7 +6884,7 @@ We define composition of spans using the weak pullback in $T$.  The weak pullbac
     \node at (2, 1.5) {$\Rightarrow K'$};
   \end{tikzpicture}
 \end{center}
-Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
+Second, given any object $Y$, 1-morphisms $j,k\maps Y \to A_{f,g}B,$ and invertible 2-morphisms $\omega\maps \pi_1j \Rightarrow \pi_1k$ and $\rho\maps \pi_2j \Rightarrow \pi_2k$ such that
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$C$};
@@ -6901,7 +6897,7 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node (P1) at (-1,2) {$A_{f,g}B$}
       edge [->] node [below left,l] {$\pi_1$} (A);
-    \node (X) at (0,3) {$X$}
+    \node (Y) at (0,3) {$Y$}
       edge [->] node [above left,l] {$j$} (P1)
       edge [->] node [above right,l] {$k$} (P2);
     \node at (1,1) {$\Rightarrow K$};
@@ -6919,7 +6915,7 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node (P2) at (3,2) {$A_{f,g}B$}
       edge [->] node [below right,l] {$\pi_2$} (B);
-    \node (X) at (2,3) {$X$}
+    \node (Y) at (2,3) {$Y$}
       edge [->] node [above left,l] {$j$} (P1)
       edge [->] node [above right,l] {$k$} (P2);
     \node at (1,1) {$\Rightarrow K$};
@@ -6928,11 +6924,23 @@ Second, given any object $X$, 1-morphisms $j,k\maps X \to A_{f,g}B,$ and 2-morph
 \end{center}
 there is a unique 2-morphism $\gamma\maps j \Rightarrow k$ such that $\omega = \pi_1\gamma$ and $\rho = \pi_2\gamma.$
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory. 
+Here we show that the bicategory $\Span_2(T)$ whose
+\begin{itemize}
+  \item objects are objects of $T$,
+  \item morphisms are spans in $T$, and
+  \item 2-morphisms are 3-isomorphism classes of maps of spans.
+\end{itemize}
+forms a compact closed bicategory.
 
-Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  
 
-We denote by $A^{\times n}$ the apex of the span resulting from the composition of $n$ identity spans on $A$ associated to the left.
+This raises the question of whether some choices are fundamentally different than others; however, Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
+
+Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A,$ where $\pi_2\maps A_{A,A}A \to A$ and $\pi_2'\maps (A_{A,A}A)_{\pi_2, A}A \to A$ are projections the weak pullbacks come equipped with.  This notation clearly becomes very cumbersome very quickly---particularly when dealing with the composition of many spans, as we will below.
+
+We introduce a new notation $A^{\times n}$ to mean the weak pullback in the composition of $n$ identity spans on $A$, beginning at the left; that is, $A^{\times 1} = A, A^{\times 2} = A_{A,A}A,$ and $A^{\times n} = A^{\times (n-1)}_{\pi_2, A}A,$ where $\pi_2\maps A^{\times (n-1)} \to A$ is the second projection that $A^{\times (n-1)}$ is equipped with.  In Cat, for example, $A^{\times n}$ is a category whose objects are $n$-element lists of objects of $A$ equipped with an isomorphism between every pair of consecutive elements.  
+
+These $n$-element lists are built out of pairs; in order to project onto the first element in the list using the notation developed so far, it would require us to choose the first element of each pair $(n-1)$ times, which is very cumbersome; effectively, we are forced to use unary to index the list.  Instead, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of these pairs that result in an object of $A$.  The construction $(-)^{\times n}$ is functorial; given a morphism $f\maps A \to B,$ we get the pointwise application $f^{\times n}\maps A^{\times n} \to B^{\times n}$ of $f$ to each object in the list.
 
 \begin{lemma}
   \label{piling}
@@ -7030,9 +7038,10 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
       edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\times m}\pi_2$} (B);
   \end{tikzpicture}
 \end{center}
-\hfill $\square$
 
-By the coherence theorm for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
+To see that the right-hand side in the first equation is really $fL$, consider the following: $A^{\times n}_{\pi_n,\pi_1}A^{\times m}$ is a pair of an $n$-element list and an $m$-element list.  The projection $\pi_2$ picks out $A^{\times m}$, then $g^{-1}f$ is applied pointwise to each element.  Next $\pi_1$ selects the first element of the list; finally, $g$ is applied to it.  Due to the functoriality of $(g^{-1}f)^{\times m},$ this is the same as picking out the first element of $A^{\times m}$ and then applying $gg^{-1}f = f$ to it. \hfill $\square$
+
+By the coherence theorem for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
 \begin{center}
   \begin{tikzpicture}
     \node (C) at (1,0) {$1$};
@@ -7128,7 +7137,7 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
 
 \begin{cor}
   \label{permute}
-  A span is invariant under permutations of its apex.
+  For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\times n} \to A^{\times n}$ is naturally isomorphic to the identity.
 \end{cor}
 
 \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7932,11 +7941,8 @@ Sci.\ }{\bf 50} (1987), 1--102.  Also available at \hfill \break
 
 \bibitem{GPS} R.\ Gordon, A.\ J.\ Power, and R.\ Street, Coherence for tricategories, \textsl{Memoirs Amer.\ Math.\  Soc.\ } \textbf{117} (1995) Number 558.
 
-\bibitem{Permutohedra} G.\ Th.\ Guilbaud and P.\ Rosenstiehl, Analyse alg\'ebrique d'un scrutin, \textsl{Math\'ematiques et sciences humaines} \textbf{4} (1963), 9--33.
-
-\bibitem{Gurski} n.\ Gurski, An algebraic theory of tricategories, PhD thesis, University of Chicago, (2007).  Available at
-\href{http://gauss.math.yale.edu/~mg622/tricats.pdf}
-{http://gauss.math.yale.edu/$\sim$mg622/tricats.pdf}
+\bibitem{Gurski} N.\ Gurski, An algebraic theory of tricategories, PhD thesis, University of Chicago, (2007).  Available at
+\href{http://gauss.math.yale.edu/~mg622/tricats.pdf}{http://gauss.math.yale.edu/$\sim$mg622/tricats.pdf}
 
 \bibitem{GO} N.\ Gurski and A.\ Osorno, Infinite loop spaces, and coherence for symmetric monoidal bicategories, Advances in Mathematics \textbf{246} (2013) 1--32.  Also available at \href{http://arxiv.org/abs/1210.1174v1}{arXiv:1210.1174v1}.
 
