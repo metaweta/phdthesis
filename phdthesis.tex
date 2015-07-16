@@ -6936,26 +6936,32 @@ Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construc
 
 This raises the question of whether some choices are fundamentally different than others; however, Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
 
-Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A,$ where $\pi_2\maps A_{A,A}A \to A$ and $\pi_2'\maps (A_{A,A}A)_{\pi_2, A}A \to A$ are projections the weak pullbacks come equipped with.  This notation clearly becomes very cumbersome very quickly---particularly when dealing with the composition of many spans, as we will below.
+Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A,$ where $\pi_2\maps A_{A,A}A \to A$ and $\pi_2'\maps (A_{A,A}A)_{\pi_2, A}A \to A$ are projections the weak pullbacks come equipped with.  
+\begin{center}
+  \begin{tikzpicture}
+    \foreach \x in {1,...,5} \node (A\x) at (2*\x,0) {$A$};
+  \end{tikzpicture}
+\end{center}
+This notation clearly becomes very cumbersome very quickly---particularly when dealing with the composition of many spans, as we will below.
 
-We introduce a new notation $A^{\times n}$ to mean the weak pullback in the composition of $n$ identity spans on $A$, beginning at the left; that is, $A^{\times 1} = A, A^{\times 2} = A_{A,A}A,$ and $A^{\times n} = A^{\times (n-1)}_{\pi_2, A}A,$ where $\pi_2\maps A^{\times (n-1)} \to A$ is the second projection that $A^{\times (n-1)}$ is equipped with.  In Cat, for example, $A^{\times n}$ is a category whose objects are $n$-element lists of objects of $A$ equipped with an isomorphism between every pair of consecutive elements.  
+We introduce a new notation $A^{\circ n}$ to mean the weak pullback in the composition of $n$ identity spans on $A$, beginning at the left; that is, $A^{\circ 1} = A, A^{\circ 2} = A_{A,A}A,$ and $A^{\circ n} = A^{\circ (n-1)}_{\pi_2, A}A,$ where $\pi_2\maps A^{\circ (n-1)} \to A$ is the second projection that $A^{\circ (n-1)}$ is equipped with.  In Cat, for example, $A^{\circ n}$ is a category whose objects are $n$-element lists of objects of $A$ equipped with an isomorphism between every pair of consecutive elements.  These $n$-element lists are built out of pairs; in order to project onto the first element in the list using the notation developed so far, it would require us to choose the first element of each pair $(n-1)$ times, which is very cumbersome; effectively, we are forced to use unary to index the list.  Instead, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  
 
-These $n$-element lists are built out of pairs; in order to project onto the first element in the list using the notation developed so far, it would require us to choose the first element of each pair $(n-1)$ times, which is very cumbersome; effectively, we are forced to use unary to index the list.  Instead, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of these pairs that result in an object of $A$.  The construction $(-)^{\times n}$ is functorial; given a morphism $f\maps A \to B,$ we get the pointwise application $f^{\times n}\maps A^{\times n} \to B^{\times n}$ of $f$ to each object in the list.
+The construction $(-)^{\circ n}$ is functorial; in the case of Cat, given a functor $f\maps A \to B$, the functor $f^{\circ n}\maps A^{\circ n} \to B^{\circ n}$ is the pointwise application of $f$ to each element of the list $A^{\circ n}$.
 
 \begin{lemma}
   \label{piling}
-  Given isomorphisms $f\maps A \to C$ and $g\maps B \to C$, the weak pullback of the cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ is isomorphic to the weak pullback of the cospan $A^{\times n} \stackrel{\pi_n}{\to} A \stackrel{\pi_1}{\leftarrow} A^{\times m}.$
+  Given isomorphisms $f\maps A \to C$ and $g\maps B \to C$, the weak pullback of the cospan $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ is isomorphic to the weak pullback of the cospan $A^{\circ n} \stackrel{\pi_n}{\to} A \stackrel{\pi_1}{\leftarrow} A^{\circ m}.$
 \end{lemma}
 {\em Proof.}  
 The weak pullbacks of the two cospans are
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node(C) at (2,0) {$C$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$f\pi_n$} (C);
-    \node(B) at (3,1) {$B^{\times m}$}
+    \node(B) at (3,1) {$B^{\circ m}$}
       edge [->] node [below right,l] {$g\pi_1$} (C);
-    \node(AfgB) at (2,2) {$A^{\times n}_{f\pi_n,g\pi_1}B^{\times m}$}
+    \node(AfgB) at (2,2) {$A^{\circ n}_{f\pi_n,g\pi_1}B^{\circ m}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
@@ -6963,85 +6969,85 @@ The weak pullbacks of the two cospans are
   $\quad \quad$
   \begin{tikzpicture}[scale=2]
     \node(C) at (2,0) {$A$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$\pi_n$} (C);
-    \node(B) at (3,1) {$A^{\times m}$}
+    \node(B) at (3,1) {$A^{\circ m}$}
       edge [->] node [below right,l] {$\pi_1$} (C);
-    \node(AAAA) at (2,2) {$A^{\times n}_{\pi_n,\pi_1}A^{\times m}$}
+    \node(AAAA) at (2,2) {$A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow L$};
   \end{tikzpicture}
   .
 \end{center}
-By the first universal property of weak pullbacks, there exist unique morphisms from $A^{\times n}_{\pi_n,\pi_1}A^{\times m}$ to $A^{\times n}_{f\pi_n,g\pi_1}B^{\times m}$ and back making the following diagrams commute.  The unique morphisms are evidently inverses.
+By the first universal property of weak pullbacks, there exist unique morphisms from $A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$ to $A^{\circ n}_{f\pi_n,g\pi_1}B^{\circ m}$ and back making the following diagrams commute.  The unique morphisms are evidently inverses.
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$C$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$f\pi_n$} (C);
-    \node(B) at (3,1) {$B^{\times m}$}
+    \node(B) at (3,1) {$B^{\circ m}$}
       edge [->] node [below right,l] {$g\pi_1$} (C);
-    \node(AfgB) at (2,2) {$A^{\times n}_{f\pi_n,g\pi_1}B^{\times m}$}
+    \node(AfgB) at (2,2) {$A^{\circ n}_{f\pi_n,g\pi_1}B^{\circ m}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow K$};
-    \node (AAAA) at (2,3) {$A^{\times n}_{\pi_n,\pi_1}A^{\times m}$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, (g^{-1}f)^{\times m}\pi_2\rangle$}(AfgB)
+    \node (AAAA) at (2,3) {$A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, (g^{-1}f)^{\circ m}\pi_2\rangle$}(AfgB)
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\times m}\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\circ m}\pi_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2.5]
     \node at (0.25,1.5) {$=$};
     \node(C) at (2,0) {$C$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$f\pi_n$} (C);
-    \node(B) at (3,1) {$B^{\times m}$}
+    \node(B) at (3,1) {$B^{\circ m}$}
       edge [->] node [below right,l] {$g\pi_1$} (C);
     \node at (2,1.5) {$\Rightarrow fL$};
-    \node (AAAA) at (2,3) {$A^{\times n}_{\pi_n,\pi_1}A^{\times m}$}
+    \node (AAAA) at (2,3) {$A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$}
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\times m}\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(g^{-1}f)^{\circ m}\pi_2$} (B);
   \end{tikzpicture}
 \end{center}
 
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$A$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$\pi_n$} (C);
-    \node(B) at (3,1) {$A^{\times m}$}
+    \node(B) at (3,1) {$A^{\circ m}$}
       edge [->] node [below right,l] {$\pi_1$} (C);
-    \node(AfgB) at (2,2) {$A^{\times n}_{\pi_n,\pi_1}A^{\times m}$}
+    \node(AfgB) at (2,2) {$A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow L$};
-    \node (AAAA) at (2,3) {$A^{\times n}_{f\pi_n,g\pi_1}B^{\times m}$}
-      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, (f^{-1}g)^{\times m}\pi_2\rangle$}(AfgB)
+    \node (AAAA) at (2,3) {$A^{\circ n}_{f\pi_n,g\pi_1}B^{\circ m}$}
+      edge [->, dashed] node [right,l,pos=.9] {$\langle \pi_1, (f^{-1}g)^{\circ m}\pi_2\rangle$}(AfgB)
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\times m}\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\circ m}\pi_2$} (B);
     \node at (1.75,2.5) {=};
     \node at (2.25,2.5) {=};
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2.5]
     \node at (0.25,1.5) {$=$};
     \node(C) at (2,0) {$A$};
-    \node(A) at (1,1) {$A^{\times n}$}
+    \node(A) at (1,1) {$A^{\circ n}$}
       edge [->] node [below left,l] {$\pi_n$} (C);
-    \node(B) at (3,1) {$A^{\times m}$}
+    \node(B) at (3,1) {$A^{\circ m}$}
       edge [->] node [below right,l] {$\pi_1$} (C);
     \node at (2,1.5) {$\Rightarrow f^{-1}K$};
-    \node (AAAA) at (2,3) {$A^{\times n}_{f\pi_n,g\pi_1}B^{\times m}$}
+    \node (AAAA) at (2,3) {$A^{\circ n}_{f\pi_n,g\pi_1}B^{\circ m}$}
       edge [->, bend right] node [above left,l] {$\pi_1$} (A)
-      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\times m}\pi_2$} (B);
+      edge [->, bend left] node [above right,l] {$(f^{-1}g)^{\circ m}\pi_2$} (B);
   \end{tikzpicture}
 \end{center}
 
-To see that the right-hand side in the first equation is really $fL$, consider the following: $A^{\times n}_{\pi_n,\pi_1}A^{\times m}$ is a pair of an $n$-element list and an $m$-element list.  The projection $\pi_2$ picks out $A^{\times m}$, then $g^{-1}f$ is applied pointwise to each element.  Next $\pi_1$ selects the first element of the list; finally, $g$ is applied to it.  Due to the functoriality of $(g^{-1}f)^{\times m},$ this is the same as picking out the first element of $A^{\times m}$ and then applying $gg^{-1}f = f$ to it. \hfill $\square$
+To see that the right-hand side in the first equation is really $fL$, consider the following: $A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$ is a pair of an $n$-element list and an $m$-element list.  The projection $\pi_2$ picks out $A^{\circ m}$, then $g^{-1}f$ is applied pointwise to each element.  Next $\pi_1$ selects the first element of the list; finally, $g$ is applied to it.  Due to the functoriality of $(g^{-1}f)^{\circ m},$ this is the same as picking out the first element of $A^{\circ m}$ and then applying $gg^{-1}f = f$ to it. \hfill $\square$
 
-By the coherence theorem for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\times n}_{\pi_n,\pi_1}A^{\times m} \to A^{\times (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\times m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\times (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
+By the coherence theorem for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\circ n}_{\pi_n,\pi_1}A^{\circ m} \to A^{\circ (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\circ (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
 \begin{center}
   \begin{tikzpicture}
     \node (C) at (1,0) {$1$};
@@ -7066,16 +7072,16 @@ whereas when $A$ is not terminal, the weak pullback is
 With that choice, we also have the following useful corollary.
 \begin{cor}
   \label{reverse}
-  Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B^{\times 2} \stackrel{f^{-1}\pi_2}{\to} A.$
+  Given an isomorphism $f\maps A \to B$ in $T,$ the composite of the identity span on $B$ and the span $B \stackrel{f}{\leftarrow} A \stackrel{A}{\to} A$ is equal to the composite of the identity span on $B$ and the span $B \stackrel{B}{\leftarrow} B \stackrel{f^{-1}}{\to} A$; both result in the span $B \stackrel{\pi_1}{\leftarrow} B^{\circ 2} \stackrel{f^{-1}\pi_2}{\to} A.$
 \end{cor}
 
 Because we mod out by isomorphisms of maps of spans, some spans that at first sight appear different are actually the same.
 \begin{lemma}
   \label{swap}
-  The braiding $b:A^{\times 2} \to A^{\times 2}$ in $T$ is naturally isomorphic to the identity.
+  The braiding $b:A^{\circ 2} \to A^{\circ 2}$ in $T$ is naturally isomorphic to the identity.
 \end{lemma}
 
-{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\times 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $L.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $L b = L^{-1}.$  The following 2-morphisms are equal:
+{\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\circ 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $L.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $L b = L^{-1}.$  The following 2-morphisms are equal:
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (C) at (1,0) {$A$};
@@ -7083,14 +7089,14 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
       edge [->] node [below left,l] {$A$} (C);
     \node (B) at (2,1) {$A$}
       edge [->] node [below right,l] {$A$} (C);
-    \node (P2) at (1,2) {$A^{\times 2}$}
+    \node (P2) at (1,2) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P1) at (-1,2) {$A^{\times 2}$}
+    \node (P1) at (-1,2) {$A^{\circ 2}$}
       edge [->] node [below left,l] {$\pi_1$} (A);
-    \node (X) at (0,3) {$A^{\times 2}$}
+    \node (X) at (0,3) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$b$} (P1)
-      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+      edge [->] node [above right,l] {$A^{\circ 2}$} (P2);
     \node at (1,1) {$\Rightarrow L$};
     \node at (0,2) {$\Rightarrow L^{-1}$};
     \node at (2.25,1.5) {$=$};
@@ -7101,30 +7107,30 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
       edge [->] node [below left,l] {$A$} (C);
     \node (B) at (2,1) {$A$}
       edge [->] node [below right,l] {$A$} (C);
-    \node (P1) at (1,2) {$A^{\times 2}$}
+    \node (P1) at (1,2) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P2) at (3,2) {$A^{\times 2}$}
+    \node (P2) at (3,2) {$A^{\circ 2}$}
       edge [->] node [below right,l] {$\pi_2$} (B);
-    \node (X) at (2,3) {$A^{\times 2}$}
+    \node (X) at (2,3) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$b$} (P1)
-      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+      edge [->] node [above right,l] {$A^{\circ 2}$} (P2);
     \node at (1,1) {$\Rightarrow L$};
     \node at (2,2) {$\Rightarrow L$};
   \end{tikzpicture}
 \end{center}
-(note that on the right hand side, the lower use of $L$ is whiskered by $b,$ becoming $L^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\times 2}$ such that $L^{-1} = \pi_1 \gamma$ and $L = \pi_2 \gamma.$ \hfill $\square$
+(note that on the right hand side, the lower use of $L$ is whiskered by $b,$ becoming $L^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\circ 2}$ such that $L^{-1} = \pi_1 \gamma$ and $L = \pi_2 \gamma.$ \hfill $\square$
 
 \begin{cor}
   The map of spans
   \begin{center}
     \begin{tikzpicture}[scale=2]
-      \node (C) at (1,0) {$A^{\times 2}$};
+      \node (C) at (1,0) {$A^{\circ 2}$};
       \node (A) at (0,1) {$A$}
         edge [<-] node [below left,l] {$\pi_1$} (C);
       \node (B) at (2,1) {$A$}
         edge [<-] node [below right,l] {$\pi_2$} (C);
-      \node (D) at (1,2) {$A^{\times 2}$}
+      \node (D) at (1,2) {$A^{\circ 2}$}
         edge [->] node [above left,l] {$\pi_1$} (A)
         edge [->] node [above right,l] {$\pi_2$} (B)
         edge [->] node [right,l] {$b$} (C);
@@ -7137,7 +7143,7 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
 
 \begin{cor}
   \label{permute}
-  For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\times n} \to A^{\times n}$ is naturally isomorphic to the identity.
+  For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\circ n} \to A^{\circ n}$ is naturally isomorphic to the identity.
 \end{cor}
 
 \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7150,7 +7156,7 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
         edge [<-] node [l, below left] {$A$} (A);
       \node (C) at (2,1) {$B$}
         edge [<-] node [l, auto] {$gf^{-1}$} (A);
-      \node (D) at (1,2) {$A^{\times 2}$}
+      \node (D) at (1,2) {$A^{\circ 2}$}
         edge [->] node [l, above left] {$\pi_1$} (B)
         edge [->] node [l, auto] {$gf^{-1}\pi_2$} (C)
         edge [->] node [l, auto, pos=.25] {$\pi_1$} (A);
@@ -7161,7 +7167,7 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
   where $L\maps \pi_1 \Rightarrow \pi_2$ is the 2-morphism from the weak pullback of the identity cospan on $A$.
 \end{lemma}
 {\em Proof.}
-Lemma \ref{piling} and our choice of weak pullback give us the source span and $L$.  By the first universal property of the weak pullback, there exists a unique morphism $\Delta\maps A \to A^{\times 2}$ such that $\pi_1\Delta = A, \pi_2\Delta = A,$ and $L\Delta = A.$
+Lemma \ref{piling} and our choice of weak pullback give us the source span and $L$.  By the first universal property of the weak pullback, there exists a unique morphism $\Delta\maps A \to A^{\circ 2}$ such that $\pi_1\Delta = A, \pi_2\Delta = A,$ and $L\Delta = A.$
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \node(C) at (2,0) {$A$};
@@ -7169,7 +7175,7 @@ Lemma \ref{piling} and our choice of weak pullback give us the source span and $
       edge [->] node [below left,l] {$A$} (C);
     \node(B) at (3,1) {$A$}
       edge [->] node [below right,l] {$A$} (C);
-    \node(AAAA) at (2,2) {$A^{\times 2}$}
+    \node(AAAA) at (2,2) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
     \node at (2,1) {$\Rightarrow L$};
@@ -7201,17 +7207,17 @@ The following 2-morphisms are equal:
       edge [->] node [below left,l] {$A$} (C);
     \node (B) at (2,1) {$A$}
       edge [->] node [below right,l] {$A$} (C);
-    \node (P2) at (1,2) {$A^{\times 2}$}
+    \node (P2) at (1,2) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P1) at (-1,2) {$A^{\times 2}$}
+    \node (P1) at (-1,2) {$A^{\circ 2}$}
       edge [->] node [below left,l] {$\pi_1$} (A);
     \node (D) at (-0.5,2.5) {$A$}
       edge [->] node [above left,l] {$\Delta$} (P1)
       edge [->] node [above right,l] {$A$} (A);
-    \node (X) at (0,3) {$A^{\times 2}$}
+    \node (X) at (0,3) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (D)
-      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+      edge [->] node [above right,l] {$A^{\circ 2}$} (P2);
     \node at (1,1) {$\Rightarrow L$};
     \node at (-.6,2) {$=$};
     \node at (0.25,2) {$=$};
@@ -7223,23 +7229,23 @@ The following 2-morphisms are equal:
       edge [->] node [below left,l] {$A$} (C);
     \node (B) at (2,1) {$A$}
       edge [->] node [below right,l] {$A$} (C);
-    \node (P1) at (1,2) {$A^{\times 2}$}
+    \node (P1) at (1,2) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$\pi_2$} (B);
-    \node (P2) at (3,2) {$A^{\times 2}$}
+    \node (P2) at (3,2) {$A^{\circ 2}$}
       edge [->] node [below right,l] {$\pi_2$} (B);
     \node (D) at (1.5,2.5) {$A$}
       edge [->] node [above left,l] {$\Delta$} (P1)
       edge [->] node [above right,l] {$A$} (B);
-    \node (X) at (2,3) {$A^{\times 2}$}
+    \node (X) at (2,3) {$A^{\circ 2}$}
       edge [->] node [above left,l] {$\pi_1$} (D)
-      edge [->] node [above right,l] {$A^{\times 2}$} (P2);
+      edge [->] node [above right,l] {$A^{\circ 2}$} (P2);
     \node at (1.4,2) {$=$};
     \node at (1,1) {$\Rightarrow L$};
     \node at (2.25,2) {$\Rightarrow L$};
   \end{tikzpicture}
 \end{center}
-(note that on the right-hand side, the lower 2-morphism is whiskered by $\Delta,$ so it is the identity 2-morphism).  By the second universal property of the weak pullback, there exists a unique invertible 2-morphism $\gamma\maps \Delta\pi_1 \Rightarrow A^{\times 2}$ such that $\pi_1\gamma = \pi_1$ and $\pi_2\gamma = L.$
+(note that on the right-hand side, the lower 2-morphism is whiskered by $\Delta,$ so it is the identity 2-morphism).  By the second universal property of the weak pullback, there exists a unique invertible 2-morphism $\gamma\maps \Delta\pi_1 \Rightarrow A^{\circ 2}$ such that $\pi_1\gamma = \pi_1$ and $\pi_2\gamma = L.$
 
 The first universal property of the weak pullback proves that $\pi_1$ is a one-sided inverse to $\Delta.$  It is not a 2-sided inverse in $T$, but the second universal property of the weak pullback shows that the composite $\Delta\pi_1$ is isomorphic to the identity, so when $\pi_1$ and $\Delta$ are used as maps of spans, they are inverses in $\Span_2(T)$. \hfill $\square$
 
@@ -7278,15 +7284,15 @@ By adding an identity edge to the pentagonator, we get an identity map of spans:
     \node at (0,0) {$=$};
   \end{tikzpicture}
   \begin{tikzpicture}[scale=2.75]
-    \node (C) at (1,0) {$(((AB)C)D)^{\times 3}$};
+    \node (C) at (1,0) {$(((AB)C)D)^{\circ 3}$};
     \node (A) at (0,1) {$((AB)C)D$}
       edge [<-] node [below left,l] {$\pi_1$} (C);
     \node (B) at (2,1) {$A(B(CD))$}
       edge [<-] node [below right,l] {$Aa\circ a\circ aD\circ \pi_3$} (C);
-    \node (D) at (1,2) {$(((AB)C)D)^{\times 3}$}
+    \node (D) at (1,2) {$(((AB)C)D)^{\circ 3}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
       edge [->] node [above right,l] {$a\circ a\circ \pi_3$} (B)
-      edge [->] node [right,l] {$(((AB)C)D)^{\times 3}$} (C);
+      edge [->] node [right,l] {$(((AB)C)D)^{\circ 3}$} (C);
     \node at (.75,1.25) {$=$};
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
@@ -7407,7 +7413,7 @@ Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoida
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-The swallowtail coherence law involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ in Cat are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote each object with a dot and an isomorphism between objects with an arc.  The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\times 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\times 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
+The swallowtail coherence law involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ in Cat are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote each object with a dot and an isomorphism between objects with an arc.  The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\circ 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
 
 The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  
 
@@ -7468,7 +7474,7 @@ When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique and
   .
 \end{center}
 
-Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\times n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter here.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so by Corollary \ref{permute}, this composite span is equal to the composition of ten identity spans.  With judicious use of unitors for composition we recover a six-sided 2-morphism $\zeta.$  The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, any coherence law involving $\pi, \lambda, \mu, \rho, \zeta, \theta$ and identity 2-morphisms---like the swallowtail coherence law---must hold in $\Span_2(T).$   Therefore, $\Span_2(T)$ is compact closed. \hfill $\square$
+Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter here.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so by Corollary \ref{permute}, this composite span is equal to the composition of ten identity spans.  With judicious use of unitors for composition we recover a six-sided 2-morphism $\zeta.$  The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, any coherence law involving $\pi, \lambda, \mu, \rho, \zeta, \theta$ and identity 2-morphisms---like the swallowtail coherence law---must hold in $\Span_2(T).$   Therefore, $\Span_2(T)$ is compact closed. \hfill $\square$
 
 \begin{cor}
   \label{span}
