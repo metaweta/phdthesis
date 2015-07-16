@@ -6936,17 +6936,56 @@ Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construc
 
 This raises the question of whether some choices are fundamentally different than others; however, Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
 
-Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A,$ where $\pi_2\maps A_{A,A}A \to A$ and $\pi_2'\maps (A_{A,A}A)_{\pi_2, A}A \to A$ are projections the weak pullbacks come equipped with.  
+Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A:$ 
 \begin{center}
-  \begin{tikzpicture}
-    \foreach \x in {1,...,5} \node (A\x) at (2*\x,0) {$A$};
-  \end{tikzpicture}
+  \begin{equation}
+    \label{fourfold}
+    \begin{tikzpicture}
+      \node (A1) at (0,0) {$A$};
+      \node (A2) at (2,0)  {$A$};
+      \node (A3) at (4,0)  {$A$};
+      \node (A4) at (6,0)  {$A$};
+      \node (A5) at (8,0)  {$A$};
+      \node (AA1) at (1,1)  {$A$} edge [->] node [left,l] {$A$} (A1) edge [->] node [right,l] {$A$} (A2);
+      \node (AA2) at (3,1)  {$A$} edge [->] node [left,l] {$A$} (A2) edge [->] node [right,l] {$A$} (A3);
+      \node (AA3) at (5,1)  {$A$} edge [->] node [left,l] {$A$} (A3) edge [->] node [right,l] {$A$} (A4);
+      \node (AA4) at (7,1)  {$A$} edge [->] node [left,l] {$A$} (A4) edge [->] node [right,l] {$A$} (A5);
+      \node (AAA1) at (2,2) {$A_{A,A}A$} 
+        edge [->] node [left,l] {$\pi_1$} (AA1)
+        edge [->] node [right,l] {$\pi_2$} (AA2);
+      \node (AAAA1) at (3,3) {$(A_{A,A}A)_{\pi_2,A}A$}
+        edge [->] node [left,l] {$\pi'_1$} (AAA1)
+        edge [->] node [right,l] {$\pi'_2$} (AA3);
+      \node at (4,4) {$((A_{A,A}A)_{\pi_2,A}A)_{\pi'_2,A}A$}
+        edge [->] node [left,l] {$\pi''_1$} (AAAA1)
+        edge [->] node [right,l] {$\pi''_2$} (AA4);
+      \node at (2,1) {$\stackrel{K}{\Rightarrow}$};
+      \node at (3.5,1.5) {$\stackrel{K'}{\Rightarrow}$};
+      \node at (5,2) {$\stackrel{K''}{\Rightarrow}$};
+    \end{tikzpicture}
+    .
+  \end{equation}
 \end{center}
 This notation clearly becomes very cumbersome very quickly---particularly when dealing with the composition of many spans, as we will below.
 
-We introduce a new notation $A^{\circ n}$ to mean the weak pullback in the composition of $n$ identity spans on $A$, beginning at the left; that is, $A^{\circ 1} = A, A^{\circ 2} = A_{A,A}A,$ and $A^{\circ n} = A^{\circ (n-1)}_{\pi_2, A}A,$ where $\pi_2\maps A^{\circ (n-1)} \to A$ is the second projection that $A^{\circ (n-1)}$ is equipped with.  In Cat, for example, $A^{\circ n}$ is a category whose objects are $n$-element lists of objects of $A$ equipped with an isomorphism between every pair of consecutive elements.  These $n$-element lists are built out of pairs; in order to project onto the first element in the list using the notation developed so far, it would require us to choose the first element of each pair $(n-1)$ times, which is very cumbersome; effectively, we are forced to use unary to index the list.  Instead, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  
+We introduce a new notation $A^{\circ n}$ to mean the weak pullback in the composition of $n$ identity spans on $A$, beginning at the left; that is, $A^{\circ 1} = A, A^{\circ 2} = A_{A,A}A,$ and $A^{\circ n} = A^{\circ (n-1)}_{\pi_2, A}A,$ where $\pi_2\maps A^{\circ (n-1)} \to A$ is the second projection that $A^{\circ (n-1)}$ is equipped with.  
 
-The construction $(-)^{\circ n}$ is functorial; in the case of Cat, given a functor $f\maps A \to B$, the functor $f^{\circ n}\maps A^{\circ n} \to B^{\circ n}$ is the pointwise application of $f$ to each element of the list $A^{\circ n}$.
+The construction $(-)^{\circ n}$ is an endofunctor on $T$; it takes an object $A$ to the object $A^{\circ n},$ a morphism $f\maps A\to B$ to the morphism $f^{\circ n}\maps A^{\circ n}\to B^{\circ n},$ and a 2-morphism $\alpha\maps f\Rightarrow g$ to the 2-morphism $\alpha^{\circ n}\maps f^{\circ n} \Rightarrow g^{\circ n}.$  For example, in the case $T=\Cat,$ the category $A^{\circ n}$ consists of length-$n$ chains of objects of $A$ equipped with isomorphisms between them:
+\[ a_1 \stackrel{K_1}{\to} a_2 \stackrel{K_2}{\to} \cdots \stackrel{K_{n-1}}{\to} a_n. \]
+Given a functor $f\maps A \to B$, the functor $f^{\circ n}\maps A^{\circ n}\to B^{\circ n}$ applies $f$ pointwise to each object and isomorphism in the chain:
+\[ f(a_1) \stackrel{f(K_1)}{\to} f(a_2) \stackrel{f(K_2)}{\to} \cdots \stackrel{f(K_{n-1})}{\to} f(a_n). \]
+Given a natural transformation $\alpha\maps f\Rightarrow g,$ the natural transformation $\alpha^{\circ n}\maps f^{\circ n}\Rightarrow g^{\circ n}$ assigns to each chain $a_1 \stackrel{K_1}{\to} a_2 \stackrel{K_2}{\to} \cdots \stackrel{K_{n-1}}{\to} a_n$ the list $(\alpha_{a_1},\ldots,\alpha_{a_n})$:
+\[
+\begin{array}{ccccccc}
+  f(a_1) & \stackrel{f(K_1)}{\to} & f(a_2) & \stackrel{f(K_2)}{\to} & \cdots & \stackrel{f(K_{n-1})}{\to} & f(a_n) \\
+  \alpha_{a_1}\downarrow & & \alpha_{a_2}\downarrow & & \cdots \downarrow & & \alpha_{a_n}\downarrow \\
+  g(a_1) & \stackrel{g(K_1)}{\to} & g(a_2) & \stackrel{g(K_2)}{\to} & \cdots & \stackrel{g(K_{n-1})}{\to} & g(a_n)
+\end{array}.
+\]
+
+Note that in the diagram \ref{fourfold}, if we want to project from the apex onto the leftmost $A,$ we have to write $\pi_1\pi'_1\pi''_1;$ we're effectively forced to index the weak pullback using unary.  Going forward, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  In the case of $T=\Cat,$ 
+\[ \pi_i(a_1 \stackrel{K_1}{\to} a_2 \stackrel{K_2}{\to} \cdots \stackrel{K_{n-1}}{\to} a_n) = a_i. \]
+We will use $\pi_i$ in a ``polymorphic'' way: we will write both $\pi_1\maps A^{\circ n} \to A$ and $\pi_1\maps B^{\circ m} \to B,$ and will expect the reader to look at the source and target of such projections rather than writing an explicit parameter like $\pi^{A^\circ_n}_1$.
 
 \begin{lemma}
   \label{piling}
@@ -7045,7 +7084,7 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
   \end{tikzpicture}
 \end{center}
 
-To see that the right-hand side in the first equation is really $fL$, consider the following: $A^{\circ n}_{\pi_n,\pi_1}A^{\circ m}$ is a pair of an $n$-element list and an $m$-element list.  The projection $\pi_2$ picks out $A^{\circ m}$, then $g^{-1}f$ is applied pointwise to each element.  Next $\pi_1$ selects the first element of the list; finally, $g$ is applied to it.  Due to the functoriality of $(g^{-1}f)^{\circ m},$ this is the same as picking out the first element of $A^{\circ m}$ and then applying $gg^{-1}f = f$ to it. \hfill $\square$
+Note that $\pi_1 (g^{-1}f)^{\circ m} = g^{-1}f \pi_1,$ so the right-hand morphism on both sides of the top diagram is $g g^{-1}f \pi_1 \pi_2$ \hfill $\square$
 
 By the coherence theorem for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\circ n}_{\pi_n,\pi_1}A^{\circ m} \to A^{\circ (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\circ (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
 \begin{center}
