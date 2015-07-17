@@ -6983,9 +6983,9 @@ Given a natural transformation $\alpha\maps f\Rightarrow g,$ the natural transfo
 \end{array}.
 \]
 
-Note that in the diagram \ref{fourfold}, if we want to project from the apex onto the leftmost $A,$ we have to write $\pi_1\pi'_1\pi''_1;$ we're effectively forced to index the weak pullback using unary.  Going forward, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  In the case of $T=\Cat,$ 
+Note that in the diagram \ref{fourfold}, if we want to project from the apex onto the leftmost $A,$ we have to write $\pi_1\pi'_1\pi''_1;$ we're effectively forced to index the weak pullback using unary.  Going forward, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  In the case of $T=\Cat,$ for example,
 \[ \pi_i(a_1 \stackrel{K_1}{\to} a_2 \stackrel{K_2}{\to} \cdots \stackrel{K_{n-1}}{\to} a_n) = a_i. \]
-We will use $\pi_i$ in a ``polymorphic'' way: we will write both $\pi_1\maps A^{\circ n} \to A$ and $\pi_1\maps B^{\circ m} \to B,$ and will expect the reader to look at the source and target of such projections rather than writing an explicit parameter like $\pi^{A^\circ_n}_1$.
+There is a dinatural transformation that assigns to each object $A$ of $T$ the morphism $\pi_1\maps A^{\circ n} \to A,$ and similarly for the other projections $\pi_i$; therefore we will use $\pi_i$ in a ``polymorphic'' way: we write both $\pi_1\maps A^{\circ n} \to A$ and $\pi_1\maps B^{\circ m} \to B,$ and will expect the reader to look at the source and target of such projections to determine exactly which morphism is being referred to.
 
 \begin{lemma}
   \label{piling}
@@ -7084,7 +7084,7 @@ By the first universal property of weak pullbacks, there exist unique morphisms 
   \end{tikzpicture}
 \end{center}
 
-Note that $\pi_1 (g^{-1}f)^{\circ m} = g^{-1}f \pi_1,$ so the right-hand morphism on both sides of the top diagram is $g g^{-1}f \pi_1 \pi_2$ \hfill $\square$
+Note that by the dinaturality of $\pi_1,$ $\pi_1 (g^{-1}f)^{\circ m} = g^{-1}f \pi_1,$ so the rightmost morphism on both sides of the top equation is $g g^{-1}f \pi_1 \pi_2 = f \pi_1\pi_2.$  Similarly, the rightmost morphism on both sides of the bottom equation is $\pi_1 (f^{-1}g)^{\circ m} \pi_2 = f^{-1}g \pi_1 \pi_2.$ \hfill $\square$
 
 By the coherence theorem for bicategories, there is a unique isomorphism $a^{\circ *}\maps A^{\circ n}_{\pi_n,\pi_1}A^{\circ m} \to A^{\circ (n+m)}$ built from associators for composition.  Since we must choose weak pullbacks for each cospan, given a cospan $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ where $f$ and $g$ are invertible, we choose the weak pullback to be equal to $A^{\circ (n+m)}.$  When $A$ is terminal, for instance, $A$ may not equal $1$ but only be isomorphic.  In that case, the weak pullback of $A \stackrel{!}{\to} 1 \stackrel{!}{\leftarrow} 1$ is
 \begin{center}
@@ -7117,7 +7117,7 @@ With that choice, we also have the following useful corollary.
 Because we mod out by isomorphisms of maps of spans, some spans that at first sight appear different are actually the same.
 \begin{lemma}
   \label{swap}
-  The braiding $b:A^{\circ 2} \to A^{\circ 2}$ in $T$ is naturally isomorphic to the identity.
+  The braiding $b:A^{\circ 2} \to A^{\circ 2}$ in $T$ is 2-isomorphic to the identity.
 \end{lemma}
 
 {\em Proof.} The weak pullback of the identity cospan on $A$ is $A^{\circ 2}$ equipped with projections $\pi_1, \pi_2$ and a 2-morphism $L.$  We have $\pi_1 b = \pi_2, \pi_2 b = \pi_1,$ and $L b = L^{-1}.$  The following 2-morphisms are equal:
@@ -7158,10 +7158,10 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
     \node at (2,2) {$\Rightarrow L$};
   \end{tikzpicture}
 \end{center}
-(note that on the right hand side, the lower use of $L$ is whiskered by $b,$ becoming $L^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-morphism $\gamma\maps b \Rightarrow A^{\circ 2}$ such that $L^{-1} = \pi_1 \gamma$ and $L = \pi_2 \gamma.$ \hfill $\square$
+(note that on the right hand side, the lower use of $L$ is whiskered by $b,$ becoming $L^{-1}$), so by the second universal property of the weak pullback, there exists a unique 2-isomorphism $\gamma\maps b \Rightarrow A^{\circ 2}$ such that $L^{-1} = \pi_1 \gamma$ and $L = \pi_2 \gamma.$ \hfill $\square$
 
 \begin{cor}
-  The map of spans
+  The weak pullback of the identity cospan on $A$ is $A^{\circ 2}$ equipped with the projections $\pi_1\maps A^{\circ 2}\to A, \pi_2\maps A^{\circ 2}\to A,$ and a 2-morphism $L\maps \pi_1\Rightarrow \pi_2.$  The map of spans
   \begin{center}
     \begin{tikzpicture}[scale=2]
       \node (C) at (1,0) {$A^{\circ 2}$};
@@ -7182,7 +7182,7 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
 
 \begin{cor}
   \label{permute}
-  For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\circ n} \to A^{\circ n}$ is naturally isomorphic to the identity.
+  For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\circ n} \to A^{\circ n}$ is 2-isomorphic to the identity.
 \end{cor}
 
 \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
