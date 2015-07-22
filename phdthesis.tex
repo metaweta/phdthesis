@@ -890,7 +890,7 @@ We start with an ensemble with algorithmic pressure $P_1$ and mean length $V_1$.
   \item
   \emph{Isentropic.} We increase the length from $V_1$ to $V_2$ while keeping
   the number of halting programs constant.  High pressure means 
-  that we're operating in a range of runtimes where if we increase
+  that we are operating in a range of runtimes where if we increase
   the length a little bit, many more programs halt.  In order
   to keep the number of halting programs constant,
   we need to shorten the runtime significantly.  As we gradually
@@ -903,7 +903,7 @@ We start with an ensemble with algorithmic pressure $P_1$ and mean length $V_1$.
   \item
   \emph{Isentropic.} Finally, we decrease the length from $V_2$ back to $V_1$
   while keeping the number of halting programs constant.
-  Since we're at low pressure, we need only increase the
+  Since we are at low pressure, we need only increase the
   runtime a little.  As we gradually decrease the length
   and increase the runtime, the pressure rises slightly
   back to $P_1$.  The total increase in log runtime is minus the algorithmic
@@ -1039,7 +1039,7 @@ In other words, for any $n > 0$, we can compute a rational number that approxima
 
 Chaitin \cite{Chaitin1975} proved that the number
 \[     \Omega = Z(0,\ln 2, 0)  \]
-is uncomputable.  In fact, he showed that for any universal machine, the values of all but finitely many bits of $\Omega$ are not only uncomputable, but random: knowing the value of some of them tells you nothing about the rest.  They're independent, like separate flips of a fair coin.
+is uncomputable.  In fact, he showed that for any universal machine, the values of all but finitely many bits of $\Omega$ are not only uncomputable, but random: knowing the value of some of them tells you nothing about the rest.  They are independent, like separate flips of a fair coin.
 
 More generally, for any computable number $\gamma \ge \ln 2$, 
 $Z(0,\gamma,0)$ is `partially random' in the sense of Tadaki \cite{CST2004,Tadaki2002}. This deserves a word of explanation.  A fixed formal system with finitely many axioms can only prove finitely many bits of 
@@ -4656,7 +4656,7 @@ Then we define
   \item $\eval = \ev$
   \item $g \circ f = g \,\square\, f$
 \end{itemize}
-and we're done!
+and we are done!
 
 Ambler also shows that this procedure is the `inverse' of his procedure for turning linear type theories into closed symmetric monoidal categories.  More precisely, he describes a category of closed symmetric monoidal categories (which is well-known), and also a category of linear type theories.  He constructs functors going back and forth between these, based on the procedures we have sketched, and shows that these functors are inverses up to natural isomorphism. So, these categories are `equivalent'.
 
@@ -4974,6 +4974,8 @@ Preller and Lambek \cite{PL07} generalized compact monoidal categories in a diff
 McCrudden \cite{McCrudden} gave the first fully general definitions of braided, sylleptic, and symmetric monoidal bicategories.  Schommer-Pries \cite{SPT} gave the correct notion of a monoidal transformation between monoidal functors between monoidal bicategories.
 
 Carboni and Walters \cite{CW87} proved that $V$-Prof is a cartesian bicategory.  Later, they showed \cite{CW04} that Prof is equivalent to Cocont as a bicategory.  Together with Kelly and Wood \cite{CKWW08}, they proved that any cartesian bicategory is symmetric monoidal in the sense of McCrudden.
+
+Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one. Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a ``quasistrict symmetric'' monoidal bicategory. Bartlett \cite{Bartlett} went a step further and showed every symmetric monoidal bicategory is equivalent to a ``stringent'' one.  He also used Schommer-Pries’ results to develop a graphical calculus for symmetric monoidal bicategories.
 
 \section{Compact closed bicategories}
 \label{definition}
@@ -6834,7 +6836,7 @@ A {\bf map of spans} $h$ between two spans ${A \stackrel{f}{\leftarrow} C \stack
 \end{center}
 A {\bf map of maps of spans} is a 2-morphism $\gamma\maps h \Rightarrow h'$ such that $\alpha' = (f'\gamma)\cdot \alpha$ and $\beta' = (g'\gamma)\cdot \beta$.  Maps and maps of maps compose in the obvious ways.
 
-Hoffnung showed that any 2-category $T$ with finite products and strict iso-comma objects (hereafter called ``weak pullbacks'') gives rise to a monoidal tricategory Span($T$) whose
+Hoffnung showed that any 2-category $T$ with finite products and strict iso-comma objects (hereafter called ``weak pullbacks'') gives rise to a monoidal tricategory we will call $\Span_3(T)$ whose
 \begin{itemize}
   \item objects are objects of $T$,
   \item morphisms are spans in $T$,
@@ -6932,9 +6934,9 @@ Here we show that the bicategory $\Span_2(T)$ whose
 \end{itemize}
 forms a compact closed bicategory.
 
-Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of Span($T$) requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  
+Weak pullbacks are unique up to isomorphism \cite{nlab2pullbacks}.  The construction of $\Span_2(T)$ requires choosing specific weak pullbacks for each cospan \cite[3.2.1]{Hoffnung}; in our proof below, we choose especially nice pullbacks for the kinds of cospan that appear in the definition of a compact closed bicategory.  
 
-This raises the question of whether some choices are fundamentally different than others; however, Gurski and Osorno \cite{GO} proved that every symmetric monoidal bicategory is equivalent to a semistrict one.  Schommer-Pries \cite{SPT} strengthened their result by proving that every symmetric monoidal bicategory is equivalent to a quasistrict symmetric monoidal bicategory, and Bartlett \cite{Bartlett} used Schommer-Pries' results to give semantics to a graphical calculus.
+This raises the question of whether some choices of weak pullback are fundamentally different than others.  As far as we know, nobody has proved that different choices give equivalent bicategories $\Span_2(T)$.  We conjecture that this is true, but for now we simply go ahead and take a particularly convenient choice.
 
 Every weak pullback of a cospan comes equipped with two projections out of it. Now suppose that we compose four identity spans on $A,$ starting at the left; the resulting weak pullback is $((A_{A,A}A)_{\pi_2, A}A)_{\pi_2', A}A:$ 
 \begin{center}
@@ -6983,7 +6985,7 @@ Given a natural transformation $\alpha\maps f\Rightarrow g,$ the natural transfo
 \end{array}.
 \]
 
-Note that in the diagram \ref{fourfold}, if we want to project from the apex onto the leftmost $A,$ we have to write $\pi_1\pi'_1\pi''_1;$ we're effectively forced to index the weak pullback using unary.  Going forward, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  In the case of $T=\Cat,$ for example,
+Note that in diagram \ref{fourfold}, if we want to project from the apex onto the leftmost $A,$ we have to write $\pi_1\pi'_1\pi''_1;$ we are effectively forced to index the weak pullback using unary.  Going forward, we will write $\pi_1$ through $\pi_n$ for the $n$ projections out of $A^{\circ n}$ that result in an object of $A$.  In the case of $T=\Cat,$ for example,
 \[ \pi_i(a_1 \stackrel{K_1}{\to} a_2 \stackrel{K_2}{\to} \cdots \stackrel{K_{n-1}}{\to} a_n) = a_i. \]
 There is a dinatural transformation that assigns to each object $A$ of $T$ the morphism $\pi_1\maps A^{\circ n} \to A,$ and similarly for the other projections $\pi_i$; therefore we will use $\pi_i$ in a ``polymorphic'' way: we write both $\pi_1\maps A^{\circ n} \to A$ and $\pi_1\maps B^{\circ m} \to B,$ and will expect the reader to look at the source and target of such projections to determine exactly which morphism is being referred to.
 
@@ -7173,17 +7175,37 @@ Because we mod out by isomorphisms of maps of spans, some spans that at first si
         edge [->] node [above left,l] {$\pi_1$} (A)
         edge [->] node [above right,l] {$\pi_2$} (B)
         edge [->] node [right,l] {$b$} (C);
-      \node at (.5,1) {$\Rightarrow L$};
-      \node at (1.5,1) {$\Rightarrow L^{-1}$};
+      \node at (.5,1) {$\Downarrow L$};
+      \node at (1.5,1) {$\Downarrow L^{-1}$};
     \end{tikzpicture}
   \end{center}
   is in the same equivalence class as the identity map of spans.
 \end{cor}
 
 \begin{cor}
-  \label{permute}
   For any permutation $\sigma$ of $n$ elements, the morphism $\langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle\maps A^{\circ n} \to A^{\circ n}$ is 2-isomorphic to the identity.
 \end{cor}
+
+\begin{cor}
+  \label{permute}
+  The composition of $n$ identity spans on $A$ has as its apex the weak pullback consisting of the object $A^{\circ n}$ equipped with projections $\pi_1, \ldots, \pi_n\maps A^{\circ n} \to A$ and for each $1 \le i < n$ an invertible 2-morphism $L_i\maps \pi_i \Rightarrow \pi_{i+1}.$  Let $L'$ be the invertible 2-morphism from $\pi_1$ to $\pi_{\sigma(1)}$ and $L''$ be the invertible 2-morphism from $\pi_n$ to $\pi_{\sigma(n)}$ derived from composing the $L_i$.  The map of spans 
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+      \node (C) at (1,0) {$A^{\circ n}$};
+      \node (A) at (0,1) {$A$}
+        edge [<-] node [below left,l] {$\pi_1$} (C);
+      \node (B) at (2,1) {$A$}
+        edge [<-] node [below right,l] {$\pi_n$} (C);
+      \node (D) at (1,2) {$A^{\circ n}$}
+        edge [->] node [above left,l] {$\pi_1$} (A)
+        edge [->] node [above right,l] {$\pi_n$} (B)
+        edge [->] node [right,l, pos=0.6] {$p$} (C);
+      \node at (.5,1) {$\Downarrow L'$};
+      \node at (1.5,1) {$\Downarrow L''$};
+    \end{tikzpicture}
+  \end{center}
+  where $p = \langle \pi_{\sigma(1)}, \pi_{\sigma(2)}, \ldots, \pi_{\sigma(n)}\rangle$ is in the same equivalence class as the identity map of spans.
+\end{cor}  
 
 \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{lemma}
@@ -7306,55 +7328,53 @@ The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{
 
 By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal.
 \begin{center}
-  \begin{tikzpicture}[scale=1.5]
+  \begin{tikzpicture}[scale=1.5,font=\fontsize{10}{10}\selectfont]
     \filldraw[white,fill=red,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
-    \node (A) at (  0:2cm) {$A(B(CD))$};
-    \node (B) at ( 60:2cm) {$(AB)(CD)$}
+    \node (A) at (  0:2cm) {$A\tensor (B\tensor (C\tensor D))$};
+    \node (B) at ( 60:2cm) {$(A\tensor B)\tensor (C\tensor D)$}
       edge [->] node [l, above right] {$a$} (A);
-    \node (C) at (120:2cm) {$((AB)C)D$}
+    \node (C) at (120:2cm) {$((A\tensor B)\tensor C)\tensor D$}
       edge [->] node [l, above] {$a$} (B);
-    \node (D) at (180:2cm) {$((AB)C)D$}
-      edge [->] node [l, above left] {$((AB)C)D$} (C);
-    \node (E) at (240:2cm) {$(A(BC))D$}
-      edge [<-] node [l, below left] {$aD$} (D);
-    \node (F) at (300:2cm) {$A((BC)D)$}
+    \node (D) at (180:2cm) {$((A\tensor B)\tensor C)\tensor D$}
+      edge [->] node [l, above left] {$((A\tensor B)\tensor C)\tensor D$} (C);
+    \node (E) at (240:2cm) {$(A\tensor (B\tensor C))\tensor D$}
+      edge [<-] node [l, below left] {$a\tensor D$} (D);
+    \node (F) at (300:2cm) {$A\tensor ((B\tensor C)\tensor D)$}
       edge [<-] node [l, below] {$a$} (E)
-      edge [->] node [l, below right] {$Aa$} (A);
+      edge [->] node [l, below right] {$A\tensor a$} (A);
     \node at (0,0) {$=$};
   \end{tikzpicture}
-  \begin{tikzpicture}[scale=2.75]
-    \node (C) at (1,0) {$(((AB)C)D)^{\circ 3}$};
-    \node (A) at (0,1) {$((AB)C)D$}
+  \begin{tikzpicture}[scale=2.75,font=\fontsize{10}{10}\selectfont]
+    \node (C) at (1,0) {$(((A\times B)\times C)\times D)^{\circ 3}$};
+    \node (A) at (0,1) {$((A\times B)\times C)\times D$}
       edge [<-] node [below left,l] {$\pi_1$} (C);
-    \node (B) at (2,1) {$A(B(CD))$}
-      edge [<-] node [below right,l] {$Aa\circ a\circ aD\circ \pi_3$} (C);
-    \node (D) at (1,2) {$(((AB)C)D)^{\circ 3}$}
+    \node (B) at (2,1) {$A\times (B\times (C\times D))$}
+      edge [<-] node [below right,l] {$(A\times a) a (a\times D) \pi_3$} (C);
+    \node (D) at (1,2) {$(((A\times B)\times C)\times D)^{\circ 3}$}
       edge [->] node [above left,l] {$\pi_1$} (A)
-      edge [->] node [above right,l] {$a\circ a\circ \pi_3$} (B)
-      edge [->] node [right,l] {$(((AB)C)D)^{\circ 3}$} (C);
+      edge [->] node [above right,l] {$a a \pi_3$} (B)
+      edge [->] node [right,font=\fontsize{5}{5}\selectfont, pos=.6] {$(((A\times B)\times C)\times D)^{\circ 3}$} (C);
     \node at (.75,1.25) {$=$};
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
 The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the unitor for composition.  
 
-The coherence theorem for bicategories \cite{LeinsterBB} says that any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only pentagonators and identity 2-morphisms---like the associahedron---must hold in $\Span_2(T).$
-
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \filldraw[white,fill=red,fill opacity=0.1](0,3)--(2,4)--(4,2)--(2,0)--(0,1)--cycle;
-    \node (ABCD1) at (0,3) {$((A  B)  C)  D$};
-    \node (ABCD2) at (2,4) {$(A B)  (C D)$}
+    \node (ABCD1) at (0,3) {$((A \tensor B)\tensor C)\tensor D$};
+    \node (ABCD2) at (2,4) {$(A\tensor B)\tensor (C\tensor D)$}
       edge [<-] node [l, above left] {$a$} (ABCD1);
-    \node (ABCD3) at (4,2) {$A  (B  (C  D))$}
+    \node (ABCD3) at (4,2) {$A\tensor (B\tensor (C\tensor D))$}
       edge [<-] node [l, above right] {$a$} (ABCD2);
-    \node (ABCD4) at (2,0) {$A  ((B  C)  D)$}
-      edge [->] node [l, below right] {$A  a$} (ABCD3);
-    \node (ABCD5) at (0,1) {$(A  (B  C))  D$}
+    \node (ABCD4) at (2,0) {$A\tensor ((B\tensor C)\tensor D)$}
+      edge [->] node [l, below right] {$A\tensor a$} (ABCD3);
+    \node (ABCD5) at (0,1) {$(A\tensor (B\tensor C))\tensor D$}
       edge [->] node [l, below left] {$a$} (ABCD4)
-      edge [<-] node [l, left] {$a  D$} (ABCD1);
-    \node (ABCD6) at (1.5,2.5) {$((A  B)  C)  D$}
-      edge [<-] node [l, auto] {$((A  B)  C)  D$} (ABCD1)
+      edge [<-] node [l, left] {$a\tensor D$} (ABCD1);
+    \node (ABCD6) at (1.5,2.5) {$((A\tensor B)\tensor C)\tensor D$}
+      edge [<-] node [l, auto] {$((A\tensor B)\tensor C)\tensor D$} (ABCD1)
       edge [->] node [l, auto] {$a$} (ABCD2);
     \node at (1.25,3) {\tikz\node [rotate=90] {$\Rightarrow$};};
     \node at (1.4,3) {$l^\circ$};
@@ -7362,31 +7382,129 @@ The coherence theorem for bicategories \cite{LeinsterBB} says that any diagram b
   \end{tikzpicture}
 \end{center}
 
-Similarly, the 2-unitors $\lambda, \mu,$ and $\rho$ for the monoidal product are all equal to the inverse of the unitor for composition.  Again, by the coherence theorem for bicategories, any coherence law involving only $\pi, \lambda, \mu, \rho$ and identity 2-morphisms---like the unitor prisms---must hold in $\Span_2(T).$
+The coherence theorem for bicategories \cite{LeinsterBB} says that any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only pentagonators and identity 2-morphisms---such as the associahedron---must hold in $\Span_2(T).$
+
+By adding an identity edge to the left 2-unitor for the monoidal product, we get an identity map of spans; each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of two such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal to $((A\times I) \times B)^{\circ 2}$.
+
+\begin{center}
+  \begin{tikzpicture}[scale=4]
+    \filldraw[white,fill=brown,fill opacity=0.5](0,0)--(0,1)--(1,1)--(1,0)--cycle;
+    \node (A) at (0,1) {$(A\tensor I) \tensor B$};
+    \node (B) at (1,1) {$A\tensor (I \tensor B)$}
+      edge [<-] node [above, l] {$a$} (A);
+    \node (C) at (0,0) {$(A\tensor I) \tensor B$}
+      edge [<-] node [left, l] {$(A\tensor I) \tensor B$} (A);
+    \node (D) at (1,0) {$A\tensor B$}
+      edge [<-] node [below, l] {$r \tensor B$} (C)
+      edge [<-] node [right, l] {$A \tensor l$} (B);
+    \node at (.5,.5) {$=$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.75,font=\fontsize{10}{10}\selectfont]
+    \node (C) at (1,0) {$((A\times I) \times B)^{\circ 2}$};
+    \node (A) at (0,1) {$(A\times I) \times B$}
+      edge [<-] node [below left,l] {$\pi_1$} (C);
+    \node (B) at (2,1) {$(A\times I) \times B$}
+      edge [<-] node [below right,l] {$(r\times B) \pi_2$} (C);
+    \node (D) at (1,2) {$((A\times I) \times B)^{\circ 2}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$(A\times l)a\pi_2$} (B)
+      edge [->] node [right,l, pos=.6] {$((A\times I) \times B)^{\circ 2}$} (C);
+    \node at (.75,1.25) {$=$};
+    \node at (1.25,1.25) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+The right-hand 2-morphism in the map of spans is an identity because the triangle equation holds in the underlying category of $T$.  We recover a three-sided 2-unitor by composing this identity map of spans with the inverse unitor for composition.
 
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
-    \node (IAB1) at (0,2) {$(I A) B$};
-    \node (IAB2) at (3,1) {$I (A  B)$}
+    \node (IAB1) at (0,2) {$(I\tensor A)\tensor B$};
+    \node (IAB2) at (3,1) {$I\tensor (A\tensor B)$}
       edge [<-] node [l, above right] {$a$} (IAB1);
-    \node (AB) at (0,0) {$A  B$}
+    \node (AB) at (0,0) {$A\tensor B$}
       edge [<-] node [l, below right] {$l$} (IAB2)
-      edge [<-] node [l, left] {$l  B$} (IAB1);
-    \node at (1,1) {$(I A) B$}
-      edge [<-] node [l, right] {$(I A) B$} (IAB1)
-      edge [->] node [l, auto] {$lB$} (AB);
-    \node at (4,1) {etc.};
+      edge [<-] node [l, left] {$l\tensor B$} (IAB1);
+    \node at (1,1) {$(I\tensor A)\tensor B$}
+      edge [<-] node [l, right] {$(I\tensor A)\tensor B$} (IAB1)
+      edge [->] node [l, auto] {$l\tensor B$} (AB);
     \node at (.3,1) {$\Rightarrow l^{\circ-1}$};
     \node at (2,1) {$=$};
   \end{tikzpicture}
 \end{center}
 
-The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
+The 2-unitors $\mu,$ and $\rho$ are also equal to the inverse of the unitor for composition.
+\begin{center}
+  \begin{tikzpicture}[scale=2.5]
+    \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
+    \node (IAB1) at (0,2) {$(A\tensor I)\tensor B$};
+    \node (IAB2) at (3,1) {$A\tensor (I\tensor B)$}
+      edge [<-] node [l, above right] {$a$} (IAB1);
+    \node (AB) at (0,0) {$A\tensor B$}
+      edge [<-] node [l, below right] {$A\tensor l$} (IAB2)
+      edge [<-] node [l, left] {$r\tensor B$} (IAB1);
+    \node at (1,1) {$(A\tensor I)\tensor B$}
+      edge [<-] node [l, right] {$(A\tensor I)\tensor B$} (IAB1)
+      edge [->] node [l, auto] {$r\tensor B$} (AB);
+    \node at (.3,1) {$\Rightarrow l^{\circ-1}$};
+    \node at (2,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+\begin{center}
+  \begin{tikzpicture}[scale=2.5]
+    \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
+    \node (IAB1) at (0,2) {$(A\tensor B)\tensor I$};
+    \node (IAB2) at (3,1) {$A\tensor (B\tensor I)$}
+      edge [<-] node [l, above right] {$a$} (IAB1);
+    \node (AB) at (0,0) {$A\tensor B$}
+      edge [<-] node [l, below right] {$A\tensor r$} (IAB2)
+      edge [<-] node [l, left] {$r$} (IAB1);
+    \node at (1,1) {$(A\tensor B)\tensor I$}
+      edge [<-] node [l, right] {$(A\tensor B)\tensor I$} (IAB1)
+      edge [->] node [l, auto] {$r$} (AB);
+    \node at (.3,1) {$\Rightarrow l^{\circ-1}$};
+    \node at (2,1) {$=$};
+  \end{tikzpicture}
+\end{center}
+
+By the coherence theorem for bicategories, any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only $\pi, \lambda, \mu, \rho$ and identity 2-morphisms---such as the unitor prisms---must hold in $\Span_2(T).$
+
+The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so because of our special choice of weak pullbacks, the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.5]
+    \filldraw[white,fill=blue,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
+    \node (A) at (  0:2cm) {$B\tensor (C\tensor A)$};
+    \node (B) at ( 60:2cm) {$(B\tensor C)\tensor A$}
+      edge [->] node [l, above right] {$a$} (A);
+    \node (C) at (120:2cm) {$A\tensor (B\tensor C)$}
+      edge [->] node [l, above] {$b$} (B);
+    \node (D) at (180:2cm) {$(A\tensor B)\tensor C$}
+      edge [->] node [l, above left] {$a$} (C);
+    \node (E) at (240:2cm) {$(B\tensor A)\tensor C$}
+      edge [<-] node [l, below left] {$b\tensor C$} (D);
+    \node (F) at (300:2cm) {$B\tensor (A\tensor C)$}
+      edge [<-] node [l, below] {$a$} (E)
+      edge [->] node [l, below right] {$B\tensor b$} (A);
+    \node at (0,0) {$=$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[scale=2.75]
+    \node (C) at (1,0) {$((A\times B)\times C)^{\circ 3}$};
+    \node (A) at (0,1) {$(A\times B)\times C$}
+      edge [<-] node [below left,l] {$\pi_1$} (C);
+    \node (B) at (2,1) {$B\times (C\times A)$}
+      edge [<-] node [below right,l] {$(B\times b)a(b\times C)\pi_3$} (C);
+    \node (D) at (1,2) {$((A\times B)\times C)^{\circ 3}$}
+      edge [->] node [above left,l] {$\pi_1$} (A)
+      edge [->] node [above right,l] {$aba\pi_3$} (B)
+      edge [->] node [right,l, pos=.6] {$((A\times B)\times C)^{\circ 3}$} (C);
+    \node at (.75,1.25) {$=$};
+    \node at (1.25,1.25) {$=$};
+  \end{tikzpicture}
+\end{center}
 
 The hexagon modification $S$ is more complicated because it has three uses of $a^\bullet.$  If we add an identity edge before each one, then by Corollary \ref{reverse} the apexes are the same as if we had used $a^{-1}$ instead.  To get the same number of edges in the source span as in the target span, we add another identity edge before the last edge in the target span.  The resulting eight-sided 2-morphism is an identity.  We recover a six-sided $S$ by using two inverse unitors for composition on the source span and two unitors for composition on the target span.
-
-By the coherence theorem for bicategories, any coherence law involving only $\pi, R, S$ and identity 2-morphisms---like the shuffle and Breen polytopes---must hold in $\Span_2(T).$
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7423,7 +7541,9 @@ By the coherence theorem for bicategories, any coherence law involving only $\pi
   \end{tikzpicture}
 \end{center}
 
-We can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  By the coherence theorem for bicategories, any coherence law involving only $R, S, \nu$ and identity 2-morphisms---like those governing the syllepsis---must hold in $\Span_2(T).$
+By the coherence theorem for bicategories, any coherence law involving only $\pi, R, S$ and identity 2-morphisms---such as the shuffle and Breen polytopes---must hold in $\Span_2(T).$
+
+We can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  By the coherence theorem for bicategories, any coherence law involving only $R, S, \nu$ and identity 2-morphisms---such as those governing the syllepsis---must hold in $\Span_2(T).$
 
 \begin{center}
   \begin{tikzpicture}[scale=3, bend angle=270]
@@ -7513,7 +7633,7 @@ When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique and
   .
 \end{center}
 
-Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1} B$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter here.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $\pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$, the apex of the composition of ten identity spans, so by Corollary \ref{permute}, this composite span is equal to the composition of ten identity spans.  With judicious use of unitors for composition we recover a six-sided 2-morphism $\zeta.$  The 2-morphism $\theta$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, any coherence law involving $\pi, \lambda, \mu, \rho, \zeta, \theta$ and identity 2-morphisms---like the swallowtail coherence law---must hold in $\Span_2(T).$   Therefore, $\Span_2(T)$ is compact closed. \hfill $\square$
+Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter here.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ of this composition has eleven dots connected by ten arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1,10/1}$ can be permuted to $A^{\circ 10} = \pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1,10/1}$.  By Corollary \ref{permute}, there is a map of spans between them in the same equivalence class as the identity.  By composing this identity with unitors for composition we recover a six-sided 2-morphism $\zeta_A.$  The 2-morphism $\theta_A$ follows {\em mutatis mutandis}; by the coherence theorem for bicategories, any coherence law involving $\pi, \lambda, \mu, \rho, \zeta, \theta$ and identity 2-morphisms---such as the swallowtail coherence law---must hold in $\Span_2(T).$   Therefore, $\Span_2(T)$ is compact closed. \hfill $\square$
 
 \begin{cor}
   \label{span}
@@ -7686,7 +7806,7 @@ Jamie Vicary pointed out to me that if we relax the restriction on the comm rule
 ?_{x, T}\maps & T^* \boxtimes M \to J\\
 !_{x, T}\maps & J \to T^* \boxtimes M
 \end{array}\]
-$0$ and $|$ are the unit and multiplication in $M,$ respectively.  $!_{x, T}$ and $?_{x, T}$ are adjoints; the comm rule maps to the counit of the adjunction.  Sending is tensoring $!_{x,T}$ with the value of type $T$ to send, then composing with the counit for $T.$  Receiving is the unit for $T$, the continuation process, the right adjoint of multiplication, and finally $?_{x, T}.$
+$0$ and $|$ are the unit and multiplication in $M,$ respectively.  $!_{x, T}$ and $?_{x, T}$ are adjoints; the comm rule maps to the counit of the adjunction.  Sending is tensoring $!_{x,T}$ with the value of type $T$ to send, then composing with the counit for $T.$  Receiving is the unit for $T$ followed by the continuation process, the right adjoint of multiplication, and finally $?_{x, T}.$
 
 All popular programming languages---from ``eager'' ones like Java, C, JavaScript, Perl, Python, and Lisp, to ``lazy'' ones like Miranda, Lispkit, Lazy ML, Clean, and Haskell---do not reduce terms under a lambda abstraction: the JavaScript program
 \begin{verbatim}
