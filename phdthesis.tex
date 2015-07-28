@@ -7326,7 +7326,7 @@ is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the comp
 
 The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  The ``bulleted'' morphisms like $a^\bullet$ are the reverse spans.
 
-By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal.
+By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks, their apexes are equal.
 \begin{center}
   \begin{tikzpicture}[scale=1.5,font=\fontsize{10}{10}\selectfont]
     \filldraw[white,fill=red,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
@@ -7564,7 +7564,7 @@ We can insert an identity morphism in the source and target of the syllepsis to 
   \end{tikzpicture}
 \end{center}
 
-Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoidal bicategory.  
+Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoidal bicategory.
 
 \newcommand{\pb}[1]{\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]
   \foreach \x / \y [remember=\x as \lastx(initially 0), count=\n] in {#1}
@@ -7572,7 +7572,13 @@ Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoida
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-The swallowtail coherence law involves spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category.  The objects of the weak pullback of the cospan $A \stackrel{f}{\to} C \stackrel{g}{\leftarrow} B$ in Cat are triples $(a, b, m\maps fa \leftrightarrow gb),$ so we will denote each object with a dot and an isomorphism between objects with an arc.  The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\circ 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
+In order to prove that the swallowtail coherence law holds, we have to demonstrate an equation between two maps of spans for every object $A$ in $T$.  These maps go between spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  Each leg is, however, a natural transformation: either a unitor, an associator, duplication, deletion, a projection, or some product of these.  The feet and apexes of the spans are still quite special: they are cartesian products involving only copies of $A$ and the terminal object $1$.
+
+As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category of groupoids.  The objects of the weak pullback of the cospan $B \stackrel{f}{\to} D \stackrel{g}{\leftarrow} C$ in Cat are triples $(b, c, m\maps fb \stackrel{\sim}{\to} gc)$.  The particular spans we are interested in composing 
+
+
+
+We will denote each copy of $A$ with a dot and an isomorphism between copies of $A$ with an arc.  In the spans we're interested in, each dot will represent a The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\circ 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
 
 The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  
 
