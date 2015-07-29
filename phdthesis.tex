@@ -7324,9 +7324,9 @@ We are now ready to prove the main theorem.
 {\em Proof.} As noted, Hoffnung \cite{Hoffnung} showed that $\Span_3(T)$
 is a monoidal tricategory.  We refer the reader to Hoffnung's paper for the complete definition of a monoidal tricategory, but suffice it to say that it replaces the commuting polyhedra in the above definition of a monoidal bicategory with polyhedra that commute up to a specified 3-morphism, and then adds coherence law polytopes to govern them.  When we mod out by 3-isomorphism classes of maps of spans, these 3-morphisms become trivial, so $\Span_2(T)$ is a monoidal bicategory.
 
-The associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  The ``bulleted'' morphisms like $a^\bullet$ are the reverse spans.
+The monoidal associator is the span $$(A\times B)\times C \stackrel{(A\times B)\times C}{\leftarrow} (A\times B)\times C \stackrel{a}{\to} A\times (B\times C).$$  The left and right monoidal unitors are the spans $$1\times A \stackrel{1\times A}{\leftarrow} 1\times A \stackrel{l}{\to} A$$ and $$A\times 1 \stackrel{A\times 1}{\leftarrow} A\times 1 \stackrel{r}{\to} A,$$ respectively.  The monoidal braiding is $$A\times B \stackrel{A\times B}{\leftarrow} A\times B \stackrel{b}{\to} B\times A.$$   The ``bulleted'' morphisms like $a^\bullet$ are the reverse spans.
 
-By adding an identity edge to the pentagonator, we get an identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks, their apexes are equal.
+To define the pentagonator, we start with a ``six-edged'' identity map of spans: each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of three such edges, so by our choice of weak pullbacks, their apexes are equal.
 \begin{center}
   \begin{tikzpicture}[scale=1.5,font=\fontsize{10}{10}\selectfont]
     \filldraw[white,fill=red,fill opacity=0.1](0:2cm)--(60:2cm)--(120:2cm)--(180:2cm)--(240:2cm)--(300:2cm)--cycle;
@@ -7358,7 +7358,7 @@ By adding an identity edge to the pentagonator, we get an identity map of spans:
     \node at (1.25,1.25) {$=$};
   \end{tikzpicture}
 \end{center}
-The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We recover a five-sided pentagonator by composing this identity map of spans with the unitor for composition.  
+The right-hand 2-morphism in the map of spans is an identity because the pentagon equation holds in the underlying category of $T.$  We define the pentagonator to be the composition of this identity map of spans with the unitor for composition:  
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7384,7 +7384,7 @@ The right-hand 2-morphism in the map of spans is an identity because the pentago
 
 The coherence theorem for bicategories \cite{LeinsterBB} says that any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only pentagonators and identity 2-morphisms---such as the associahedron---must hold in $\Span_2(T).$
 
-By adding an identity edge to the left 2-unitor for the monoidal product, we get an identity map of spans; each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of two such edges, so by our choice of weak pullbacks and Lemma \ref{piling}, their apexes are equal to $((A\times I) \times B)^{\circ 2}$.
+To define the left 2-unitor for the monoidal product, we start with a ``four-edged'' identity map of spans.  Each edge is a span whose left leg is the identity and whose right leg is an isomorphism in $T;$ the source and target composite spans are both the composition of two such edges, so by our choice of weak pullbacks, their apexes are equal.
 
 \begin{center}
   \begin{tikzpicture}[scale=4]
@@ -7414,7 +7414,7 @@ By adding an identity edge to the left 2-unitor for the monoidal product, we get
   \end{tikzpicture}
 \end{center}
 
-The right-hand 2-morphism in the map of spans is an identity because the triangle equation holds in the underlying category of $T$.  We recover a three-sided 2-unitor by composing this identity map of spans with the inverse unitor for composition.
+The right-hand 2-morphism in the map of spans is an identity because the triangle equation holds in the underlying category of $T$.  We define the 2-unitor to be the composition of this identity map of spans with the inverse unitor for composition:
 
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
@@ -7433,7 +7433,7 @@ The right-hand 2-morphism in the map of spans is an identity because the triangl
   \end{tikzpicture}
 \end{center}
 
-The 2-unitors $\mu,$ and $\rho$ are also equal to the inverse of the unitor for composition.
+The 2-unitors $\mu$ and $\rho$ are also equal to the inverse of the unitor for composition:
 \begin{center}
   \begin{tikzpicture}[scale=2.5]
     \filldraw[white,fill=brown,fill opacity=0.5](0,2)--(3,1)--(0,0)--cycle;
@@ -7470,7 +7470,7 @@ The 2-unitors $\mu,$ and $\rho$ are also equal to the inverse of the unitor for 
 
 By the coherence theorem for bicategories, any diagram built out of $a^\circ, l^\circ,$ and $r^\circ$ commutes, so any coherence law involving only $\pi, \lambda, \mu, \rho$ and identity 2-morphisms---such as the unitor prisms---must hold in $\Span_2(T).$
 
-The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so because of our special choice of weak pullbacks, the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
+The hexagon modification $R$ is a ``six-edged'' identity map of spans: each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of three such edges, so because of our choice of weak pullbacks, the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$
 
 \begin{center}
   \begin{tikzpicture}[scale=1.5]
@@ -7504,7 +7504,7 @@ The hexagon modification $R$, like the ``six-sided pentagonator'' above, is an i
   \end{tikzpicture}
 \end{center}
 
-The hexagon modification $S$ is more complicated because it has three uses of $a^\bullet.$  If we add an identity edge before each one, then by Corollary \ref{reverse} the apexes are the same as if we had used $a^{-1}$ instead.  To get the same number of edges in the source span as in the target span, we add another identity edge before the last edge in the target span.  The resulting eight-sided 2-morphism is an identity.  We recover a six-sided $S$ by using two inverse unitors for composition on the source span and two unitors for composition on the target span.
+The hexagon modification $S$ is more complicated because it has three uses of $a^\bullet.$  To define $S$, we start with a ``ten-edged'' identity map of spans.  The edges are those of $S$ except that instead of using $a^\bullet$ it uses $a^{-1},$ and it also includes four extra identity edges.  Each edge is, again, a span whose left leg is an identity and whose right leg is an isomorphism in $T$.  The source and target spans are the composition of five such edges, so because of our choice of weak pullbacks, the apexes are equal; the right-hand 2-morphism in the map of spans is an equality because the hexagon equations hold in $T.$  By Corollary \ref{reverse}, the composition of an identity span with $a^\bullet$ is equal to the composition of an identity span with $a^{-1},$ so we define $S$ to be the composition of this identity span with four unitors for composition:
 
 \begin{center}
   \begin{tikzpicture}[scale=2]
@@ -7523,15 +7523,15 @@ The hexagon modification $S$ is more complicated because it has three uses of $a
       edge [->] node [l, below right] {$bB$} (A);
     \node at (150:1cm) {$A(BC)$}
       edge [<-] node [l, below] {$A(BC)$} (D)
-      edge [->] node [l, right] {$a^\bullet$} (C);
+      edge [->] node [l, right] {$a^{-1}$} (C);
     \node at (150:1.4cm) {$\Rightarrow l^{\circ -1}$};
     \node at (30:1cm) {$C(AB)$}
       edge [<-] node [l, left] {$C(AB)$} (B)
-      edge [->] node [l,below] {$a^\bullet$} (A);
+      edge [->] node [l,below] {$a^{-1}$} (A);
     \node at (30:1.4cm) {$\Leftarrow l^{\circ -1}$};
     \node (G) at (270:1cm) {$A(CB)$}
       edge [<-] node [l, left] {$A(CB)$} (E)
-      edge [->] node [l,below] {$a^\bullet$} (F);
+      edge [->] node [l,below] {$a^{-1}$} (F);
     \node at (330:1cm) {$A(CB)$}
       edge [<-] node [l, left] {$A(CB)$} (F)
       edge [->] node [l,above] {$bB$} (A);
@@ -7543,7 +7543,7 @@ The hexagon modification $S$ is more complicated because it has three uses of $a
 
 By the coherence theorem for bicategories, any coherence law involving only $\pi, R, S$ and identity 2-morphisms---such as the shuffle and Breen polytopes---must hold in $\Span_2(T).$
 
-We can insert an identity morphism in the source and target of the syllepsis to get a four-sided identity map of spans, then use unitors for composition to recover a 2-sided syllepsis.  By the coherence theorem for bicategories, any coherence law involving only $R, S, \nu$ and identity 2-morphisms---such as those governing the syllepsis---must hold in $\Span_2(T).$
+To define the syllepsis, we begin with a ``four-edged'' identity span and compose it with two untiors for composition. By the coherence theorem for bicategories, any coherence law involving only $R, S, \nu$ and identity 2-morphisms---such as those governing the syllepsis---must hold in $\Span_2(T).$
 
 \begin{center}
   \begin{tikzpicture}[scale=3, bend angle=270]
@@ -7572,13 +7572,24 @@ Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoida
   \foreach \x in {0,...,\n} \draw[black] (\x,0) node[dot]{};
 \end{tikzpicture}}
 
-In order to prove that the swallowtail coherence law holds, we have to demonstrate an equation between two maps of spans for every object $A$ in $T$.  These maps go between spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  Each leg is, however, a natural transformation: either a unitor, an associator, duplication, deletion, a projection, or some product of these.  The feet and apexes of the spans are still quite special: they are cartesian products involving only copies of $A$ and the terminal object $1$.
+In order to prove that the swallowtail coherence law holds, we have to demonstrate an equation between two maps of spans for every object $A$ in $T$.  These maps go between spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  Each leg is, however, a natural transformation: either a unitor, an associator, duplication, deletion, a projection, or some product of these.  The feet and apexes of the spans are cartesian products involving only copies of $A$ and the terminal object $1$.
 
-As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on $\Span_2(\mbox{Cat}),$ where the weak pullback is a category of groupoids.  The objects of the weak pullback of the cospan $B \stackrel{f}{\to} D \stackrel{g}{\leftarrow} C$ in Cat are triples $(b, c, m\maps fb \stackrel{\sim}{\to} gc)$.  The particular spans we are interested in composing 
+As a calculational aid, we introduce some topological notation for weak pullbacks.  The notation is based on Cat, where a weak pullback is a category.  The objects of the weak pullback of the cospan $B \stackrel{f}{\to} D \stackrel{g}{\leftarrow} C$ in Cat are triples $(b, c, m\maps fb \stackrel{\sim}{\to} gc),$ where $b$ and $c$ are objects of $B$ and $C$, respectively, and $m$ is an isomorphism in $D$.  In Cat, the weak pullbacks in the composition of the particular spans we are interested in will involve isomorphisms between copies of $A$; to remind us of this, we will denote the product of $n$ copies of $A$ as $n$ dots and a 2-isomorphism between two projections $\pi_i$ and $\pi_j$ as an arc connecting the $i$th and $j$th dot.  Note that while the inspiration for the notation comes from Cat, the notation itself is completely generic.  The terminal object only appears in the feet of the spans under consideration; we will denote it by the numeral $1$.  Since we are using juxtaposition for the weak pullback, we will indicate composition of 1-morphisms explicitly with $\circ$.
 
+Some examples:
+\begin{enumerate}
+  \item $1 = 1$.
+  \item $A = \begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]\draw[black](0,0)node[dot]{};\end{tikzpicture}$.
+  \item $A \times 1 = \begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]\draw[black](0,0)node[dot]{};\end{tikzpicture} 1$.
+  \item \label{product} $A \times A = \pb{1/0}$.
+  \item \label{pullback} $A^{\circ 2} = \pb{1/1}$.
+  \item The weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ is $\pb{1/1,3/1,2/0}$.  Note that we form this diagram by juxtaposing examples \ref{product} and \ref{pullback} and adding an arc between the second dot in each pair.
+  \item \label{four} $A^{\circ 4} = \pb{1/1,2/1,3/1}$.
+  \item The weak pullback of the cospan $A\times A \stackrel{A \times \Delta}{\to} A \times (A \times A) \stackrel{a \circ (\Delta \times A)}{\leftarrow} A\times A$ is $\pb{2/1,1/1,3/1}$.  In Cat, the objects of the weak pullback of this cospan are of the form $(a_0, a_1, a_2, a_3, m_0\maps a_0 \to a_2, m_1\maps a_1 \to a_2, m_2 \maps a_1 \to a_3),$ {\em i.e.} four objects of $A$ and three isomorphisms between them.  Note that we form this diagram by juxtaposing two copies of example \ref{product} and adding three arcs.  This object is isomorphic to example \ref{four} by swapping the middle two dots.
+\end{enumerate}
 
+To show that $\Span_2(T)$ is compact closed, we have to show the existence of the 1-morphisms $i$ and $e$, the existence of the 2-morphisms $\zeta$ and $\theta$, and show that $\zeta$ and $\theta$ satisfy the swallowtail coherence law.  The cap is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup is its reverse, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  
 
-We will denote each copy of $A$ with a dot and an isomorphism between copies of $A$ with an arc.  In the spans we're interested in, each dot will represent a The weak pullback of a cospan is denoted by a copy of the object on the left, a copy of the object on the right, and some new arcs between them.  For example, the weak pullback $A^{\circ 2} = A_{A,A}A$ will be denoted $\pb{1 / 1}$, the product $A\times A$ will be denoted $\pb{1 / 0}$ and the weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ will be denoted $\pb{1/1,3/1,2/0}.$
 
 The target 1-morphism of the yanking 2-morphism $\zeta_A$ is $r(A\otimes e)a(i\otimes A)l^\bullet.$  In order to turn $l^\bullet$ into $l^{-1},$ we pre- and post-compose with an identity morphism.  
 
@@ -7590,17 +7601,17 @@ When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique and
     \node (Aa) at (1,1) {$\bullet$}
       edge [->] (Al)
       edge [->] (Ar);
-    \node (lr) at (4,0) {$1 \times \bullet$};
-    \node (la) at (3,1) {$1 \times \bullet$}
+    \node (lr) at (4,0) {$1 \bullet$};
+    \node (la) at (3,1) {$1 \bullet$}
       edge [->] node[auto,l] {$l$} (Ar)
       edge [->] (lr);
     \node (Ala) at (2,2) {$\pb{1/1}$}
       edge [->] node[auto,l] {$\pi_1$} (Aa)
-      edge [->] node[auto,l] {$l^{-1}\pi_2$} (la);
+      edge [->] node[auto,l] {$l^{-1}\circ \pi_2$} (la);
     \node (ir) at (6,0) {$\pb{1/0,2/0}$};
     \node (ia) at (5,1) {$\pb{1/0}$}
-      edge [->] node [auto,l] {$!\times \bullet$} (lr)
-      edge [->] node [auto,l] {$\Delta \times \bullet$} (ir);
+      edge [->] node [auto,l] {$! \bullet$} (lr)
+      edge [->] node [auto,l] {$\Delta  \bullet$} (ir);
     \node (Alia) at (3,3) {$\pb{1/1,3/1,2/0}$}
       edge [->] node [auto,l] {$\pi_1$} (Ala)
       edge [->] node [auto,l] {$\pi_2$} (ia);
@@ -7610,17 +7621,17 @@ When $A$ is terminal, the source and target morphism of $\zeta_A$ are unique and
     \node (Aa') at (13,1) {$\bullet$}
       edge [->] (Al')
       edge [->] (Ar');
-    \node (lr') at (10,0) {$\bullet \times 1$};
-    \node (la') at (11,1) {$\bullet \times 1$}
+    \node (lr') at (10,0) {$\bullet 1$};
+    \node (la') at (11,1) {$\bullet 1$}
       edge [->] node[auto,l] {$r$} (Ar')
       edge [->] (lr');
     \node (Ala') at (12,2) {$\pb{1/1}$}
       edge [->] node[auto,l] {$\pi_2$} (Aa')
-      edge [->] node[auto,l] {$r^{-1}\pi_1$} (la');
+      edge [->] node[auto,l] {$r^{-1}\circ\pi_1$} (la');
     \node (ir') at (8,0) {$\pb{1/0,2/0}$};
     \node (ia') at (9,1) {$\pb{1/0}$}
-      edge [->] node [auto,l] {$\bullet \times !$} (lr')
-      edge [->] node [auto,l] {$\bullet \times \Delta$} (ir');
+      edge [->] node [auto,l] {$\bullet !$} (lr')
+      edge [->] node [auto,l] {$\bullet \Delta$} (ir');
     \node (Alia') at (11,3) {$\pb{2/1,3/1,1/0}$}
       edge [->] node [auto,l] {$\pi_2$} (Ala')
       edge [->] node [auto,l] {$\pi_1$} (ia');
