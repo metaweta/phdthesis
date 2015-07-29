@@ -7574,7 +7574,7 @@ Because all these coherence laws hold in $\Span_2(T),$ it is a symmetric monoida
 
 In order to prove that the swallowtail coherence law holds, we have to demonstrate an equation between two maps of spans for every object $A$ in $T$.  These maps go between spans whose legs are not necessarily isomorphisms, so the approach taken above will not work to prove that the swallowtail coherence law holds.  Each leg is, however, a natural transformation: either a unitor, an associator, duplication, deletion, a projection, or some product of these.  The feet and apexes of the spans are cartesian products involving only copies of $A$ and the terminal object $1$.
 
-As a calculational aid, we introduce some topological notation for weak pullbacks.  We use one dot for each projection from the weak pullback to $A$ that the weak pullback is equipped with, and we use an arc for each 2-isomorphism between two projections.  We will denote the terminal object by $1$.  Since we are using juxtaposition for the weak pullback, we will indicate composition of 1-morphisms explicitly with $\circ$.
+As a calculational aid, we introduce some topological notation for weak pullbacks.  We use one dot for each of the projections from the weak pullback to $A$ that it comes equipped with, and we use an arc for each 2-isomorphism between two projections.  We will denote the terminal object by $1$.
 
 Some examples, assuming $A$ is not terminal:
 \begin{enumerate}
@@ -7583,12 +7583,12 @@ Some examples, assuming $A$ is not terminal:
   \item We denote $A \times 1$ by $\begin{tikzpicture}[dot/.style={fill,inner sep=1pt,circle}, scale=.2]\draw[black](0,0)node[dot]{};\end{tikzpicture} 1$.
   \item \label{product} We denote $A \times A$ by $\pb{1/0}$.
   \item \label{pullback} We denote $A^{\circ 2}$ by $\pb{1/1}$.
-  \item \label{firstthree}The weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ is the object $(A^{\circ_2})_{\pi_2, \pi_2}(A\times A)$ equipped with morphisms $$\pi_1, \pi_2, \pi_3, \pi_4\maps (A^{\circ_2})_{\pi_2, \pi_2}(A\times A) \to A$$ and 2-isomorphisms $$K_1\maps \pi_1 \Rightarrow \pi_2$$ and $$K_2\maps \pi_2 \Rightarrow \pi_4.$$  We denote $(A^{\circ_2})_{\pi_2, \pi_2}(A\times A)$ by $$\pb{1/1,3/1,2/0}.$$  Note that we form this diagram by juxtaposing examples \ref{pullback} and \ref{product} and adding an arc between the second dot in each pair.
+  \item \label{firstthree}The weak pullback of the cospan $A^{\circ 2} \stackrel{\pi_2}{\to} A \stackrel{\pi_2}{\leftarrow} A\times A$ is the object $(A^{\circ_2})_{\pi_2, \pi_2}(A\times A)$ equipped with morphisms $$\pi_1, \pi_2, \pi_3, \pi_4\maps (A^{\circ_2})_{\pi_2, \pi_2}(A\times A) \to A$$ and 2-isomorphisms $$K_1\maps \pi_1 \Rightarrow \pi_2$$ and $$K_2\maps \pi_2 \Rightarrow \pi_4.$$  We denote the object $(A^{\circ_2})_{\pi_2, \pi_2}(A\times A)$ by $$\pb{1/1,3/1,2/0}.$$  Note that we form this diagram by juxtaposing examples \ref{pullback} and \ref{product} and adding an arc between the second dot in each pair.
   \item \label{four} We denote $A^{\circ 4}$ by $\pb{1/1,2/1,3/1}$.
-  \item The weak pullback of the cospan $A\times A \stackrel{A \times \Delta}{\to} A \times (A \times A) \stackrel{a \circ (\Delta \times A)}{\leftarrow} A\times A$ is the object ${(A \times A)_{A \times \Delta, a \circ (\Delta \times A)}(A\times A)}$ equipped with morphisms $$\pi_1, \pi_2, \pi_3, \pi_4\maps {(A \times A)_{A \times \Delta, a \circ (\Delta \times A)}(A\times A)} \to A$$ and 2-morphisms $$K_1\maps \pi_1 \Rightarrow \pi_3,$$ $$K_2\maps \pi_2 \Rightarrow \pi_3,$$ and $$K_3\maps \pi_2 \Rightarrow \pi_4.$$  We denote $(A \times A)_{\pi_2, \pi_2}(A\times A)$ by $$\pb{2/1,1/1,3/1}.$$  Note that we form this diagram by juxtaposing two copies of example \ref{product} and adding three arcs.  This object is isomorphic to example \ref{four} by ${A \times b \times A.}$
+  \item The weak pullback of the cospan $A\times A \stackrel{A \times \Delta}{\to} A \times (A \times A) \stackrel{a \circ (\Delta \times A)}{\leftarrow} A\times A$ is the object ${(A \times A)_{A \times \Delta, a \circ (\Delta \times A)}(A\times A)}$ equipped with morphisms $$\pi_1, \pi_2, \pi_3, \pi_4\maps {(A \times A)_{A \times \Delta, a \circ (\Delta \times A)}(A\times A)} \to A$$ and 2-morphisms $$K_1\maps \pi_1 \Rightarrow \pi_3,$$ $$K_2\maps \pi_2 \Rightarrow \pi_3,$$ and $$K_3\maps \pi_2 \Rightarrow \pi_4.$$  We denote the object $(A \times A)_{\pi_2, \pi_2}(A\times A)$ by $$\pb{2/1,1/1,3/1}.$$  Note that we form this diagram by juxtaposing two copies of example \ref{product} and adding three arcs.  This object is isomorphic to example \ref{four} by ${A \times b \times A.}$
 \end{enumerate}
 
-To show that $\Span_2(T)$ is compact closed, we have to show the existence of the 1-morphisms $i$ and $e$, the existence of the 2-morphisms $\zeta$ and $\theta$, and show that $\zeta$ and $\theta$ satisfy the swallowtail coherence law.  The cap $i\maps I \to A \tensor A^*$ is $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup $e\maps A^* \tensor A \to I$ is its reverse $i^\bullet$, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  
+To show that $\Span_2(T)$ is compact closed, we have to show the existence of the 1-morphisms $i$ and $e$, the existence of the 2-morphisms $\zeta$ and $\theta$, and show that $\zeta$ and $\theta$ satisfy the swallowtail coherence law.  The cap $i\maps I \to A \tensor A^*$ is the span $$1 \stackrel{!}{\leftarrow} A \stackrel{\Delta}{\to} A\times A;$$ the cup $e\maps A^* \tensor A \to I$ is its reverse $i^\bullet$, $$A\times A \stackrel{\Delta}{\leftarrow} A \stackrel{!}{\to} 1.$$  
 
 When $A$ is terminal, we define $\zeta_A$ and $\theta_A$ to be the unique 2-morphism on the unique morphism from $A$ to itself.
 
@@ -7748,11 +7748,11 @@ Finally, we compose with $(r^{-1})^\bullet$:
       edge [->] (rnbr);
     \node (Aliaernba) at (6,6) {$\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1}$}
       edge [->] node [auto,l] {$\pi_{1-9}$} (Aliaea)
-      edge [->] node [auto,l] {$\pi_{10-11}$} (rnba);
+      edge [->] node [auto,l] {$\pi_{10}$} (rnba);
   \end{tikzpicture}
 \end{center}
 
-Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter there.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1}$ of this composition is the cartesian product of the terminal object with ten dots connected by nine arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1}$ can be permuted to $A^{\circ 10} = \pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1}$.  By Corollary \ref{permute}, there is a map of spans
+Inspection of the composite span above shows that none of the cospans involving $\Delta$ are of the form $A^{\circ n} \stackrel{f\pi_n}{\to} C \stackrel{g\pi_1}{\leftarrow} B^{\circ m}$ where $f$ and $g$ are isomorphisms, so the choice of weak pullback for those cospans does not matter there.  The apex $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1}$ of this composition is made up of ten dots connected by nine arcs in a single chain.  It is evident that $\pb{1/1,3/1,6/1,8/1,5/1,2/1,4/1,7/1,9/1}$ can be permuted to $A^{\circ 10} = \pb{1/1,2/1,3/1,4/1,5/1,6/1,7/1,8/1,9/1}$.  By Corollary \ref{permute}, there is a map of spans
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (A1) at (0,1) {$A$};
@@ -7794,13 +7794,13 @@ We define the 2-morphism $\zeta$ to be the composite of this identity map of spa
 \end{enumerate}
 The 2-morphism $\theta_A$ follows {\em mutatis mutandis}.
 
-In the left hand-side of the swallowtail coherence law, the only parts not accounted for by the coherence theorem for bicategories are the two uses of the isomorphism of spans in item \ref{switch} above.  The composite isomorphism of spans is
+In the left hand-side of the swallowtail coherence law, the only parts not accounted for by the coherence theorem for bicategories are the two uses of the isomorphism of spans in item \ref{switch} above: once in $\zeta\tensor A$ and once in $A^*\tensor \theta^{-1}$.  The composite isomorphism of spans is
 \begin{center}
   \begin{tikzpicture}[scale=2]
     \node (LEFT) at (0,1.5) {$(A\times 1) \times A$};
     \node (RIGHT) at (2,1.5) {$A\times A$};
     \node (BOT) at (1,0) {$A\times A$}
-      edge [->] node [below left, l] {$r^{-1}$} (LEFT)
+      edge [->] node [below left, l] {$r^{-1}\times A$} (LEFT)
       edge [->] (RIGHT);
     \node (MID1) at (1,1) {$A\times (1 \times A)$}
       edge [->] node [right, l,pos=.2] {$A\times l$} (BOT);
